@@ -838,8 +838,18 @@
         }
 
         .decision-option.selected .option-content {
+            border-color: #2563eb;
+            background: #eff6ff;
+        }
+
+        .decision-option.correct .option-content {
             border-color: #16a34a;
             background: #f0fdf4;
+        }
+
+        .decision-option.incorrect .option-content {
+            border-color: #dc2626;
+            background: #fef2f2;
         }
 
         .option-icon {
@@ -854,22 +864,61 @@
             flex-shrink: 0;
         }
 
+        .option-feedback {
+            margin-top: 8px;
+            padding: 12px 16px;
+            border-radius: 8px;
+            font-size: 13px;
+            line-height: 1.5;
+            display: none;
+        }
+
+        .option-feedback.show {
+            display: block;
+        }
+
+        .option-feedback.correct {
+            background: #f0fdf4;
+            border: 1px solid #bbf7d0;
+            color: #166534;
+        }
+
+        .option-feedback.incorrect {
+            background: #fef2f2;
+            border: 1px solid #fecaca;
+            color: #991b1b;
+        }
+
+        .feedback-title {
+            font-weight: 700;
+            margin-bottom: 4px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
         .decision-submit-btn {
             display: block;
             margin: 0 auto;
-            background: white;
-            border: 2px solid #2563eb;
-            color: #2563eb;
-            padding: 12px 28px;
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            color: white;
+            border: none;
+            padding: 14px 32px;
             border-radius: 10px;
-            font-size: 14px;
+            font-size: 15px;
+            font-weight: 600;
             cursor: pointer;
             transition: all 0.2s;
         }
 
         .decision-submit-btn:hover {
-            background: #2563eb;
-            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+        }
+
+        .decision-submit-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
         }
 
         /* ===== CONSEQUENCES ===== */
@@ -1228,7 +1277,7 @@
     <!-- ===== MAIN CONTENT ===== -->
     <main class="main-content" id="mainContent">
 
-        <!-- === Як працювати з тренажером === -->
+        <!-- === : Як працювати з тренажером === -->
         <section class="page" id="page-intro">
             <h2 class="page-title"> Як працювати з тренажером</h2>
 
@@ -1256,7 +1305,7 @@
 
                         <div class="step-item" data-step="2">
                             <div class="step-number green">2</div>
-                            <div class="step-icon">🏠</div>
+                            <div class="step-icon"></div>
                             <div class="step-info">
                                 <strong>Крок 2</strong>
                                 <span>Безпека та безпечний простір</span>
@@ -1305,7 +1354,7 @@
                         <h3>У цьому параграфі ти:</h3>
                         <ul class="goals-list">
                             <li>
-                                <span class="goal-icon"></span>
+                                <span class="goal-icon">🔍</span>
                                 дослідиш ситуації з повсякденного життя
                             </li>
                             <li>
@@ -1313,7 +1362,7 @@
                                 навчишся оцінювати ризики
                             </li>
                             <li>
-                                <span class="goal-icon">✝️</span>
+                                <span class="goal-icon">👥</span>
                                 ухвалюватимеш безпечні рішення
                             </li>
                             <li>
@@ -1371,7 +1420,7 @@
                             <span>Виконувати міні-завдання</span>
                         </div>
                         <div class="activity-item">
-                            <span class="activity-icon">️</span>
+                            <span class="activity-icon">⚖️</span>
                             <span>Порівнювати ризики</span>
                         </div>
                         <div class="activity-item">
@@ -1425,16 +1474,16 @@
             <p class="page-subtitle">Розглянь ситуацію, вияв ризики та зроби перший крок до безпечного рішення.</p>
 
             <div class="scene-container" id="sceneContainer">
-                <img src="https://res.cloudinary.com/dmydvhkzr/image/upload/v1781886119/construction_site_bb2go4.png" alt="Будівельний майданчик" class="scene-image" id="sceneImage">
+                <img src="https://res.cloudinary.com/dmydvhkzr/image/upload/v1781892345/construction_site.png_fdryw4.png" alt="Будівельний майданчик" class="scene-image" id="sceneImage">
 
                 <!-- Hotspots (гарячі точки) -->
                 <div class="hotspot" data-risk="rebar" style="top: 15%; left: 8%;">
                     <span class="hotspot-plus">+</span>
                 </div>
-                <div class="hotspot" data-risk="phone" style="top: 20%; left: 22%;">
+                <div class="hotspot" data-risk="phone" style="top: 25%; left: 22%;">
                     <span class="hotspot-plus">+</span>
                 </div>
-                <div class="hotspot" data-risk="roof" style="top: 60%; left: 45%;">
+                <div class="hotspot" data-risk="roof" style="top: 75%; left: 60%;">
                     <span class="hotspot-plus">+</span>
                 </div>
                 <div class="hotspot" data-risk="sign" style="top: 30%; left: 75%;">
@@ -1443,7 +1492,7 @@
                 <div class="hotspot" data-risk="net" style="top: 50%; left: 85%;">
                     <span class="hotspot-plus">+</span>
                 </div>
-                <div class="hotspot" data-risk="building" style="top: 70%; left: 10%;">
+                <div class="hotspot" data-risk="building" style="top: 65%; left: 10%;">
                     <span class="hotspot-plus">+</span>
                 </div>
             </div>
@@ -1530,32 +1579,48 @@
             <p class="page-subtitle">Ти знайшов(ла) всі ризики. Що робити далі?</p>
 
             <div class="decision-options">
-                <label class="decision-option">
+                <label class="decision-option" data-option="stay">
                     <input type="radio" name="decision" value="stay">
                     <div class="option-content">
                         <span class="option-icon">👥</span>
                         <span>Підтримати друзів і залишитися.</span>
                     </div>
+                    <div class="option-feedback incorrect">
+                        <div class="feedback-title">❌ Неправильно</div>
+                        <div>Залишатися в небезпечному місці — це ризик для тебе та друзів. Навіть якщо всі хочуть залишитися, безпека важливіша за тиск групи.</div>
+                    </div>
                 </label>
-                <label class="decision-option">
+                <label class="decision-option" data-option="photo_run">
                     <input type="radio" name="decision" value="photo_run">
                     <div class="option-content">
                         <span class="option-icon">🏃</span>
                         <span>Швидко зробити фото та піти.</span>
                     </div>
+                    <div class="option-feedback incorrect">
+                        <div class="feedback-title">❌ Неправильно</div>
+                        <div>Навіть швидка дія в небезпечному місці може призвести до травми. Ризик не зникає від того, що ти робиш щось швидко.</div>
+                    </div>
                 </label>
-                <label class="decision-option selected">
-                    <input type="radio" name="decision" value="safe_place" checked>
+                <label class="decision-option" data-option="safe_place">
+                    <input type="radio" name="decision" value="safe_place">
                     <div class="option-content">
                         <span class="option-icon">🌳</span>
                         <span>Запропонувати безпечніше місце для фото.</span>
                     </div>
+                    <div class="option-feedback correct">
+                        <div class="feedback-title">✅ Правильно!</div>
+                        <div>Це найбезпечніший варіант. Ви залишаєтесь разом, робите фото, але в безпечному місці. Відповідальне рішення!</div>
+                    </div>
                 </label>
-                <label class="decision-option">
+                <label class="decision-option" data-option="warn">
                     <input type="radio" name="decision" value="warn">
                     <div class="option-content">
                         <span class="option-icon">💬</span>
                         <span>Сказати, що тут є ризики, але нехай кожен вирішує сам.</span>
+                    </div>
+                    <div class="option-feedback incorrect">
+                        <div class="feedback-title">❌ Неправильно</div>
+                        <div>Це безвідповідально. Якщо ти бачиш небезпеку, потрібно не просто попередити, а запропонувати безпечну альтернативу.</div>
                     </div>
                 </label>
             </div>
@@ -1648,11 +1713,11 @@
                         <span>Крок 1: Стартова ситуація (поточний)</span>
                     </li>
                     <li class="step-status-item">
-                        <span class="step-status-icon"></span>
+                        <span class="step-status-icon">⚪</span>
                         <span>Крок 2: Безпека та безпечний простір</span>
                     </li>
                     <li class="step-status-item">
-                        <span class="step-status-icon">⚪</span>
+                        <span class="step-status-icon"></span>
                         <span>Крок 3: Ризики</span>
                     </li>
                     <li class="step-status-item">
@@ -1694,7 +1759,7 @@
                     <li>Знайди всі 6 ризиків, щоб перейти далі</li>
                 </ul>
 
-                <h3> Як працюють картки ризиків?</h3>
+                <h3>📋 Як працюють картки ризиків?</h3>
                 <ul>
                     <li>Кожна картка містить опис ризику</li>
                     <li>Показує, що може статися</li>
@@ -1708,7 +1773,7 @@
                     <li>Побачиш наслідки свого рішення</li>
                 </ul>
 
-                <h3>📊 Як відстежувати прогрес?</h3>
+                <h3> Як відстежувати прогрес?</h3>
                 <ul>
                     <li>Натискай кнопку "Мій прогрес" у верхньому меню</li>
                     <li>Бачитимеш, скільки кроків пройдено</li>
@@ -1871,7 +1936,7 @@
             const stepStatusList = document.getElementById('stepStatusList');
             const steps = [
                 { name: 'Крок 1: Стартова ситуація', icon: '🔵' },
-                { name: 'Крок 2: Безпека та безпечний простір', icon: '⚪' },
+                { name: 'Крок 2: Безпека та безпечний простір', icon: '' },
                 { name: 'Крок 3: Ризики', icon: '⚪' },
                 { name: 'Крок 4: Небезпечні ситуації', icon: '⚪' },
                 { name: 'Крок 5: Ухвалення рішень', icon: '⚪' }
@@ -1883,7 +1948,7 @@
                 
                 if (index + 1 === currentStep) {
                     statusClass = 'current';
-                    icon = '🔵';
+                    icon = '';
                 }
                 
                 return `
@@ -2010,12 +2075,29 @@
             showPage('decision');
         });
 
-        // ===== ВИБІР РІШЕННЯ =====
+        // ===== ВИБІР РІШЕННЯ З ПОЯСНЕННЯМИ =====
         document.querySelectorAll('.decision-option').forEach(option => {
             option.addEventListener('click', function() {
-                document.querySelectorAll('.decision-option').forEach(o => o.classList.remove('selected'));
+                // Прибрати виділення з усіх варіантів
+                document.querySelectorAll('.decision-option').forEach(o => {
+                    o.classList.remove('selected', 'correct', 'incorrect');
+                    o.querySelector('.option-feedback').classList.remove('show');
+                });
+
+                // Додати виділення обраному варіанту
                 this.classList.add('selected');
                 this.querySelector('input[type="radio"]').checked = true;
+
+                // Показати пояснення
+                const feedback = this.querySelector('.option-feedback');
+                feedback.classList.add('show');
+
+                // Додати клас correct або incorrect
+                if (feedback.classList.contains('correct')) {
+                    this.classList.add('correct');
+                } else if (feedback.classList.contains('incorrect')) {
+                    this.classList.add('incorrect');
+                }
             });
         });
 
