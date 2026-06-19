@@ -1,0 +1,2046 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тренажер «Навігатор ризиків» — § 1. Безпека, небезпека і ризики</title>
+    
+    <style>
+        /* ===== RESET & BASE ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f2f5;
+            color: #1a1a2e;
+            line-height: 1.6;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        /* ===== HEADER ===== */
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: linear-gradient(135deg, #1a1a6e, #2d2d8a);
+            color: white;
+            padding: 12px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        }
+
+        .header-left, .header-right {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .header-center {
+            flex: 1;
+            text-align: center;
+        }
+
+        .header-title {
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .header-link {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            cursor: pointer;
+            background: rgba(255,255,255,0.15);
+            border: 1px solid rgba(255,255,255,0.3);
+            padding: 6px 12px;
+            border-radius: 8px;
+            transition: background 0.2s;
+        }
+
+        .header-link:hover {
+            background: rgba(255,255,255,0.25);
+        }
+
+        .header-btn {
+            background: rgba(255,255,255,0.15);
+            border: 1px solid rgba(255,255,255,0.3);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: background 0.2s;
+        }
+
+        .header-btn:hover {
+            background: rgba(255,255,255,0.25);
+        }
+
+        .header-icon {
+            font-size: 14px;
+        }
+
+        /* ===== MAIN CONTENT ===== */
+        .main-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px 16px;
+        }
+
+        .page-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1a1a2e;
+            margin-bottom: 8px;
+        }
+
+        .page-subtitle {
+            font-size: 15px;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        /* ===== INTRO PAGE LAYOUT ===== */
+        .intro-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 24px;
+        }
+
+        /* Welcome box */
+        .welcome-box {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            background: #e8f4fd;
+            border: 1px solid #b3d9f2;
+            border-radius: 12px;
+            padding: 18px;
+            margin-bottom: 20px;
+        }
+
+        .welcome-emoji {
+            font-size: 32px;
+        }
+
+        .welcome-box h3 {
+            font-size: 16px;
+            color: #1a1a6e;
+            margin-bottom: 6px;
+        }
+
+        .welcome-box p {
+            font-size: 13px;
+            color: #444;
+        }
+
+        /* Steps list */
+        .steps-list {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .step-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 14px;
+            border-radius: 10px;
+            border: 1px solid #e0e0e0;
+            background: white;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .step-item:hover {
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transform: translateX(4px);
+        }
+
+        .step-item.clickable {
+            border: 2px solid #2563eb;
+            background: #eff6ff;
+        }
+
+        .step-item.clickable:hover {
+            background: #dbeafe;
+        }
+
+        .step-number {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 13px;
+            flex-shrink: 0;
+        }
+
+        .step-number.blue { background: #2563eb; }
+        .step-number.green { background: #16a34a; }
+        .step-number.orange { background: #f59e0b; }
+        .step-number.purple { background: #7c3aed; }
+        .step-number.red { background: #dc2626; }
+
+        .step-icon {
+            font-size: 24px;
+            width: 36px;
+            text-align: center;
+        }
+
+        .step-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .step-info strong {
+            font-size: 14px;
+            color: #1a1a2e;
+        }
+
+        .step-info span {
+            font-size: 12px;
+            color: #666;
+        }
+
+        .step-arrow {
+            text-align: center;
+            color: #aaa;
+            font-size: 16px;
+            padding: 2px 0;
+        }
+
+        /* Character illustration */
+        .character-illustration {
+            text-align: center;
+            margin-bottom: 18px;
+        }
+
+        .character-img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 16px;
+        }
+
+        /* Paragraph goals */
+        .paragraph-goals {
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 12px;
+            padding: 18px;
+        }
+
+        .paragraph-goals h3 {
+            font-size: 16px;
+            margin-bottom: 12px;
+            color: #1a1a2e;
+        }
+
+        .goals-list {
+            list-style: none;
+        }
+
+        .goals-list li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 0;
+            border-bottom: 1px solid #f0f0f0;
+            font-size: 13px;
+        }
+
+        .goals-list li:last-child {
+            border-bottom: none;
+        }
+
+        .goal-icon {
+            font-size: 20px;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f0f4ff;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        /* Progress box */
+        .progress-box {
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 12px;
+            padding: 18px;
+            margin-bottom: 18px;
+        }
+
+        .progress-box h3 {
+            font-size: 16px;
+            margin-bottom: 14px;
+            color: #1a1a2e;
+        }
+
+        .progress-tracker {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 14px;
+            flex-wrap: wrap;
+            gap: 4px;
+        }
+
+        .progress-node {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            flex: 1;
+            min-width: 50px;
+        }
+
+        .node-number {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            border: 2px solid #ccc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 13px;
+            background: white;
+            color: #666;
+        }
+
+        .progress-node.active .node-number {
+            border-color: #2563eb;
+            background: #2563eb;
+            color: white;
+        }
+
+        .progress-node.completed .node-number {
+            border-color: #16a34a;
+            background: #16a34a;
+            color: white;
+        }
+
+        .node-label {
+            font-size: 9px;
+            text-align: center;
+            color: #666;
+            line-height: 1.2;
+        }
+
+        .progress-line {
+            flex: 0.5;
+            height: 2px;
+            background: #ddd;
+            min-width: 15px;
+        }
+
+        .progress-note {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            font-size: 12px;
+            color: #555;
+            background: #f8f9fa;
+            padding: 10px;
+            border-radius: 8px;
+        }
+
+        .info-icon {
+            font-size: 16px;
+            flex-shrink: 0;
+        }
+
+        /* Activities box */
+        .activities-box {
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 12px;
+            padding: 18px;
+        }
+
+        .activities-box h3 {
+            font-size: 16px;
+            margin-bottom: 12px;
+            color: #1a1a2e;
+        }
+
+        .activity-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 12px;
+            border-radius: 8px;
+            margin-bottom: 6px;
+            font-size: 13px;
+            background: #f8f9fa;
+            border: 1px solid #eee;
+        }
+
+        .activity-icon {
+            font-size: 20px;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            border-radius: 8px;
+            flex-shrink: 0;
+        }
+
+        /* Bottom bar */
+        .bottom-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            margin-top: 24px;
+        }
+
+        .tip-box {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            background: #fffbeb;
+            border: 1px solid #fde68a;
+            border-radius: 12px;
+            padding: 16px 18px;
+            flex: 1;
+        }
+
+        .tip-icon {
+            font-size: 28px;
+            flex-shrink: 0;
+        }
+
+        .tip-box strong {
+            display: block;
+            font-size: 15px;
+            color: #92400e;
+            margin-bottom: 4px;
+        }
+
+        .tip-box p {
+            font-size: 13px;
+            color: #78350f;
+        }
+
+        .start-btn {
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            color: white;
+            border: none;
+            padding: 16px 32px;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            white-space: nowrap;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+        }
+
+        .start-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(37, 99, 235, 0.4);
+        }
+
+        /* ===== STEP HEADER ===== */
+        .step-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #1a1a6e;
+            color: white;
+            padding: 10px 16px;
+            border-radius: 10px;
+            margin-bottom: 18px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .step-header-left {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .step-badge {
+            width: 26px;
+            height: 26px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 12px;
+            color: white;
+        }
+
+        .step-badge.blue { background: #2563eb; }
+
+        .step-header-text {
+            font-size: 13px;
+            opacity: 0.9;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+
+        .step-header-text:hover {
+            opacity: 1;
+            text-decoration: underline;
+        }
+
+        .step-header-center {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 13px;
+        }
+
+        .step-counter {
+            background: rgba(255,255,255,0.2);
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+        }
+
+        .step-progress-dots {
+            display: flex;
+            gap: 5px;
+        }
+
+        .dot {
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            border: 2px solid rgba(255,255,255,0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        .dot.active {
+            background: white;
+            color: #1a1a6e;
+            border-color: white;
+        }
+
+        .dot.completed {
+            background: #16a34a;
+            color: white;
+            border-color: #16a34a;
+        }
+
+        /* ===== SCENE (Крок 1) ===== */
+        .scene-container {
+            position: relative;
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto 18px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+        }
+
+        .scene-image {
+            width: 100%;
+            display: block;
+        }
+
+        .hotspot {
+            position: absolute;
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            background: rgba(37, 99, 235, 0.85);
+            border: 3px solid white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+            animation: pulse 2s infinite;
+        }
+
+        .hotspot:hover {
+            transform: scale(1.2);
+            background: rgba(37, 99, 235, 1);
+        }
+
+        .hotspot.found {
+            background: rgba(22, 163, 74, 0.85);
+            animation: none;
+        }
+
+        .hotspot-plus {
+            color: white;
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.5); }
+            50% { box-shadow: 0 0 0 10px rgba(37, 99, 235, 0); }
+        }
+
+        .scene-hint {
+            text-align: center;
+            font-size: 13px;
+            color: #666;
+            margin-top: 10px;
+        }
+
+        .hint-icon {
+            font-size: 16px;
+        }
+
+        .hint-plus {
+            display: inline-block;
+            background: #2563eb;
+            color: white;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 20px;
+            font-weight: 700;
+            font-size: 13px;
+        }
+
+        /* ===== MODAL (Картка ризику) ===== */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            padding: 16px;
+        }
+
+        .modal-card {
+            background: white;
+            border-radius: 16px;
+            max-width: 600px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+        }
+
+        .modal-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 18px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .modal-header-left {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .modal-number {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: #2563eb;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 13px;
+        }
+
+        .modal-plus-icon {
+            font-size: 20px;
+            color: #2563eb;
+            font-weight: 700;
+        }
+
+        .modal-title {
+            font-size: 16px;
+            color: #1a1a2e;
+        }
+
+        .modal-close {
+            background: none;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+            color: #666;
+            padding: 4px 6px;
+            border-radius: 6px;
+            transition: background 0.2s;
+        }
+
+        .modal-close:hover {
+            background: #f0f0f0;
+        }
+
+        .modal-body {
+            display: flex;
+            gap: 18px;
+            padding: 18px;
+        }
+
+        .modal-image-container {
+            flex-shrink: 0;
+            width: 180px;
+        }
+
+        .modal-image {
+            width: 100%;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+
+        .modal-content {
+            flex: 1;
+        }
+
+        .modal-risk-type {
+            font-size: 15px;
+            font-weight: 700;
+            color: #dc2626;
+            margin-bottom: 6px;
+        }
+
+        .modal-description {
+            font-size: 13px;
+            color: #444;
+            margin-bottom: 14px;
+            line-height: 1.5;
+        }
+
+        .modal-what-can-happen h5,
+        .modal-why-important h5 {
+            font-size: 13px;
+            color: #1a1a6e;
+            margin-bottom: 6px;
+        }
+
+        .modal-what-can-happen ul,
+        .modal-why-important ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .modal-what-can-happen li,
+        .modal-why-important li {
+            font-size: 12px;
+            color: #555;
+            padding: 3px 0;
+            padding-left: 14px;
+            position: relative;
+        }
+
+        .modal-what-can-happen li::before,
+        .modal-why-important li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: #2563eb;
+            font-weight: 700;
+        }
+
+        .modal-footer {
+            padding: 14px 18px;
+            border-top: 1px solid #eee;
+            text-align: center;
+        }
+
+        .modal-next-btn,
+        .modal-found-all-btn {
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            color: white;
+            border: none;
+            padding: 12px 28px;
+            border-radius: 10px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .modal-next-btn:hover,
+        .modal-found-all-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+        }
+
+        /* ===== DECISION OPTIONS ===== */
+        .decision-options {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+            max-width: 800px;
+            margin: 0 auto 22px;
+        }
+
+        .decision-option {
+            cursor: pointer;
+        }
+
+        .decision-option input[type="radio"] {
+            display: none;
+        }
+
+        .option-content {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px 18px;
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            background: white;
+            transition: all 0.2s;
+            font-size: 14px;
+        }
+
+        .decision-option:hover .option-content {
+            border-color: #2563eb;
+            box-shadow: 0 2px 8px rgba(37, 99, 235, 0.15);
+        }
+
+        .decision-option.selected .option-content {
+            border-color: #16a34a;
+            background: #f0fdf4;
+        }
+
+        .option-icon {
+            font-size: 26px;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f0f4ff;
+            border-radius: 10px;
+            flex-shrink: 0;
+        }
+
+        .decision-submit-btn {
+            display: block;
+            margin: 0 auto;
+            background: white;
+            border: 2px solid #2563eb;
+            color: #2563eb;
+            padding: 12px 28px;
+            border-radius: 10px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .decision-submit-btn:hover {
+            background: #2563eb;
+            color: white;
+        }
+
+        /* ===== CONSEQUENCES ===== */
+        .consequences-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 22px;
+            max-width: 900px;
+            margin: 0 auto 22px;
+            align-items: center;
+        }
+
+        .consequence-result {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 18px;
+            border-radius: 10px;
+            margin-bottom: 14px;
+            font-size: 14px;
+        }
+
+        .consequence-result.good {
+            background: #f0fdf4;
+            border: 1px solid #bbf7d0;
+            color: #166534;
+        }
+
+        .result-icon {
+            font-size: 22px;
+        }
+
+        .consequence-list {
+            list-style: none;
+        }
+
+        .consequence-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            padding: 10px 14px;
+            border-radius: 8px;
+            margin-bottom: 6px;
+            font-size: 13px;
+        }
+
+        .consequence-item.good {
+            background: #f0fdf4;
+            border: 1px solid #bbf7d0;
+            color: #166534;
+        }
+
+        .consequences-image {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .next-step-btn {
+            display: block;
+            margin: 0 auto;
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            color: white;
+            border: none;
+            padding: 14px 36px;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .next-step-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(37, 99, 235, 0.3);
+        }
+
+        /* ===== INFO MODAL (Прогрес та Як працювати) ===== */
+        .info-modal-content {
+            padding: 24px;
+        }
+
+        .info-modal-content h2 {
+            font-size: 20px;
+            color: #1a1a6e;
+            margin-bottom: 16px;
+        }
+
+        .info-modal-content h3 {
+            font-size: 16px;
+            color: #1a1a2e;
+            margin: 16px 0 10px;
+        }
+
+        .info-modal-content p {
+            font-size: 14px;
+            color: #444;
+            margin-bottom: 12px;
+            line-height: 1.6;
+        }
+
+        .info-modal-content ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 12px;
+        }
+
+        .info-modal-content li {
+            font-size: 14px;
+            color: #555;
+            padding: 8px 12px;
+            padding-left: 32px;
+            position: relative;
+            margin-bottom: 6px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+
+        .info-modal-content li::before {
+            content: '✓';
+            position: absolute;
+            left: 12px;
+            color: #16a34a;
+            font-weight: 700;
+            font-size: 16px;
+        }
+
+        .progress-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin: 16px 0;
+        }
+
+        .stat-card {
+            background: #f0f4ff;
+            border: 1px solid #dbeafe;
+            border-radius: 10px;
+            padding: 14px;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 28px;
+            font-weight: 700;
+            color: #2563eb;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: #666;
+            margin-top: 4px;
+        }
+
+        .step-status-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .step-status-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 14px;
+            border-radius: 8px;
+            margin-bottom: 8px;
+            font-size: 14px;
+            background: #f8f9fa;
+        }
+
+        .step-status-icon {
+            font-size: 18px;
+            width: 28px;
+            text-align: center;
+        }
+
+        .step-status-item.completed {
+            background: #f0fdf4;
+            border: 1px solid #bbf7d0;
+        }
+
+        .step-status-item.current {
+            background: #eff6ff;
+            border: 1px solid #bfdbfe;
+        }
+
+        .close-info-btn {
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            color: white;
+            border: none;
+            padding: 12px 28px;
+            border-radius: 10px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 16px;
+            width: 100%;
+        }
+
+        .close-info-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .intro-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                flex-wrap: wrap;
+                gap: 6px;
+                padding: 10px 12px;
+            }
+
+            .header-center {
+                order: -1;
+                width: 100%;
+            }
+
+            .header-title {
+                font-size: 14px;
+            }
+
+            .header-btn, .header-link {
+                padding: 5px 10px;
+                font-size: 12px;
+            }
+
+            .main-content {
+                padding: 16px 12px;
+            }
+
+            .page-title {
+                font-size: 20px;
+            }
+
+            .page-subtitle {
+                font-size: 14px;
+            }
+
+            .decision-options {
+                grid-template-columns: 1fr;
+            }
+
+            .consequences-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .modal-body {
+                flex-direction: column;
+            }
+
+            .modal-image-container {
+                width: 100%;
+            }
+
+            .bottom-bar {
+                flex-direction: column;
+            }
+
+            .start-btn {
+                width: 100%;
+            }
+
+            .step-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+            }
+
+            .step-progress-dots {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .hotspot {
+                width: 30px;
+                height: 30px;
+            }
+
+            .hotspot-plus {
+                font-size: 16px;
+            }
+
+            .progress-stats {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-title {
+                font-size: 13px;
+            }
+
+            .page-title {
+                font-size: 18px;
+            }
+
+            .step-item {
+                padding: 10px 12px;
+            }
+
+            .step-info strong {
+                font-size: 13px;
+            }
+
+            .step-info span {
+                font-size: 11px;
+            }
+
+            .progress-node {
+                min-width: 40px;
+            }
+
+            .node-label {
+                font-size: 8px;
+            }
+
+            .modal-title {
+                font-size: 14px;
+            }
+
+            .option-content {
+                padding: 14px 16px;
+                font-size: 13px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== HEADER ===== -->
+    <header class="header">
+        <div class="header-left">
+            <span class="header-link" onclick="showPage('intro')">
+                <span class="header-icon">←</span> До змісту
+            </span>
+        </div>
+        <div class="header-center">
+            <h1 class="header-title">§ 1. Безпека, небезпека і ризики</h1>
+        </div>
+        <div class="header-right">
+            <button class="header-btn" id="btnProgress">
+                <span class="header-icon">📊</span> Мій прогрес
+            </button>
+            <button class="header-btn" id="btnHelp">
+                <span class="header-icon">❓</span> Як працювати?
+            </button>
+        </div>
+    </header>
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <main class="main-content" id="mainContent">
+
+        <!-- === Як працювати з тренажером === -->
+        <section class="page" id="page-intro">
+            <h2 class="page-title"> Як працювати з тренажером</h2>
+
+            <div class="intro-layout">
+                <!-- Left column: Steps -->
+                <div class="intro-left">
+                    <div class="welcome-box">
+                        <span class="welcome-emoji">👋</span>
+                        <div>
+                            <h3>Вітаємо у тренажері «Навігатор ризиків»!</h3>
+                            <p>Тут ти не просто читатимеш теорію, а будеш аналізувати ситуації, оцінювати ризики та ухвалювати безпечні рішення.</p>
+                        </div>
+                    </div>
+
+                    <div class="steps-list">
+                        <div class="step-item clickable" data-step="1" onclick="goToStep1()">
+                            <div class="step-number blue">1</div>
+                            <div class="step-icon">🔍</div>
+                            <div class="step-info">
+                                <strong>Крок 1</strong>
+                                <span>Стартова ситуація</span>
+                            </div>
+                        </div>
+                        <div class="step-arrow">↓</div>
+
+                        <div class="step-item" data-step="2">
+                            <div class="step-number green">2</div>
+                            <div class="step-icon">🏠</div>
+                            <div class="step-info">
+                                <strong>Крок 2</strong>
+                                <span>Безпека та безпечний простір</span>
+                            </div>
+                        </div>
+                        <div class="step-arrow">↓</div>
+
+                        <div class="step-item" data-step="3">
+                            <div class="step-number orange">3</div>
+                            <div class="step-icon">⚠️</div>
+                            <div class="step-info">
+                                <strong>Крок 3</strong>
+                                <span>Ризики</span>
+                            </div>
+                        </div>
+                        <div class="step-arrow">↓</div>
+
+                        <div class="step-item" data-step="4">
+                            <div class="step-number purple">4</div>
+                            <div class="step-icon">🔄</div>
+                            <div class="step-info">
+                                <strong>Крок 4</strong>
+                                <span>Небезпечні ситуації</span>
+                            </div>
+                        </div>
+                        <div class="step-arrow">↓</div>
+
+                        <div class="step-item" data-step="5">
+                            <div class="step-number red">5</div>
+                            <div class="step-icon">🧠</div>
+                            <div class="step-info">
+                                <strong>Крок 5</strong>
+                                <span>Ухвалення рішень в умовах невизначеності</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Center: Character illustration -->
+                <div class="intro-center">
+                    <div class="character-illustration">
+                        <img src="https://res.cloudinary.com/dmydvhkzr/image/upload/v1781886119/boy_with_map_ilnj0h.png" alt="Хлопець із картою" class="character-img">
+                    </div>
+
+                    <div class="paragraph-goals">
+                        <h3>У цьому параграфі ти:</h3>
+                        <ul class="goals-list">
+                            <li>
+                                <span class="goal-icon"></span>
+                                дослідиш ситуації з повсякденного життя
+                            </li>
+                            <li>
+                                <span class="goal-icon">⚠️</span>
+                                навчишся оцінювати ризики
+                            </li>
+                            <li>
+                                <span class="goal-icon">✝️</span>
+                                ухвалюватимеш безпечні рішення
+                            </li>
+                            <li>
+                                <span class="goal-icon">✅</span>
+                                перевіриш свої вміння та отримаєш відзнаку
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Right column: Progress & Activities -->
+                <div class="intro-right">
+                    <div class="progress-box">
+                        <h3>Твій прогрес</h3>
+                        <div class="progress-tracker">
+                            <div class="progress-node active" data-node="1">
+                                <span class="node-number">1</span>
+                                <span class="node-label">Стартова ситуація</span>
+                            </div>
+                            <div class="progress-line"></div>
+                            <div class="progress-node" data-node="2">
+                                <span class="node-number">2</span>
+                                <span class="node-label">Безпека та безпечний простір</span>
+                            </div>
+                            <div class="progress-line"></div>
+                            <div class="progress-node" data-node="3">
+                                <span class="node-number">3</span>
+                                <span class="node-label">Ризики</span>
+                            </div>
+                            <div class="progress-line"></div>
+                            <div class="progress-node" data-node="4">
+                                <span class="node-number">4</span>
+                                <span class="node-label">Небезпечні ситуації</span>
+                            </div>
+                            <div class="progress-line"></div>
+                            <div class="progress-node" data-node="5">
+                                <span class="node-number">5</span>
+                                <span class="node-label">Рішення в умовах невизначеності</span>
+                            </div>
+                        </div>
+                        <div class="progress-note">
+                            <span class="info-icon">ℹ️</span>
+                            Після завершення кроку він буде позначений ✅, а прогрес — заповнюватися зеленим кольором.
+                        </div>
+                    </div>
+
+                    <div class="activities-box">
+                        <h3>Що ти робитимеш?</h3>
+                        <div class="activity-item">
+                            <span class="activity-icon">👆</span>
+                            <span>Натискати на інтерактивні елементи</span>
+                        </div>
+                        <div class="activity-item">
+                            <span class="activity-icon">📋</span>
+                            <span>Виконувати міні-завдання</span>
+                        </div>
+                        <div class="activity-item">
+                            <span class="activity-icon">️</span>
+                            <span>Порівнювати ризики</span>
+                        </div>
+                        <div class="activity-item">
+                            <span class="activity-icon">💡</span>
+                            <span>Аналізувати наслідки рішень</span>
+                        </div>
+                        <div class="activity-item">
+                            <span class="activity-icon">⭐</span>
+                            <span>Оцінювати власні вміння</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tip + Start button -->
+            <div class="bottom-bar">
+                <div class="tip-box">
+                    <span class="tip-icon">💡</span>
+                    <div>
+                        <strong>Порада</strong>
+                        <p>Немає потреби поспішати. Уважно аналізуй ситуації та думай про можливі наслідки своїх рішень.</p>
+                    </div>
+                </div>
+                <button class="start-btn" id="btnStart">
+                    Розпочати параграф →
+                </button>
+            </div>
+        </section>
+
+        <!-- === STEP 1: Стартова ситуація === -->
+        <section class="page hidden" id="page-step1">
+            <div class="step-header">
+                <div class="step-header-left">
+                    <span class="step-badge blue">1</span>
+                    <span class="step-header-text" onclick="showPage('intro')">До змісту</span>
+                </div>
+                <div class="step-header-center">
+                    <span>§ 1. Безпека, небезпека і ризики</span>
+                    <span class="step-counter">Крок 1 з 5</span>
+                </div>
+                <div class="step-progress-dots">
+                    <span class="dot active">1</span>
+                    <span class="dot">2</span>
+                    <span class="dot">3</span>
+                    <span class="dot">4</span>
+                    <span class="dot">5</span>
+                </div>
+            </div>
+
+            <h2 class="page-title">1. Стартова ситуація: що тут може піти не так?</h2>
+            <p class="page-subtitle">Розглянь ситуацію, вияв ризики та зроби перший крок до безпечного рішення.</p>
+
+            <div class="scene-container" id="sceneContainer">
+                <img src="https://res.cloudinary.com/dmydvhkzr/image/upload/v1781886119/construction_site_bb2go4.png" alt="Будівельний майданчик" class="scene-image" id="sceneImage">
+
+                <!-- Hotspots (гарячі точки) -->
+                <div class="hotspot" data-risk="rebar" style="top: 15%; left: 8%;">
+                    <span class="hotspot-plus">+</span>
+                </div>
+                <div class="hotspot" data-risk="phone" style="top: 20%; left: 22%;">
+                    <span class="hotspot-plus">+</span>
+                </div>
+                <div class="hotspot" data-risk="roof" style="top: 60%; left: 45%;">
+                    <span class="hotspot-plus">+</span>
+                </div>
+                <div class="hotspot" data-risk="sign" style="top: 30%; left: 75%;">
+                    <span class="hotspot-plus">+</span>
+                </div>
+                <div class="hotspot" data-risk="net" style="top: 50%; left: 85%;">
+                    <span class="hotspot-plus">+</span>
+                </div>
+                <div class="hotspot" data-risk="building" style="top: 70%; left: 10%;">
+                    <span class="hotspot-plus">+</span>
+                </div>
+            </div>
+
+            <p class="scene-hint">
+                <span class="hint-icon">👆</span> Натискай на <span class="hint-plus">+</span> на зображенні, щоб знайти ризики.
+            </p>
+        </section>
+
+        <!-- === RISK MODAL (картка ризику) === -->
+        <div class="modal-overlay hidden" id="riskModal">
+            <div class="modal-card" id="modalCard">
+                <div class="modal-header">
+                    <div class="modal-header-left">
+                        <span class="modal-number" id="modalNumber">2</span>
+                        <span class="modal-plus-icon">+</span>
+                        <h3 class="modal-title" id="modalTitle">Арматура</h3>
+                    </div>
+                    <button class="modal-close" id="modalClose">✕</button>
+                </div>
+
+                <div class="modal-body">
+                    <div class="modal-image-container">
+                        <img src="" alt="" class="modal-image" id="modalImage">
+                    </div>
+                    <div class="modal-content">
+                        <h4 class="modal-risk-type" id="modalRiskType">Ризик травмування</h4>
+                        <p class="modal-description" id="modalDescription">
+                            Гострі металеві стрижні можуть поранити. На будівельних майданчиках часто трапляються порізи та проколи.
+                        </p>
+
+                        <div class="modal-what-can-happen" id="modalWhatCanHappen">
+                            <h5>💡 Що може статися?</h5>
+                            <ul id="modalConsequences">
+                                <li>травма ноги</li>
+                                <li>поріз руки</li>
+                                <li>зараження рани</li>
+                            </ul>
+                        </div>
+
+                        <div class="modal-why-important hidden" id="modalWhyImportant">
+                            <h5>💡 Чому їх важливо дотримуватися?</h5>
+                            <ul id="modalWhyList">
+                                <li>територія може бути небезпечною</li>
+                                <li>є ризик травмування чи падіння</li>
+                                <li>доступ сюди заборонений не просто так</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button class="modal-next-btn" id="modalNextBtn">
+                        Знайти наступний ризик →
+                    </button>
+                    <button class="modal-found-all-btn hidden" id="modalFoundAllBtn">
+                        Я знайшов(ла) всі ризики ✓
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- === STEP 8: Перше рішення === -->
+        <section class="page hidden" id="page-decision">
+            <div class="step-header">
+                <div class="step-header-left">
+                    <span class="step-badge blue">1</span>
+                    <span class="step-header-text" onclick="showPage('intro')">До змісту</span>
+                </div>
+                <div class="step-header-center">
+                    <span>§ 1. Безпека, небезпека і ризики</span>
+                    <span class="step-counter">Крок 1 з 5</span>
+                </div>
+                <div class="step-progress-dots">
+                    <span class="dot active">1</span>
+                    <span class="dot">2</span>
+                    <span class="dot">3</span>
+                    <span class="dot">4</span>
+                    <span class="dot">5</span>
+                </div>
+            </div>
+
+            <h2 class="page-title">3. Перше рішення</h2>
+            <p class="page-subtitle">Ти знайшов(ла) всі ризики. Що робити далі?</p>
+
+            <div class="decision-options">
+                <label class="decision-option">
+                    <input type="radio" name="decision" value="stay">
+                    <div class="option-content">
+                        <span class="option-icon">👥</span>
+                        <span>Підтримати друзів і залишитися.</span>
+                    </div>
+                </label>
+                <label class="decision-option">
+                    <input type="radio" name="decision" value="photo_run">
+                    <div class="option-content">
+                        <span class="option-icon">🏃</span>
+                        <span>Швидко зробити фото та піти.</span>
+                    </div>
+                </label>
+                <label class="decision-option selected">
+                    <input type="radio" name="decision" value="safe_place" checked>
+                    <div class="option-content">
+                        <span class="option-icon">🌳</span>
+                        <span>Запропонувати безпечніше місце для фото.</span>
+                    </div>
+                </label>
+                <label class="decision-option">
+                    <input type="radio" name="decision" value="warn">
+                    <div class="option-content">
+                        <span class="option-icon">💬</span>
+                        <span>Сказати, що тут є ризики, але нехай кожен вирішує сам.</span>
+                    </div>
+                </label>
+            </div>
+
+            <button class="decision-submit-btn" id="btnSubmitDecision">
+                Вибери варіант і дізнайся, які наслідки може мати твоє рішення. →
+            </button>
+        </section>
+
+        <!-- === STEP 9: Наслідки рішення === -->
+        <section class="page hidden" id="page-consequences">
+            <div class="step-header">
+                <div class="step-header-left">
+                    <span class="step-badge blue">1</span>
+                    <span class="step-header-text" onclick="showPage('intro')">До змісту</span>
+                </div>
+                <div class="step-header-center">
+                    <span>§ 1. Безпека, небезпека і ризики</span>
+                    <span class="step-counter">Крок 1 з 5</span>
+                </div>
+                <div class="step-progress-dots">
+                    <span class="dot active">1</span>
+                    <span class="dot">2</span>
+                    <span class="dot">3</span>
+                    <span class="dot">4</span>
+                    <span class="dot">5</span>
+                </div>
+            </div>
+
+            <h2 class="page-title">Наслідки твого рішення</h2>
+
+            <div class="consequences-layout">
+                <div class="consequences-left">
+                    <div class="consequence-result good">
+                        <span class="result-icon">✅</span>
+                        <strong>Ти запропонував(ла) безпечніше місце для фото.</strong>
+                    </div>
+                    <ul class="consequence-list">
+                        <li class="consequence-item good">
+                            <span>✅</span> Друзі можуть отримати гарні фото в безпечному місці.
+                        </li>
+                        <li class="consequence-item good">
+                            <span>✅</span> Ризик травмування значно зменшується.
+                        </li>
+                        <li class="consequence-item good">
+                            <span>✅</span> Компанія залишається разом і діє відповідально.
+                        </li>
+                    </ul>
+                </div>
+                <div class="consequences-right">
+                    <img src="https://res.cloudinary.com/dmydvhkzr/image/upload/v1781886119/icon_check_circle_i5fjx8.png" alt="Група друзів у безпечному місці" class="consequences-image">
+                </div>
+            </div>
+
+            <button class="next-step-btn" id="btnNextStep">
+                Перейти до кроку 2 →
+            </button>
+        </section>
+
+    </main>
+
+    <!-- ===== МОДАЛЬНЕ ВІКНО: МІЙ ПРОГРЕС ===== -->
+    <div class="modal-overlay hidden" id="progressModal">
+        <div class="modal-card">
+            <div class="modal-header">
+                <div class="modal-header-left">
+                    <span class="modal-number">📊</span>
+                    <h3 class="modal-title">Мій прогрес</h3>
+                </div>
+                <button class="modal-close" onclick="closeModal('progressModal')">✕</button>
+            </div>
+            <div class="info-modal-content">
+                <h2>Твій прогрес у тренажері</h2>
+                
+                <div class="progress-stats">
+                    <div class="stat-card">
+                        <div class="stat-number" id="statSteps">0/5</div>
+                        <div class="stat-label">Кроків пройдено</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="statRisks">0/6</div>
+                        <div class="stat-label">Ризиків знайдено</div>
+                    </div>
+                </div>
+
+                <h3>Статус кроків:</h3>
+                <ul class="step-status-list" id="stepStatusList">
+                    <li class="step-status-item current">
+                        <span class="step-status-icon">🔵</span>
+                        <span>Крок 1: Стартова ситуація (поточний)</span>
+                    </li>
+                    <li class="step-status-item">
+                        <span class="step-status-icon"></span>
+                        <span>Крок 2: Безпека та безпечний простір</span>
+                    </li>
+                    <li class="step-status-item">
+                        <span class="step-status-icon">⚪</span>
+                        <span>Крок 3: Ризики</span>
+                    </li>
+                    <li class="step-status-item">
+                        <span class="step-status-icon">⚪</span>
+                        <span>Крок 4: Небезпечні ситуації</span>
+                    </li>
+                    <li class="step-status-item">
+                        <span class="step-status-icon">⚪</span>
+                        <span>Крок 5: Ухвалення рішень</span>
+                    </li>
+                </ul>
+
+                <button class="close-info-btn" onclick="closeModal('progressModal')">Закрити</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== МОДАЛЬНЕ ВІКНО: ЯК ПРАЦЮВАТИ ===== -->
+    <div class="modal-overlay hidden" id="helpModal">
+        <div class="modal-card">
+            <div class="modal-header">
+                <div class="modal-header-left">
+                    <span class="modal-number">❓</span>
+                    <h3 class="modal-title">Як працювати?</h3>
+                </div>
+                <button class="modal-close" onclick="closeModal('helpModal')">✕</button>
+            </div>
+            <div class="info-modal-content">
+                <h2>Інструкція з використання тренажера</h2>
+                
+                <h3>🎯 Як почати?</h3>
+                <p>Натисни кнопку <strong>"Розпочати параграф"</strong> або <strong>"Крок 1"</strong> на головній сторінці, щоб перейти до першого завдання.</p>
+
+                <h3>🔍 Як знаходити ризики?</h3>
+                <ul>
+                    <li>Уважно розглянь зображення ситуації</li>
+                    <li>Шукай сині кружечки з знаком <strong>+</strong></li>
+                    <li>Натискай на них, щоб дізнатися про ризик</li>
+                    <li>Знайди всі 6 ризиків, щоб перейти далі</li>
+                </ul>
+
+                <h3> Як працюють картки ризиків?</h3>
+                <ul>
+                    <li>Кожна картка містить опис ризику</li>
+                    <li>Показує, що може статися</li>
+                    <li>Після перегляду натискай "Знайти наступний ризик"</li>
+                </ul>
+
+                <h3>✅ Як ухвалювати рішення?</h3>
+                <ul>
+                    <li>Після знаходження всіх ризиків з'явиться вибір</li>
+                    <li>Обери найбезпечніший варіант</li>
+                    <li>Побачиш наслідки свого рішення</li>
+                </ul>
+
+                <h3>📊 Як відстежувати прогрес?</h3>
+                <ul>
+                    <li>Натискай кнопку "Мій прогрес" у верхньому меню</li>
+                    <li>Бачитимеш, скільки кроків пройдено</li>
+                    <li>Відстежуй знайдені ризики</li>
+                </ul>
+
+                <h3>💡 Поради</h3>
+                <p>Не поспішай! Уважно аналізуй кожну ситуацію та думай про можливі наслідки своїх рішень. Безпека — це важливо!</p>
+
+                <button class="close-info-btn" onclick="closeModal('helpModal')">Зрозуміло!</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // ===== ДАНІ РИЗИКІВ =====
+        const risksData = {
+            rebar: {
+                number: 2,
+                title: 'Арматура',
+                image: 'https://res.cloudinary.com/dmydvhkzr/image/upload/v1781886120/rebar_ion0c3.png',
+                riskType: 'Ризик травмування',
+                description: 'Гострі металеві стрижні можуть поранити. На будівельних майданчиках часто трапляються порізи та проколи.',
+                whatCanHappen: ['травма ноги', 'поріз руки', 'зараження рани'],
+                type: 'whatCanHappen'
+            },
+            phone: {
+                number: 3,
+                title: 'Телефон / зйомка',
+                image: 'https://res.cloudinary.com/dmydvhkzr/image/upload/v1781886120/boy_phone_selfie_yzxmtz.png',
+                riskType: 'Відволікання уваги',
+                description: 'Під час зйомки людина менше помічає небезпеки навколо.',
+                whatCanHappen: [
+                    'можна не помітити край',
+                    'втратити рівновагу',
+                    'не звернути увагу на попередження друзів'
+                ],
+                type: 'whatCanHappen'
+            },
+            roof: {
+                number: 4,
+                title: 'Край даху / тріщина',
+                image: 'https://res.cloudinary.com/dmydvhkzr/image/upload/v1781886120/roof_edge_crack_me7ink.png',
+                riskType: 'Ризик падіння',
+                description: 'Навіть якщо людина стоїть обережно, поруч із краєм ризик значно зростає.',
+                whatCanHappen: [
+                    'падіння з висоти',
+                    'серйозні травми',
+                    'загроза для життя'
+                ],
+                type: 'whatCanHappen'
+            },
+            sign: {
+                number: 5,
+                title: 'Знак «Стороннім вхід заборонено»',
+                image: 'https://res.cloudinary.com/dmydvhkzr/image/upload/v1781886121/no_entry_sign_l9y1yw.png',
+                riskType: 'Попередження про небезпеку',
+                description: 'Такі знаки встановлюють не випадково.',
+                whatCanHappen: [
+                    'територія може бути небезпечною',
+                    'є ризик травмування чи падіння',
+                    'доступ сюди заборонений не просто так'
+                ],
+                type: 'whyImportant'
+            },
+            net: {
+                number: 6,
+                title: 'Будівельна сітка',
+                image: 'https://res.cloudinary.com/dmydvhkzr/image/upload/v1781886119/construction_net_zijov0.png',
+                riskType: 'Ознака небезпечної зони',
+                description: 'Сітка означає, що роботи ще не завершені. За нею можуть бути отвори, нестійкі конструкції чи інші небезпеки.',
+                whatCanHappen: [
+                    'падіння з висоти',
+                    'травмування',
+                    'пошкодження конструкцій'
+                ],
+                type: 'whatCanHappen'
+            },
+            building: {
+                number: 7,
+                title: 'Недобудова',
+                image: 'https://res.cloudinary.com/dmydvhkzr/image/upload/v1781886121/unfinished_building_ymotls.png',
+                riskType: 'Небезпечний об\'єкт',
+                description: 'Конструкція не призначена для відпочинку чи прогулянок. Можливі отвори, нестійкі елементи, будівельне сміття та інші ризики.',
+                whatCanHappen: [
+                    'падіння',
+                    'обвал конструкцій',
+                    'травмування'
+                ],
+                type: 'whatCanHappen'
+            }
+        };
+
+        // ===== СТАН ДОДАТКУ =====
+        const state = {
+            currentPage: 'intro',
+            foundRisks: new Set(),
+            totalRisks: 6,
+            currentRiskIndex: 0,
+            riskOrder: ['rebar', 'phone', 'roof', 'sign', 'net', 'building']
+        };
+
+        // ===== DOM ЕЛЕМЕНТИ =====
+        const pages = {
+            intro: document.getElementById('page-intro'),
+            step1: document.getElementById('page-step1'),
+            decision: document.getElementById('page-decision'),
+            consequences: document.getElementById('page-consequences')
+        };
+
+        const riskModal = document.getElementById('riskModal');
+        const modalCard = document.getElementById('modalCard');
+
+        // ===== НАВІГАЦІЯ МІЖ СТОРІНКАМИ =====
+        function showPage(pageId) {
+            Object.values(pages).forEach(page => page.classList.add('hidden'));
+            if (pages[pageId]) {
+                pages[pageId].classList.remove('hidden');
+            }
+            state.currentPage = pageId;
+            window.scrollTo(0, 0);
+        }
+
+        // Функція переходу до Кроку 1
+        function goToStep1() {
+            showPage('step1');
+        }
+
+        // Закриття модального вікна
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.add('hidden');
+        }
+
+        // Кнопка "Розпочати параграф"
+        document.getElementById('btnStart').addEventListener('click', () => {
+            showPage('step1');
+        });
+
+        // Кнопка "Перейти до кроку 2"
+        document.getElementById('btnNextStep').addEventListener('click', () => {
+            alert('Перехід до Крок 2 — Безпека та безпечний простір (буде реалізовано наступним етапом)');
+        });
+
+        // ===== КНОПКИ HEADER =====
+        
+        // Кнопка "Мій прогрес"
+        document.getElementById('btnProgress').addEventListener('click', () => {
+            // Оновити статистику
+            document.getElementById('statRisks').textContent = `${state.foundRisks.size}/${state.totalRisks}`;
+            
+            // Визначити поточний крок
+            let currentStep = 1;
+            if (state.currentPage === 'decision' || state.currentPage === 'consequences') {
+                currentStep = 1; // Поки що тільки 1 крок реалізовано
+            }
+            
+            document.getElementById('statSteps').textContent = `0/5`;
+            
+            // Оновити список кроків
+            const stepStatusList = document.getElementById('stepStatusList');
+            const steps = [
+                { name: 'Крок 1: Стартова ситуація', icon: '🔵' },
+                { name: 'Крок 2: Безпека та безпечний простір', icon: '⚪' },
+                { name: 'Крок 3: Ризики', icon: '⚪' },
+                { name: 'Крок 4: Небезпечні ситуації', icon: '⚪' },
+                { name: 'Крок 5: Ухвалення рішень', icon: '⚪' }
+            ];
+            
+            stepStatusList.innerHTML = steps.map((step, index) => {
+                let statusClass = '';
+                let icon = '⚪';
+                
+                if (index + 1 === currentStep) {
+                    statusClass = 'current';
+                    icon = '🔵';
+                }
+                
+                return `
+                    <li class="step-status-item ${statusClass}">
+                        <span class="step-status-icon">${icon}</span>
+                        <span>${step.name}</span>
+                    </li>
+                `;
+            }).join('');
+            
+            document.getElementById('progressModal').classList.remove('hidden');
+        });
+
+        // Кнопка "Як працювати?"
+        document.getElementById('btnHelp').addEventListener('click', () => {
+            document.getElementById('helpModal').classList.remove('hidden');
+        });
+
+        // ===== ІНТЕРАКТИВНІ ГОРЯЧІ ТОЧКИ =====
+        document.querySelectorAll('.hotspot').forEach(hotspot => {
+            hotspot.addEventListener('click', function() {
+                const riskKey = this.dataset.risk;
+
+                if (state.foundRisks.has(riskKey)) {
+                    // Вже знайдено — показуємо картку повторно
+                    openRiskModal(riskKey);
+                    return;
+                }
+
+                state.foundRisks.add(riskKey);
+                this.classList.add('found');
+                this.querySelector('.hotspot-plus').textContent = '✓';
+
+                openRiskModal(riskKey);
+            });
+        });
+
+        // ===== МОДАЛЬНЕ ВІКНО РИЗИКУ =====
+        function openRiskModal(riskKey) {
+            const risk = risksData[riskKey];
+            if (!risk) return;
+
+            document.getElementById('modalNumber').textContent = risk.number;
+            document.getElementById('modalTitle').textContent = risk.title;
+            document.getElementById('modalImage').src = risk.image;
+            document.getElementById('modalImage').alt = risk.title;
+            document.getElementById('modalRiskType').textContent = risk.riskType;
+            document.getElementById('modalDescription').textContent = risk.description;
+
+            // Що може статися / Чому важливо
+            const whatCanHappenBlock = document.getElementById('modalWhatCanHappen');
+            const whyImportantBlock = document.getElementById('modalWhyImportant');
+            const consequencesList = document.getElementById('modalConsequences');
+            const whyList = document.getElementById('modalWhyList');
+
+            consequencesList.innerHTML = '';
+            whyList.innerHTML = '';
+
+            if (risk.type === 'whatCanHappen') {
+                whatCanHappenBlock.classList.remove('hidden');
+                whyImportantBlock.classList.add('hidden');
+                risk.whatCanHappen.forEach(item => {
+                    const li = document.createElement('li');
+                    li.textContent = item;
+                    consequencesList.appendChild(li);
+                });
+            } else {
+                whatCanHappenBlock.classList.add('hidden');
+                whyImportantBlock.classList.remove('hidden');
+                risk.whatCanHappen.forEach(item => {
+                    const li = document.createElement('li');
+                    li.textContent = item;
+                    whyList.appendChild(li);
+                });
+            }
+
+            // Кнопка "Знайти наступний" або "Я знайшов всі"
+            const nextBtn = document.getElementById('modalNextBtn');
+            const foundAllBtn = document.getElementById('modalFoundAllBtn');
+
+            if (state.foundRisks.size >= state.totalRisks) {
+                nextBtn.classList.add('hidden');
+                foundAllBtn.classList.remove('hidden');
+            } else {
+                nextBtn.classList.remove('hidden');
+                foundAllBtn.classList.add('hidden');
+            }
+
+            riskModal.classList.remove('hidden');
+        }
+
+        // Закриття модального вікна ризику
+        document.getElementById('modalClose').addEventListener('click', () => {
+            riskModal.classList.add('hidden');
+        });
+
+        riskModal.addEventListener('click', (e) => {
+            if (e.target === riskModal) {
+                riskModal.classList.add('hidden');
+            }
+        });
+
+        // Кнопка "Знайти наступний ризик"
+        document.getElementById('modalNextBtn').addEventListener('click', () => {
+            riskModal.classList.add('hidden');
+
+            // Знайти наступний невідкритий ризик
+            const nextRisk = state.riskOrder.find(r => !state.foundRisks.has(r));
+            if (nextRisk) {
+                // Підсвітити наступну гарячу точку
+                const nextHotspot = document.querySelector(`.hotspot[data-risk="${nextRisk}"]`);
+                if (nextHotspot) {
+                    nextHotspot.style.animation = 'pulse 1s ease-in-out 3';
+                    setTimeout(() => {
+                        nextHotspot.style.animation = '';
+                    }, 3000);
+                }
+            }
+        });
+
+        // Кнопка "Я знайшов(ла) всі ризики"
+        document.getElementById('modalFoundAllBtn').addEventListener('click', () => {
+            riskModal.classList.add('hidden');
+            showPage('decision');
+        });
+
+        // ===== ВИБІР РІШЕННЯ =====
+        document.querySelectorAll('.decision-option').forEach(option => {
+            option.addEventListener('click', function() {
+                document.querySelectorAll('.decision-option').forEach(o => o.classList.remove('selected'));
+                this.classList.add('selected');
+                this.querySelector('input[type="radio"]').checked = true;
+            });
+        });
+
+        // Кнопка подання рішення
+        document.getElementById('btnSubmitDecision').addEventListener('click', () => {
+            const selected = document.querySelector('input[name="decision"]:checked');
+            if (!selected) {
+                alert('Будь ласка, обери варіант рішення.');
+                return;
+            }
+            showPage('consequences');
+        });
+
+        // Закриття модальних вікон при кліку на фон
+        document.querySelectorAll('.modal-overlay').forEach(modal => {
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.classList.add('hidden');
+                }
+            });
+        });
+
+        // ===== ІНІЦІАЛІЗАЦІЯ =====
+        console.log('🚀 Тренажер «Навігатор ризиків» завантажено');
+        console.log(`📊 Всього ризиків для пошуку: ${state.totalRisks}`);
+    </script>
+</body>
+</html>
