@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Тренажер «Навігатор ризиків» — § 1. Безпека, небезпека і ризики</title>
-    
     <style>
         /* ===== RESET & BASE ===== */
         * {
@@ -95,6 +94,38 @@
             font-size: 14px;
         }
 
+        .step-counter {
+            background: rgba(255,255,255,0.2);
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+        }
+
+        .step-progress-dots {
+            display: flex;
+            gap: 4px;
+        }
+
+        .dot {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            border: 2px solid rgba(255,255,255,0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            font-weight: 600;
+            background: white;
+            color: #1a1a6e;
+        }
+
+        .dot.completed {
+            background: #16a34a;
+            color: white;
+            border-color: #16a34a;
+        }
+
         /* ===== MAIN CONTENT ===== */
         .main-content {
             max-width: 1400px;
@@ -123,7 +154,6 @@
             margin-bottom: 24px;
         }
 
-        /* Welcome box */
         .welcome-box {
             display: flex;
             align-items: flex-start;
@@ -150,7 +180,6 @@
             color: #444;
         }
 
-        /* Steps list */
         .steps-list {
             display: flex;
             flex-direction: column;
@@ -230,7 +259,6 @@
             padding: 2px 0;
         }
 
-        /* Character illustration */
         .character-illustration {
             text-align: center;
             margin-bottom: 18px;
@@ -242,7 +270,6 @@
             border-radius: 16px;
         }
 
-        /* Paragraph goals */
         .paragraph-goals {
             background: white;
             border: 1px solid #e0e0e0;
@@ -285,7 +312,6 @@
             flex-shrink: 0;
         }
 
-        /* Progress box */
         .progress-box {
             background: white;
             border: 1px solid #e0e0e0;
@@ -374,7 +400,6 @@
             flex-shrink: 0;
         }
 
-        /* Activities box */
         .activities-box {
             background: white;
             border: 1px solid #e0e0e0;
@@ -412,7 +437,6 @@
             flex-shrink: 0;
         }
 
-        /* Bottom bar */
         .bottom-bar {
             display: flex;
             align-items: center;
@@ -501,6 +525,7 @@
         }
 
         .step-badge.blue { background: #2563eb; }
+        .step-badge.green { background: #16a34a; }
 
         .step-header-text {
             font-size: 13px;
@@ -519,42 +544,6 @@
             align-items: center;
             gap: 12px;
             font-size: 13px;
-        }
-
-        .step-counter {
-            background: rgba(255,255,255,0.2);
-            padding: 3px 10px;
-            border-radius: 20px;
-            font-size: 12px;
-        }
-
-        .step-progress-dots {
-            display: flex;
-            gap: 5px;
-        }
-
-        .dot {
-            width: 26px;
-            height: 26px;
-            border-radius: 50%;
-            border: 2px solid rgba(255,255,255,0.4);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 11px;
-            font-weight: 600;
-        }
-
-        .dot.active {
-            background: white;
-            color: #1a1a6e;
-            border-color: white;
-        }
-
-        .dot.completed {
-            background: #16a34a;
-            color: white;
-            border-color: #16a34a;
         }
 
         /* ===== SCENE (Крок 1) ===== */
@@ -634,7 +623,7 @@
             font-size: 13px;
         }
 
-        /* ===== MODAL (Картка ризику) ===== */
+        /* ===== MODAL ===== */
         .modal-overlay {
             position: fixed;
             top: 0;
@@ -916,11 +905,6 @@
             box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
         }
 
-        .decision-submit-btn:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-        }
-
         /* ===== CONSEQUENCES ===== */
         .consequences-layout {
             display: grid;
@@ -996,7 +980,7 @@
             box-shadow: 0 6px 16px rgba(37, 99, 235, 0.3);
         }
 
-        /* ===== INFO MODAL (Прогрес та Як працювати) ===== */
+        /* ===== INFO MODAL ===== */
         .info-modal-content {
             padding: 24px;
         }
@@ -1123,10 +1107,714 @@
             box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
         }
 
+        /* ===== STEP 2 STYLES ===== */
+        .step2-intro {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+            margin-bottom: 16px;
+        }
+
+        .intro-card {
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            padding: 14px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .intro-card:hover {
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transform: translateY(-2px);
+        }
+
+        .intro-card-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 8px;
+        }
+
+        .intro-icon {
+            width: 42px;
+            height: 42px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+
+        .intro-icon.shield { background: #dcfce7; }
+        .intro-icon.house { background: #dbeafe; }
+
+        .intro-card h3 {
+            font-size: 15px;
+            color: #1a1a2e;
+            margin-bottom: 3px;
+        }
+
+        .intro-card p {
+            font-size: 12px;
+            color: #666;
+        }
+
+        .task-box {
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            padding: 16px;
+            margin-bottom: 16px;
+        }
+
+        .task-box h3 {
+            font-size: 15px;
+            color: #1a1a2e;
+            margin-bottom: 12px;
+        }
+
+        .task-list {
+            list-style: none;
+            margin-bottom: 12px;
+        }
+
+        .task-list li {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 0;
+            font-size: 13px;
+        }
+
+        .task-checkbox {
+            width: 16px;
+            height: 16px;
+            border: 2px solid #2563eb;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+
+        .task-checkbox.checked {
+            background: #2563eb;
+            color: white;
+        }
+
+        .progress-section {
+            border-top: 1px solid #e0e0e0;
+            padding-top: 12px;
+            margin-top: 12px;
+        }
+
+        .progress-section h4 {
+            font-size: 14px;
+            color: #1a1a2e;
+            margin-bottom: 8px;
+        }
+
+        .progress-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 0;
+            font-size: 13px;
+        }
+
+        .progress-radio {
+            width: 16px;
+            height: 16px;
+            border: 2px solid #2563eb;
+            border-radius: 50%;
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+
+        .progress-radio.checked {
+            background: #2563eb;
+            border-color: #2563eb;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 3px 10px rgba(37, 99, 235, 0.3);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: #2563eb;
+            border: 2px solid #2563eb;
+        }
+
+        .btn-secondary:hover {
+            background: #eff6ff;
+        }
+
+        .btn-success {
+            background: linear-gradient(135deg, #16a34a, #15803d);
+        }
+
+        .safe-space-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 12px;
+            margin-top: 14px;
+        }
+
+        .space-card {
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            padding: 14px 10px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .space-card:hover {
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transform: translateY(-2px);
+            border-color: #2563eb;
+        }
+
+        .space-icon {
+            width: 56px;
+            height: 56px;
+            margin: 0 auto 8px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+        }
+
+        .space-icon.physical { background: #dcfce7; }
+        .space-icon.psychological { background: #ddd6fe; }
+        .space-icon.social { background: #ffedd5; }
+        .space-icon.digital { background: #dbeafe; }
+        .space-icon.internal { background: #ccfbf1; }
+
+        .space-card h4 {
+            font-size: 13px;
+            color: #1a1a2e;
+            margin-bottom: 6px;
+            line-height: 1.3;
+        }
+
+        .space-card p {
+            font-size: 11px;
+            color: #666;
+            line-height: 1.4;
+        }
+
+        .safety-layout {
+            display: grid;
+            grid-template-columns: 1fr 280px;
+            gap: 20px;
+            align-items: start;
+        }
+
+        .safety-image-container {
+            text-align: center;
+            position: sticky;
+            top: 80px;
+        }
+
+        .safety-image-container img {
+            max-width: 100%;
+            border-radius: 12px;
+        }
+
+        .situation-card {
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            padding: 18px;
+            margin-bottom: 16px;
+        }
+
+        .situation-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+
+        .situation-number {
+            background: #2563eb;
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 13px;
+            flex-shrink: 0;
+        }
+
+        .situation-title {
+            font-size: 16px;
+            color: #1a1a2e;
+            font-weight: 600;
+        }
+
+        .situation-image {
+            max-width: 240px;
+            border-radius: 8px;
+            margin: 12px 0;
+        }
+
+        .question {
+            font-size: 13px;
+            font-weight: 600;
+            color: #1a1a2e;
+            margin: 14px 0 10px;
+        }
+
+        .answer-options {
+            list-style: none;
+        }
+
+        .answer-options li {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 0;
+            font-size: 13px;
+        }
+
+        .answer-radio {
+            width: 16px;
+            height: 16px;
+            border: 2px solid #2563eb;
+            border-radius: 50%;
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+
+        .answer-radio.checked {
+            background: #2563eb;
+            border-color: #2563eb;
+        }
+
+        .answer-radio.incorrect {
+            background: #dc2626;
+            border-color: #dc2626;
+        }
+
+        .answer-radio.correct {
+            background: #16a34a;
+            border-color: #16a34a;
+        }
+
+        .answer-checkbox {
+            width: 16px;
+            height: 16px;
+            border: 2px solid #2563eb;
+            border-radius: 4px;
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+
+        .answer-checkbox.checked {
+            background: #2563eb;
+            color: white;
+        }
+
+        .answer-checkbox.incorrect {
+            background: #dc2626;
+            border-color: #dc2626;
+        }
+
+        .answer-checkbox.correct {
+            background: #16a34a;
+            border-color: #16a34a;
+        }
+
+        .explanation {
+            background: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            padding: 12px 14px;
+            border-radius: 8px;
+            margin-top: 14px;
+        }
+
+        .explanation-title {
+            font-weight: 700;
+            color: #92400e;
+            margin-bottom: 4px;
+            font-size: 13px;
+        }
+
+        .explanation-text {
+            font-size: 12px;
+            color: #78350f;
+        }
+
+        .correct-answer {
+            background: #dcfce7;
+            border-left-color: #16a34a;
+        }
+
+        .correct-answer .explanation-title {
+            color: #166534;
+        }
+
+        .correct-answer .explanation-text {
+            color: #15803d;
+        }
+
+        .incorrect-answer {
+            background: #fef2f2;
+            border-left-color: #dc2626;
+        }
+
+        .incorrect-answer .explanation-title {
+            color: #991b1b;
+        }
+
+        .incorrect-answer .explanation-text {
+            color: #b91c1c;
+        }
+
+        .final-section {
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .final-image {
+            max-width: 280px;
+            margin: 16px auto;
+            border-radius: 10px;
+        }
+
+        .final-title {
+            font-size: 22px;
+            color: #1a1a2e;
+            margin-bottom: 10px;
+        }
+
+        .final-text {
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 16px;
+        }
+
+        .achievement-list {
+            list-style: none;
+            text-align: left;
+            margin: 16px auto;
+        }
+
+        .achievement-list li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 0;
+            font-size: 13px;
+        }
+
+        .achievement-icon {
+            font-size: 18px;
+        }
+
+        .space-detail-content h3 {
+            font-size: 16px;
+            color: #1a1a2e;
+            margin-bottom: 10px;
+        }
+
+        .space-detail-content p {
+            font-size: 13px;
+            color: #555;
+            margin-bottom: 10px;
+            line-height: 1.5;
+        }
+
+        .space-detail-content h4 {
+            font-size: 14px;
+            color: #1a1a2e;
+            margin: 12px 0 8px;
+        }
+
+        .space-detail-content ul {
+            list-style: none;
+            margin: 8px 0;
+        }
+
+        .space-detail-content li {
+            padding: 6px 0;
+            padding-left: 22px;
+            position: relative;
+            font-size: 13px;
+        }
+
+        .space-detail-content li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #16a34a;
+            font-weight: 700;
+        }
+
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 16px;
+            gap: 10px;
+        }
+
+        /* ===== EXERCISE 2.10: MATCHING ===== */
+        .matching-container {
+            margin-top: 16px;
+        }
+
+        .matching-instruction {
+            background: #eff6ff;
+            border: 1px solid #bfdbfe;
+            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 16px;
+            font-size: 13px;
+            color: #1e40af;
+        }
+
+        .matching-items {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .matching-item {
+            background: #f8f9fa;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 13px;
+            text-align: center;
+        }
+
+        .matching-item:hover {
+            border-color: #2563eb;
+            background: #eff6ff;
+        }
+
+        .matching-item.selected {
+            border-color: #2563eb;
+            background: #dbeafe;
+            box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
+        }
+
+        .matching-item.assigned {
+            border-color: #16a34a;
+            background: #dcfce7;
+            opacity: 0.7;
+        }
+
+        .matching-item.wrong {
+            border-color: #dc2626;
+            background: #fef2f2;
+            animation: shake 0.5s;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
+        }
+
+        .matching-categories {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .matching-category {
+            background: white;
+            border: 2px dashed #e0e0e0;
+            border-radius: 8px;
+            padding: 12px 8px;
+            min-height: 120px;
+            text-align: center;
+            transition: all 0.2s;
+        }
+
+        .matching-category:hover {
+            border-color: #2563eb;
+            background: #f8f9fa;
+        }
+
+        .matching-category.highlight {
+            border-color: #2563eb;
+            background: #eff6ff;
+            border-style: solid;
+        }
+
+        .matching-category-title {
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #1a1a2e;
+        }
+
+        .matching-category-items {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .assigned-tag {
+            background: #dcfce7;
+            border: 1px solid #16a34a;
+            border-radius: 6px;
+            padding: 4px 8px;
+            font-size: 11px;
+            color: #166534;
+        }
+
+        .check-matching-btn {
+            display: block;
+            margin: 0 auto;
+        }
+
+        .matching-result {
+            margin-top: 16px;
+            padding: 14px;
+            border-radius: 8px;
+            font-size: 13px;
+        }
+
+        .matching-result.success {
+            background: #dcfce7;
+            border: 1px solid #16a34a;
+            color: #166534;
+        }
+
+        .matching-result.error {
+            background: #fef2f2;
+            border: 1px solid #dc2626;
+            color: #991b1b;
+        }
+
+        /* ===== EXERCISE 2.11: ODD ONE OUT ===== */
+        .odd-task {
+            margin-bottom: 20px;
+            padding: 16px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border: 1px solid #e0e0e0;
+        }
+
+        .odd-task-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #1a1a2e;
+            margin-bottom: 12px;
+        }
+
+        .odd-items {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+
+        .odd-item {
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-align: center;
+            font-size: 13px;
+        }
+
+        .odd-item:hover {
+            border-color: #2563eb;
+            background: #eff6ff;
+        }
+
+        .odd-item.selected {
+            border-color: #f59e0b;
+            background: #fffbeb;
+        }
+
+        .odd-item.correct-answer-style {
+            border-color: #16a34a;
+            background: #dcfce7;
+        }
+
+        .odd-item.wrong-answer-style {
+            border-color: #dc2626;
+            background: #fef2f2;
+        }
+
+        .odd-explanation {
+            margin-top: 12px;
+            padding: 10px 12px;
+            border-radius: 8px;
+            font-size: 12px;
+        }
+
+        .odd-explanation.correct {
+            background: #dcfce7;
+            border-left: 4px solid #16a34a;
+            color: #166534;
+        }
+
+        .odd-explanation.incorrect {
+            background: #fef2f2;
+            border-left: 4px solid #dc2626;
+            color: #991b1b;
+        }
+
+        .verify-btn {
+            display: block;
+            margin: 16px auto 0;
+        }
+
         /* ===== RESPONSIVE ===== */
         @media (max-width: 1024px) {
             .intro-layout {
                 grid-template-columns: 1fr;
+            }
+            .safe-space-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .matching-categories {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .odd-items {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
 
@@ -1136,78 +1824,78 @@
                 gap: 6px;
                 padding: 10px 12px;
             }
-
             .header-center {
                 order: -1;
                 width: 100%;
             }
-
             .header-title {
                 font-size: 14px;
             }
-
             .header-btn, .header-link {
                 padding: 5px 10px;
                 font-size: 12px;
             }
-
             .main-content {
                 padding: 16px 12px;
             }
-
             .page-title {
                 font-size: 20px;
             }
-
             .page-subtitle {
                 font-size: 14px;
             }
-
             .decision-options {
                 grid-template-columns: 1fr;
             }
-
             .consequences-layout {
                 grid-template-columns: 1fr;
             }
-
             .modal-body {
                 flex-direction: column;
             }
-
             .modal-image-container {
                 width: 100%;
             }
-
             .bottom-bar {
                 flex-direction: column;
             }
-
             .start-btn {
                 width: 100%;
             }
-
             .step-header {
                 flex-direction: column;
                 align-items: flex-start;
                 gap: 8px;
             }
-
             .step-progress-dots {
                 width: 100%;
                 justify-content: center;
             }
-
             .hotspot {
                 width: 30px;
                 height: 30px;
             }
-
             .hotspot-plus {
                 font-size: 16px;
             }
-
             .progress-stats {
+                grid-template-columns: 1fr;
+            }
+            .step2-intro {
+                grid-template-columns: 1fr;
+            }
+            .safe-space-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .safety-layout {
+                grid-template-columns: 1fr;
+            }
+            .safety-image-container {
+                position: static;
+                order: -1;
+            }
+            .matching-items,
+            .matching-categories {
                 grid-template-columns: 1fr;
             }
         }
@@ -1216,38 +1904,36 @@
             .header-title {
                 font-size: 13px;
             }
-
             .page-title {
                 font-size: 18px;
             }
-
             .step-item {
                 padding: 10px 12px;
             }
-
             .step-info strong {
                 font-size: 13px;
             }
-
             .step-info span {
                 font-size: 11px;
             }
-
             .progress-node {
                 min-width: 40px;
             }
-
             .node-label {
                 font-size: 8px;
             }
-
             .modal-title {
                 font-size: 14px;
             }
-
             .option-content {
                 padding: 14px 16px;
                 font-size: 13px;
+            }
+            .safe-space-grid {
+                grid-template-columns: 1fr;
+            }
+            .odd-items {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -1277,12 +1963,11 @@
     <!-- ===== MAIN CONTENT ===== -->
     <main class="main-content" id="mainContent">
 
-        <!-- === : Як працювати з тренажером === -->
+        <!-- === КРОК 0: Як працювати з тренажером === -->
         <section class="page" id="page-intro">
-            <h2 class="page-title"> Як працювати з тренажером</h2>
+            <h2 class="page-title">Як працювати з тренажером</h2>
 
             <div class="intro-layout">
-                <!-- Left column: Steps -->
                 <div class="intro-left">
                     <div class="welcome-box">
                         <span class="welcome-emoji">👋</span>
@@ -1303,9 +1988,9 @@
                         </div>
                         <div class="step-arrow">↓</div>
 
-                        <div class="step-item" data-step="2">
+                        <div class="step-item clickable" data-step="2" onclick="goToStep2()">
                             <div class="step-number green">2</div>
-                            <div class="step-icon"></div>
+                            <div class="step-icon">🏠</div>
                             <div class="step-info">
                                 <strong>Крок 2</strong>
                                 <span>Безпека та безпечний простір</span>
@@ -1344,7 +2029,6 @@
                     </div>
                 </div>
 
-                <!-- Center: Character illustration -->
                 <div class="intro-center">
                     <div class="character-illustration">
                         <img src="https://res.cloudinary.com/dmydvhkzr/image/upload/v1781886119/boy_with_map_ilnj0h.png" alt="Хлопець із картою" class="character-img">
@@ -1373,7 +2057,6 @@
                     </div>
                 </div>
 
-                <!-- Right column: Progress & Activities -->
                 <div class="intro-right">
                     <div class="progress-box">
                         <h3>Твій прогрес</h3>
@@ -1435,7 +2118,6 @@
                 </div>
             </div>
 
-            <!-- Tip + Start button -->
             <div class="bottom-bar">
                 <div class="tip-box">
                     <span class="tip-icon">💡</span>
@@ -1450,7 +2132,7 @@
             </div>
         </section>
 
-        <!-- === STEP 1: Стартова ситуація === -->
+        <!-- === КРОК 1: Стартова ситуація === -->
         <section class="page hidden" id="page-step1">
             <div class="step-header">
                 <div class="step-header-left">
@@ -1462,7 +2144,7 @@
                     <span class="step-counter">Крок 1 з 5</span>
                 </div>
                 <div class="step-progress-dots">
-                    <span class="dot active">1</span>
+                    <span class="dot completed">1</span>
                     <span class="dot">2</span>
                     <span class="dot">3</span>
                     <span class="dot">4</span>
@@ -1476,7 +2158,6 @@
             <div class="scene-container" id="sceneContainer">
                 <img src="https://res.cloudinary.com/dmydvhkzr/image/upload/v1781892345/construction_site.png_fdryw4.png" alt="Будівельний майданчик" class="scene-image" id="sceneImage">
 
-                <!-- Hotspots (гарячі точки) -->
                 <div class="hotspot" data-risk="rebar" style="top: 15%; left: 8%;">
                     <span class="hotspot-plus">+</span>
                 </div>
@@ -1502,7 +2183,7 @@
             </p>
         </section>
 
-        <!-- === RISK MODAL (картка ризику) === -->
+        <!-- === RISK MODAL === -->
         <div class="modal-overlay hidden" id="riskModal">
             <div class="modal-card" id="modalCard">
                 <div class="modal-header">
@@ -1555,7 +2236,7 @@
             </div>
         </div>
 
-        <!-- === STEP 8: Перше рішення === -->
+        <!-- === КРОК 1: Перше рішення === -->
         <section class="page hidden" id="page-decision">
             <div class="step-header">
                 <div class="step-header-left">
@@ -1567,7 +2248,7 @@
                     <span class="step-counter">Крок 1 з 5</span>
                 </div>
                 <div class="step-progress-dots">
-                    <span class="dot active">1</span>
+                    <span class="dot completed">1</span>
                     <span class="dot">2</span>
                     <span class="dot">3</span>
                     <span class="dot">4</span>
@@ -1630,7 +2311,7 @@
             </button>
         </section>
 
-        <!-- === STEP 9: Наслідки рішення === -->
+        <!-- === КРОК 1: Наслідки рішення === -->
         <section class="page hidden" id="page-consequences">
             <div class="step-header">
                 <div class="step-header-left">
@@ -1642,7 +2323,7 @@
                     <span class="step-counter">Крок 1 з 5</span>
                 </div>
                 <div class="step-progress-dots">
-                    <span class="dot active">1</span>
+                    <span class="dot completed">1</span>
                     <span class="dot">2</span>
                     <span class="dot">3</span>
                     <span class="dot">4</span>
@@ -1680,9 +2361,556 @@
             </button>
         </section>
 
+        <!-- === КРОК 2: Вступ === -->
+        <section class="page hidden" id="page-step2-intro">
+            <div class="step-header">
+                <div class="step-header-left">
+                    <span class="step-badge green">2</span>
+                    <span class="step-header-text" onclick="showPage('intro')">До змісту</span>
+                </div>
+                <div class="step-header-center">
+                    <span>§ 1. Безпека, небезпека і ризики</span>
+                    <span class="step-counter">Крок 2 з 5</span>
+                </div>
+                <div class="step-progress-dots">
+                    <span class="dot completed">1</span>
+                    <span class="dot">2</span>
+                    <span class="dot">3</span>
+                    <span class="dot">4</span>
+                    <span class="dot">5</span>
+                </div>
+            </div>
+
+            <h2 class="page-title">2. Безпека та безпечний простір</h2>
+            <p class="page-subtitle">Досліди, що допомагає людині почуватися захищеною та як створити безпечний простір навколо себе.</p>
+
+            <div class="step2-intro">
+                <div class="intro-card" onclick="openSection('safety')">
+                    <div class="intro-card-header">
+                        <div class="intro-icon shield">🛡️</div>
+                        <div>
+                            <h3>Безпека</h3>
+                            <p>Це стан захищеності від загроз, небезпек і ризиків.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="intro-card" onclick="openSection('safe-space')">
+                    <div class="intro-card-header">
+                        <div class="intro-icon house">🏠</div>
+                        <div>
+                            <h3>Безпечний простір</h3>
+                            <p>Середовище, у якому людина почувається захищеною, прийнятою та може розвиватися.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="task-box">
+                <h3>Твоє завдання</h3>
+                <ul class="task-list">
+                    <li><span class="task-checkbox" onclick="toggleCheckbox(this)"></span> дізнайся, що таке безпека;</li>
+                    <li><span class="task-checkbox" onclick="toggleCheckbox(this)"></span> досліді складові безпечного простору;</li>
+                    <li><span class="task-checkbox" onclick="toggleCheckbox(this)"></span> проаналізуй життєві ситуації;</li>
+                    <li><span class="task-checkbox" onclick="toggleCheckbox(this)"></span> оціни власний простір.</li>
+                </ul>
+
+                <div class="progress-section">
+                    <h4>Прогрес</h4>
+                    <div class="progress-item">
+                        <span class="progress-radio" onclick="toggleRadio(this)"></span>
+                        <span>Безпека</span>
+                    </div>
+                    <div class="progress-item">
+                        <span class="progress-radio" onclick="toggleRadio(this)"></span>
+                        <span>Безпечний простір</span>
+                    </div>
+                </div>
+
+                <button class="btn" style="margin-top: 16px;" onclick="startSection()">
+                    Розпочати <span>→</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- === КРОК 2: Безпека === -->
+        <section class="page hidden" id="page-safety">
+            <div class="situation-card">
+                <div class="situation-header">
+                    <div class="situation-number"></div>
+                    <div class="situation-title">Безпека</div>
+                </div>
+
+                <div class="safety-layout">
+                    <div class="safety-content">
+                        <p style="margin-bottom: 14px;"><strong>Безпека</strong> — це стан захищеності від загроз, небезпек і ризиків.</p>
+
+                        <h4 style="margin-bottom: 10px; font-size: 14px;">Безпека допомагає:</h4>
+                        <ul style="list-style: none; margin-bottom: 16px;">
+                            <li style="padding: 6px 0; display: flex; align-items: center; gap: 8px; font-size: 13px;">🛡️ уникати небезпек</li>
+                            <li style="padding: 6px 0; display: flex; align-items: center; gap: 8px; font-size: 13px;">😌 зберігати спокій</li>
+                            <li style="padding: 6px 0; display: flex; align-items: center; gap: 8px; font-size: 13px;">🎯 навчатися</li>
+                            <li style="padding: 6px 0; display: flex; align-items: center; gap: 8px; font-size: 13px;">🤝 будувати стосунки</li>
+                            <li style="padding: 6px 0; display: flex; align-items: center; gap: 8px; font-size: 13px;">✅ досягати цілей</li>
+                        </ul>
+
+                        <div class="explanation">
+                            <div class="explanation-title">📌 Приклад</div>
+                            <div class="explanation-text">Перехід дороги на зелений сигнал світлофора.</div>
+                        </div>
+                    </div>
+
+                    <div class="safety-image-container">
+                        <img src="https://res.cloudinary.com/dmydvhkzr/image/upload/v1782322080/safety_boy_thumbsup_q8pleh.png" alt="Хлопець показує клас">
+                    </div>
+                </div>
+            </div>
+
+            <div class="nav-buttons">
+                <button class="btn btn-secondary" onclick="showPage('step2-intro')">Назад</button>
+                <button class="btn btn-success" onclick="openSafeSpace()">Далі <span>→</span></button>
+            </div>
+        </section>
+
+        <!-- === КРОК 2: Безпечний простір === -->
+        <section class="page hidden" id="page-safe-space">
+            <div class="situation-card">
+                <div class="situation-header">
+                    <div class="situation-number"></div>
+                    <div class="situation-title">Безпечний простір</div>
+                </div>
+
+                <p><strong>Безпечний простір</strong> — це середовище, у якому людина почувається захищеною, прийнятою та може розвиватися.</p>
+                <p style="margin-top: 10px;">Він складається з п'яти складових. Натисни на картку, щоб дізнатися більше:</p>
+
+                <div class="safe-space-grid">
+                    <div class="space-card" onclick="openSpaceDetail('physical')">
+                        <div class="space-icon physical">🌳</div>
+                        <h4>Фізичний простір</h4>
+                        <p>Безпечне місце, де немає фізичних загроз.</p>
+                    </div>
+                    <div class="space-card" onclick="openSpaceDetail('psychological')">
+                        <div class="space-icon psychological">🧠</div>
+                        <h4>Психологічний простір</h4>
+                        <p>Атмосфера довіри та підтримки, відсутність страху.</p>
+                    </div>
+                    <div class="space-card" onclick="openSpaceDetail('social')">
+                        <div class="space-icon social">👥</div>
+                        <h4>Соціальний простір</h4>
+                        <p>Підтримка, співпраця, відсутність дискримінації.</p>
+                    </div>
+                    <div class="space-card" onclick="openSpaceDetail('digital')">
+                        <div class="space-icon digital">🔒</div>
+                        <h4>Цифровий простір</h4>
+                        <p>Захист даних, приватність, безпечна поведінка онлайн.</p>
+                    </div>
+                    <div class="space-card" onclick="openSpaceDetail('internal')">
+                        <div class="space-icon internal">🧘</div>
+                        <h4>Внутрішній простір</h4>
+                        <p>Самоповага, розуміння себе, керування емоціями.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="nav-buttons">
+                <button class="btn btn-secondary" onclick="showPage('safety')">Назад</button>
+                <button class="btn btn-success" onclick="startSituations()">Дослідити складові <span>→</span></button>
+            </div>
+        </section>
+
+        <!-- === КРОК 2: Ситуації 2.4-2.8 === -->
+        <section class="page hidden" id="page-situation-2-4">
+            <div class="situation-card">
+                <div class="situation-header">
+                    <div class="situation-number"></div>
+                    <div class="situation-title">Фізичний простір</div>
+                </div>
+
+                <h4 style="margin-bottom: 10px; font-size: 14px;">Ситуація</h4>
+                <p>У школі є укриття, але запасний вихід захаращений коробками.</p>
+
+                <img src="https://res.cloudinary.com/dmydvhkzr/image/upload/v1782322073/exit_door_wxjg3v.png" alt="Вихід захаращений" class="situation-image">
+
+                <div class="question">Чи можна вважати цей простір безпечним?</div>
+
+                <ul class="answer-options">
+                    <li>
+                        <span class="answer-radio" onclick="selectRadio(this, '2-4', false, 'Наявність захарадженого виходу створює небезпеку в екстреній ситуації.')"></span>
+                        <span>Так</span>
+                    </li>
+                    <li>
+                        <span class="answer-radio" onclick="selectRadio(this, '2-4', false, 'Укриття є — це вже елемент безпеки, тому простір не можна назвати повністю небезпечним.')"></span>
+                        <span>Ні</span>
+                    </li>
+                    <li>
+                        <span class="answer-radio" onclick="selectRadio(this, '2-4', true, 'Наявність укриття — добре, але захараджений вихід може стати небезпекою у надзвичайній ситуації.')"></span>
+                        <span>Частково</span>
+                    </li>
+                </ul>
+
+                <div class="explanation hidden" id="explanation-2-4">
+                    <div class="explanation-title">💡 Пояснення</div>
+                    <div class="explanation-text" id="explanation-text-2-4"></div>
+                </div>
+            </div>
+
+            <div class="nav-buttons">
+                <button class="btn btn-secondary" onclick="showPage('safe-space')">← Безпечний простір</button>
+                <button class="btn" onclick="nextSituation('2-4', '2-5')">Далі <span>→</span></button>
+            </div>
+        </section>
+
+        <section class="page hidden" id="page-situation-2-5">
+            <div class="situation-card">
+                <div class="situation-header">
+                    <div class="situation-number"></div>
+                    <div class="situation-title">Психологічний простір</div>
+                </div>
+
+                <h4 style="margin-bottom: 10px; font-size: 14px;">Ситуація</h4>
+                <p>Учень боїться відповідати на уроці, бо його часто висміюють.</p>
+
+                <img src="https://res.cloudinary.com/dmydvhkzr/image/upload/v1782322076/stressed_student_n7xvhb.png" alt="Стресований учень" class="situation-image">
+
+                <div class="question">Яка складова безпечного простору порушена?</div>
+
+                <ul class="answer-options">
+                    <li>
+                        <span class="answer-radio" onclick="selectRadio(this, '2-5', false, 'Фізична безпека не порушена — немає фізичної загрози.')"></span>
+                        <span>Фізична</span>
+                    </li>
+                    <li>
+                        <span class="answer-radio" onclick="selectRadio(this, '2-5', true, 'Страх і висміювання руйнують відчуття довіри та підтримки, тобто порушують психологічний простір.')"></span>
+                        <span>Психологічна</span>
+                    </li>
+                    <li>
+                        <span class="answer-radio" onclick="selectRadio(this, '2-5', false, 'Соціальна складова пов\'язана з групою, а тут проблема індивідуального страху.')"></span>
+                        <span>Соціальна</span>
+                    </li>
+                    <li>
+                        <span class="answer-radio" onclick="selectRadio(this, '2-5', false, 'Це не стосується цифрового простору.')"></span>
+                        <span>Цифрова</span>
+                    </li>
+                    <li>
+                        <span class="answer-radio" onclick="selectRadio(this, '2-5', false, 'Проблема зовнішня (висміювання однокласниками), а не внутрішня.')"></span>
+                        <span>Внутрішня</span>
+                    </li>
+                </ul>
+
+                <div class="explanation hidden" id="explanation-2-5">
+                    <div class="explanation-title">💡 Пояснення</div>
+                    <div class="explanation-text" id="explanation-text-2-5"></div>
+                </div>
+            </div>
+
+            <div class="nav-buttons">
+                <button class="btn btn-secondary" onclick="showPage('safe-space')">← Безпечний простір</button>
+                <button class="btn" onclick="nextSituation('2-5', '2-6')">Далі <span>→</span></button>
+            </div>
+        </section>
+
+        <section class="page hidden" id="page-situation-2-6">
+            <div class="situation-card">
+                <div class="situation-header">
+                    <div class="situation-number"></div>
+                    <div class="situation-title">Соціальний простір</div>
+                </div>
+
+                <h4 style="margin-bottom: 10px; font-size: 14px;">Ситуація</h4>
+                <p>Новачка не беруть до командних проєктів.</p>
+
+                <img src="https://res.cloudinary.com/dmydvhkzr/image/upload/v1782322076/girl_studying_c4v1ht.png" alt="Дівчина з книгами" class="situation-image">
+
+                <div class="question">Що може допомогти покращити ситуацію?</div>
+
+                <ul class="answer-options">
+                    <li>
+                        <span class="answer-checkbox" onclick="toggleCheckboxAnswer(this, '2-6', true)"></span>
+                        <span>Запросити його до спільної діяльності</span>
+                    </li>
+                    <li>
+                        <span class="answer-checkbox" onclick="toggleCheckboxAnswer(this, '2-6', true)"></span>
+                        <span>Виявити підтримку та заохочувати спілкування</span>
+                    </li>
+                    <li>
+                        <span class="answer-checkbox" onclick="toggleCheckboxAnswer(this, '2-6', false)"></span>
+                        <span>Ігнорувати проблему</span>
+                    </li>
+                    <li>
+                        <span class="answer-checkbox" onclick="toggleCheckboxAnswer(this, '2-6', false)"></span>
+                        <span>Поширювати жарти про нього</span>
+                    </li>
+                </ul>
+
+                <div class="explanation hidden" id="explanation-2-6">
+                    <div class="explanation-title">💡 Пояснення</div>
+                    <div class="explanation-text">Підтримка та включення допомагають створити дружнє та безпечне середовище. Ігнорування та жарти лише погіршують ситуацію.</div>
+                </div>
+            </div>
+
+            <div class="nav-buttons">
+                <button class="btn btn-secondary" onclick="showPage('safe-space')">← Безпечний простір</button>
+                <button class="btn" onclick="nextSituation('2-6', '2-7')">Далі <span>→</span></button>
+            </div>
+        </section>
+
+        <section class="page hidden" id="page-situation-2-7">
+            <div class="situation-card">
+                <div class="situation-header">
+                    <div class="situation-number"></div>
+                    <div class="situation-title">Цифровий простір</div>
+                </div>
+
+                <h4 style="margin-bottom: 10px; font-size: 14px;">Ситуація</h4>
+                <p>Тобі надійшло повідомлення: «Терміново підтвердь пароль від акаунта».</p>
+
+                <img src="https://res.cloudinary.com/dmydvhkzr/image/upload/v1782322073/phone_warning_y2mszz.png" alt="Телефон з попередженням" class="situation-image">
+
+                <div class="question">Як краще діяти?</div>
+
+                <ul class="answer-options">
+                    <li>
+                        <span class="answer-radio" onclick="selectRadio(this, '2-7', false, 'Це може бути фішинг — шахрайське посилання для крадіжки пароля.')"></span>
+                        <span>Перейти за посиланням і ввести пароль</span>
+                    </li>
+                    <li>
+                        <span class="answer-radio" onclick="selectRadio(this, '2-7', true, 'Це може бути спроба шахрайства. Не переходь за підозрілими посиланнями.')"></span>
+                        <span>Проігнорувати повідомлення</span>
+                    </li>
+                    <li>
+                        <span class="answer-radio" onclick="selectRadio(this, '2-7', false, 'Ніколи не надсилайте свій пароль — це конфіденційна інформація.')"></span>
+                        <span>Надіслати пароль від акаунта</span>
+                    </li>
+                    <li>
+                        <span class="answer-radio" onclick="selectRadio(this, '2-7', false, 'Краще проігнорувати підозріле повідомлення, ніж ризикувати.')"></span>
+                        <span>Відповісти та уточнити інформацію</span>
+                    </li>
+                </ul>
+
+                <div class="explanation hidden" id="explanation-2-7">
+                    <div class="explanation-title">💡 Пояснення</div>
+                    <div class="explanation-text" id="explanation-text-2-7"></div>
+                </div>
+            </div>
+
+            <div class="nav-buttons">
+                <button class="btn btn-secondary" onclick="showPage('safe-space')">← Безпечний простір</button>
+                <button class="btn" onclick="nextSituation('2-7', '2-8')">Далі <span>→</span></button>
+            </div>
+        </section>
+
+        <section class="page hidden" id="page-situation-2-8">
+            <div class="situation-card">
+                <div class="situation-header">
+                    <div class="situation-number"></div>
+                    <div class="situation-title">Внутрішній простір</div>
+                </div>
+
+                <h4 style="margin-bottom: 10px; font-size: 14px;">Ситуація</h4>
+                <p>Ти отримав(ла) низьку оцінку за важливу контрольну роботу.</p>
+
+                <img src="https://res.cloudinary.com/dmydvhkzr/image/upload/v1782322075/stressed_person_phone_ejbi3y.png" alt="Стрес" class="situation-image">
+
+                <div class="question">Яка реакція буде найбільш конструктивною?</div>
+
+                <ul class="answer-options">
+                    <li>
+                        <span class="answer-radio" onclick="selectRadio(this, '2-8', false, 'Важливо не втрачати віру в себе через одну невдачу.')"></span>
+                        <span>Засмутитися і сказати, що в мене нічого не вийде</span>
+                    </li>
+                    <li>
+                        <span class="answer-radio" onclick="selectRadio(this, '2-8', false, 'Відповідальність за результат лежить на тобі, а не на інших.')"></span>
+                        <span>Звинуватити вчителя або інших</span>
+                    </li>
+                    <li>
+                        <span class="answer-radio" onclick="selectRadio(this, '2-8', true, 'Аналіз помилок допомагає розвиватися і не втрачати віру в себе.')"></span>
+                        <span>Проаналізувати помилки і спробувати ще раз</span>
+                    </li>
+                    <li>
+                        <span class="answer-radio" onclick="selectRadio(this, '2-8', false, 'Ігнорування проблеми не допоможе покращити результат.')"></span>
+                        <span>Ігнорувати проблему та нічого не робити</span>
+                    </li>
+                </ul>
+
+                <div class="explanation hidden" id="explanation-2-8">
+                    <div class="explanation-title">💡 Пояснення</div>
+                    <div class="explanation-text" id="explanation-text-2-8"></div>
+                </div>
+            </div>
+
+            <div class="nav-buttons">
+                <button class="btn btn-secondary" onclick="showPage('safe-space')">← Безпечний простір</button>
+                <button class="btn btn-success" onclick="showPage('exercise-2-10')">Перейти до вправ <span>→</span></button>
+            </div>
+        </section>
+
+        <!-- === ВПРАВА 2.10: До якої складової належить? === -->
+        <section class="page hidden" id="page-exercise-2-10">
+            <div class="situation-card">
+                <div class="situation-header">
+                    <div class="situation-number"></div>
+                    <div class="situation-title">Завдання 1. До якої складової належить?</div>
+                </div>
+
+                <div class="matching-container">
+                    <div class="matching-instruction">
+                        <strong>📋 Інструкція:</strong> Натисни на приклад, а потім на відповідну складову безпечного простору. Розподіли всі приклади по категоріях.
+                    </div>
+
+                    <div class="matching-items" id="matchingItems">
+                        <div class="matching-item" data-item="ukryttia" onclick="selectMatchingItem(this)">🏠 Укриття в школі</div>
+                        <div class="matching-item" data-item="dovira" onclick="selectMatchingItem(this)">🤝 Довіра до вчителя</div>
+                        <div class="matching-item" data-item="pidtrymka" onclick="selectMatchingItem(this)">👥 Підтримка друзів</div>
+                        <div class="matching-item" data-item="parol" onclick="selectMatchingItem(this)">🔒 Надійний пароль</div>
+                        <div class="matching-item" data-item="samopova" onclick="selectMatchingItem(this)">🧘 Самоповага</div>
+                        <div class="matching-item" data-item="vilni-vyhody" onclick="selectMatchingItem(this)">🚪 Вільні виходи</div>
+                        <div class="matching-item" data-item="bez-nasmishok" onclick="selectMatchingItem(this)">😌 Можливість помилитися без насмішок</div>
+                        <div class="matching-item" data-item="komandna-robota" onclick="selectMatchingItem(this)">🤝 Командна робота</div>
+                        <div class="matching-item" data-item="perevirka-dzherel" onclick="selectMatchingItem(this)">🔍 Перевірка джерел інформації</div>
+                        <div class="matching-item" data-item="pozytyvne-myslennia" onclick="selectMatchingItem(this)">💭 Позитивне мислення</div>
+                    </div>
+
+                    <div class="matching-categories">
+                        <div class="matching-category" data-category="physical" onclick="assignToCategory(this)">
+                            <div class="matching-category-title">🌳 Фізичний простір</div>
+                            <div class="matching-category-items"></div>
+                        </div>
+                        <div class="matching-category" data-category="psychological" onclick="assignToCategory(this)">
+                            <div class="matching-category-title">🧠 Психологічний</div>
+                            <div class="matching-category-items"></div>
+                        </div>
+                        <div class="matching-category" data-category="social" onclick="assignToCategory(this)">
+                            <div class="matching-category-title">👥 Соціальний</div>
+                            <div class="matching-category-items"></div>
+                        </div>
+                        <div class="matching-category" data-category="digital" onclick="assignToCategory(this)">
+                            <div class="matching-category-title">🔒 Цифровий</div>
+                            <div class="matching-category-items"></div>
+                        </div>
+                        <div class="matching-category" data-category="internal" onclick="assignToCategory(this)">
+                            <div class="matching-category-title">🧘 Внутрішній</div>
+                            <div class="matching-category-items"></div>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-success check-matching-btn" onclick="checkMatching()">
+                        Перевірити <span>✓</span>
+                    </button>
+
+                    <div class="matching-result hidden" id="matchingResult"></div>
+                </div>
+            </div>
+
+            <div class="nav-buttons">
+                <button class="btn btn-secondary" onclick="showPage('safe-space')">← Безпечний простір</button>
+                <button class="btn" onclick="showPage('exercise-2-11')">Далі <span>→</span></button>
+            </div>
+        </section>
+
+        <!-- === ВПРАВА 2.11: Знайди зайве === -->
+        <section class="page hidden" id="page-exercise-2-11">
+            <div class="situation-card">
+                <div class="situation-header">
+                    <div class="situation-number"></div>
+                    <div class="situation-title">Завдання 2. Знайди зайве</div>
+                </div>
+
+                <p style="margin-bottom: 16px; font-size: 13px;">У кожному рядку один елемент не належить до цієї групи. Обери зайвий.</p>
+
+                <!-- Task 1 -->
+                <div class="odd-task" id="odd-task-1">
+                    <div class="odd-task-title">🌳 Фізичний простір — знайди зайве:</div>
+                    <div class="odd-items">
+                        <div class="odd-item" data-task="1" data-correct="false" onclick="selectOddItem(this)">Безпечний вихід</div>
+                        <div class="odd-item" data-task="1" data-correct="true" onclick="selectOddItem(this)">Осміяння</div>
+                        <div class="odd-item" data-task="1" data-correct="false" onclick="selectOddItem(this)">Укриття</div>
+                        <div class="odd-item" data-task="1" data-correct="false" onclick="selectOddItem(this)">Освітлення</div>
+                    </div>
+                    <button class="btn verify-btn" onclick="verifyOddTask(1)">Перевірити</button>
+                    <div class="odd-explanation hidden" id="odd-explanation-1"></div>
+                </div>
+
+                <!-- Task 2 -->
+                <div class="odd-task" id="odd-task-2">
+                    <div class="odd-task-title">🧠 Психологічний простір — знайди зайве:</div>
+                    <div class="odd-items">
+                        <div class="odd-item" data-task="2" data-correct="false" onclick="selectOddItem(this)">Довіра</div>
+                        <div class="odd-item" data-task="2" data-correct="false" onclick="selectOddItem(this)">Підтримка</div>
+                        <div class="odd-item" data-task="2" data-correct="true" onclick="selectOddItem(this)">Надійний пароль</div>
+                        <div class="odd-item" data-task="2" data-correct="false" onclick="selectOddItem(this)">Повага</div>
+                    </div>
+                    <button class="btn verify-btn" onclick="verifyOddTask(2)">Перевірити</button>
+                    <div class="odd-explanation hidden" id="odd-explanation-2"></div>
+                </div>
+
+                <!-- Task 3 -->
+                <div class="odd-task" id="odd-task-3">
+                    <div class="odd-task-title">👥 Соціальний простір — знайди зайве:</div>
+                    <div class="odd-items">
+                        <div class="odd-item" data-task="3" data-correct="false" onclick="selectOddItem(this)">Співпраця</div>
+                        <div class="odd-item" data-task="3" data-correct="false" onclick="selectOddItem(this)">Дружба</div>
+                        <div class="odd-item" data-task="3" data-correct="false" onclick="selectOddItem(this)">Толерантність</div>
+                        <div class="odd-item" data-task="3" data-correct="true" onclick="selectOddItem(this)">Wi-Fi</div>
+                    </div>
+                    <button class="btn verify-btn" onclick="verifyOddTask(3)">Перевірити</button>
+                    <div class="odd-explanation hidden" id="odd-explanation-3"></div>
+                </div>
+
+                <!-- Task 4 -->
+                <div class="odd-task" id="odd-task-4">
+                    <div class="odd-task-title">🔒 Цифровий простір — знайди зайве:</div>
+                    <div class="odd-items">
+                        <div class="odd-item" data-task="4" data-correct="false" onclick="selectOddItem(this)">Складний пароль</div>
+                        <div class="odd-item" data-task="4" data-correct="false" onclick="selectOddItem(this)">Приватність</div>
+                        <div class="odd-item" data-task="4" data-correct="true" onclick="selectOddItem(this)">Критичне мислення</div>
+                        <div class="odd-item" data-task="4" data-correct="false" onclick="selectOddItem(this)">Підтримка</div>
+                    </div>
+                    <button class="btn verify-btn" onclick="verifyOddTask(4)">Перевірити</button>
+                    <div class="odd-explanation hidden" id="odd-explanation-4"></div>
+                </div>
+
+                <!-- Task 5 -->
+                <div class="odd-task" id="odd-task-5">
+                    <div class="odd-task-title">🧘 Внутрішній простір — знайди зайве:</div>
+                    <div class="odd-items">
+                        <div class="odd-item" data-task="5" data-correct="false" onclick="selectOddItem(this)">Самоповага</div>
+                        <div class="odd-item" data-task="5" data-correct="false" onclick="selectOddItem(this)">Емоційний баланс</div>
+                        <div class="odd-item" data-task="5" data-correct="false" onclick="selectOddItem(this)">Розуміння себе</div>
+                        <div class="odd-item" data-task="5" data-correct="true" onclick="selectOddItem(this)">Сварки в соцмережах</div>
+                    </div>
+                    <button class="btn verify-btn" onclick="verifyOddTask(5)">Перевірити</button>
+                    <div class="odd-explanation hidden" id="odd-explanation-5"></div>
+                </div>
+            </div>
+
+            <div class="nav-buttons">
+                <button class="btn btn-secondary" onclick="showPage('safe-space')">← Безпечний простір</button>
+                <button class="btn btn-success" onclick="showPage('step2-final')">Завершити крок <span>→</span></button>
+            </div>
+        </section>
+
+        <!-- === КРОК 2: Фінал === -->
+        <section class="page hidden" id="page-step2-final">
+            <div class="final-section">
+                <img src="https://res.cloudinary.com/dmydvhkzr/image/upload/v1782322080/diverse_group_yjjzmy.png" alt="Група" class="final-image">
+                <h2 class="final-title">Молодець!</h2>
+                <p class="final-text">Ти успішно:</p>
+                <ul class="achievement-list">
+                    <li><span class="achievement-icon">✅</span> ознайомився(лася) з поняттям безпеки;</li>
+                    <li><span class="achievement-icon">✅</span> дослідив(ла) складові безпечного простору;</li>
+                    <li><span class="achievement-icon">✅</span> проаналізував(ла) життєві ситуації;</li>
+                    <li><span class="achievement-icon">✅</span> виконав(ла) вправи на закріплення;</li>
+                    <li><span class="achievement-icon">✅</span> оцінив(ла) власний простір.</li>
+                </ul>
+                <button class="btn btn-success" style="margin-top: 16px;" onclick="goToStep3()">
+                    Перейти до кроку 3 «Ризики» <span>→</span>
+                </button>
+            </div>
+        </section>
+
     </main>
 
-    <!-- ===== МОДАЛЬНЕ ВІКНО: МІЙ ПРОГРЕС ===== -->
+    <!-- ===== МОДАЛЬНІ ВІКНА ===== -->
     <div class="modal-overlay hidden" id="progressModal">
         <div class="modal-card">
             <div class="modal-header">
@@ -1694,7 +2922,6 @@
             </div>
             <div class="info-modal-content">
                 <h2>Твій прогрес у тренажері</h2>
-                
                 <div class="progress-stats">
                     <div class="stat-card">
                         <div class="stat-number" id="statSteps">0/5</div>
@@ -1705,7 +2932,6 @@
                         <div class="stat-label">Ризиків знайдено</div>
                     </div>
                 </div>
-
                 <h3>Статус кроків:</h3>
                 <ul class="step-status-list" id="stepStatusList">
                     <li class="step-status-item current">
@@ -1717,7 +2943,7 @@
                         <span>Крок 2: Безпека та безпечний простір</span>
                     </li>
                     <li class="step-status-item">
-                        <span class="step-status-icon"></span>
+                        <span class="step-status-icon">⚪</span>
                         <span>Крок 3: Ризики</span>
                     </li>
                     <li class="step-status-item">
@@ -1729,13 +2955,11 @@
                         <span>Крок 5: Ухвалення рішень</span>
                     </li>
                 </ul>
-
                 <button class="close-info-btn" onclick="closeModal('progressModal')">Закрити</button>
             </div>
         </div>
     </div>
 
-    <!-- ===== МОДАЛЬНЕ ВІКНО: ЯК ПРАЦЮВАТИ ===== -->
     <div class="modal-overlay hidden" id="helpModal">
         <div class="modal-card">
             <div class="modal-header">
@@ -1747,10 +2971,8 @@
             </div>
             <div class="info-modal-content">
                 <h2>Інструкція з використання тренажера</h2>
-                
                 <h3>🎯 Як почати?</h3>
                 <p>Натисни кнопку <strong>"Розпочати параграф"</strong> або <strong>"Крок 1"</strong> на головній сторінці, щоб перейти до першого завдання.</p>
-
                 <h3>🔍 Як знаходити ризики?</h3>
                 <ul>
                     <li>Уважно розглянь зображення ситуації</li>
@@ -1758,32 +2980,46 @@
                     <li>Натискай на них, щоб дізнатися про ризик</li>
                     <li>Знайди всі 6 ризиків, щоб перейти далі</li>
                 </ul>
-
                 <h3>📋 Як працюють картки ризиків?</h3>
                 <ul>
                     <li>Кожна картка містить опис ризику</li>
                     <li>Показує, що може статися</li>
                     <li>Після перегляду натискай "Знайти наступний ризик"</li>
                 </ul>
-
                 <h3>✅ Як ухвалювати рішення?</h3>
                 <ul>
                     <li>Після знаходження всіх ризиків з'явиться вибір</li>
                     <li>Обери найбезпечніший варіант</li>
                     <li>Побачиш наслідки свого рішення</li>
                 </ul>
-
-                <h3> Як відстежувати прогрес?</h3>
+                <h3>📊 Як відстежувати прогрес?</h3>
                 <ul>
                     <li>Натискай кнопку "Мій прогрес" у верхньому меню</li>
                     <li>Бачитимеш, скільки кроків пройдено</li>
                     <li>Відстежуй знайдені ризики</li>
                 </ul>
-
                 <h3>💡 Поради</h3>
                 <p>Не поспішай! Уважно аналізуй кожну ситуацію та думай про можливі наслідки своїх рішень. Безпека — це важливо!</p>
-
                 <button class="close-info-btn" onclick="closeModal('helpModal')">Зрозуміло!</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay hidden" id="spaceModal">
+        <div class="modal-card">
+            <div class="modal-header">
+                <div class="modal-header-left">
+                    <div class="modal-number" id="spaceModalNumber">🌳</div>
+                    <h3 class="modal-title" id="spaceModalTitle">Фізичний простір</h3>
+                </div>
+                <button class="modal-close" onclick="closeSpaceModal()">✕</button>
+            </div>
+            <div class="modal-body">
+                <div class="space-detail-content" id="spaceModalContent"></div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeSpaceModal()">Закрити</button>
+                <button class="btn" onclick="goToSituationFromModal()">Дослідити далі <span>→</span></button>
             </div>
         </div>
     </div>
@@ -1806,11 +3042,7 @@
                 image: 'https://res.cloudinary.com/dmydvhkzr/image/upload/v1781886120/boy_phone_selfie_yzxmtz.png',
                 riskType: 'Відволікання уваги',
                 description: 'Під час зйомки людина менше помічає небезпеки навколо.',
-                whatCanHappen: [
-                    'можна не помітити край',
-                    'втратити рівновагу',
-                    'не звернути увагу на попередження друзів'
-                ],
+                whatCanHappen: ['можна не помітити край', 'втратити рівновагу', 'не звернути увагу на попередження друзів'],
                 type: 'whatCanHappen'
             },
             roof: {
@@ -1819,11 +3051,7 @@
                 image: 'https://res.cloudinary.com/dmydvhkzr/image/upload/v1781886120/roof_edge_crack_me7ink.png',
                 riskType: 'Ризик падіння',
                 description: 'Навіть якщо людина стоїть обережно, поруч із краєм ризик значно зростає.',
-                whatCanHappen: [
-                    'падіння з висоти',
-                    'серйозні травми',
-                    'загроза для життя'
-                ],
+                whatCanHappen: ['падіння з висоти', 'серйозні травми', 'загроза для життя'],
                 type: 'whatCanHappen'
             },
             sign: {
@@ -1832,11 +3060,7 @@
                 image: 'https://res.cloudinary.com/dmydvhkzr/image/upload/v1781886121/no_entry_sign_l9y1yw.png',
                 riskType: 'Попередження про небезпеку',
                 description: 'Такі знаки встановлюють не випадково.',
-                whatCanHappen: [
-                    'територія може бути небезпечною',
-                    'є ризик травмування чи падіння',
-                    'доступ сюди заборонений не просто так'
-                ],
+                whatCanHappen: ['територія може бути небезпечною', 'є ризик травмування чи падіння', 'доступ сюди заборонений не просто так'],
                 type: 'whyImportant'
             },
             net: {
@@ -1845,11 +3069,7 @@
                 image: 'https://res.cloudinary.com/dmydvhkzr/image/upload/v1781886119/construction_net_zijov0.png',
                 riskType: 'Ознака небезпечної зони',
                 description: 'Сітка означає, що роботи ще не завершені. За нею можуть бути отвори, нестійкі конструкції чи інші небезпеки.',
-                whatCanHappen: [
-                    'падіння з висоти',
-                    'травмування',
-                    'пошкодження конструкцій'
-                ],
+                whatCanHappen: ['падіння з висоти', 'травмування', 'пошкодження конструкцій'],
                 type: 'whatCanHappen'
             },
             building: {
@@ -1858,12 +3078,93 @@
                 image: 'https://res.cloudinary.com/dmydvhkzr/image/upload/v1781886121/unfinished_building_ymotls.png',
                 riskType: 'Небезпечний об\'єкт',
                 description: 'Конструкція не призначена для відпочинку чи прогулянок. Можливі отвори, нестійкі елементи, будівельне сміття та інші ризики.',
-                whatCanHappen: [
-                    'падіння',
-                    'обвал конструкцій',
-                    'травмування'
-                ],
+                whatCanHappen: ['падіння', 'обвал конструкцій', 'травмування'],
                 type: 'whatCanHappen'
+            }
+        };
+
+        // ===== ДАНІ ПРОСТОРІВ =====
+        const spaceDetails = {
+            physical: {
+                icon: '🌳',
+                title: 'Фізичний простір',
+                nextSituation: 'situation-2-4',
+                content: '<h3>Що таке фізичний простір?</h3><p>Фізичний простір — це безпечне місце, де немає фізичних загроз.</p><h4>Характеристики:</h4><ul><li>Відсутність фізичних загроз</li><li>Наявність укриття у разі небезпеки</li><li>Вільні виходи та евакуаційні шляхи</li><li>Відповідні умови для навчання та відпочинку</li></ul>'
+            },
+            psychological: {
+                icon: '🧠',
+                title: 'Психологічний простір',
+                nextSituation: 'situation-2-5',
+                content: '<h3>Що таке психологічний простір?</h3><p>Атмосфера довіри та підтримки, відсутність страху.</p><h4>Характеристики:</h4><ul><li>Відсутність страху та тривоги</li><li>Атмосфера довіри</li><li>Підтримка та розуміння</li><li>Можливість висловлювати думки</li></ul>'
+            },
+            social: {
+                icon: '👥',
+                title: 'Соціальний простір',
+                nextSituation: 'situation-2-6',
+                content: '<h3>Що таке соціальний простір?</h3><p>Підтримка, співпраця, відсутність дискримінації.</p><h4>Характеристики:</h4><ul><li>Взаємопідтримка</li><li>Співпраця та командна робота</li><li>Відсутність дискримінації</li><li>Рівні можливості для всіх</li></ul>'
+            },
+            digital: {
+                icon: '🔒',
+                title: 'Цифровий простір',
+                nextSituation: 'situation-2-7',
+                content: '<h3>Що таке цифровий простір?</h3><p>Захист даних, приватність, безпечна поведінка онлайн.</p><h4>Характеристики:</h4><ul><li>Захист персональних даних</li><li>Приватність акаунтів</li><li>Безпечна поведінка в інтернеті</li><li>Критичне мислення щодо інформації</li></ul>'
+            },
+            internal: {
+                icon: '🧘',
+                title: 'Внутрішній простір',
+                nextSituation: 'situation-2-8',
+                content: '<h3>Що таке внутрішній простір?</h3><p>Самоповага, розуміння себе, керування емоціями.</p><h4>Характеристики:</h4><ul><li>Самоповага та самоцінність</li><li>Розуміння своїх емоцій</li><li>Керування стресом</li><li>Позитивне мислення</li></ul>'
+            }
+        };
+
+        // ===== ПРАВИЛЬНІ ВІДПОВІДІ ДЛЯ ВПРАВИ 2.10 =====
+        const correctMatching = {
+            'ukryttia': 'physical',
+            'vilni-vyhody': 'physical',
+            'dovira': 'psychological',
+            'bez-nasmishok': 'psychological',
+            'pidtrymka': 'social',
+            'komandna-robota': 'social',
+            'parol': 'digital',
+            'perevirka-dzherel': 'digital',
+            'samopova': 'internal',
+            'pozytyvne-myslennia': 'internal'
+        };
+
+        const itemLabels = {
+            'ukryttia': '🏠 Укриття в школі',
+            'vilni-vyhody': '🚪 Вільні виходи',
+            'dovira': '🤝 Довіра до вчителя',
+            'bez-nasmishok': '😌 Без насмішок',
+            'pidtrymka': '👥 Підтримка друзів',
+            'komandna-robota': '🤝 Командна робота',
+            'parol': '🔒 Надійний пароль',
+            'perevirka-dzherel': '🔍 Перевірка джерел',
+            'samopova': '🧘 Самоповага',
+            'pozytyvne-myslennia': '💭 Позитивне мислення'
+        };
+
+        // ===== ПОЯСНЕННЯ ДЛЯ ВПРАВИ 2.11 =====
+        const oddExplanations = {
+            1: {
+                correct: '✅ Правильно! «Осміяння» — це порушення психологічного простору, а не фізичного.',
+                incorrect: '❌ Неправильно. «Осміяння» — це елемент психологічного простору, тому воно зайве у групі фізичного.'
+            },
+            2: {
+                correct: '✅ Правильно! «Надійний пароль» належить до цифрового простору, а не психологічного.',
+                incorrect: '❌ Неправильно. «Надійний пароль» — це елемент цифрового простору, тому він зайвий тут.'
+            },
+            3: {
+                correct: '✅ Правильно! «Wi-Fi» — це технологія, яка належить до цифрового простору.',
+                incorrect: '❌ Неправильно. «Wi-Fi» — це технологічний елемент, який не є частиною соціального простору.'
+            },
+            4: {
+                correct: '✅ Правильно! «Критичне мислення» — це навичка внутрішнього простору.',
+                incorrect: '❌ Неправильно. «Критичне мислення» належить до внутрішнього простору, а не цифрового.'
+            },
+            5: {
+                correct: '✅ Правильно! «Сварки в соцмережах» — це проблема цифрового/соціального простору.',
+                incorrect: '❌ Неправильно. «Сварки в соцмережах» — це зовнішній фактор, який не є частиною внутрішнього простору.'
             }
         };
 
@@ -1876,18 +3177,32 @@
             riskOrder: ['rebar', 'phone', 'roof', 'sign', 'net', 'building']
         };
 
+        let currentSpace = null;
+        let selectedMatchingItem = null;
+        let matchingAssignments = {};
+
         // ===== DOM ЕЛЕМЕНТИ =====
         const pages = {
             intro: document.getElementById('page-intro'),
             step1: document.getElementById('page-step1'),
             decision: document.getElementById('page-decision'),
-            consequences: document.getElementById('page-consequences')
+            consequences: document.getElementById('page-consequences'),
+            'step2-intro': document.getElementById('page-step2-intro'),
+            safety: document.getElementById('page-safety'),
+            'safe-space': document.getElementById('page-safe-space'),
+            'situation-2-4': document.getElementById('page-situation-2-4'),
+            'situation-2-5': document.getElementById('page-situation-2-5'),
+            'situation-2-6': document.getElementById('page-situation-2-6'),
+            'situation-2-7': document.getElementById('page-situation-2-7'),
+            'situation-2-8': document.getElementById('page-situation-2-8'),
+            'exercise-2-10': document.getElementById('page-exercise-2-10'),
+            'exercise-2-11': document.getElementById('page-exercise-2-11'),
+            'step2-final': document.getElementById('page-step2-final')
         };
 
         const riskModal = document.getElementById('riskModal');
-        const modalCard = document.getElementById('modalCard');
 
-        // ===== НАВІГАЦІЯ МІЖ СТОРІНКАМИ =====
+        // ===== НАВІГАЦІЯ =====
         function showPage(pageId) {
             Object.values(pages).forEach(page => page.classList.add('hidden'));
             if (pages[pageId]) {
@@ -1897,12 +3212,14 @@
             window.scrollTo(0, 0);
         }
 
-        // Функція переходу до Кроку 1
         function goToStep1() {
             showPage('step1');
         }
 
-        // Закриття модального вікна
+        function goToStep2() {
+            showPage('step2-intro');
+        }
+
         function closeModal(modalId) {
             document.getElementById(modalId).classList.add('hidden');
         }
@@ -1914,29 +3231,24 @@
 
         // Кнопка "Перейти до кроку 2"
         document.getElementById('btnNextStep').addEventListener('click', () => {
-            alert('Перехід до Крок 2 — Безпека та безпечний простір (буде реалізовано наступним етапом)');
+            showPage('step2-intro');
         });
 
-        // ===== КНОПКИ HEADER =====
-        
         // Кнопка "Мій прогрес"
         document.getElementById('btnProgress').addEventListener('click', () => {
-            // Оновити статистику
             document.getElementById('statRisks').textContent = `${state.foundRisks.size}/${state.totalRisks}`;
             
-            // Визначити поточний крок
             let currentStep = 1;
-            if (state.currentPage === 'decision' || state.currentPage === 'consequences') {
-                currentStep = 1; // Поки що тільки 1 крок реалізовано
+            if (state.currentPage.startsWith('step2') || state.currentPage.startsWith('situation-2') || state.currentPage.startsWith('exercise-2')) {
+                currentStep = 2;
             }
             
-            document.getElementById('statSteps').textContent = `0/5`;
+            document.getElementById('statSteps').textContent = `${currentStep}/5`;
             
-            // Оновити список кроків
             const stepStatusList = document.getElementById('stepStatusList');
             const steps = [
-                { name: 'Крок 1: Стартова ситуація', icon: '🔵' },
-                { name: 'Крок 2: Безпека та безпечний простір', icon: '' },
+                { name: 'Крок 1: Стартова ситуація', icon: currentStep > 1 ? '✅' : '🔵' },
+                { name: 'Крок 2: Безпека та безпечний простір', icon: currentStep === 2 ? '🔵' : (currentStep > 2 ? '✅' : '⚪') },
                 { name: 'Крок 3: Ризики', icon: '⚪' },
                 { name: 'Крок 4: Небезпечні ситуації', icon: '⚪' },
                 { name: 'Крок 5: Ухвалення рішень', icon: '⚪' }
@@ -1944,19 +3256,10 @@
             
             stepStatusList.innerHTML = steps.map((step, index) => {
                 let statusClass = '';
-                let icon = '⚪';
+                if (index + 1 === currentStep) statusClass = 'current';
+                else if (index + 1 < currentStep) statusClass = 'completed';
                 
-                if (index + 1 === currentStep) {
-                    statusClass = 'current';
-                    icon = '';
-                }
-                
-                return `
-                    <li class="step-status-item ${statusClass}">
-                        <span class="step-status-icon">${icon}</span>
-                        <span>${step.name}</span>
-                    </li>
-                `;
+                return `<li class="step-status-item ${statusClass}"><span class="step-status-icon">${step.icon}</span><span>${step.name}</span></li>`;
             }).join('');
             
             document.getElementById('progressModal').classList.remove('hidden');
@@ -1973,7 +3276,6 @@
                 const riskKey = this.dataset.risk;
 
                 if (state.foundRisks.has(riskKey)) {
-                    // Вже знайдено — показуємо картку повторно
                     openRiskModal(riskKey);
                     return;
                 }
@@ -1998,7 +3300,6 @@
             document.getElementById('modalRiskType').textContent = risk.riskType;
             document.getElementById('modalDescription').textContent = risk.description;
 
-            // Що може статися / Чому важливо
             const whatCanHappenBlock = document.getElementById('modalWhatCanHappen');
             const whyImportantBlock = document.getElementById('modalWhyImportant');
             const consequencesList = document.getElementById('modalConsequences');
@@ -2025,7 +3326,6 @@
                 });
             }
 
-            // Кнопка "Знайти наступний" або "Я знайшов всі"
             const nextBtn = document.getElementById('modalNextBtn');
             const foundAllBtn = document.getElementById('modalFoundAllBtn');
 
@@ -2040,7 +3340,6 @@
             riskModal.classList.remove('hidden');
         }
 
-        // Закриття модального вікна ризику
         document.getElementById('modalClose').addEventListener('click', () => {
             riskModal.classList.add('hidden');
         });
@@ -2051,14 +3350,11 @@
             }
         });
 
-        // Кнопка "Знайти наступний ризик"
         document.getElementById('modalNextBtn').addEventListener('click', () => {
             riskModal.classList.add('hidden');
 
-            // Знайти наступний невідкритий ризик
             const nextRisk = state.riskOrder.find(r => !state.foundRisks.has(r));
             if (nextRisk) {
-                // Підсвітити наступну гарячу точку
                 const nextHotspot = document.querySelector(`.hotspot[data-risk="${nextRisk}"]`);
                 if (nextHotspot) {
                     nextHotspot.style.animation = 'pulse 1s ease-in-out 3';
@@ -2069,30 +3365,25 @@
             }
         });
 
-        // Кнопка "Я знайшов(ла) всі ризики"
         document.getElementById('modalFoundAllBtn').addEventListener('click', () => {
             riskModal.classList.add('hidden');
             showPage('decision');
         });
 
-        // ===== ВИБІР РІШЕННЯ З ПОЯСНЕННЯМИ =====
+        // ===== ВИБІР РІШЕННЯ =====
         document.querySelectorAll('.decision-option').forEach(option => {
             option.addEventListener('click', function() {
-                // Прибрати виділення з усіх варіантів
                 document.querySelectorAll('.decision-option').forEach(o => {
                     o.classList.remove('selected', 'correct', 'incorrect');
                     o.querySelector('.option-feedback').classList.remove('show');
                 });
 
-                // Додати виділення обраному варіанту
                 this.classList.add('selected');
                 this.querySelector('input[type="radio"]').checked = true;
 
-                // Показати пояснення
                 const feedback = this.querySelector('.option-feedback');
                 feedback.classList.add('show');
 
-                // Додати клас correct або incorrect
                 if (feedback.classList.contains('correct')) {
                     this.classList.add('correct');
                 } else if (feedback.classList.contains('incorrect')) {
@@ -2101,7 +3392,6 @@
             });
         });
 
-        // Кнопка подання рішення
         document.getElementById('btnSubmitDecision').addEventListener('click', () => {
             const selected = document.querySelector('input[name="decision"]:checked');
             if (!selected) {
@@ -2110,6 +3400,237 @@
             }
             showPage('consequences');
         });
+
+        // ===== КРОК 2 ФУНКЦІЇ =====
+        function toggleCheckbox(element) {
+            element.classList.toggle('checked');
+        }
+
+        function toggleRadio(element) {
+            element.parentElement.querySelectorAll('.progress-radio').forEach(r => r.classList.remove('checked'));
+            element.classList.add('checked');
+        }
+
+        function selectRadio(element, situationId, isCorrect, explanationText) {
+            const parent = element.closest('.answer-options');
+            parent.querySelectorAll('.answer-radio').forEach(r => {
+                r.classList.remove('checked', 'incorrect', 'correct');
+            });
+
+            element.classList.add('checked');
+
+            const explanation = document.getElementById('explanation-' + situationId);
+            const explanationTextElement = document.getElementById('explanation-text-' + situationId);
+
+            if (explanation && explanationTextElement) {
+                explanation.classList.remove('hidden', 'correct-answer', 'incorrect-answer');
+
+                if (isCorrect) {
+                    explanation.classList.add('correct-answer');
+                    explanationTextElement.textContent = explanationText;
+                    element.classList.add('correct');
+                } else {
+                    explanation.classList.add('incorrect-answer');
+                    explanationTextElement.textContent = explanationText;
+                    element.classList.add('incorrect');
+                }
+            }
+        }
+
+        function toggleCheckboxAnswer(element, id, isCorrect) {
+            element.classList.toggle('checked');
+
+            if (element.classList.contains('checked')) {
+                if (isCorrect) {
+                    element.classList.add('correct');
+                    element.classList.remove('incorrect');
+                } else {
+                    element.classList.add('incorrect');
+                    element.classList.remove('correct');
+                }
+            } else {
+                element.classList.remove('correct', 'incorrect');
+            }
+
+            const explanation = document.getElementById('explanation-' + id);
+            if (explanation) {
+                explanation.classList.remove('hidden');
+            }
+        }
+
+        function openSection(section) {
+            if (section === 'safety') {
+                showPage('safety');
+            } else if (section === 'safe-space') {
+                showPage('safe-space');
+            }
+        }
+
+        function startSection() {
+            showPage('safety');
+        }
+
+        function openSafeSpace() {
+            showPage('safe-space');
+        }
+
+        function openSpaceDetail(space) {
+            currentSpace = space;
+            const modal = document.getElementById('spaceModal');
+            const data = spaceDetails[space];
+
+            document.getElementById('spaceModalNumber').textContent = data.icon;
+            document.getElementById('spaceModalTitle').textContent = data.title;
+            document.getElementById('spaceModalContent').innerHTML = data.content;
+
+            modal.classList.remove('hidden');
+        }
+
+        function closeSpaceModal() {
+            document.getElementById('spaceModal').classList.add('hidden');
+            currentSpace = null;
+        }
+
+        function goToSituationFromModal() {
+            if (currentSpace && spaceDetails[currentSpace]) {
+                const nextSituation = spaceDetails[currentSpace].nextSituation;
+                closeSpaceModal();
+                showPage(nextSituation);
+            }
+        }
+
+        function startSituations() {
+            showPage('situation-2-4');
+        }
+
+        function nextSituation(current, next) {
+            showPage('situation-' + next);
+        }
+
+        function goToStep3() {
+            alert('Перехід до Кроку 3: Ризики (буде реалізовано наступним етапом)');
+        }
+
+        // ===== ВПРАВА 2.10: MATCHING =====
+        function selectMatchingItem(element) {
+            if (element.classList.contains('assigned')) return;
+
+            document.querySelectorAll('.matching-item').forEach(item => {
+                if (!item.classList.contains('assigned')) {
+                    item.classList.remove('selected');
+                }
+            });
+
+            element.classList.add('selected');
+            selectedMatchingItem = element;
+
+            document.querySelectorAll('.matching-category').forEach(cat => {
+                cat.classList.add('highlight');
+            });
+        }
+
+        function assignToCategory(categoryElement) {
+            if (!selectedMatchingItem) return;
+
+            const itemId = selectedMatchingItem.dataset.item;
+            const categoryId = categoryElement.dataset.category;
+
+            matchingAssignments[itemId] = categoryId;
+
+            const tag = document.createElement('div');
+            tag.className = 'assigned-tag';
+            tag.textContent = selectedMatchingItem.textContent;
+            categoryElement.querySelector('.matching-category-items').appendChild(tag);
+
+            selectedMatchingItem.classList.remove('selected');
+            selectedMatchingItem.classList.add('assigned');
+            selectedMatchingItem = null;
+
+            document.querySelectorAll('.matching-category').forEach(cat => {
+                cat.classList.remove('highlight');
+            });
+        }
+
+        function checkMatching() {
+            const resultDiv = document.getElementById('matchingResult');
+            const totalItems = Object.keys(correctMatching).length;
+            const assignedCount = Object.keys(matchingAssignments).length;
+
+            if (assignedCount < totalItems) {
+                resultDiv.className = 'matching-result error';
+                resultDiv.classList.remove('hidden');
+                resultDiv.innerHTML = '⚠️ Розподіли всі ' + totalItems + ' прикладів по категоріях. Зараз розподілено: ' + assignedCount + '.';
+                return;
+            }
+
+            let correct = 0;
+            let wrong = [];
+
+            for (let itemId in matchingAssignments) {
+                if (matchingAssignments[itemId] === correctMatching[itemId]) {
+                    correct++;
+                } else {
+                    wrong.push(itemLabels[itemId]);
+                }
+            }
+
+            if (correct === totalItems) {
+                resultDiv.className = 'matching-result success';
+                resultDiv.innerHTML = '🎉 <strong>Чудово!</strong> Всі ' + totalItems + ' прикладів розподілено правильно! Ти добре розумієш складові безпечного простору.';
+            } else {
+                resultDiv.className = 'matching-result error';
+                let wrongText = wrong.length > 0 ? ' Неправильно розподілено: ' + wrong.join(', ') + '.' : '';
+                resultDiv.innerHTML = '❌ <strong>Є помилки.</strong> Правильно: ' + correct + ' з ' + totalItems + '.' + wrongText + ' Спробуй ще раз!';
+            }
+
+            resultDiv.classList.remove('hidden');
+        }
+
+        // ===== ВПРАВА 2.11: ODD ONE OUT =====
+        function selectOddItem(element) {
+            const taskNum = element.dataset.task;
+            const taskContainer = document.getElementById('odd-task-' + taskNum);
+
+            taskContainer.querySelectorAll('.odd-item').forEach(item => {
+                item.classList.remove('selected', 'correct-answer-style', 'wrong-answer-style');
+            });
+
+            element.classList.add('selected');
+        }
+
+        function verifyOddTask(taskNum) {
+            const taskContainer = document.getElementById('odd-task-' + taskNum);
+            const selected = taskContainer.querySelector('.odd-item.selected');
+            const explanationDiv = document.getElementById('odd-explanation-' + taskNum);
+
+            if (!selected) {
+                explanationDiv.className = 'odd-explanation incorrect';
+                explanationDiv.textContent = '⚠️ Обери один варіант, перш ніж перевіряти.';
+                explanationDiv.classList.remove('hidden');
+                return;
+            }
+
+            const isCorrect = selected.dataset.correct === 'true';
+
+            taskContainer.querySelectorAll('.odd-item').forEach(item => {
+                item.classList.remove('selected');
+                if (item.dataset.correct === 'true') {
+                    item.classList.add('correct-answer-style');
+                }
+            });
+
+            if (isCorrect) {
+                selected.classList.add('correct-answer-style');
+                explanationDiv.className = 'odd-explanation correct';
+                explanationDiv.textContent = oddExplanations[taskNum].correct;
+            } else {
+                selected.classList.add('wrong-answer-style');
+                explanationDiv.className = 'odd-explanation incorrect';
+                explanationDiv.textContent = oddExplanations[taskNum].incorrect;
+            }
+
+            explanationDiv.classList.remove('hidden');
+        }
 
         // Закриття модальних вікон при кліку на фон
         document.querySelectorAll('.modal-overlay').forEach(modal => {
