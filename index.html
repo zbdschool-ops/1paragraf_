@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="uk">
 <head>
@@ -79,6 +80,7 @@ background: white;
 color: #1a1a6e;
 }
 .dot.completed { background: #16a34a; color: white; border-color: #16a34a; }
+.dot.active { background: #f59e0b; color: white; border-color: #f59e0b; }
 /* ===== MAIN CONTENT ===== */
 .main-content { max-width: 1400px; margin: 0 auto; padding: 20px 16px; }
 .page-title { font-size: 24px; font-weight: 700; color: #1a1a2e; margin-bottom: 8px; }
@@ -262,6 +264,7 @@ color: white;
 }
 .step-badge.blue { background: #2563eb; }
 .step-badge.green { background: #16a34a; }
+.step-badge.orange { background: #f59e0b; }
 .step-header-text { font-size: 13px; opacity: 0.9; cursor: pointer; transition: opacity 0.2s; }
 .step-header-text:hover { opacity: 1; text-decoration: underline; }
 .step-header-center { display: flex; align-items: center; gap: 12px; font-size: 13px; }
@@ -917,12 +920,434 @@ border-left: 4px solid #dc2626;
 color: #991b1b;
 }
 .verify-btn { display: block; margin: 16px auto 0; }
+/* ===== STEP 3 STYLES ===== */
+.definition-box {
+background: white;
+border: 2px solid #667eea;
+border-radius: 10px;
+padding: 20px;
+margin: 20px 0;
+}
+.definition-box strong { color: #667eea; font-size: 16px; }
+.risk-formula {
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 20px;
+margin: 25px 0;
+flex-wrap: wrap;
+}
+.formula-item {
+background: white;
+padding: 20px 30px;
+border-radius: 12px;
+text-align: center;
+font-weight: 600;
+box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+min-width: 140px;
+}
+.formula-icon { font-size: 36px; margin-bottom: 8px; }
+.plus-sign { font-size: 32px; color: #667eea; font-weight: bold; }
+.tasks-list-step3 {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+gap: 12px;
+margin: 20px 0;
+}
+.task-item-step3 {
+display: flex;
+align-items: center;
+gap: 12px;
+background: white;
+padding: 14px;
+border-radius: 10px;
+font-size: 14px;
+box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+.task-checkbox-step3 {
+width: 22px;
+height: 22px;
+border: 2px solid #16a34a;
+border-radius: 5px;
+display: flex;
+align-items: center;
+justify-content: center;
+color: #16a34a;
+font-weight: bold;
+flex-shrink: 0;
+}
+/* Matrix */
+.matrix-container {
+display: grid;
+grid-template-columns: 100px repeat(3, 1fr);
+gap: 10px;
+margin: 25px 0;
+max-width: 700px;
+}
+.matrix-header-cell {
+background: #1a1a6e;
+color: white;
+padding: 14px 10px;
+border-radius: 10px;
+text-align: center;
+font-weight: 600;
+font-size: 13px;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.matrix-cell {
+padding: 18px 12px;
+border-radius: 10px;
+text-align: center;
+cursor: pointer;
+transition: all 0.3s;
+font-weight: 600;
+font-size: 13px;
+min-height: 80px;
+display: flex;
+align-items: center;
+justify-content: center;
+box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+.matrix-cell:hover {
+transform: scale(1.08);
+box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+}
+.matrix-cell.low-low { background: #86efac; color: #166534; }
+.matrix-cell.low-mid { background: #86efac; color: #166534; }
+.matrix-cell.low-high { background: #fde047; color: #854d0e; }
+.matrix-cell.mid-low { background: #86efac; color: #166534; }
+.matrix-cell.mid-mid { background: #fde047; color: #854d0e; }
+.matrix-cell.mid-high { background: #fb923c; color: #9a3412; }
+.matrix-cell.high-low { background: #fde047; color: #854d0e; }
+.matrix-cell.high-mid { background: #fb923c; color: #9a3412; }
+.matrix-cell.high-high { background: #f87171; color: #991b1b; }
+.matrix-legend {
+display: flex;
+gap: 20px;
+flex-wrap: wrap;
+margin-top: 20px;
+font-size: 13px;
+}
+.legend-item {
+display: flex;
+align-items: center;
+gap: 8px;
+padding: 8px 14px;
+background: white;
+border-radius: 8px;
+box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+.legend-dot {
+width: 18px;
+height: 18px;
+border-radius: 50%;
+}
+/* Practice */
+.practice-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+gap: 20px;
+margin: 25px 0;
+}
+.practice-card {
+background: white;
+border-radius: 14px;
+padding: 20px;
+box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+transition: transform 0.2s;
+border: 3px solid transparent;
+}
+.practice-card:hover { transform: translateY(-4px); }
+.practice-image {
+width: 100%;
+height: 180px;
+object-fit: cover;
+border-radius: 10px;
+margin-bottom: 15px;
+}
+.practice-question {
+font-weight: 700;
+color: #1a1a6e;
+margin-bottom: 15px;
+font-size: 15px;
+}
+.practice-options { display: flex; flex-direction: column; gap: 10px; }
+.practice-option {
+display: flex;
+align-items: center;
+gap: 12px;
+padding: 12px;
+background: #f8f9fa;
+border-radius: 10px;
+cursor: pointer;
+transition: all 0.2s;
+font-size: 14px;
+border: 2px solid transparent;
+}
+.practice-option:hover { background: #eef0f2; }
+.practice-option input[type="radio"] {
+width: 18px;
+height: 18px;
+cursor: pointer;
+}
+.practice-option.selected {
+background: #dbeafe;
+border-color: #3b82f6;
+}
+.practice-option.correct {
+background: #dcfce7;
+border-color: #16a34a;
+}
+.practice-option.incorrect {
+background: #fef2f2;
+border-color: #dc2626;
+}
+.practice-explanation {
+margin-top: 15px;
+padding: 15px;
+border-radius: 10px;
+font-size: 14px;
+line-height: 1.6;
+display: none;
+}
+.practice-explanation.show { display: block; }
+.practice-explanation.correct {
+background: #dcfce7;
+border-left: 4px solid #16a34a;
+color: #166534;
+}
+.practice-explanation.incorrect {
+background: #fef2f2;
+border-left: 4px solid #dc2626;
+color: #991b1b;
+}
+/* Checklist - ОНОВЛЕНІ СТИЛІ */
+.checklist-container {
+background: white;
+border-radius: 12px;
+padding: 25px;
+margin: 20px 0;
+border: 1px solid #e0e0e0;
+}
+.checklist-item {
+display: grid;
+grid-template-columns: 140px 1fr;
+gap: 20px;
+padding: 18px;
+margin-bottom: 12px;
+background: #f8f9fa;
+border-radius: 10px;
+align-items: start;
+}
+.checklist-name {
+font-weight: 700;
+color: #1a1a6e;
+font-size: 15px;
+display: flex;
+flex-direction: column;
+align-items: center;
+text-align: center;
+}
+.checklist-name img {
+width: 80px;
+height: 80px;
+object-fit: cover;
+border-radius: 8px;
+margin-bottom: 8px;
+box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+.checklist-options {
+display: flex;
+flex-wrap: wrap;
+gap: 12px;
+}
+.checklist-option {
+display: flex;
+align-items: center;
+gap: 8px;
+font-size: 13px;
+padding: 8px 12px;
+background: white;
+border-radius: 8px;
+cursor: pointer;
+transition: all 0.3s;
+position: relative;
+border: 2px solid transparent;
+}
+.checklist-option:hover { background: #eef2f7; }
+.checklist-option input[type="checkbox"] {
+width: 18px;
+height: 18px;
+cursor: pointer;
+}
+/* Підсвічування після перевірки */
+.checklist-option.correct-selection {
+background: #dcfce7 !important;
+border-color: #16a34a !important;
+}
+.checklist-option.correct-selection::after {
+content: '✓';
+position: absolute;
+right: 8px;
+top: 50%;
+transform: translateY(-50%);
+color: #16a34a;
+font-weight: bold;
+font-size: 16px;
+}
+.checklist-option.incorrect-selection {
+background: #fef2f2 !important;
+border-color: #dc2626 !important;
+}
+.checklist-option.incorrect-selection::after {
+content: '✕';
+position: absolute;
+right: 8px;
+top: 50%;
+transform: translateY(-50%);
+color: #dc2626;
+font-weight: bold;
+font-size: 16px;
+}
+.checklist-option.missed-correct {
+background: #fef9c3 !important;
+border-color: #fbbf24 !important;
+}
+.checklist-option.missed-correct::after {
+content: '!';
+position: absolute;
+right: 8px;
+top: 50%;
+transform: translateY(-50%);
+color: #f59e0b;
+font-weight: bold;
+font-size: 16px;
+}
+.checklist-result {
+margin-top: 20px;
+padding: 18px;
+border-radius: 10px;
+display: none;
+font-size: 14px;
+line-height: 1.6;
+}
+.checklist-result.show { display: block; }
+.checklist-result.correct {
+background: #dcfce7;
+border: 2px solid #16a34a;
+color: #166534;
+}
+.checklist-result.incorrect {
+background: #fef2f2;
+border: 2px solid #dc2626;
+color: #991b1b;
+}
+/* DragDrop */
+.dragdrop-container {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+gap: 18px;
+margin: 25px 0;
+}
+.dragdrop-item {
+background: white;
+border-radius: 12px;
+overflow: hidden;
+box-shadow: 0 4px 14px rgba(0,0,0,0.1);
+transition: transform 0.2s;
+}
+.dragdrop-item:hover { transform: translateY(-3px); }
+.dragdrop-image {
+width: 100%;
+height: 140px;
+object-fit: cover;
+}
+.dragdrop-text {
+padding: 14px;
+font-size: 14px;
+font-weight: 600;
+text-align: center;
+color: #1a1a6e;
+}
+.dragdrop-select {
+padding: 14px;
+}
+.dragdrop-select select {
+width: 100%;
+padding: 12px;
+border: 2px solid #ddd;
+border-radius: 8px;
+font-size: 14px;
+cursor: pointer;
+transition: all 0.2s;
+}
+.dragdrop-select select:focus {
+outline: none;
+border-color: #667eea;
+}
+.dragdrop-select select.correct-answer { border-color: #16a34a; background: #dcfce7; }
+.dragdrop-select select.incorrect-answer { border-color: #dc2626; background: #fef2f2; }
+.dragdrop-result {
+margin-top: 20px;
+padding: 18px;
+border-radius: 10px;
+display: none;
+font-size: 14px;
+line-height: 1.6;
+}
+.dragdrop-result.show { display: block; }
+.dragdrop-result.correct {
+background: #dcfce7;
+border: 2px solid #16a34a;
+color: #166534;
+}
+.dragdrop-result.incorrect {
+background: #fef2f2;
+border: 2px solid #dc2626;
+color: #991b1b;
+}
+/* Summary */
+.summary-box {
+background: : linear-gradient(135deg, #f3f1ed, #f59e0b);
+    color: #2563eb;
+    border-radius: 16px;
+    padding: 35px;
+    text-align: center;
+    margin-top: 30px;
+}
+.summary-box h2 { font-size: 32px; margin-bottom: 18px; }
+.summary-list {
+list-style: none;
+max-width: 550px;
+margin: 25px auto;
+text-align: left;
+}
+.summary-list li {
+padding: 12px 0;
+padding-left: 40px;
+position: relative;
+font-size: 17px;
+}
+.summary-list li::before {
+content: "✓";
+position: absolute;
+left: 0;
+font-weight: bold;
+font-size: 24px;
+}
+.trophy {
+font-size: 90px;
+margin: 20px 0;
+}
 /* ===== RESPONSIVE ===== */
 @media (max-width: 1024px) {
 .intro-layout { grid-template-columns: 1fr; }
 .safe-space-grid { grid-template-columns: repeat(3, 1fr); }
 .matching-categories { grid-template-columns: repeat(3, 1fr); }
 .odd-items { grid-template-columns: repeat(2, 1fr); }
+.step3-intro-grid { grid-template-columns: 1fr !important; }
 }
 @media (max-width: 768px) {
 .header { flex-wrap: wrap; gap: 6px; padding: 10px 12px; }
@@ -950,6 +1375,17 @@ color: #991b1b;
 .matching-items, .matching-categories { grid-template-columns: 1fr; }
 .buttons-container { flex-direction: column; }
 .btn { width: 100%; justify-content: center; }
+.step3-intro-grid { grid-template-columns: 1fr !important; }
+.matrix-container {
+grid-template-columns: 70px repeat(3, 1fr);
+font-size: 11px;
+}
+.matrix-cell { padding: 12px 8px; min-height: 60px; }
+.checklist-item { grid-template-columns: 1fr !important; gap: 12px; }
+.checklist-name img {
+width: 60px !important;
+height: 60px !important;
+}
 }
 @media (max-width: 480px) {
 .header-title { font-size: 13px; }
@@ -982,7 +1418,7 @@ color: #991b1b;
 <span class="header-icon">📊</span> Мій прогрес
 </button>
 <button class="header-btn" id="btnHelp">
-<span class="header-icon">❓</span> Як працювати?
+<span class="header-icon"></span> Як працювати?
 </button>
 </div>
 </header>
@@ -994,7 +1430,7 @@ color: #991b1b;
 <div class="intro-layout">
 <div class="intro-left">
 <div class="welcome-box">
-<span class="welcome-emoji">👋</span>
+<span class="welcome-emoji"></span>
 <div>
 <h3>Вітаємо у тренажері «Навігатор ризиків»!</h3>
 <p>Тут ти не просто читатимеш теорію, а будеш аналізувати ситуації, оцінювати ризики та ухвалювати безпечні рішення.</p>
@@ -1019,7 +1455,7 @@ color: #991b1b;
 </div>
 </div>
 <div class="step-arrow">↓</div>
-<div class="step-item" data-step="3">
+<div class="step-item clickable" data-step="3" onclick="goToStep3()">
 <div class="step-number orange">3</div>
 <div class="step-icon">⚠️</div>
 <div class="step-info">
@@ -1056,7 +1492,7 @@ color: #991b1b;
 <ul class="goals-list">
 <li><span class="goal-icon">🔍</span>дослідиш ситуації з повсякденного життя</li>
 <li><span class="goal-icon">⚠️</span>навчишся оцінювати ризики</li>
-<li><span class="goal-icon">👥</span>ухвалюватимеш безпечні рішення</li>
+<li><span class="goal-icon">💡</span>ухвалюватимеш безпечні рішення</li>
 <li><span class="goal-icon">✅</span>перевіриш свої вміння та отримаєш відзнаку</li>
 </ul>
 </div>
@@ -1360,7 +1796,7 @@ color: #991b1b;
 <p style="margin-bottom: 14px;"><strong>Безпека</strong> — це стан захищеності від загроз, небезпек і ризиків.</p>
 <h4 style="margin-bottom: 10px; font-size: 14px;">Безпека допомагає:</h4>
 <ul style="list-style: none; margin-bottom: 16px;">
-<li style="padding: 6px 0; display: flex; align-items: center; gap: 8px; font-size: 13px;">🛡️ уникати небезпек</li>
+<li style="padding: 6px 0; display: flex; align-items: center; gap: 8px; font-size: 13px;">️ уникати небезпек</li>
 <li style="padding: 6px 0; display: flex; align-items: center; gap: 8px; font-size: 13px;">😌 зберігати спокій</li>
 <li style="padding: 6px 0; display: flex; align-items: center; gap: 8px; font-size: 13px;">🎯 навчатися</li>
 <li style="padding: 6px 0; display: flex; align-items: center; gap: 8px; font-size: 13px;">🤝 будувати стосунки</li>
@@ -1449,7 +1885,6 @@ color: #991b1b;
 <button class="btn" onclick="nextSituation('2-4', '2-5')">Далі <span>→</span></button>
 </div>
 </section>
-<!-- === ОНОВЛЕНА СИТУАЦІЯ 2.5: ПСИХОЛОГІЧНИЙ ПРОСТІР === -->
 <section class="page hidden" id="page-situation-2-5">
 <div class="situation-card">
 <div class="situation-header">
@@ -1577,7 +2012,7 @@ color: #991b1b;
 <li><span class="answer-radio" onclick="selectRadio(this, '2-8', false, 'Ігнорування проблеми не допоможе покращити результат.')"></span><span>Ігнорувати проблему та нічого не робити</span></li>
 </ul>
 <div class="explanation hidden" id="explanation-2-8">
-<div class="explanation-title">💡 Пояснення</div>
+<div class="explanation-title"> Пояснення</div>
 <div class="explanation-text" id="explanation-text-2-8"></div>
 </div>
 </div>
@@ -1586,7 +2021,7 @@ color: #991b1b;
 <button class="btn btn-success" onclick="showPage('exercise-2-10')">Перейти до вправ <span>→</span></button>
 </div>
 </section>
-<!-- === ВПРАВА 2.10: ОНОВЛЕНА === -->
+<!-- === ВПРАВА 2.10 === -->
 <section class="page hidden" id="page-exercise-2-10">
 <div class="situation-card">
 <div class="situation-header">
@@ -1600,18 +2035,18 @@ color: #991b1b;
 <div class="matching-items" id="matchingItems">
 <div class="matching-item" data-item="pozytyvne-myslennia" onclick="selectMatchingItem(this)">💭 Позитивне мислення</div>
 <div class="matching-item" data-item="ukryttia" onclick="selectMatchingItem(this)">🏠 Укриття в школі</div>
-<div class="matching-item" data-item="samopova" onclick="selectMatchingItem(this)">🧘 Самоповага</div>
-<div class="matching-item" data-item="dovira" onclick="selectMatchingItem(this)">🤝 Довіра до вчителя</div>
+<div class="matching-item" data-item="komandna-robota" onclick="selectMatchingItem(this)">🤝 Командна робота</div>
 <div class="matching-item" data-item="pidtrymka" onclick="selectMatchingItem(this)">👥 Підтримка друзів</div>
 <div class="matching-item" data-item="parol" onclick="selectMatchingItem(this)">🔒 Надійний пароль</div>
+<div class="matching-item" data-item="samopova" onclick="selectMatchingItem(this)">🧘 Самоповага</div>
 <div class="matching-item" data-item="vilni-vyhody" onclick="selectMatchingItem(this)">🚪 Вільні виходи</div>
-<div class="matching-item" data-item="bez-nasmishok" onclick="selectMatchingItem(this)">😌 Можливість помилитися без насмішок</div>
-<div class="matching-item" data-item="komandna-robota" onclick="selectMatchingItem(this)">🤝 Командна робота</div>
+<div class="matching-item" data-item="dovira" onclick="selectMatchingItem(this)">🤝 Довіра до вчителя</div>
 <div class="matching-item" data-item="perevirka-dzherel" onclick="selectMatchingItem(this)">🔍 Перевірка джерел інформації</div>
+<div class="matching-item" data-item="bez-nasmishok" onclick="selectMatchingItem(this)"> Можливість помилитися без насмішок</div>
 </div>
 <div class="matching-categories">
 <div class="matching-category" data-category="physical" onclick="assignToCategory(this)">
-<div class="matching-category-title">🌳 Фізичний простір</div>
+<div class="matching-category-title"> Фізичний простір</div>
 <div class="matching-category-items"></div>
 </div>
 <div class="matching-category" data-category="psychological" onclick="assignToCategory(this)">
@@ -1623,7 +2058,7 @@ color: #991b1b;
 <div class="matching-category-items"></div>
 </div>
 <div class="matching-category" data-category="digital" onclick="assignToCategory(this)">
-<div class="matching-category-title">🔒 Цифровий</div>
+<div class="matching-category-title"> Цифровий</div>
 <div class="matching-category-items"></div>
 </div>
 <div class="matching-category" data-category="internal" onclick="assignToCategory(this)">
@@ -1632,12 +2067,8 @@ color: #991b1b;
 </div>
 </div>
 <div class="buttons-container">
-<button class="btn btn-success" onclick="checkMatching()">
-Перевірити ✓
-</button>
-<button class="btn btn-secondary" onclick="resetMatching()">
-🔄 Спробувати ще раз
-</button>
+<button class="btn btn-success" onclick="checkMatching()">Перевірити ✓</button>
+<button class="btn btn-secondary" onclick="resetMatching()">🔄 Спробувати ще раз</button>
 </div>
 <div class="matching-result hidden" id="matchingResult"></div>
 </div>
@@ -1647,7 +2078,7 @@ color: #991b1b;
 <button class="btn" onclick="showPage('exercise-2-11')">Далі <span>→</span></button>
 </div>
 </section>
-<!-- === ВПРАВА 2.11: Знайди зайве === -->
+<!-- === ВПРАВА 2.11 === -->
 <section class="page hidden" id="page-exercise-2-11">
 <div class="situation-card">
 <div class="situation-header">
@@ -1720,7 +2151,7 @@ color: #991b1b;
 <section class="page hidden" id="page-step2-final">
 <div class="final-section">
 <img src="https://res.cloudinary.com/dmydvhkzr/image/upload/v1782322080/diverse_group_yjjzmy.png" alt="Група" class="final-image">
-<h2 class="final-title">Молодець!</h2>
+<h2 class="final-title">Вітаємо!</h2>
 <p class="final-text">Ти успішно:</p>
 <ul class="achievement-list">
 <li><span class="achievement-icon">✅</span> ознайомився(лася) з поняттям безпеки;</li>
@@ -1730,6 +2161,507 @@ color: #991b1b;
 <li><span class="achievement-icon">✅</span> оцінив(ла) власний простір.</li>
 </ul>
 <button class="btn btn-success" style="margin-top: 16px;" onclick="goToStep3()">Перейти до кроку 3 «Ризики» <span>→</span></button>
+</div>
+</section>
+<!-- ===== КРОК 3: РИЗИКИ ===== -->
+<!-- PAGE 3.1: INTRO -->
+<section class="page hidden" id="page-3-1">
+<div class="step-header">
+<div class="step-header-left">
+<span class="step-badge orange">3</span>
+<span class="step-header-text" onclick="showPage('intro')">До змісту</span>
+</div>
+<div class="step-header-center">
+<span>§ 1. Безпека, небезпека і ризики</span>
+<span class="step-counter">Крок 3 з 5</span>
+</div>
+<div class="step-progress-dots">
+<span class="dot completed">1</span>
+<span class="dot completed">2</span>
+<span class="dot active">3</span>
+<span class="dot">4</span>
+<span class="dot">5</span>
+</div>
+</div>
+<div class="situation-card">
+<h2 class="page-title" style="margin-bottom: 20px;">3.1 Ризики та оцінювання ризику</h2>
+<div class="step3-intro-grid" style="display: grid; grid-template-columns: 320px 1fr; gap: 30px; align-items: start; margin-bottom: 30px;">
+<div style="text-align: center;">
+<img src="https://res.cloudinary.com/dmydvhkzr/image/upload/v1782498738/intro_boy_thinking_tspbgu.png" alt="Хлопець розмірковує про ризики" style="width: 100%; border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.15);">
+<p style="font-size: 13px; color: #666; margin-top: 10px; font-style: italic;"> Аналізуй ситуації, оцінюй ризики</p>
+</div>
+<div>
+<div class="definition-box">
+<strong>Ризик</strong> — це ймовірність того, що небезпечна подія може відбутися та спричинити негативні наслідки.
+</div>
+<div class="risk-formula">
+<div class="formula-item">
+<div class="formula-icon">🎲</div>
+<div>Ймовірність</div>
+</div>
+<div class="plus-sign">+</div>
+<div class="formula-item">
+<div class="formula-icon">️</div>
+<div>Наслідки</div>
+</div>
+<div class="plus-sign">=</div>
+<div class="formula-item">
+<div class="formula-icon">🛡️</div>
+<div>Ризик</div>
+</div>
+</div>
+<h3 style="margin: 25px 0 18px; color: #1a1a6e; font-size: 16px;">Твоє завдання:</h3>
+<div class="tasks-list-step3">
+<div class="task-item-step3"><div class="task-checkbox-step3">✓</div>зрозуміти, що таке ризик</div>
+<div class="task-item-step3"><div class="task-checkbox-step3">✓</div>дізнатися, від чого залежить ризик</div>
+<div class="task-item-step3"><div class="task-checkbox-step3">✓</div>навчитися користуватися матрицею ризику</div>
+<div class="task-item-step3"><div class="task-checkbox-step3">✓</div>оцінювати рівень ризику</div>
+<div class="task-item-step3"><div class="task-checkbox-step3">✓</div>знаходити способи його зменшення</div>
+</div>
+</div>
+</div>
+<div class="nav-buttons">
+<button class="btn btn-secondary" onclick="showPage('step2-final')">← Назад</button>
+<button class="btn" onclick="showPage('page-3-2')">Далі: Від чого залежить ризик <span>→</span></button>
+</div>
+</div>
+</section>
+<!-- PAGE 3.2: WHAT AFFECTS RISK -->
+<section class="page hidden" id="page-3-2">
+<div class="step-header">
+<div class="step-header-left">
+<span class="step-badge orange">3</span>
+<span class="step-header-text" onclick="showPage('intro')">До змісту</span>
+</div>
+<div class="step-header-center">
+<span>§ 1. Безпека, небезпека і ризики</span>
+<span class="step-counter">Крок 3 з 5</span>
+</div>
+<div class="step-progress-dots">
+<span class="dot completed">1</span>
+<span class="dot completed">2</span>
+<span class="dot active">3</span>
+<span class="dot">4</span>
+<span class="dot">5</span>
+</div>
+</div>
+<div class="situation-card">
+<h2 class="page-title" style="margin-bottom: 20px;">Від чого залежить ризик?</h2>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-bottom: 25px;">
+<div style="background: white; padding: 22px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
+<h4 style="color: #667eea; margin-bottom: 15px; font-size: 18px;">📊 Ймовірність</h4>
+<ul style="list-style: none; font-size: 14px;">
+<li style="padding: 8px 0;"><span style="color: #16a34a; font-weight: bold;">●</span> Низька</li>
+<li style="padding: 8px 0;"><span style="color: #fbbf24; font-weight: bold;">●</span> Середня</li>
+<li style="padding: 8px 0;"><span style="color: #dc2626; font-weight: bold;">●</span> Висока</li>
+</ul>
+</div>
+<div style="background: white; padding: 22px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
+<h4 style="color: #f59e0b; margin-bottom: 15px; font-size: 18px;">️ Наслідки</h4>
+<ul style="list-style: none; font-size: 14px;">
+<li style="padding: 8px 0;"><span style="color: #16a34a; font-weight: bold;">●</span> Незначні</li>
+<li style="padding: 8px 0;"><span style="color: #fbbf24; font-weight: bold;">●</span> Помірні</li>
+<li style="padding: 8px 0;"><span style="color: #dc2626; font-weight: bold;">●</span> Серйозні</li>
+</ul>
+</div>
+</div>
+<div style="background: white; padding: 22px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
+<h4 style="margin-bottom: 15px; color: #1a1a6e; font-size: 17px;">Що впливає на рівень ризику?</h4>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; font-size: 14px;">
+<div style="display: flex; align-items: center; gap: 10px; padding: 8px; background: #f0f4ff; border-radius: 8px;">☑️ Ймовірність</div>
+<div style="display: flex; align-items: center; gap: 10px; padding: 8px; background: #f0f4ff; border-radius: 8px;">☑️ Наслідки</div>
+<div style="display: flex; align-items: center; gap: 10px; padding: 8px; opacity: 0.5;">☐ Настрій людини</div>
+<div style="display: flex; align-items: center; gap: 10px; padding: 8px; opacity: 0.5;">☐ Колір одягу</div>
+</div>
+</div>
+<div class="nav-buttons">
+<button class="btn btn-secondary" onclick="showPage('page-3-1')">← Назад</button>
+<button class="btn" onclick="showPage('page-3-3')">Далі: Матриця ризику <span>→</span></button>
+</div>
+</div>
+</section>
+<!-- PAGE 3.3: RISK MATRIX -->
+<section class="page hidden" id="page-3-3">
+<div class="step-header">
+<div class="step-header-left">
+<span class="step-badge orange">3</span>
+<span class="step-header-text" onclick="showPage('intro')">До змісту</span>
+</div>
+<div class="step-header-center">
+<span>§ 1. Безпека, небезпека і ризики</span>
+<span class="step-counter">Крок 3 з 5</span>
+</div>
+<div class="step-progress-dots">
+<span class="dot completed">1</span>
+<span class="dot completed">2</span>
+<span class="dot active">3</span>
+<span class="dot">4</span>
+<span class="dot">5</span>
+</div>
+</div>
+<div class="situation-card">
+<h2 class="page-title" style="margin-bottom: 20px;">Матриця ризику</h2>
+<p style="margin-bottom: 20px; font-size: 15px; color: #555;">Натисни на клітинку матриці, щоб побачити приклад:</p>
+<div class="matrix-container">
+<div class="matrix-header-cell"></div>
+<div class="matrix-header-cell">Низькі</div>
+<div class="matrix-header-cell">Середні</div>
+<div class="matrix-header-cell">Серйозні</div>
+<div class="matrix-header-cell">Низька</div>
+<div class="matrix-cell low-low" onclick="openMatrixModal('low-low')">Низький</div>
+<div class="matrix-cell low-mid" onclick="openMatrixModal('low-mid')">Помірний</div>
+<div class="matrix-cell low-high" onclick="openMatrixModal('low-high')">Високий</div>
+<div class="matrix-header-cell">Середня</div>
+<div class="matrix-cell mid-low" onclick="openMatrixModal('mid-low')">Помірний</div>
+<div class="matrix-cell mid-mid" onclick="openMatrixModal('mid-mid')">Високий</div>
+<div class="matrix-cell mid-high" onclick="openMatrixModal('mid-high')">Дуже високий</div>
+<div class="matrix-header-cell">Висока</div>
+<div class="matrix-cell high-low" onclick="openMatrixModal('high-low')">Високий</div>
+<div class="matrix-cell high-mid" onclick="openMatrixModal('high-mid')">Дуже високий</div>
+<div class="matrix-cell high-high" onclick="openMatrixModal('high-high')">Критичний</div>
+</div>
+<div class="matrix-legend">
+<div class="legend-item"><div class="legend-dot" style="background: #86efac;"></div>Низький ризик</div>
+<div class="legend-item"><div class="legend-dot" style="background: #fde047;"></div>Помірний ризик</div>
+<div class="legend-item"><div class="legend-dot" style="background: #fb923c;"></div>Високий ризик</div>
+<div class="legend-item"><div class="legend-dot" style="background: #f87171;"></div>Критичний ризик</div>
+</div>
+<div class="nav-buttons">
+<button class="btn btn-secondary" onclick="showPage('page-3-2')">← Назад</button>
+<button class="btn" onclick="showPage('page-3-practice')">Практикум <span>→</span></button>
+</div>
+</div>
+</section>
+<!-- PAGE 3-PRACTICE -->
+<section class="page hidden" id="page-3-practice">
+<div class="step-header">
+<div class="step-header-left">
+<span class="step-badge orange">3</span>
+<span class="step-header-text" onclick="showPage('intro')">До змісту</span>
+</div>
+<div class="step-header-center">
+<span>§ 1. Безпека, небезпека і ризики</span>
+<span class="step-counter">Крок 3 з 5</span>
+</div>
+<div class="step-progress-dots">
+<span class="dot completed">1</span>
+<span class="dot completed">2</span>
+<span class="dot active">3</span>
+<span class="dot">4</span>
+<span class="dot">5</span>
+</div>
+</div>
+<div class="situation-card">
+<h2 class="page-title" style="margin-bottom: 20px;">Практикум: Оціни рівень ризику</h2>
+<div class="practice-grid">
+<div class="practice-card" id="card-p1">
+<img src="https://res.cloudinary.com/dmydvhkzr/image/upload/v1782498756/scooter_rain_rx6oze.png" alt="Максим на самокаті" class="practice-image">
+<p style="font-size: 14px; margin-bottom: 12px; line-height: 1.5;">Максим їде на електросамокаті без шолома по мокрій дорозі, поспішаючи на зустріч.</p>
+<div class="practice-question">Який рівень ризику?</div>
+<div class="practice-options">
+<label class="practice-option" onclick="selectPractice(this, 'p1', 'low')">
+<input type="radio" name="p1" value="low"> Низький
+</label>
+<label class="practice-option" onclick="selectPractice(this, 'p1', 'mid')">
+<input type="radio" name="p1" value="mid"> Середній
+</label>
+<label class="practice-option" onclick="selectPractice(this, 'p1', 'high')">
+<input type="radio" name="p1" value="high"> Високий
+</label>
+</div>
+<div class="practice-explanation" id="exp-p1"></div>
+</div>
+<div class="practice-card" id="card-p2">
+<img src="https://res.cloudinary.com/dmydvhkzr/image/upload/v1782498734/online_shopping_fkvidh.png" alt="Онлайн-магазин" class="practice-image">
+<p style="font-size: 14px; margin-bottom: 12px; line-height: 1.5;">Оля знайшла інтернет-магазин із дуже низькими цінами та хоче ввести дані своєї карти для оплати товару.</p>
+<div class="practice-question">Який рівень ризику?</div>
+<div class="practice-options">
+<label class="practice-option" onclick="selectPractice(this, 'p2', 'low')">
+<input type="radio" name="p2" value="low"> Низький
+</label>
+<label class="practice-option" onclick="selectPractice(this, 'p2', 'mid')">
+<input type="radio" name="p2" value="mid"> Середній
+</label>
+<label class="practice-option" onclick="selectPractice(this, 'p2', 'high')">
+<input type="radio" name="p2" value="high"> Високий
+</label>
+</div>
+<div class="practice-explanation" id="exp-p2"></div>
+</div>
+<div class="practice-card" id="card-p3">
+<img src="https://res.cloudinary.com/dmydvhkzr/image/upload/v1782498732/speech_b1uimm.png" alt="Виступ" class="practice-image">
+<p style="font-size: 14px; margin-bottom: 12px; line-height: 1.5;">Соломія планує виступити на конференції перед великою аудиторією без підготовки.</p>
+<div class="practice-question">Який рівень ризику?</div>
+<div class="practice-options">
+<label class="practice-option" onclick="selectPractice(this, 'p3', 'low')">
+<input type="radio" name="p3" value="low"> Низький
+</label>
+<label class="practice-option" onclick="selectPractice(this, 'p3', 'mid')">
+<input type="radio" name="p3" value="mid"> Середній
+</label>
+<label class="practice-option" onclick="selectPractice(this, 'p3', 'high')">
+<input type="radio" name="p3" value="high"> Високий
+</label>
+</div>
+<div class="practice-explanation" id="exp-p3"></div>
+</div>
+<div class="practice-card" id="card-p4">
+<img src="https://res.cloudinary.com/dmydvhkzr/image/upload/v1782498752/forgotten_phone_pso73c.png" alt="Забутий телефон" class="practice-image">
+<p style="font-size: 14px; margin-bottom: 12px; line-height: 1.5;">Захар забув свій телефон в автобусі.</p>
+<div class="practice-question">Який рівень ризику?</div>
+<div class="practice-options">
+<label class="practice-option" onclick="selectPractice(this, 'p4', 'low')">
+<input type="radio" name="p4" value="low"> Низький
+</label>
+<label class="practice-option" onclick="selectPractice(this, 'p4', 'mid')">
+<input type="radio" name="p4" value="mid"> Середній
+</label>
+<label class="practice-option" onclick="selectPractice(this, 'p4', 'high')">
+<input type="radio" name="p4" value="high"> Високий
+</label>
+</div>
+<div class="practice-explanation" id="exp-p4"></div>
+</div>
+</div>
+<button class="btn" onclick="checkPractice()">Перевірити відповіді</button>
+<div class="nav-buttons">
+<button class="btn btn-secondary" onclick="showPage('page-3-3')">← Назад</button>
+<button class="btn" onclick="showPage('page-3-8')">Далі: Як зменшити ризик <span>→</span></button>
+</div>
+</div>
+</section>
+<!-- PAGE 3.8 - ОНОВЛЕНА З ПІДСВІЧУВАННЯМ ===== -->
+<section class="page hidden" id="page-3-8">
+<div class="step-header">
+<div class="step-header-left">
+<span class="step-badge orange">3</span>
+<span class="step-header-text" onclick="showPage('intro')">До змісту</span>
+</div>
+<div class="step-header-center">
+<span>§ 1. Безпека, небезпека і ризики</span>
+<span class="step-counter">Крок 3 з 5</span>
+</div>
+<div class="step-progress-dots">
+<span class="dot completed">1</span>
+<span class="dot completed">2</span>
+<span class="dot active">3</span>
+<span class="dot">4</span>
+<span class="dot">5</span>
+</div>
+</div>
+<div class="situation-card">
+<h2 class="page-title" style="margin-bottom: 20px;">Як зменшити ризик?</h2>
+<p style="margin-bottom: 20px; font-size: 15px; color: #555;">Познач дії, які допоможуть зменшити ризик у кожній ситуації:</p>
+<div class="checklist-container">
+<!-- Максим -->
+<div class="checklist-item">
+<div class="checklist-name">
+<img src="https://res.cloudinary.com/dmydvhkzr/image/upload/v1782498756/scooter_rain_rx6oze.png" alt="Максим">
+🛴 Максим
+</div>
+<div class="checklist-options">
+<label class="checklist-option" data-correct="true"><input type="checkbox" name="m1" value="correct"> Одягнути шолом</label>
+<label class="checklist-option" data-correct="true"><input type="checkbox" name="m2" value="correct"> Знизити швидкість</label>
+<label class="checklist-option" data-correct="true"><input type="checkbox" name="m3" value="correct"> Не поспішати</label>
+<label class="checklist-option" data-correct="false"><input type="checkbox" name="m4" value="wrong"> Їхати тротуаром</label>
+</div>
+</div>
+<!-- Оля -->
+<div class="checklist-item">
+<div class="checklist-name">
+<img src="https://res.cloudinary.com/dmydvhkzr/image/upload/v1782498734/online_shopping_fkvidh.png" alt="Оля">
+💳 Оля
+</div>
+<div class="checklist-options">
+<label class="checklist-option" data-correct="true"><input type="checkbox" name="o1" value="correct"> Перевірити магазин</label>
+<label class="checklist-option" data-correct="true"><input type="checkbox" name="o2" value="correct"> Використовувати безпечні способи оплати</label>
+<label class="checklist-option" data-correct="false"><input type="checkbox" name="o3" value="wrong"> Ввести дані карти</label>
+<label class="checklist-option" data-correct="false"><input type="checkbox" name="o4" value="wrong"> Замовити одразу</label>
+</div>
+</div>
+<!-- Соломія -->
+<div class="checklist-item">
+<div class="checklist-name">
+<img src="https://res.cloudinary.com/dmydvhkzr/image/upload/v1782498732/speech_b1uimm.png" alt="Соломія">
+🎤 Соломія
+</div>
+<div class="checklist-options">
+<label class="checklist-option" data-correct="true"><input type="checkbox" name="s1" value="correct"> Підготуватися</label>
+<label class="checklist-option" data-correct="true"><input type="checkbox" name="s2" value="correct"> Прорепетирувати виступ</label>
+<label class="checklist-option" data-correct="false"><input type="checkbox" name="s3" value="wrong"> Виступати експромтом</label>
+</div>
+</div>
+<!-- Захар -->
+<div class="checklist-item">
+<div class="checklist-name">
+<img src="https://res.cloudinary.com/dmydvhkzr/image/upload/v1782498752/forgotten_phone_pso73c.png" alt="Захар">
+ Захар
+</div>
+<div class="checklist-options">
+<label class="checklist-option" data-correct="true"><input type="checkbox" name="z1" value="correct"> Одразу повідомити перевізника</label>
+<label class="checklist-option" data-correct="true"><input type="checkbox" name="z2" value="correct"> Скористатися пошуком пристрою</label>
+<label class="checklist-option" data-correct="false"><input type="checkbox" name="z3" value="wrong"> Замовити новий телефон</label>
+</div>
+</div>
+<div class="checklist-result" id="checklistResult"></div>
+<div style="margin-top: 20px;">
+<button class="btn btn-success" onclick="checkChecklist()">Перевірити</button>
+<button class="btn btn-secondary" onclick="resetChecklist()">🔄 Спробувати ще раз</button>
+</div>
+</div>
+<div class="nav-buttons">
+<button class="btn btn-secondary" onclick="showPage('page-3-practice')">← Назад</button>
+<button class="btn" onclick="showPage('page-3-9')">Далі: Одна небезпека — різні ризики <span>→</span></button>
+</div>
+</div>
+</section>
+<!-- PAGE 3.9 -->
+<section class="page hidden" id="page-3-9">
+<div class="step-header">
+<div class="step-header-left">
+<span class="step-badge orange">3</span>
+<span class="step-header-text" onclick="showPage('intro')">До змісту</span>
+</div>
+<div class="step-header-center">
+<span>§ 1. Безпека, небезпека і ризики</span>
+<span class="step-counter">Крок 3 з 5</span>
+</div>
+<div class="step-progress-dots">
+<span class="dot completed">1</span>
+<span class="dot completed">2</span>
+<span class="dot active">3</span>
+<span class="dot">4</span>
+<span class="dot">5</span>
+</div>
+</div>
+<div class="situation-card">
+<h2 class="page-title" style="margin-bottom: 20px;">Одна небезпека — різні ризики</h2>
+<p style="margin-bottom: 20px; font-size: 15px; color: #555;">Ризик послизнутися і впасти. Визнач рівень ризику для кожної ситуації:</p>
+<div class="dragdrop-container">
+<div class="dragdrop-item">
+<img src="https://res.cloudinary.com/dmydvhkzr/image/upload/v1782498733/stairs_no_rail_fnixkx.png" alt="Сходи" class="dragdrop-image">
+<div class="dragdrop-text">Обледенілі сходи без поручнів</div>
+<div class="dragdrop-select">
+<select id="dd1">
+<option value="">Оберіть рівень ризику</option>
+<option value="low">Низький ризик</option>
+<option value="mid">Помірний ризик</option>
+<option value="high">Високий ризик</option>
+<option value="veryhigh">Дуже високий ризик</option>
+</select>
+</div>
+</div>
+<div class="dragdrop-item">
+<img src="https://res.cloudinary.com/dmydvhkzr/image/upload/v1782498753/wet_floor_no_sign_joybhl.png" alt="Мокра підлога" class="dragdrop-image">
+<div class="dragdrop-text">Мокра підлога без знака</div>
+<div class="dragdrop-select">
+<select id="dd2">
+<option value="">Оберіть рівень ризику</option>
+<option value="low">Низький ризик</option>
+<option value="mid">Помірний ризик</option>
+<option value="high">Високий ризик</option>
+<option value="veryhigh">Дуже високий ризик</option>
+</select>
+</div>
+</div>
+<div class="dragdrop-item">
+<img src="https://res.cloudinary.com/dmydvhkzr/image/upload/v1782498756/ice_outside_lqa4zz.png" alt="Ожеледиця" class="dragdrop-image">
+<div class="dragdrop-text">Надворі ожеледиця</div>
+<div class="dragdrop-select">
+<select id="dd3">
+<option value="">Оберіть рівень ризику</option>
+<option value="low">Низький ризик</option>
+<option value="mid">Помірний ризик</option>
+<option value="high">Високий ризик</option>
+<option value="veryhigh">Дуже високий ризик</option>
+</select>
+</div>
+</div>
+<div class="dragdrop-item">
+<img src="https://res.cloudinary.com/dmydvhkzr/image/upload/v1782498736/wet_floor_sign_hdkail.png" alt="Мокра підлога зі знаком" class="dragdrop-image">
+<div class="dragdrop-text">Мокра підлога зі знаком «Обережно!»</div>
+<div class="dragdrop-select">
+<select id="dd4">
+<option value="">Оберіть рівень ризику</option>
+<option value="low">Низький ризик</option>
+<option value="mid">Помірний ризик</option>
+<option value="high">Високий ризик</option>
+<option value="veryhigh">Дуже високий ризик</option>
+</select>
+</div>
+</div>
+</div>
+<div class="dragdrop-result" id="dragdropResult"></div>
+<div style="margin-top: 20px;">
+<button class="btn btn-success" onclick="checkDragDrop()">Перевірити</button>
+<button class="btn btn-secondary" onclick="resetDragDrop()">🔄 Спробувати ще раз</button>
+</div>
+<div class="nav-buttons">
+<button class="btn btn-secondary" onclick="showPage('page-3-8')">← Назад</button>
+<button class="btn" onclick="showPage('page-3-10')">Далі: Чому ризик різний <span>→</span></button>
+</div>
+</div>
+</section>
+<!-- PAGE 3.10 -->
+<section class="page hidden" id="page-3-10">
+<div class="step-header">
+<div class="step-header-left">
+<span class="step-badge orange">3</span>
+<span class="step-header-text" onclick="showPage('intro')">До змісту</span>
+</div>
+<div class="step-header-center">
+<span>§ 1. Безпека, небезпека і ризики</span>
+<span class="step-counter">Крок 3 з 5</span>
+</div>
+<div class="step-progress-dots">
+<span class="dot completed">1</span>
+<span class="dot completed">2</span>
+<span class="dot active">3</span>
+<span class="dot">4</span>
+<span class="dot">5</span>
+</div>
+</div>
+<div class="situation-card">
+<h2 class="page-title" style="margin-bottom: 20px;">Чому ризик різний?</h2>
+<div style="background: white; padding: 25px; border-radius: 12px; margin-bottom: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
+<h4 style="color: #1a1a6e; margin-bottom: 18px; font-size: 18px;">Чому ризик різний?</h4>
+<div style="display: flex; flex-direction: column; gap: 12px; font-size: 15px;">
+<div style="display: flex; align-items: center; gap: 12px; padding: 10px; background: #f0f4ff; border-radius: 8px;">☑️ Є або немає попередження про небезпеку</div>
+<div style="display: flex; align-items: center; gap: 12px; padding: 10px; background: #f0f4ff; border-radius: 8px;">☑️ Різні умови</div>
+<div style="display: flex; align-items: center; gap: 12px; padding: 10px; background: #f0f4ff; border-radius: 8px;">☑️ Різні можливі наслідки</div>
+<div style="display: flex; align-items: center; gap: 12px; padding: 10px; background: #f0f4ff; border-radius: 8px;">☑️ Особливості місця</div>
+</div>
+</div>
+<div style="background: linear-gradient(135deg, #eef2ff, #dbeafe); padding: 22px; border-radius: 12px; border-left: 5px solid #667eea;">
+<strong style="font-size: 16px; color: #1a1a6e;">Висновок:</strong><br>
+<p style="margin-top: 10px; font-size: 15px; line-height: 1.7; color: #444;">
+Одна й та сама небезпека може створювати різний рівень ризику залежно від умов та поведінки людини.
+<strong>Уважність, підготовленість та обачність</strong> допомагають зменшити ризик!
+</p>
+</div>
+<div class="nav-buttons">
+<button class="btn btn-secondary" onclick="showPage('page-3-9')">← Назад</button>
+<button class="btn btn-success" onclick="showPage('page-3-summary')">Завершити крок <span>→</span></button>
+</div>
+</div>
+</section>
+<!-- PAGE 3-SUMMARY -->
+<section class="page hidden" id="page-3-summary">
+<div class="summary-box">
+<div class="trophy">🏆</div>
+<h2>Вітаємо! Ти навчився/навчилась: </h2>
+<p style="font-size: 19px; margin-bottom: 15px;"></p>
+<ul class="summary-list">
+<li>визначати ризики</li>
+<li>оцінювати рівень ризику</li>
+<li>користуватися матрицею ризику</li>
+<li>знаходити способи його зменшення</li>
+</ul>
+<div class="nav-buttons" style="justify-content: center;">
+<button class="btn" style="font-size: 17px; padding: 18px 36px;" onclick="goToStep4()">
+Перейти до кроку 4 →
+</button>
+</div>
 </div>
 </section>
 </main>
@@ -1768,7 +2700,7 @@ color: #991b1b;
 <h2>Інструкція з використання тренажера</h2>
 <h3>🎯 Як почати?</h3>
 <p>Натисни кнопку <strong>"Розпочати параграф"</strong> або <strong>"Крок 1"</strong> на головній сторінці, щоб перейти до першого завдання.</p>
-<h3>🔍 Як знаходити ризики?</h3>
+<h3> Як знаходити ризики?</h3>
 <ul>
 <li>Уважно розглянь зображення ситуації</li>
 <li>Шукай сині кружечки з знаком <strong>+</strong></li>
@@ -1791,7 +2723,7 @@ color: #991b1b;
 <div class="modal-card">
 <div class="modal-header">
 <div class="modal-header-left">
-<div class="modal-number" id="spaceModalNumber">🌳</div>
+<div class="modal-number" id="spaceModalNumber"></div>
 <h3 class="modal-title" id="spaceModalTitle">Фізичний простір</h3>
 </div>
 <button class="modal-close" onclick="closeSpaceModal()">✕</button>
@@ -1803,6 +2735,19 @@ color: #991b1b;
 <button class="btn btn-secondary" onclick="closeSpaceModal()">Закрити</button>
 <button class="btn" onclick="goToSituationFromModal()">Дослідити далі <span>→</span></button>
 </div>
+</div>
+</div>
+<!-- MATRIX MODAL -->
+<div class="modal-overlay hidden" id="matrixModal">
+<div class="modal-card">
+<div class="modal-header">
+<div class="modal-header-left">
+<span class="modal-number">📊</span>
+<h3 class="modal-title" id="matrixModalTitle">Рівень ризику</h3>
+</div>
+<button class="modal-close" onclick="closeMatrixModal()">✕</button>
+</div>
+<div class="info-modal-content" id="matrixModalBody"></div>
 </div>
 </div>
 <script>
@@ -1817,7 +2762,7 @@ building: { number: 7, title: 'Недобудова', image: 'https://res.cloudi
 };
 // ===== ДАНІ ПРОСТОРІВ =====
 const spaceDetails = {
-physical: { icon: '🌳', title: 'Фізичний простір', nextSituation: 'situation-2-4', content: '<h3>Що таке фізичний простір?</h3><p>Фізичний простір — це безпечне місце, де немає фізичних загроз.</p><h4>Характеристики:</h4><ul><li>Відсутність фізичних загроз</li><li>Наявність укриття у разі небезпеки</li><li>Вільні виходи та евакуаційні шляхи</li></ul>' },
+physical: { icon: '', title: 'Фізичний простір', nextSituation: 'situation-2-4', content: '<h3>Що таке фізичний простір?</h3><p>Фізичний простір — це безпечне місце, де немає фізичних загроз.</p><h4>Характеристики:</h4><ul><li>Відсутність фізичних загроз</li><li>Наявність укриття у разі небезпеки</li><li>Вільні виходи та евакуаційні шляхи</li></ul>' },
 psychological: { icon: '🧠', title: 'Психологічний простір', nextSituation: 'situation-2-5', content: '<h3>Що таке психологічний простір?</h3><p>Атмосфера довіри та підтримки, відсутність страху.</p><h4>Характеристики:</h4><ul><li>Відсутність страху та тривоги</li><li>Атмосфера довіри</li><li>Підтримка та розуміння</li></ul>' },
 social: { icon: '👥', title: 'Соціальний простір', nextSituation: 'situation-2-6', content: '<h3>Що таке соціальний простір?</h3><p>Підтримка, співпраця, відсутність дискримінації.</p><h4>Характеристики:</h4><ul><li>Взаємопідтримка</li><li>Співпраця та командна робота</li><li>Відсутність дискримінації</li></ul>' },
 digital: { icon: '🔒', title: 'Цифровий простір', nextSituation: 'situation-2-7', content: '<h3>Що таке цифровий простір?</h3><p>Захист даних, приватність, безпечна поведінка онлайн.</p><h4>Характеристики:</h4><ul><li>Захист персональних даних</li><li>Приватність акаунтів</li><li>Безпечна поведінка в інтернеті</li></ul>' },
@@ -1844,13 +2789,13 @@ const itemLabels = {
 'pidtrymka': '👥 Підтримка друзів',
 'komandna-robota': '🤝 Командна робота',
 'parol': '🔒 Надійний пароль',
-'perevirka-dzherel': '🔍 Перевірка джерел',
+'perevirka-dzherel': ' Перевірка джерел',
 'samopova': '🧘 Самоповага',
 'pozytyvne-myslennia': '💭 Позитивне мислення'
 };
 const oddExplanations = {
 1: { correct: '✅ Правильно! «Осміяння» — це порушення психологічного простору, а не фізичного.', incorrect: '❌ Неправильно. «Осміяння» — це елемент психологічного простору, тому воно зайве у групі фізичного.' },
-2: { correct: '✅ Правильно! «Надійний пароль» належить до цифрового простору, а не психологічного.', incorrect: '❌ Неправильно. «Надійний пароль» — це елемент цифрового простору, тому він зайвий тут.' },
+2: { correct: '✅ Правильно! «Надійний пароль» належить до цифрового простору, а не психологічного.', incorrect: ' Неправильно. «Надійний пароль» — це елемент цифрового простору, тому він зайвий тут.' },
 3: { correct: '✅ Правильно! «Wi-Fi» — це технологія, яка належить до цифрового простору.', incorrect: '❌ Неправильно. «Wi-Fi» — це технологічний елемент, який не є частиною соціального простору.' },
 4: { correct: '✅ Правильно! «Критичне мислення» — це навичка внутрішнього простору.', incorrect: '❌ Неправильно. «Критичне мислення» належить до внутрішнього простору, а не цифрового.' },
 5: { correct: '✅ Правильно! «Сварки в соцмережах» — це проблема цифрового/соціального простору.', incorrect: '❌ Неправильно. «Сварки в соцмережах» — це зовнішній фактор, який не є частиною внутрішнього простору.' }
@@ -1883,18 +2828,33 @@ safety: document.getElementById('page-safety'),
 'situation-2-8': document.getElementById('page-situation-2-8'),
 'exercise-2-10': document.getElementById('page-exercise-2-10'),
 'exercise-2-11': document.getElementById('page-exercise-2-11'),
-'step2-final': document.getElementById('page-step2-final')
+'step2-final': document.getElementById('page-step2-final'),
+// Крок 3
+'page-3-1': document.getElementById('page-3-1'),
+'page-3-2': document.getElementById('page-3-2'),
+'page-3-3': document.getElementById('page-3-3'),
+'page-3-practice': document.getElementById('page-3-practice'),
+'page-3-8': document.getElementById('page-3-8'),
+'page-3-9': document.getElementById('page-3-9'),
+'page-3-10': document.getElementById('page-3-10'),
+'page-3-summary': document.getElementById('page-3-summary')
 };
 const riskModal = document.getElementById('riskModal');
 // ===== НАВІГАЦІЯ =====
 function showPage(pageId) {
-Object.values(pages).forEach(page => page.classList.add('hidden'));
-if (pages[pageId]) pages[pageId].classList.remove('hidden');
+Object.values(pages).forEach(page => {
+if (page) page.classList.add('hidden');
+});
+if (pages[pageId]) {
+pages[pageId].classList.remove('hidden');
+}
 state.currentPage = pageId;
 window.scrollTo(0, 0);
 }
 function goToStep1() { showPage('step1'); }
 function goToStep2() { showPage('step2-intro'); }
+function goToStep3() { showPage('page-3-1'); }
+function goToStep4() { alert('Перехід до Кроку 4: Небезпечні ситуації (буде реалізовано наступним етапом)'); }
 function closeModal(modalId) {
 document.getElementById(modalId).classList.add('hidden');
 }
@@ -1904,12 +2864,13 @@ document.getElementById('btnProgress').addEventListener('click', () => {
 document.getElementById('statRisks').textContent = `${state.foundRisks.size}/${state.totalRisks}`;
 let currentStep = 1;
 if (state.currentPage.startsWith('step2') || state.currentPage.startsWith('situation-2') || state.currentPage.startsWith('exercise-2')) currentStep = 2;
+if (state.currentPage.startsWith('page-3')) currentStep = 3;
 document.getElementById('statSteps').textContent = `${currentStep}/5`;
 const stepStatusList = document.getElementById('stepStatusList');
 const steps = [
 { name: 'Крок 1: Стартова ситуація', icon: currentStep > 1 ? '✅' : '🔵' },
 { name: 'Крок 2: Безпека та безпечний простір', icon: currentStep === 2 ? '🔵' : (currentStep > 2 ? '✅' : '⚪') },
-{ name: 'Крок 3: Ризики', icon: '⚪' },
+{ name: 'Крок 3: Ризики', icon: currentStep === 3 ? '🔵' : (currentStep > 3 ? '✅' : '') },
 { name: 'Крок 4: Небезпечні ситуації', icon: '⚪' },
 { name: 'Крок 5: Ухвалення рішень', icon: '⚪' }
 ];
@@ -2044,7 +3005,6 @@ else { element.classList.add('incorrect'); element.classList.remove('correct'); 
 const explanation = document.getElementById('explanation-' + id);
 if (explanation) explanation.classList.remove('hidden');
 }
-// ===== НОВА ФУНКЦІЯ: checkbox з індивідуальним поясненням =====
 function toggleCheckboxWithExplanation(element, isCorrect, explanationId) {
 element.classList.toggle('checked');
 const explanation = document.getElementById(explanationId);
@@ -2097,7 +3057,6 @@ showPage(nextSituation);
 }
 function startSituations() { showPage('situation-2-4'); }
 function nextSituation(current, next) { showPage('situation-' + next); }
-function goToStep3() { alert('Перехід до Кроку 3: Ризики (буде реалізовано наступним етапом)'); }
 // ===== ВПРАВА 2.10 (ОНОВЛЕНА) =====
 function selectMatchingItem(element) {
 if (element.classList.contains('assigned')) return;
@@ -2154,13 +3113,9 @@ wrongItems.push(itemId);
 if (wrongItems.length > 0) {
 wrongItems.forEach(itemId => {
 const itemElement = document.querySelector(`.matching-item[data-item="${itemId}"]`);
-if (itemElement) {
-itemElement.classList.add('wrong');
-}
+if (itemElement) itemElement.classList.add('wrong');
 const tagElement = document.querySelector(`.assigned-tag[data-item-id="${itemId}"]`);
-if (tagElement) {
-tagElement.classList.add('wrong-tag');
-}
+if (tagElement) tagElement.classList.add('wrong-tag');
 setTimeout(() => {
 if (itemElement) itemElement.classList.remove('wrong');
 if (tagElement) tagElement.classList.remove('wrong-tag');
@@ -2181,7 +3136,7 @@ resultDiv.innerHTML = `
 <strong>❌ Є помилки!</strong><br>
 Правильно: ${correct} з ${totalItems}. Неправильно: ${wrong}.<br>
 <small>Червоні елементи показують неправильні відповіді. Вони зникнуть через 1.5 секунди.</small><br>
-<small>Натисни "🔄 Спробувати ще раз", щоб пройти вправу заново!</small><br>
+<small>Натисни " Спробувати ще раз", щоб пройти вправу заново!</small><br>
 <small>Спроб: ${matchingAttempts}</small>
 `;
 }
@@ -2216,7 +3171,7 @@ const selected = taskContainer.querySelector('.odd-item.selected');
 const explanationDiv = document.getElementById('odd-explanation-' + taskNum);
 if (!selected) {
 explanationDiv.className = 'odd-explanation incorrect';
-explanationDiv.textContent = '⚠️ Обери один варіант, перш ніж перевіряти.';
+explanationDiv.textContent = '️ Обери один варіант, перш ніж перевіряти.';
 explanationDiv.classList.remove('hidden');
 return;
 }
@@ -2235,6 +3190,251 @@ explanationDiv.className = 'odd-explanation incorrect';
 explanationDiv.textContent = oddExplanations[taskNum].incorrect;
 }
 explanationDiv.classList.remove('hidden');
+}
+// ===== КРОК 3 ФУНКЦІЇ =====
+// Matrix Modal Data
+const matrixData = {
+'low-low': {
+title: 'Низький ризик',
+text: 'Низька ймовірність + Незначні наслідки',
+examples: ['Забув ключі (можна викликати майстра)', 'Запізнився на 5 хвилин', 'Невелика подряпина']
+},
+'low-mid': {
+title: 'Помірний ризик',
+text: 'Низька ймовірність + Помірні наслідки',
+examples: ['Втрата телефона (можна знайти)', 'Невелика затримка рейсу', 'Легке застудження']
+},
+'low-high': {
+title: 'Високий ризик',
+text: 'Низька ймовірність + Серйозні наслідки',
+examples: ['Авіакатастрофа (рідко, але наслідки важкі)', 'Пожежа в будинку', 'Серйозна травма']
+},
+'mid-low': {
+title: 'Помірний ризик',
+text: 'Середня ймовірність + Незначні наслідки',
+examples: ['Втрата дрібних речей', 'Невелика сварка з другом', 'Погана оцінка за тест']
+},
+'mid-mid': {
+title: 'Високий ризик',
+text: 'Середня ймовірність + Помірні наслідки',
+examples: ['Кібербулінг', 'ДТП з незначними пошкодженнями', 'Втрата гаманця']
+},
+'mid-high': {
+title: 'Дуже високий ризик',
+text: 'Середня ймовірність + Серйозні наслідки',
+examples: ['Серйозне ДТП', 'Тривала хвороба', 'Втрата роботи']
+},
+'high-low': {
+title: 'Високий ризик',
+text: 'Висока ймовірність + Незначні наслідки',
+examples: ['Щоденний стрес', 'Втома від навчання', 'Дрібні конфлікти']
+},
+'high-mid': {
+title: 'Дуже високий ризик',
+text: 'Висока ймовірність + Помірні наслідки',
+examples: ['Постійне запізнення', 'Регулярні сварки', 'Проблеми зі здоров\'ям']
+},
+'high-high': {
+title: 'Критичний ризик',
+text: 'Висока ймовірність + Серйозні наслідки',
+examples: ['Обстріл у зоні конфлікту', 'Їзда п\'яним за кермом', 'Робота без захисту на висоті']
+}
+};
+function openMatrixModal(cellId) {
+const data = matrixData[cellId];
+if (!data) return;
+document.getElementById('matrixModalTitle').textContent = data.title;
+document.getElementById('matrixModalBody').innerHTML = `
+<p style="margin-bottom: 18px; font-size: 16px; line-height: 1.6;"><strong>${data.text}</strong></p>
+<div class="modal-examples" style="background: #f8f9fa; padding: 18px; border-radius: 10px; margin-top: 18px;">
+<h4 style="color: #1a1a6e; margin-bottom: 12px;">Приклади:</h4>
+<ul style="list-style: none; padding: 0;">
+${data.examples.map(ex => `<li style="padding: 8px 0; padding-left: 28px; position: relative; font-size: 14px;"><span style="position: absolute; left: 10px; color: #667eea; font-weight: bold;">•</span>${ex}</li>`).join('')}
+</ul>
+</div>
+`;
+document.getElementById('matrixModal').classList.remove('hidden');
+}
+function closeMatrixModal() {
+document.getElementById('matrixModal').classList.add('hidden');
+}
+document.getElementById('matrixModal').addEventListener('click', function(e) {
+if (e.target === this) closeMatrixModal();
+});
+// Practice Functions
+function selectPractice(element, questionId, value) {
+const card = element.closest('.practice-card');
+card.querySelectorAll('.practice-option').forEach(opt => {
+opt.classList.remove('selected', 'correct', 'incorrect');
+});
+element.classList.add('selected');
+element.querySelector('input').checked = true;
+}
+function checkPractice() {
+const answers = {
+p1: 'high',
+p2: 'high',
+p3: 'high',
+p4: 'high'
+};
+const explanations = {
+p1: 'Їзда без шолома + мокра дорога + поспіх = високий ризик травми.',
+p2: 'Дуже низькі ціни часто означають шахрайство. Ризик втрати грошей.',
+p3: 'Виступ без підготовки = ризик провалу, втрати репутації та впевненості.',
+p4: 'Втрата телефону = ризик втрати даних, доступу до акаунтів, фінансових втрат.'
+};
+let allAnswered = true;
+for (let id in answers) {
+const selected = document.querySelector(`input[name="${id}"]:checked`);
+const card = document.getElementById('card-' + id);
+const explanation = document.getElementById(`exp-${id}`);
+if (!selected) {
+allAnswered = false;
+card.style.borderColor = '#fbbf24';
+setTimeout(() => card.style.borderColor = 'transparent', 2000);
+} else {
+card.style.borderColor = 'transparent';
+const userAnswer = selected.value;
+const correctAnswer = answers[id];
+explanation.classList.remove('correct', 'incorrect');
+// Reset all options styling
+card.querySelectorAll('.practice-option').forEach(opt => {
+opt.classList.remove('correct', 'incorrect');
+});
+if (userAnswer === correctAnswer) {
+explanation.classList.add('correct');
+explanation.innerHTML = '<strong>✅ Правильно!</strong><br>' + explanations[id];
+// Highlight selected option as correct
+selected.closest('.practice-option').classList.add('correct');
+} else {
+explanation.classList.add('incorrect');
+explanation.innerHTML = '<strong>❌ Неправильно!</strong><br>Правильна відповідь: <strong>Високий</strong><br>' + explanations[id];
+selected.closest('.practice-option').classList.add('incorrect');
+// Also highlight correct answer
+card.querySelectorAll('.practice-option').forEach(opt => {
+const radio = opt.querySelector('input');
+if (radio && radio.value === correctAnswer) {
+opt.classList.add('correct');
+}
+});
+}
+explanation.classList.add('show');
+}
+}
+if (!allAnswered) {
+alert('Будь ласка, оберіть відповідь у всіх питаннях!');
+}
+}
+// ===== Checklist Functions - ОНОВЛЕНА З ПІДСВІЧУВАННЯМ =====
+function checkChecklist() {
+let allCorrect = true;
+let hasErrors = false;
+
+// Перевіряємо всі чекбокси
+document.querySelectorAll('.checklist-option').forEach(option => {
+const checkbox = option.querySelector('input[type="checkbox"]');
+const isCorrect = option.dataset.correct === 'true';
+const isChecked = checkbox.checked;
+
+// Скидаємо попередні класи
+option.classList.remove('correct-selection', 'incorrect-selection', 'missed-correct');
+
+if (isCorrect && isChecked) {
+// Правильно обрано
+option.classList.add('correct-selection');
+} else if (isCorrect && !isChecked) {
+// Не обрано правильну відповідь
+option.classList.add('missed-correct');
+allCorrect = false;
+} else if (!isCorrect && isChecked) {
+// Обрано неправильну відповідь
+option.classList.add('incorrect-selection');
+hasErrors = true;
+allCorrect = false;
+}
+});
+
+const resultDiv = document.getElementById('checklistResult');
+resultDiv.classList.remove('hidden');
+
+if (allCorrect && !hasErrors) {
+resultDiv.className = 'checklist-result correct show';
+resultDiv.innerHTML = '<strong>✅ Чудово!</strong> Всі дії для зменшення ризику обрано правильно!';
+} else {
+resultDiv.className = 'checklist-result incorrect show';
+resultDiv.innerHTML = '<strong>❌ Є помилки.</strong><br>🟢 Зеленим підсвічено правильні відповіді<br>🔴 Червоним — неправильні вибори<br>🟡 Жовтим — пропущені правильні відповіді';
+}
+
+// Прокрутка до результату
+resultDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+function resetChecklist() {
+document.querySelectorAll('.checklist-option').forEach(option => {
+const checkbox = option.querySelector('input[type="checkbox"]');
+checkbox.checked = false;
+option.classList.remove('correct-selection', 'incorrect-selection', 'missed-correct');
+});
+const resultDiv = document.getElementById('checklistResult');
+resultDiv.classList.remove('show');
+resultDiv.className = 'checklist-result';
+}
+
+// DragDrop Functions
+function checkDragDrop() {
+const correctAnswers = {
+dd1: 'veryhigh',
+dd2: 'high',
+dd3: 'mid',
+dd4: 'low'
+};
+let allAnswered = true;
+let allCorrect = true;
+for (let id in correctAnswers) {
+const select = document.getElementById(id);
+const userAnswer = select.value;
+if (!userAnswer) {
+allAnswered = false;
+select.style.borderColor = '#fbbf24';
+} else {
+select.style.borderColor = '';
+select.classList.remove('correct-answer', 'incorrect-answer');
+if (userAnswer === correctAnswers[id]) {
+select.classList.add('correct-answer');
+} else {
+select.classList.add('incorrect-answer');
+allCorrect = false;
+}
+}
+}
+const resultDiv = document.getElementById('dragdropResult');
+resultDiv.classList.remove('hidden');
+if (!allAnswered) {
+alert('Будь ласка, оберіть рівень ризику для всіх ситуацій!');
+return;
+}
+if (allCorrect) {
+resultDiv.className = 'dragdrop-result correct show';
+resultDiv.innerHTML = '<strong>✅ Відмінно!</strong><br>Ти правильно визначив(ла) рівень ризику для всіх ситуацій!';
+} else {
+resultDiv.className = 'dragdrop-result incorrect show';
+resultDiv.innerHTML = '<strong>❌ Є помилки</strong><br>' +
+'<ul style="margin-top: 12px; padding-left: 22px; line-height: 1.8;">' +
+'<li>Обледенілі сходи без поручнів — <strong>дуже високий</strong> ризик</li>' +
+'<li>Мокра підлога без знака — <strong>високий</strong> ризик</li>' +
+'<li>Ожеледиця надворі — <strong>помірний</strong> ризик</li>' +
+'<li>Мокра підлога зі знаком — <strong>низький</strong> ризик (є попередження)</li>' +
+'</ul>';
+}
+}
+function resetDragDrop() {
+document.querySelectorAll('.dragdrop-select select').forEach(select => {
+select.value = '';
+select.classList.remove('correct-answer', 'incorrect-answer');
+select.style.borderColor = '';
+});
+document.getElementById('dragdropResult').classList.remove('show');
+document.getElementById('dragdropResult').className = 'dragdrop-result';
 }
 // Закриття модальних вікон при кліку на фон
 document.querySelectorAll('.modal-overlay').forEach(modal => {
