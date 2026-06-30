@@ -2252,6 +2252,33 @@ body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-
 <div class="s5-outcome-verdict dangerous">Це рішення пов'язане з високим ризиком!</div>
 </div>
 </div>
+<div class="s5-outcome-card warning" onclick="s5ToggleOutcome(this)">
+<div class="s5-outcome-header">
+<img src="https://res.cloudinary.com/dmydvhkzr/image/upload/v1782655872/crossing_ztkmk1.png" alt="Іконка">
+<span>Звернутися по допомогу до випадкового перехожого</span>
+</div>
+<div class="s5-outcome-details">
+<h4 style="margin-bottom: 10px;">Що може статися:</h4>
+<ul class="s5-outcome-list">
+<li class="warning">Людина може виявитися недоброю</li>
+<li class="warning">Ти можеш піти в небезпечне місце</li>
+<li class="correct">Як факт, ця людина справді зможе допомогти</li>
+</ul>
+<div class="s5-yes-no-question">
+<strong>Чи достатньо інформації для такого рішення?</strong>
+<div class="s5-yes-no-options">
+<label id="s5q572-yes"><input type="radio" name="s5q572" value="так"> Так</label>
+<label id="s5q572-no"><input type="radio" name="s5q572" value="ні"> Ні</label>
+</div>
+<div id="s5Result572" class="s5-yes-no-result"></div>
+</div>
+<div class="buttons-container" style="margin-top: 10px;">
+<button class="btn btn-success" onclick="s5CheckYesNo('s5q572', 'ні', 's5Result572', 's5q572-yes', 's5q572-no')">✓ Перевірити</button>
+<button class="btn btn-secondary" onclick="s5ResetYesNo('s5q572', 's5Result572', 's5q572-yes', 's5q572-no')">🔄 Спробувати ще раз</button>
+</div>
+<div class="s5-outcome-verdict risky">Це рішення також пов'язане з ризиком</div>
+</div>
+</div>
 <div class="s5-outcome-card correct" onclick="s5ToggleOutcome(this)">
 <div class="s5-outcome-header">
 <img src="https://res.cloudinary.com/dmydvhkzr/image/upload/v1782655865/shop_hsl2gz.png" alt="Іконка">
@@ -2277,6 +2304,33 @@ body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-
 <button class="btn btn-secondary" onclick="s5ResetYesNo('s5q573', 's5Result573', 's5q573-yes', 's5q573-no')">🔄 Спробувати ще раз</button>
 </div>
 <div class="s5-outcome-verdict safe">Це найбезпечніше рішення!</div>
+</div>
+</div>
+<div class="s5-outcome-card danger" onclick="s5ToggleOutcome(this)">
+<div class="s5-outcome-header">
+<img src="https://res.cloudinary.com/dmydvhkzr/image/upload/v1782655873/bus_wsmuhl.png" alt="Іконка">
+<span>Сісти в перший автобус, який під'їде</span>
+</div>
+<div class="s5-outcome-details">
+<h4 style="margin-bottom: 10px;">Що може статися:</h4>
+<ul class="s5-outcome-list">
+<li class="warning">Можеш опинитися дуже далеко від потрібного місця</li>
+<li class="warning">Не знаєш, куди їде автобус</li>
+<li class="warning">Стане темніше, і знайти допомогу буде складніше</li>
+</ul>
+<div class="s5-yes-no-question">
+<strong>Чи достатньо інформації для такого рішення?</strong>
+<div class="s5-yes-no-options">
+<label id="s5q574-yes"><input type="radio" name="s5q574" value="так"> Так</label>
+<label id="s5q574-no"><input type="radio" name="s5q574" value="ні"> Ні</label>
+</div>
+<div id="s5Result574" class="s5-yes-no-result"></div>
+</div>
+<div class="buttons-container" style="margin-top: 10px;">
+<button class="btn btn-success" onclick="s5CheckYesNo('s5q574', 'ні', 's5Result574', 's5q574-yes', 's5q574-no')">✓ Перевірити</button>
+<button class="btn btn-secondary" onclick="s5ResetYesNo('s5q574', 's5Result574', 's5q574-yes', 's5q574-no')">🔄 Спробувати ще раз</button>
+</div>
+<div class="s5-outcome-verdict dangerous">Це рішення небезпечне в умовах невизначеності!</div>
 </div>
 </div>
 </div>
