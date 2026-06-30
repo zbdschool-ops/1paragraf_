@@ -1726,6 +1726,15 @@ body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-
 <div class="s4-flow-arrow">→</div>
 <div class="s4-flow-item"><div class="s4-flow-icon"><span class="s4-emoji-icon">💔</span></div><div>Психологічна травма</div></div>
 </div>
+<div class="s4-flow-diagram">
+<div class="s4-flow-item"><div class="s4-flow-icon"><span class="s4-emoji-icon">📱</span></div><div>Фейк</div></div>
+<div class="s4-flow-arrow">→</div>
+<div class="s4-flow-item"><div class="s4-flow-icon"><span class="s4-emoji-icon">😱</span></div><div>Паніка</div></div>
+<div class="s4-flow-arrow">→</div>
+<div class="s4-flow-item"><div class="s4-flow-icon"><span class="s4-emoji-icon">🛒</span></div><div>Масові закупівлі</div></div>
+<div class="s4-flow-arrow">→</div>
+<div class="s4-flow-item"><div class="s4-flow-icon"><span class="s4-emoji-icon">📦</span></div><div>Дефіцит</div></div>
+</div>
 </div>
 <div class="nav-buttons">
 <button class="btn btn-secondary" onclick="showPage('page-3-9')">← Крок 3</button>
@@ -2922,109 +2931,107 @@ body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-
         <div class="info-modal-content" id="matrixModalBody"></div>
     </div>
 </div>
-
 <script>
 /* ===================================================================
 🔥 СИСТЕМА ВІДСТЕЖЕННЯ ПРОГРЕСУ ПО КРОКАХ
 =================================================================== */
 const stepTracker = {
-    step1: { total: 2, completed: 0, tasks: { risks: false, decision: false } },
-    step2: { total: 7, completed: 0, tasks: { sit24: false, sit25: false, sit26: false, sit27: false, sit28: false, matching: false, odd: false } },
-    step3: { total: 3, completed: 0, tasks: { practice: false, checklist: false, dragdrop: false } },
-    step4: { total: 7, completed: 0, tasks: { q3: false, q4: false, q5: false, q6: false, q7: false, q8: false, q10: false } },
-    step5: { total: 5, completed: 0, tasks: { quiz53: false, order: false, alina: false, match: false, checklist: false } }
+step1: { total: 2, completed: 0, tasks: { risks: false, decision: false } },
+step2: { total: 7, completed: 0, tasks: { sit24: false, sit25: false, sit26: false, sit27: false, sit28: false, matching: false, odd: false } },
+step3: { total: 3, completed: 0, tasks: { practice: false, checklist: false, dragdrop: false } },
+step4: { total: 7, completed: 0, tasks: { q3: false, q4: false, q5: false, q6: false, q7: false, q8: false, q10: false } },
+step5: { total: 5, completed: 0, tasks: { quiz53: false, order: false, alina: false, match: false, checklist: false } }
 };
-
 const stepsCompleted = { 1: false, 2: false, 3: false, 4: false, 5: false };
 
 /* ===== ДАНІ КРОКУ 1 ===== */
 const risksData = {
-    rebar: { number: 2, title: 'Арматура', image: 'https://res.cloudinary.com/dmydvhkzr/image/upload/v1781886120/rebar_ion0c3.png', riskType: 'Ризик травмування', description: 'Гострі металеві стрижні можуть поранити.', whatCanHappen: ['травма ноги', 'поріз руки', 'зараження рани'], type: 'whatCanHappen' },
-    phone: { number: 3, title: 'Телефон / зйомка', image: 'https://res.cloudinary.com/dmydvhkzr/image/upload/v1781886120/boy_phone_selfie_yzxmtz.png', riskType: 'Відволікання уваги', description: 'Під час зйомки людина менше помічає небезпеки навколо.', whatCanHappen: ['можна не помітити край', 'втратити рівновагу', 'не звернути увагу на попередження'], type: 'whatCanHappen' },
-    roof: { number: 4, title: 'Край даху / тріщина', image: 'https://res.cloudinary.com/dmydvhkzr/image/upload/v1781886120/roof_edge_crack_me7ink.png', riskType: 'Ризик падіння', description: 'Навіть якщо людина стоїть обережно, поруч із краєм ризик значно зростає.', whatCanHappen: ['падіння з висоти', 'серйозні травми', 'загроза для життя'], type: 'whatCanHappen' },
-    sign: { number: 5, title: 'Знак «Стороннім вхід заборонено»', image: 'https://res.cloudinary.com/dmydvhkzr/image/upload/v1781886121/no_entry_sign_l9y1yw.png', riskType: 'Попередження про небезпеку', description: 'Такі знаки встановлюють не випадково.', whatCanHappen: ['територія може бути небезпечною', 'є ризик травмування чи падіння', 'доступ сюди заборонений не просто так'], type: 'whyImportant' },
-    net: { number: 6, title: 'Будівельна сітка', image: 'https://res.cloudinary.com/dmydvhkzr/image/upload/v1781886119/construction_net_zijov0.png', riskType: 'Ознака небезпечної зони', description: 'Сітка означає, що роботи ще не завершені.', whatCanHappen: ['падіння з висоти', 'травмування', 'пошкодження конструкцій'], type: 'whatCanHappen' },
-    building: { number: 7, title: 'Недобудова', image: 'https://res.cloudinary.com/dmydvhkzr/image/upload/v1781886121/unfinished_building_ymotls.png', riskType: 'Небезпечний об\'єкт', description: 'Конструкція не призначена для відпочинку чи прогулянок.', whatCanHappen: ['падіння', 'обвал конструкцій', 'травмування'], type: 'whatCanHappen' }
+rebar: { number: 2, title: 'Арматура', image: 'https://res.cloudinary.com/dmydvhkzr/image/upload/v1781886120/rebar_ion0c3.png', riskType: 'Ризик травмування', description: 'Гострі металеві стрижні можуть поранити.', whatCanHappen: ['травма ноги', 'поріз руки', 'зараження рани'], type: 'whatCanHappen' },
+phone: { number: 3, title: 'Телефон / зйомка', image: 'https://res.cloudinary.com/dmydvhkzr/image/upload/v1781886120/boy_phone_selfie_yzxmtz.png', riskType: 'Відволікання уваги', description: 'Під час зйомки людина менше помічає небезпеки навколо.', whatCanHappen: ['можна не помітити край', 'втратити рівновагу', 'не звернути уваги на попередження'], type: 'whatCanHappen' },
+roof: { number: 4, title: 'Край даху / тріщина', image: 'https://res.cloudinary.com/dmydvhkzr/image/upload/v1781886120/roof_edge_crack_me7ink.png', riskType: 'Ризик падіння', description: 'Навіть якщо людина стоїть обережно, поруч із краєм ризик значно зростає.', whatCanHappen: ['падіння з висоти', 'серйозні травми', 'загроза для життя'], type: 'whatCanHappen' },
+sign: { number: 5, title: 'Знак «Стороннім вхід заборонено»', image: 'https://res.cloudinary.com/dmydvhkzr/image/upload/v1781886121/no_entry_sign_l9y1yw.png', riskType: 'Попередження про небезпеку', description: 'Такі знаки встановлюють не випадково.', whatCanHappen: ['територія може бути небезпечною', 'є ризик травмування чи падіння', 'доступ сюди заборонений не просто так'], type: 'whyImportant' },
+net: { number: 6, title: 'Будівельна сітка', image: 'https://res.cloudinary.com/dmydvhkzr/image/upload/v1781886119/construction_net_zijov0.png', riskType: 'Ознака небезпечної зони', description: 'Сітка означає, що роботи ще не завершені.', whatCanHappen: ['падіння з висоти', 'травмування', 'пошкодження конструкцій'], type: 'whatCanHappen' },
+building: { number: 7, title: 'Недобудова', image: 'https://res.cloudinary.com/dmydvhkzr/image/upload/v1781886121/unfinished_building_ymotls.png', riskType: 'Небезпечний об\'єкт', description: 'Конструкція не призначена для відпочинку чи прогулянок.', whatCanHappen: ['падіння', 'обвал конструкцій', 'травмування'], type: 'whatCanHappen' }
 };
 
 const spaceDetails = {
-    physical: { icon: '🌳', title: 'Фізичний простір', nextSituation: 'situation-2-4', content: '<h3>Що таке фізичний простір?</h3><p>Фізичний простір — це безпечне місце, де немає фізичних загроз.</p><h4>Характеристики:</h4><ul><li>Відсутність фізичних загроз</li><li>Наявність укриття у разі небезпеки</li><li>Вільні виходи та евакуаційні шляхи</li></ul>' },
-    psychological: { icon: '🧠', title: 'Психологічний простір', nextSituation: 'situation-2-5', content: '<h3>Що таке психологічний простір?</h3><p>Атмосфера довіри та підтримки, відсутність страху.</p><h4>Характеристики:</h4><ul><li>Відсутність страху та тривоги</li><li>Атмосфера довіри</li><li>Підтримка та розуміння</li></ul>' },
-    social: { icon: '👥', title: 'Соціальний простір', nextSituation: 'situation-2-6', content: '<h3>Що таке соціальний простір?</h3><p>Підтримка, співпраця, відсутність дискримінації.</p><h4>Характеристики:</h4><ul><li>Взаємопідтримка</li><li>Співпраця та командна робота</li><li>Відсутність дискримінації</li></ul>' },
-    digital: { icon: '🔒', title: 'Цифровий простір', nextSituation: 'situation-2-7', content: '<h3>Що таке цифровий простір?</h3><p>Захист даних, приватність, безпечна поведінка онлайн.</p><h4>Характеристики:</h4><ul><li>Захист персональних даних</li><li>Приватність акаунтів</li><li>Безпечна поведінка в інтернеті</li></ul>' },
-    internal: { icon: '🧘', title: 'Внутрішній простір', nextSituation: 'situation-2-8', content: '<h3>Що таке внутрішній простір?</h3><p>Самоповага, розуміння себе, керування емоціями.</p><h4>Характеристики:</h4><ul><li>Самоповага та самоцінність</li><li>Розуміння своїх емоцій</li><li>Керування стресом</li></ul>' }
+physical: { icon: '🌳', title: 'Фізичний простір', nextSituation: 'situation-2-4', content: '<h3>Що таке фізичний простір?</h3><p>Фізичний простір — це безпечне місце, де немає фізичних загроз.</p><h4>Характеристики:</h4><ul><li>Відсутність фізичних загроз</li><li>Наявність укриття у разі небезпеки</li><li>Вільні виходи та евакуаційні шляхи</li></ul>' },
+psychological: { icon: '🧠', title: 'Психологічний простір', nextSituation: 'situation-2-5', content: '<h3>Що таке психологічний простір?</h3><p>Атмосфера довіри та підтримки, відсутність страху.</p><h4>Характеристики:</h4><ul><li>Відсутність страху та тривоги</li><li>Атмосфера довіри</li><li>Підтримка та розуміння</li></ul>' },
+social: { icon: '👥', title: 'Соціальний простір', nextSituation: 'situation-2-6', content: '<h3>Що таке соціальний простір?</h3><p>Підтримка, співпраця, відсутність дискримінації.</p><h4>Характеристики:</h4><ul><li>Взаємопідтримка</li><li>Співпраця та командна робота</li><li>Відсутність дискримінації</li></ul>' },
+digital: { icon: '🔒', title: 'Цифровий простір', nextSituation: 'situation-2-7', content: '<h3>Що таке цифровий простір?</h3><p>Захист даних, приватність, безпечна поведінка онлайн.</p><h4>Характеристики:</h4><ul><li>Захист персональних даних</li><li>Приватність акаунтів</li><li>Безпечна поведінка в інтернеті</li></ul>' },
+internal: { icon: '🧘', title: 'Внутрішній простір', nextSituation: 'situation-2-8', content: '<h3>Що таке внутрішній простір?</h3><p>Самоповага, розуміння себе, керування емоціями.</p><h4>Характеристики:</h4><ul><li>Самоповага та самоцінність</li><li>Розуміння своїх емоцій</li><li>Керування стресом</li></ul>' }
 };
 
 const correctMatching = {
-    'ukryttia': 'physical', 'vilni-vyhody': 'physical',
-    'dovira': 'psychological', 'bez-nasmishok': 'psychological',
-    'pidtrymka': 'social', 'komandna-robota': 'social',
-    'parol': 'digital', 'perevirka-dzherel': 'digital',
-    'samopova': 'internal', 'pozytyvne-myslennia': 'internal'
+'ukryttia': 'physical', 'vilni-vyhody': 'physical',
+'dovira': 'psychological', 'bez-nasmishok': 'psychological',
+'pidtrymka': 'social', 'komandna-robota': 'social',
+'parol': 'digital', 'perevirka-dzherel': 'digital',
+'samopova': 'internal', 'pozytyvne-myslennia': 'internal'
 };
 
 const oddExplanations = {
-    1: { correct: '✅ Правильно! «Осміяння» — це порушення психологічного простору.', incorrect: '❌ Неправильно. «Осміяння» — елемент психологічного простору.' },
-    2: { correct: '✅ Правильно! «Надійний пароль» належить до цифрового простору.', incorrect: '❌ Неправильно. «Надійний пароль» — елемент цифрового простору.' },
-    3: { correct: '✅ Правильно! «Wi-Fi» — технологія, яка належить до цифрового простору.', incorrect: '❌ Неправильно. «Wi-Fi» — технологічний елемент.' },
-    4: { correct: '✅ Правильно! «Критичне мислення» — навичка внутрішнього простору.', incorrect: '❌ Неправильно. «Критичне мислення» належить до внутрішнього простору.' },
-    5: { correct: '✅ Правильно! «Сварки в соцмережах» — проблема цифрового/соціального простору.', incorrect: '❌ Неправильно. «Сварки в соцмережах» — зовнішній фактор.' }
+1: { correct: '✅ Правильно! «Осміяння» — це порушення психологічного простору.', incorrect: '❌ Неправильно. «Осміяння» — елемент психологічного простору.' },
+2: { correct: '✅ Правильно! «Надійний пароль» належить до цифрового простору.', incorrect: '❌ Неправильно. «Надійний пароль» — елемент цифрового простору.' },
+3: { correct: '✅ Правильно! «Wi-Fi» — технологія, яка належить до цифрового простору.', incorrect: '❌ Неправильно. «Wi-Fi» — технологічний елемент.' },
+4: { correct: '✅ Правильно! «Критичне мислення» — навичка внутрішнього простору.', incorrect: '❌ Неправильно. «Критичне мислення» належить до внутрішнього простору.' },
+5: { correct: '✅ Правильно! «Сварки в соцмережах» — проблема цифрового/соціального простору.', incorrect: '❌ Неправильно. «Сварки в соцмережах» — зовнішній фактор.' }
 };
 
 const matrixData = {
-    'low-low': { title: 'Низький ризик', text: 'Низька імовірність + Незначні наслідки', examples: ['Забув ключі', 'Запізнився на 5 хвилин', 'Невелика подряпина'] },
-    'low-mid': { title: 'Помірний ризик', text: 'Низька імовірність + Помірні наслідки', examples: ['Втрата телефона', 'Невелика затримка рейсу', 'Легке застудження'] },
-    'low-high': { title: 'Високий ризик', text: 'Низька імовірність + Серйозні наслідки', examples: ['Авіакатастрофа', 'Пожежа в будинку', 'Серйозна травма'] },
-    'mid-low': { title: 'Помірний ризик', text: 'Середня імовірність + Незначні наслідки', examples: ['Втрата дрібних речей', 'Невелика сварка', 'Погана оцінка за тест'] },
-    'mid-mid': { title: 'Високий ризик', text: 'Середня імовірність + Помірні наслідки', examples: ['Кібербулінг', 'ДТП з незначними пошкодженнями', 'Втрата гаманця'] },
-    'mid-high': { title: 'Дуже високий ризик', text: 'Середня імовірність + Серйозні наслідки', examples: ['Серйозне ДТП', 'Тривала хвороба', 'Втрата роботи'] },
-    'high-low': { title: 'Високий ризик', text: 'Висока імовірність + Незначні наслідки', examples: ['Щоденний стрес', 'Втома від навчання', 'Дрібні конфлікти'] },
-    'high-mid': { title: 'Дуже високий ризик', text: 'Висока імовірність + Помірні наслідки', examples: ['Постійне запізнення', 'Регулярні сварки', 'Проблеми зі здоров\'ям'] },
-    'high-high': { title: 'Критичний ризик', text: 'Висока імовірність + Серйозні наслідки', examples: ['Обстріл у зоні конфлікту', 'Їзда п\'яним за кермом', 'Робота без захисту на висоті'] }
+'low-low': { title: 'Низький ризик', text: 'Низька імовірність + Незначні наслідки', examples: ['Забув ключі', 'Запізнився на 5 хвилин', 'Невелика подряпина'] },
+'low-mid': { title: 'Помірний ризик', text: 'Низька імовірність + Помірні наслідки', examples: ['Втрата телефона', 'Невелика затримка рейсу', 'Легке застудження'] },
+'low-high': { title: 'Високий ризик', text: 'Низька імовірність + Серйозні наслідки', examples: ['Авіакатастрофа', 'Пожежа в будинку', 'Серйозна травма'] },
+'mid-low': { title: 'Помірний ризик', text: 'Середня імовірність + Незначні наслідки', examples: ['Втрата дрібних речей', 'Невелика сварка', 'Погана оцінка за тест'] },
+'mid-mid': { title: 'Високий ризик', text: 'Середня імовірність + Помірні наслідки', examples: ['Кібербулінг', 'ДТП з незначними пошкодженнями', 'Втрата гаманця'] },
+'mid-high': { title: 'Дуже високий ризик', text: 'Середня імовірність + Серйозні наслідки', examples: ['Серйозне ДТП', 'Тривала хвороба', 'Втрата роботи'] },
+'high-low': { title: 'Високий ризик', text: 'Висока імовірність + Незначні наслідки', examples: ['Щоденний стрес', 'Втома від навчання', 'Дрібні конфлікти'] },
+'high-mid': { title: 'Дуже високий ризик', text: 'Висока імовірність + Помірні наслідки', examples: ['Постійне запізнення', 'Регулярні сварки', 'Проблеми зі здоров\'ям'] },
+'high-high': { title: 'Критичний ризик', text: 'Висока імовірність + Серйозні наслідки', examples: ['Обстріл у зоні конфлікту', 'Їзда п\'яним за кермом', 'Робота без захисту на висоті'] }
 };
 
 const s4MatchingData9 = {
-    situations: [
-        { id: 1, text: 'Конфлікт у школі', icon: '💬' },
-        { id: 2, text: 'Фейкове повідомлення', icon: '📱' },
-        { id: 3, text: 'Загоряння в кімнаті', icon: '🔥' },
-        { id: 4, text: 'Паніка в громаді', icon: '😰' },
-        { id: 5, text: 'Сварка з другом', icon: '😠' },
-        { id: 6, text: 'Загублений гаманець', icon: '💰' }
-    ],
-    actions: [
-        { id: 1, text: 'Повідомити дорослого або вчителя' },
-        { id: 2, text: 'Перевірити інформацію з кількох джерел' },
-        { id: 3, text: 'Повідомити та загасити (викликати допомогу)' },
-        { id: 4, text: 'Зберігати спокій, не піддаватися паніці' },
-        { id: 7, text: 'Почати кричати у відповідь' },
-        { id: 8, text: 'Ігнорувати та нічого не робити' }
-    ]
+situations: [
+{ id: 1, text: 'Конфлікт у школі', icon: '💬' },
+{ id: 2, text: 'Фейкове повідомлення', icon: '📱' },
+{ id: 3, text: 'Загоряння в кімнаті', icon: '🔥' },
+{ id: 4, text: 'Паніка в громаді', icon: '😰' },
+{ id: 5, text: 'Сварка з другом', icon: '😠' },
+{ id: 6, text: 'Загублений гаманець', icon: '💰' }
+],
+actions: [
+{ id: 1, text: 'Повідомити дорослого або вчителя' },
+{ id: 2, text: 'Перевірити інформацію з кількох джерел' },
+{ id: 3, text: 'Повідомити та загасити (викликати допомогу)' },
+{ id: 4, text: 'Зберігати спокій, не піддаватися паніці' },
+{ id: 7, text: 'Почати кричати у відповідь' },
+{ id: 8, text: 'Ігнорувати та нічого не робити' }
+]
 };
 
 const s4DragData6 = [
-    { order: 1, text: 'Фейкове повідомлення', icon: '📱' },
-    { order: 2, text: 'Паніка', icon: '😰' },
-    { order: 3, text: 'Масові закупівлі', icon: '🛒' },
-    { order: 4, text: 'Порожні полиці', icon: '📦' },
-    { order: 5, text: 'Конфлікти між людьми', icon: '😢' }
+{ order: 1, text: 'Фейкове повідомлення', icon: '📱' },
+{ order: 2, text: 'Паніка', icon: '😰' },
+{ order: 3, text: 'Масові закупівлі', icon: '🛒' },
+{ order: 4, text: 'Порожні полиці', icon: '📦' },
+{ order: 5, text: 'Конфлікти між людьми', icon: '😢' }
 ];
 
 const s4DragData8 = [
-    { order: 1, text: 'Натовп', icon: '👥' },
-    { order: 2, text: 'Відеозйомка', icon: '📹' },
-    { order: 3, text: 'Штовхання', icon: '😤' },
-    { order: 4, text: 'Поширення відео', icon: '📱' },
-    { order: 5, text: 'Приниження учня', icon: '😢' }
+{ order: 1, text: 'Натовп', icon: '👥' },
+{ order: 2, text: 'Відеозйомка', icon: '📹' },
+{ order: 3, text: 'Штовхання', icon: '😤' },
+{ order: 4, text: 'Поширення відео', icon: '📱' },
+{ order: 5, text: 'Приниження учня', icon: '😢' }
 ];
 
 /* ===== СТАН ДОДАТКУ ===== */
 const state = {
-    currentPage: 'intro',
-    foundRisks: new Set(),
-    totalRisks: 6,
-    currentRiskIndex: 0,
-    riskOrder: ['rebar', 'phone', 'roof', 'sign', 'net', 'building']
+currentPage: 'intro',
+foundRisks: new Set(),
+totalRisks: 6,
+currentRiskIndex: 0,
+riskOrder: ['rebar', 'phone', 'roof', 'sign', 'net', 'building']
 };
 
 let currentSpace = null;
@@ -3040,206 +3047,235 @@ let s5DraggedElement = null;
 🔥 ОНОВЛЕНА СИСТЕМА ПІДРАХУНКУ БАЛІВ
 =================================================================== */
 const progressTracker = {
-    correct: 0,
-    total: 0,
-    answered: new Set()
+correct: 0,
+total: 0,
+answered: new Set()
 };
 
 function addCorrect(taskId, count = 1) {
-    if (progressTracker.answered.has(taskId)) return;
-    progressTracker.answered.add(taskId);
-    progressTracker.correct += count;
-    progressTracker.total += count;
-    updateStepTrackerFromTask(taskId, true);
-    updateLiveProgress();
+if (progressTracker.answered.has(taskId)) return;
+progressTracker.answered.add(taskId);
+progressTracker.correct += count;
+progressTracker.total += count;
+updateStepTrackerFromTask(taskId, true);
+updateLiveProgress();
 }
 
 function addWrong(taskId, count = 1) {
-    if (progressTracker.answered.has(taskId)) return;
-    progressTracker.answered.add(taskId);
-    progressTracker.total += count;
-    updateStepTrackerFromTask(taskId, false);
-    updateLiveProgress();
+if (progressTracker.answered.has(taskId)) return;
+progressTracker.answered.add(taskId);
+progressTracker.total += count;
+updateStepTrackerFromTask(taskId, false);
+updateLiveProgress();
 }
 
 function updateStepTrackerFromTask(taskId, isCorrect) {
-    if (taskId === 'step1_risks') { stepTracker.step1.tasks.risks = true; updateStepProgress(1); }
-    if (taskId === 'step1_decision') { stepTracker.step1.tasks.decision = true; updateStepProgress(1); }
-    if (taskId.startsWith('sit_2-')) {
-        const sitNum = taskId.replace('sit_2-', '');
-        stepTracker.step2.tasks['sit' + sitNum] = true;
-        updateStepProgress(2);
-    }
-    if (taskId.startsWith('step2_matching')) { stepTracker.step2.tasks.matching = true; updateStepProgress(2); }
-    if (taskId.startsWith('odd_')) { stepTracker.step2.tasks.odd = true; updateStepProgress(2); }
-    if (taskId.startsWith('practice_')) { stepTracker.step3.tasks.practice = true; updateStepProgress(3); }
-    if (taskId.startsWith('step3_checklist')) { stepTracker.step3.tasks.checklist = true; updateStepProgress(3); }
-    if (taskId.startsWith('step3_dragdrop')) { stepTracker.step3.tasks.dragdrop = true; updateStepProgress(3); }
-    if (taskId.startsWith('s4_ans_3')) { stepTracker.step4.tasks.q3 = true; updateStepProgress(4); }
-    if (taskId.startsWith('s4_slider_4')) { stepTracker.step4.tasks.q4 = true; updateStepProgress(4); }
-    if (taskId.startsWith('s4_check_5')) { stepTracker.step4.tasks.q5 = true; updateStepProgress(4); }
-    if (taskId.startsWith('s4_drag_6')) { stepTracker.step4.tasks.q6 = true; updateStepProgress(4); }
-    if (taskId.startsWith('s4_check_7')) { stepTracker.step4.tasks.q7 = true; updateStepProgress(4); }
-    if (taskId.startsWith('s4_drag_8')) { stepTracker.step4.tasks.q8 = true; updateStepProgress(4); }
-    if (taskId.startsWith('s4_self_')) { stepTracker.step4.tasks.q10 = true; updateStepProgress(4); }
-    if (taskId === 's5Quiz53') { stepTracker.step5.tasks.quiz53 = true; updateStepProgress(5); }
-    if (taskId === 's5_order') { stepTracker.step5.tasks.order = true; updateStepProgress(5); }
-    if (taskId.startsWith('s5q57')) { stepTracker.step5.tasks.alina = true; updateStepProgress(5); }
-    if (taskId === 's5_match') { stepTracker.step5.tasks.match = true; updateStepProgress(5); }
-    if (taskId === 's5_checklist') { stepTracker.step5.tasks.checklist = true; updateStepProgress(5); }
+if (taskId === 'step1_risks') { stepTracker.step1.tasks.risks = true; updateStepProgress(1); }
+if (taskId === 'step1_decision') { stepTracker.step1.tasks.decision = true; updateStepProgress(1); }
+if (taskId.startsWith('sit_2-')) {
+const sitNum = taskId.replace('sit_2-', '');
+stepTracker.step2.tasks['sit' + sitNum] = true;
+updateStepProgress(2);
+}
+if (taskId.startsWith('step2_matching')) { stepTracker.step2.tasks.matching = true; updateStepProgress(2); }
+if (taskId.startsWith('odd_')) { stepTracker.step2.tasks.odd = true; updateStepProgress(2); }
+if (taskId.startsWith('practice_')) { stepTracker.step3.tasks.practice = true; updateStepProgress(3); }
+if (taskId.startsWith('step3_checklist')) { stepTracker.step3.tasks.checklist = true; updateStepProgress(3); }
+if (taskId.startsWith('step3_dragdrop')) { stepTracker.step3.tasks.dragdrop = true; updateStepProgress(3); }
+if (taskId.startsWith('s4_ans_3')) { stepTracker.step4.tasks.q3 = true; updateStepProgress(4); }
+if (taskId.startsWith('s4_slider_4')) { stepTracker.step4.tasks.q4 = true; updateStepProgress(4); }
+if (taskId.startsWith('s4_check_5')) { stepTracker.step4.tasks.q5 = true; updateStepProgress(4); }
+if (taskId.startsWith('s4_drag_6')) { stepTracker.step4.tasks.q6 = true; updateStepProgress(4); }
+if (taskId.startsWith('s4_check_7')) { stepTracker.step4.tasks.q7 = true; updateStepProgress(4); }
+if (taskId.startsWith('s4_drag_8')) { stepTracker.step4.tasks.q8 = true; updateStepProgress(4); }
+if (taskId.startsWith('s4_self_')) { stepTracker.step4.tasks.q10 = true; updateStepProgress(4); }
+if (taskId === 's5Quiz53') { stepTracker.step5.tasks.quiz53 = true; updateStepProgress(5); }
+if (taskId === 's5_order') { stepTracker.step5.tasks.order = true; updateStepProgress(5); }
+if (taskId.startsWith('s5q57')) { stepTracker.step5.tasks.alina = true; updateStepProgress(5); }
+if (taskId === 's5_match') { stepTracker.step5.tasks.match = true; updateStepProgress(5); }
+if (taskId === 's5_checklist') { stepTracker.step5.tasks.checklist = true; updateStepProgress(5); }
 }
 
 function updateStepProgress(stepNum) {
-    const step = stepTracker['step' + stepNum];
-    const completedTasks = Object.values(step.tasks).filter(v => v).length;
-    step.completed = completedTasks;
-    if (completedTasks === step.total && !stepsCompleted[stepNum]) {
-        stepsCompleted[stepNum] = true;
-        showToast(`✅ Крок ${stepNum} завершено!`, '🎉');
-    }
-    updateStep6Display();
+const step = stepTracker['step' + stepNum];
+const completedTasks = Object.values(step.tasks).filter(v => v).length;
+step.completed = completedTasks;
+if (completedTasks === step.total && !stepsCompleted[stepNum]) {
+stepsCompleted[stepNum] = true;
+showToast(`✅ Крок ${stepNum} завершено!`, '🎉');
+}
+updateStep6Display();
 }
 
 function updateLiveProgress() {
-    const totalTasks = 24;
-    const percent = Math.round((progressTracker.total / totalTasks) * 100);
-    document.getElementById('liveProgressFill').style.width = percent + '%';
-    document.getElementById('liveProgressPercent').textContent = percent + '%';
-    document.getElementById('liveProgressBarInner').style.width = percent + '%';
-    document.querySelectorAll('.live-step-dot').forEach(dot => {
-        const step = parseInt(dot.dataset.step);
-        dot.classList.remove('completed', 'current');
-        if (stepsCompleted[step]) {
-            dot.classList.add('completed');
-            dot.textContent = '✓';
-        } else {
-            dot.textContent = step;
-        }
-    });
-    let currentStep = 1;
-    for (let i = 1; i <= 5; i++) {
-        if (!stepsCompleted[i]) { currentStep = i; break; }
-        if (i === 5) currentStep = 5;
-    }
-    const currentDot = document.querySelector(`.live-step-dot[data-step="${currentStep}"]`);
-    if (currentDot && !currentDot.classList.contains('completed')) {
-        currentDot.classList.add('current');
-    }
-    updateIntroProgressTracker();
+const totalTasks = 24;
+
+// ✅ Рахуємо виконані ЗАВДАННЯ через stepTracker, а не бали
+let completedTasks = 0;
+for (let i = 1; i <= 5; i++) {
+completedTasks += stepTracker['step' + i].completed;
+}
+
+const percent = Math.min(100, Math.round((completedTasks / totalTasks) * 100));
+
+document.getElementById('liveProgressFill').style.width = percent + '%';
+document.getElementById('liveProgressPercent').textContent = percent + '%';
+document.getElementById('liveProgressBarInner').style.width = percent + '%';
+
+document.querySelectorAll('.live-step-dot').forEach(dot => {
+const step = parseInt(dot.dataset.step);
+dot.classList.remove('completed', 'current');
+if (stepsCompleted[step]) {
+dot.classList.add('completed');
+dot.textContent = '✓';
+} else {
+dot.textContent = step;
+}
+});
+
+let currentStep = 1;
+for (let i = 1; i <= 5; i++) {
+if (!stepsCompleted[i]) { currentStep = i; break; }
+if (i === 5) currentStep = 5;
+}
+const currentDot = document.querySelector(`.live-step-dot[data-step="${currentStep}"]`);
+if (currentDot && !currentDot.classList.contains('completed')) {
+currentDot.classList.add('current');
+}
+updateIntroProgressTracker();
 }
 
 function updateIntroProgressTracker() {
-    document.querySelectorAll('.progress-node').forEach(node => {
-        const step = parseInt(node.dataset.node);
-        node.classList.remove('completed', 'active');
-        if (stepsCompleted[step]) node.classList.add('completed');
-    });
-    document.querySelectorAll('.progress-line').forEach((line, idx) => {
-        if (stepsCompleted[idx + 1]) line.classList.add('completed');
-        else line.classList.remove('completed');
-    });
+document.querySelectorAll('.progress-node').forEach(node => {
+const step = parseInt(node.dataset.node);
+node.classList.remove('completed', 'active');
+if (stepsCompleted[step]) node.classList.add('completed');
+});
+document.querySelectorAll('.progress-line').forEach((line, idx) => {
+if (stepsCompleted[idx + 1]) line.classList.add('completed');
+else line.classList.remove('completed');
+});
 }
 
 function showToast(text, icon = '✅') {
-    const toast = document.getElementById('liveToast');
-    document.getElementById('liveToastText').textContent = text;
-    document.getElementById('liveToastIcon').textContent = icon;
-    toast.classList.add('show');
-    setTimeout(() => toast.classList.remove('show'), 2500);
+const toast = document.getElementById('liveToast');
+document.getElementById('liveToastText').textContent = text;
+document.getElementById('liveToastIcon').textContent = icon;
+toast.classList.add('show');
+setTimeout(() => toast.classList.remove('show'), 2500);
 }
 
 function updateStep6Display() {
-    for (let i = 1; i <= 5; i++) {
-        const step = stepTracker['step' + i];
-        const counter = document.getElementById(`s6Step${i}Counter`);
-        if (counter) {
-            counter.textContent = `${step.completed}/${step.total}`;
-            counter.classList.add('animating');
-            setTimeout(() => counter.classList.remove('animating'), 300);
-        }
-        const card = document.querySelector(`.s6-step-card[data-step="${i}"]`);
-        if (card) {
-            card.classList.remove('completed', 'current');
-            if (stepsCompleted[i]) card.classList.add('completed');
-        }
-    }
-    const totalTasks = 24;
-    const completedTasksEl = document.getElementById('s6CompletedTasks');
-    if (completedTasksEl) completedTasksEl.innerHTML = `${progressTracker.total} <span>/ ${totalTasks}</span>`;
-    const correctEl = document.getElementById('s6CorrectAnswers');
-    if (correctEl) correctEl.textContent = progressTracker.correct;
-    const completedStepsEl = document.getElementById('s6CompletedSteps');
-    const completedSteps = Object.values(stepsCompleted).filter(v => v).length;
-    if (completedStepsEl) completedStepsEl.innerHTML = `${completedSteps} <span>/ 5</span>`;
-    const accuracyEl = document.getElementById('s6Accuracy');
-    if (accuracyEl) {
-        const accuracy = progressTracker.total > 0 ? Math.round((progressTracker.correct / progressTracker.total) * 100) : 0;
-        accuracyEl.innerHTML = `${accuracy}<span>%</span>`;
-    }
-    const percent = Math.round((progressTracker.total / totalTasks) * 100);
-    updateS6CircleProgress(percent);
-    const avgRating = percent / 20;
-    updateS6Level(avgRating);
+// Оновлення лічильників по кроках
+for (let i = 1; i <= 5; i++) {
+const step = stepTracker['step' + i];
+const counter = document.getElementById(`s6Step${i}Counter`);
+if (counter) {
+counter.textContent = `${step.completed}/${step.total}`;
+counter.classList.add('animating');
+setTimeout(() => counter.classList.remove('animating'), 300);
+}
+const card = document.querySelector(`.s6-step-card[data-step="${i}"]`);
+if (card) {
+card.classList.remove('completed', 'current');
+if (stepsCompleted[i]) card.classList.add('completed');
+}
+}
+
+// ✅ ЗАВДАННЯ — через stepTracker
+const totalTasks = 24;
+let completedTasks = 0;
+for (let i = 1; i <= 5; i++) {
+completedTasks += stepTracker['step' + i].completed;
+}
+
+const completedTasksEl = document.getElementById('s6CompletedTasks');
+if (completedTasksEl) completedTasksEl.innerHTML = `${completedTasks} <span>/ ${totalTasks}</span>`;
+
+// ✅ Кількість пройдених КРОКІВ (з 5)
+const completedSteps = Object.values(stepsCompleted).filter(v => v).length;
+const completedStepsEl = document.getElementById('s6CompletedSteps');
+if (completedStepsEl) completedStepsEl.innerHTML = `${completedSteps} <span>/ 5</span>`;
+
+// ✅ ПРАВИЛЬНІ ВІДПОВІДІ та ТОЧНІСТЬ — через progressTracker (бали)
+const correctEl = document.getElementById('s6CorrectAnswers');
+if (correctEl) correctEl.textContent = progressTracker.correct;
+
+const accuracyEl = document.getElementById('s6Accuracy');
+if (accuracyEl) {
+const accuracy = progressTracker.total > 0 
+? Math.round((progressTracker.correct / progressTracker.total) * 100) 
+: 0;
+accuracyEl.innerHTML = `${accuracy}<span>%</span>`;
+}
+
+// ✅ ЗАГАЛЬНИЙ ПРОГРЕС — на основі кількості завдань
+const percent = Math.min(100, Math.round((completedTasks / totalTasks) * 100));
+updateS6CircleProgress(percent);
+
+// Рівень — на основі процентів виконаних завдань
+const avgRating = percent / 20;
+updateS6Level(avgRating);
 }
 
 /* ===== РЕЄСТР СТОРІНОК ===== */
 const pages = {
-    intro: document.getElementById('page-intro'),
-    step1: document.getElementById('page-step1'),
-    decision: document.getElementById('page-decision'),
-    consequences: document.getElementById('page-consequences'),
-    'step2-intro': document.getElementById('page-step2-intro'),
-    safety: document.getElementById('page-safety'),
-    'safe-space': document.getElementById('page-safe-space'),
-    'situation-2-4': document.getElementById('page-situation-2-4'),
-    'situation-2-5': document.getElementById('page-situation-2-5'),
-    'situation-2-6': document.getElementById('page-situation-2-6'),
-    'situation-2-7': document.getElementById('page-situation-2-7'),
-    'situation-2-8': document.getElementById('page-situation-2-8'),
-    'exercise-2-10': document.getElementById('page-exercise-2-10'),
-    'exercise-2-11': document.getElementById('page-exercise-2-11'),
-    'page-3-1': document.getElementById('page-3-1'),
-    'page-3-2': document.getElementById('page-3-2'),
-    'page-3-3': document.getElementById('page-3-3'),
-    'page-3-practice': document.getElementById('page-3-practice'),
-    'page-3-8': document.getElementById('page-3-8'),
-    'page-3-9': document.getElementById('page-3-9'),
-    'page-4-1': document.getElementById('page-4-1'),
-    'page-4-2': document.getElementById('page-4-2'),
-    'page-4-3': document.getElementById('page-4-3'),
-    'page-4-4': document.getElementById('page-4-4'),
-    'page-4-5': document.getElementById('page-4-5'),
-    'page-4-6': document.getElementById('page-4-6'),
-    'page-4-7': document.getElementById('page-4-7'),
-    'page-4-8': document.getElementById('page-4-8'),
-    'page-4-9': document.getElementById('page-4-9'),
-    'page-4-10': document.getElementById('page-4-10'),
-    'page-5-1': document.getElementById('page-5-1'),
-    'page-5-2': document.getElementById('page-5-2'),
-    'page-5-3': document.getElementById('page-5-3'),
-    'page-5-4': document.getElementById('page-5-4'),
-    'page-5-5': document.getElementById('page-5-5'),
-    'page-5-6': document.getElementById('page-5-6'),
-    'page-5-7': document.getElementById('page-5-7'),
-    'page-5-8': document.getElementById('page-5-8'),
-    'step6': document.getElementById('page-step6')
+intro: document.getElementById('page-intro'),
+step1: document.getElementById('page-step1'),
+decision: document.getElementById('page-decision'),
+consequences: document.getElementById('page-consequences'),
+'step2-intro': document.getElementById('page-step2-intro'),
+safety: document.getElementById('page-safety'),
+'safe-space': document.getElementById('page-safe-space'),
+'situation-2-4': document.getElementById('page-situation-2-4'),
+'situation-2-5': document.getElementById('page-situation-2-5'),
+'situation-2-6': document.getElementById('page-situation-2-6'),
+'situation-2-7': document.getElementById('page-situation-2-7'),
+'situation-2-8': document.getElementById('page-situation-2-8'),
+'exercise-2-10': document.getElementById('page-exercise-2-10'),
+'exercise-2-11': document.getElementById('page-exercise-2-11'),
+'page-3-1': document.getElementById('page-3-1'),
+'page-3-2': document.getElementById('page-3-2'),
+'page-3-3': document.getElementById('page-3-3'),
+'page-3-practice': document.getElementById('page-3-practice'),
+'page-3-8': document.getElementById('page-3-8'),
+'page-3-9': document.getElementById('page-3-9'),
+'page-4-1': document.getElementById('page-4-1'),
+'page-4-2': document.getElementById('page-4-2'),
+'page-4-3': document.getElementById('page-4-3'),
+'page-4-4': document.getElementById('page-4-4'),
+'page-4-5': document.getElementById('page-4-5'),
+'page-4-6': document.getElementById('page-4-6'),
+'page-4-7': document.getElementById('page-4-7'),
+'page-4-8': document.getElementById('page-4-8'),
+'page-4-9': document.getElementById('page-4-9'),
+'page-4-10': document.getElementById('page-4-10'),
+'page-5-1': document.getElementById('page-5-1'),
+'page-5-2': document.getElementById('page-5-2'),
+'page-5-3': document.getElementById('page-5-3'),
+'page-5-4': document.getElementById('page-5-4'),
+'page-5-5': document.getElementById('page-5-5'),
+'page-5-6': document.getElementById('page-5-6'),
+'page-5-7': document.getElementById('page-5-7'),
+'page-5-8': document.getElementById('page-5-8'),
+'step6': document.getElementById('page-step6')
 };
 
 const riskModal = document.getElementById('riskModal');
 
 /* ===== НАВІГАЦІЯ ===== */
 function showPage(pageId) {
-    Object.values(pages).forEach(page => { if (page) page.classList.add('hidden'); });
-    if (pages[pageId]) pages[pageId].classList.remove('hidden');
-    state.currentPage = pageId;
-    window.scrollTo(0, 0);
-    if (pageId === 'page-4-6') s4InitDragContainer(6);
-    if (pageId === 'page-4-8') s4InitDragContainer(8);
-    if (pageId === 'page-4-9') s4InitMatching9();
-    if (pageId === 'page-5-4') s5InitDrag();
-    if (pageId === 'page-5-6') s5InitMatching();
-    if (pageId === 'step6') { updateStep6Display(); initS6Canvas(); }
-    if (pageId === 'intro') updateIntroProgressTracker();
+Object.values(pages).forEach(page => { if (page) page.classList.add('hidden'); });
+if (pages[pageId]) pages[pageId].classList.remove('hidden');
+state.currentPage = pageId;
+window.scrollTo(0, 0);
+if (pageId === 'page-4-6') s4InitDragContainer(6);
+if (pageId === 'page-4-8') s4InitDragContainer(8);
+if (pageId === 'page-4-9') s4InitMatching9();
+if (pageId === 'page-5-4') s5InitDrag();
+if (pageId === 'page-5-6') s5InitMatching();
+if (pageId === 'step6') { updateStep6Display(); initS6Canvas(); }
+if (pageId === 'intro') updateIntroProgressTracker();
 }
 
 function goToStep1() { showPage('step1'); }
@@ -3251,187 +3287,201 @@ function goToStep6() { showPage('step6'); }
 function closeModal(modalId) { document.getElementById(modalId).classList.add('hidden'); }
 
 function completeStep2() {
-    if (!stepsCompleted[2]) { stepsCompleted[2] = true; showToast('🎉 Крок 2 завершено!', '🏠'); }
-    updateLiveProgress();
-    showPage('page-3-1');
+if (!stepsCompleted[2]) { stepsCompleted[2] = true; showToast('🎉 Крок 2 завершено!', '🏠'); }
+updateLiveProgress();
+showPage('page-3-1');
 }
 
 function completeStep3() {
-    if (!stepsCompleted[3]) { stepsCompleted[3] = true; showToast('🎉 Крок 3 завершено!', '⚠️'); }
-    updateLiveProgress();
-    showPage('page-4-1');
+if (!stepsCompleted[3]) { stepsCompleted[3] = true; showToast('🎉 Крок 3 завершено!', '⚠️'); }
+updateLiveProgress();
+showPage('page-4-1');
 }
 
 function completeStep4() {
-    if (!stepsCompleted[4]) { stepsCompleted[4] = true; showToast('🎉 Крок 4 завершено!', '🔄'); }
-    updateLiveProgress();
-    showPage('page-5-1');
+if (!stepsCompleted[4]) { stepsCompleted[4] = true; showToast('🎉 Крок 4 завершено!', '🔄'); }
+updateLiveProgress();
+showPage('page-5-1');
 }
 
 function completeStep5() {
-    if (!stepsCompleted[5]) { stepsCompleted[5] = true; showToast('🎉 Всі 5 кроків завершено!', '🏆'); }
-    updateLiveProgress();
-    showPage('step6');
-    setTimeout(() => { if (progressTracker.total >= 20) launchConfetti(); }, 800);
+if (!stepsCompleted[5]) { stepsCompleted[5] = true; showToast('🎉 Всі 5 кроків завершено!', '🏆'); }
+updateLiveProgress();
+showPage('step6');
+setTimeout(() => { if (progressTracker.total >= 20) launchConfetti(); }, 800);
 }
 
 /* ===== КНОПКИ ===== */
 document.getElementById('btnStart').addEventListener('click', () => showPage('step1'));
 document.getElementById('btnNextStep').addEventListener('click', () => showPage('step2-intro'));
+
 document.getElementById('btnProgress').addEventListener('click', () => {
-    let currentStep = 1;
-    if (state.currentPage === 'step6') currentStep = 6;
-    else if (state.currentPage.startsWith('step2') || state.currentPage.startsWith('situation-2') || state.currentPage.startsWith('exercise-2')) currentStep = 2;
-    else if (state.currentPage.startsWith('page-3')) currentStep = 3;
-    else if (state.currentPage.startsWith('page-4')) currentStep = 4;
-    else if (state.currentPage.startsWith('page-5')) currentStep = 5;
-    const stepStatusList = document.getElementById('stepStatusList');
-    const steps = [
-        { name: 'Крок 1: Стартова ситуація', icon: stepsCompleted[1] ? '✅' : (currentStep === 1 ? '🔵' : '⚪') },
-        { name: 'Крок 2: Безпека та безпечний простір', icon: stepsCompleted[2] ? '✅' : (currentStep === 2 ? '🔵' : '⚪') },
-        { name: 'Крок 3: Ризики', icon: stepsCompleted[3] ? '✅' : (currentStep === 3 ? '🔵' : '⚪') },
-        { name: 'Крок 4: Небезпечні ситуації', icon: stepsCompleted[4] ? '✅' : (currentStep === 4 ? '🔵' : '⚪') },
-        { name: 'Крок 5: Ухвалення рішень', icon: stepsCompleted[5] ? '✅' : (currentStep === 5 ? '🔵' : '⚪') },
-        { name: 'Крок 6: Самооцінювання', icon: currentStep === 6 ? '🏆' : '⚪' }
-    ];
-    stepStatusList.innerHTML = steps.map((step, index) => {
-        let statusClass = '';
-        if (index + 1 === currentStep) statusClass = 'current';
-        else if (stepsCompleted[index + 1]) statusClass = 'completed';
-        return `<li class="step-status-item ${statusClass}"><span class="step-status-icon">${step.icon}</span><span>${step.name}</span></li>`;
-    }).join('');
-    document.getElementById('progressModal').classList.remove('hidden');
+let currentStep = 1;
+if (state.currentPage === 'step6') currentStep = 6;
+else if (state.currentPage.startsWith('step2') || state.currentPage.startsWith('situation-2') || state.currentPage.startsWith('exercise-2')) currentStep = 2;
+else if (state.currentPage.startsWith('page-3')) currentStep = 3;
+else if (state.currentPage.startsWith('page-4')) currentStep = 4;
+else if (state.currentPage.startsWith('page-5')) currentStep = 5;
+
+const stepStatusList = document.getElementById('stepStatusList');
+const steps = [
+{ name: 'Крок 1: Стартова ситуація', icon: stepsCompleted[1] ? '✅' : (currentStep === 1 ? '🔵' : '⚪') },
+{ name: 'Крок 2: Безпека та безпечний простір', icon: stepsCompleted[2] ? '✅' : (currentStep === 2 ? '🔵' : '⚪') },
+{ name: 'Крок 3: Ризики', icon: stepsCompleted[3] ? '✅' : (currentStep === 3 ? '🔵' : '⚪') },
+{ name: 'Крок 4: Небезпечні ситуації', icon: stepsCompleted[4] ? '✅' : (currentStep === 4 ? '🔵' : '⚪') },
+{ name: 'Крок 5: Ухвалення рішень', icon: stepsCompleted[5] ? '✅' : (currentStep === 5 ? '🔵' : '⚪') },
+{ name: 'Крок 6: Самооцінювання', icon: currentStep === 6 ? '🏆' : '⚪' }
+];
+
+stepStatusList.innerHTML = steps.map((step, index) => {
+let statusClass = '';
+if (index + 1 === currentStep) statusClass = 'current';
+else if (stepsCompleted[index + 1]) statusClass = 'completed';
+return `<li class="step-status-item ${statusClass}"><span class="step-status-icon">${step.icon}</span><span>${step.name}</span></li>`;
+}).join('');
+
+document.getElementById('progressModal').classList.remove('hidden');
 });
+
 document.getElementById('btnHelp').addEventListener('click', () => { document.getElementById('helpModal').classList.remove('hidden'); });
 
 /* ===== КРОК 1: РИЗИКИ ===== */
 document.querySelectorAll('.hotspot').forEach(hotspot => {
-    hotspot.addEventListener('click', function() {
-        const riskKey = this.dataset.risk;
-        if (state.foundRisks.has(riskKey)) { openRiskModal(riskKey); return; }
-        state.foundRisks.add(riskKey);
-        this.classList.add('found');
-        this.querySelector('.hotspot-plus').textContent = '✓';
-        openRiskModal(riskKey);
-        if (state.foundRisks.size >= state.totalRisks && !progressTracker.answered.has('step1_risks')) {
-            addCorrect('step1_risks');
-        }
-    });
+hotspot.addEventListener('click', function() {
+const riskKey = this.dataset.risk;
+if (state.foundRisks.has(riskKey)) { openRiskModal(riskKey); return; }
+state.foundRisks.add(riskKey);
+this.classList.add('found');
+this.querySelector('.hotspot-plus').textContent = '✓';
+openRiskModal(riskKey);
+if (state.foundRisks.size >= state.totalRisks && !progressTracker.answered.has('step1_risks')) {
+addCorrect('step1_risks');
+}
+});
 });
 
 function openRiskModal(riskKey) {
-    const risk = risksData[riskKey];
-    if (!risk) return;
-    document.getElementById('modalNumber').textContent = risk.number;
-    document.getElementById('modalTitle').textContent = risk.title;
-    document.getElementById('modalImage').src = risk.image;
-    document.getElementById('modalImage').alt = risk.title;
-    document.getElementById('modalRiskType').textContent = risk.riskType;
-    document.getElementById('modalDescription').textContent = risk.description;
-    const whatCanHappenBlock = document.getElementById('modalWhatCanHappen');
-    const whyImportantBlock = document.getElementById('modalWhyImportant');
-    const consequencesList = document.getElementById('modalConsequences');
-    const whyList = document.getElementById('modalWhyList');
-    consequencesList.innerHTML = ''; whyList.innerHTML = '';
-    if (risk.type === 'whatCanHappen') {
-        whatCanHappenBlock.classList.remove('hidden'); whyImportantBlock.classList.add('hidden');
-        risk.whatCanHappen.forEach(item => { const li = document.createElement('li'); li.textContent = item; consequencesList.appendChild(li); });
-    } else {
-        whatCanHappenBlock.classList.add('hidden'); whyImportantBlock.classList.remove('hidden');
-        risk.whatCanHappen.forEach(item => { const li = document.createElement('li'); li.textContent = item; whyList.appendChild(li); });
-    }
-    const nextBtn = document.getElementById('modalNextBtn');
-    const foundAllBtn = document.getElementById('modalFoundAllBtn');
-    if (state.foundRisks.size >= state.totalRisks) { nextBtn.classList.add('hidden'); foundAllBtn.classList.remove('hidden'); }
-    else { nextBtn.classList.remove('hidden'); foundAllBtn.classList.add('hidden'); }
-    riskModal.classList.remove('hidden');
+const risk = risksData[riskKey];
+if (!risk) return;
+document.getElementById('modalNumber').textContent = risk.number;
+document.getElementById('modalTitle').textContent = risk.title;
+document.getElementById('modalImage').src = risk.image;
+document.getElementById('modalImage').alt = risk.title;
+document.getElementById('modalRiskType').textContent = risk.riskType;
+document.getElementById('modalDescription').textContent = risk.description;
+
+const whatCanHappenBlock = document.getElementById('modalWhatCanHappen');
+const whyImportantBlock = document.getElementById('modalWhyImportant');
+const consequencesList = document.getElementById('modalConsequences');
+const whyList = document.getElementById('modalWhyList');
+consequencesList.innerHTML = ''; whyList.innerHTML = '';
+
+if (risk.type === 'whatCanHappen') {
+whatCanHappenBlock.classList.remove('hidden'); whyImportantBlock.classList.add('hidden');
+risk.whatCanHappen.forEach(item => { const li = document.createElement('li'); li.textContent = item; consequencesList.appendChild(li); });
+} else {
+whatCanHappenBlock.classList.add('hidden'); whyImportantBlock.classList.remove('hidden');
+risk.whatCanHappen.forEach(item => { const li = document.createElement('li'); li.textContent = item; whyList.appendChild(li); });
+}
+
+const nextBtn = document.getElementById('modalNextBtn');
+const foundAllBtn = document.getElementById('modalFoundAllBtn');
+if (state.foundRisks.size >= state.totalRisks) { nextBtn.classList.add('hidden'); foundAllBtn.classList.remove('hidden'); }
+else { nextBtn.classList.remove('hidden'); foundAllBtn.classList.add('hidden'); }
+
+riskModal.classList.remove('hidden');
 }
 
 document.getElementById('modalClose').addEventListener('click', () => riskModal.classList.add('hidden'));
 riskModal.addEventListener('click', (e) => { if (e.target === riskModal) riskModal.classList.add('hidden'); });
+
 document.getElementById('modalNextBtn').addEventListener('click', () => {
-    riskModal.classList.add('hidden');
-    const nextRisk = state.riskOrder.find(r => !state.foundRisks.has(r));
-    if (nextRisk) {
-        const nextHotspot = document.querySelector(`.hotspot[data-risk="${nextRisk}"]`);
-        if (nextHotspot) {
-            nextHotspot.style.animation = 'pulse 1s ease-in-out 3';
-            setTimeout(() => { nextHotspot.style.animation = ''; }, 3000);
-        }
-    }
+riskModal.classList.add('hidden');
+const nextRisk = state.riskOrder.find(r => !state.foundRisks.has(r));
+if (nextRisk) {
+const nextHotspot = document.querySelector(`.hotspot[data-risk="${nextRisk}"]`);
+if (nextHotspot) {
+nextHotspot.style.animation = 'pulse 1s ease-in-out 3';
+setTimeout(() => { nextHotspot.style.animation = ''; }, 3000);
+}
+}
 });
+
 document.getElementById('modalFoundAllBtn').addEventListener('click', () => { riskModal.classList.add('hidden'); showPage('decision'); });
 
 /* ===== КРОК 1: РІШЕННЯ ===== */
 document.querySelectorAll('.decision-option').forEach(option => {
-    option.addEventListener('click', function() {
-        document.querySelectorAll('.decision-option').forEach(o => { o.classList.remove('selected', 'correct', 'incorrect'); o.querySelector('.option-feedback').classList.remove('show'); });
-        this.classList.add('selected');
-        this.querySelector('input[type="radio"]').checked = true;
-        const feedback = this.querySelector('.option-feedback');
-        feedback.classList.add('show');
-        if (feedback.classList.contains('correct')) this.classList.add('correct');
-        else if (feedback.classList.contains('incorrect')) this.classList.add('incorrect');
-    });
+option.addEventListener('click', function() {
+document.querySelectorAll('.decision-option').forEach(o => { o.classList.remove('selected', 'correct', 'incorrect'); o.querySelector('.option-feedback').classList.remove('show'); });
+this.classList.add('selected');
+this.querySelector('input[type="radio"]').checked = true;
+const feedback = this.querySelector('.option-feedback');
+feedback.classList.add('show');
+if (feedback.classList.contains('correct')) this.classList.add('correct');
+else if (feedback.classList.contains('incorrect')) this.classList.add('incorrect');
+});
 });
 
 document.getElementById('btnSubmitDecision').addEventListener('click', () => {
-    const selected = document.querySelector('input[name="decision"]:checked');
-    if (!selected) { alert('Будь ласка, обери варіант рішення.'); return; }
-    if (selected.value === 'safe_place') addCorrect('step1_decision');
-    else addWrong('step1_decision');
-    showPage('consequences');
+const selected = document.querySelector('input[name="decision"]:checked');
+if (!selected) { alert('Будь ласка, обери варіант рішення.'); return; }
+if (selected.value === 'safe_place') addCorrect('step1_decision');
+else addWrong('step1_decision');
+showPage('consequences');
 });
 
 /* ===== КРОК 2: ФУНКЦІЇ ===== */
 function toggleCheckbox(element) { element.classList.toggle('checked'); }
+
 function toggleRadio(element) {
-    element.parentElement.querySelectorAll('.progress-radio').forEach(r => r.classList.remove('checked'));
-    element.classList.add('checked');
+element.parentElement.querySelectorAll('.progress-radio').forEach(r => r.classList.remove('checked'));
+element.classList.add('checked');
 }
 
 function selectRadio(element, situationId, isCorrect, explanationText) {
-    const parent = element.closest('.answer-options');
-    parent.querySelectorAll('.answer-radio').forEach(r => r.classList.remove('checked', 'incorrect', 'correct'));
-    element.classList.add('checked');
-    if (!progressTracker.answered.has('sit_' + situationId)) {
-        if (isCorrect) addCorrect('sit_' + situationId);
-        else addWrong('sit_' + situationId);
-    }
-    const explanation = document.getElementById('explanation-' + situationId);
-    const explanationTextElement = document.getElementById('explanation-text-' + situationId);
-    if (explanation && explanationTextElement) {
-        explanation.classList.remove('hidden', 'correct-answer', 'incorrect-answer');
-        if (isCorrect) { explanation.classList.add('correct-answer'); explanationTextElement.textContent = explanationText; element.classList.add('correct'); }
-        else { explanation.classList.add('incorrect-answer'); explanationTextElement.textContent = explanationText; element.classList.add('incorrect'); }
-    }
+const parent = element.closest('.answer-options');
+parent.querySelectorAll('.answer-radio').forEach(r => r.classList.remove('checked', 'incorrect', 'correct'));
+element.classList.add('checked');
+
+if (!progressTracker.answered.has('sit_' + situationId)) {
+if (isCorrect) addCorrect('sit_' + situationId);
+else addWrong('sit_' + situationId);
+}
+
+const explanation = document.getElementById('explanation-' + situationId);
+const explanationTextElement = document.getElementById('explanation-text-' + situationId);
+if (explanation && explanationTextElement) {
+explanation.classList.remove('hidden', 'correct-answer', 'incorrect-answer');
+if (isCorrect) { explanation.classList.add('correct-answer'); explanationTextElement.textContent = explanationText; element.classList.add('correct'); }
+else { explanation.classList.add('incorrect-answer'); explanationTextElement.textContent = explanationText; element.classList.add('incorrect'); }
+}
 }
 
 function toggleCheckboxAnswer(element, id, isCorrect) {
-    element.classList.toggle('checked');
-    if (element.classList.contains('checked')) {
-        if (isCorrect) { element.classList.add('correct'); element.classList.remove('incorrect'); }
-        else { element.classList.add('incorrect'); element.classList.remove('correct'); }
-    } else { element.classList.remove('correct', 'incorrect'); }
-    const explanation = document.getElementById('explanation-' + id);
-    if (explanation) explanation.classList.remove('hidden');
+element.classList.toggle('checked');
+if (element.classList.contains('checked')) {
+if (isCorrect) { element.classList.add('correct'); element.classList.remove('incorrect'); }
+else { element.classList.add('incorrect'); element.classList.remove('correct'); }
+} else { element.classList.remove('correct', 'incorrect'); }
+const explanation = document.getElementById('explanation-' + id);
+if (explanation) explanation.classList.remove('hidden');
 }
 
 function toggleCheckboxWithExplanation(element, isCorrect, explanationId) {
-    element.classList.toggle('checked');
-    const explanation = document.getElementById(explanationId);
-    if (element.classList.contains('checked')) {
-        if (isCorrect) {
-            element.classList.add('correct'); element.classList.remove('incorrect');
-            if (explanation) { explanation.classList.remove('hidden', 'incorrect'); explanation.classList.add('correct'); }
-        } else {
-            element.classList.add('incorrect'); element.classList.remove('correct');
-            if (explanation) { explanation.classList.remove('hidden', 'correct'); explanation.classList.add('incorrect'); }
-        }
-    } else {
-        element.classList.remove('correct', 'incorrect');
-        if (explanation) explanation.classList.add('hidden');
-    }
+element.classList.toggle('checked');
+const explanation = document.getElementById(explanationId);
+if (element.classList.contains('checked')) {
+if (isCorrect) {
+element.classList.add('correct'); element.classList.remove('incorrect');
+if (explanation) { explanation.classList.remove('hidden', 'incorrect'); explanation.classList.add('correct'); }
+} else {
+element.classList.add('incorrect'); element.classList.remove('correct');
+if (explanation) { explanation.classList.remove('hidden', 'correct'); explanation.classList.add('incorrect'); }
+}
+} else {
+element.classList.remove('correct', 'incorrect');
+if (explanation) explanation.classList.add('hidden');
+}
 }
 
 function openSection(section) { if (section === 'safety') showPage('safety'); else if (section === 'safe-space') showPage('safe-space'); }
@@ -3439,1113 +3489,1239 @@ function startSection() { showPage('safety'); }
 function openSafeSpace() { showPage('safe-space'); }
 
 function openSpaceDetail(space) {
-    currentSpace = space;
-    const modal = document.getElementById('spaceModal');
-    const data = spaceDetails[space];
-    document.getElementById('spaceModalNumber').textContent = data.icon;
-    document.getElementById('spaceModalTitle').textContent = data.title;
-    document.getElementById('spaceModalContent').innerHTML = data.content;
-    modal.classList.remove('hidden');
+currentSpace = space;
+const modal = document.getElementById('spaceModal');
+const data = spaceDetails[space];
+document.getElementById('spaceModalNumber').textContent = data.icon;
+document.getElementById('spaceModalTitle').textContent = data.title;
+document.getElementById('spaceModalContent').innerHTML = data.content;
+modal.classList.remove('hidden');
 }
 
 function closeSpaceModal() { document.getElementById('spaceModal').classList.add('hidden'); currentSpace = null; }
+
 function goToSituationFromModal() {
-    if (currentSpace && spaceDetails[currentSpace]) {
-        const nextSituation = spaceDetails[currentSpace].nextSituation;
-        closeSpaceModal(); showPage(nextSituation);
-    }
+if (currentSpace && spaceDetails[currentSpace]) {
+const nextSituation = spaceDetails[currentSpace].nextSituation;
+closeSpaceModal(); showPage(nextSituation);
 }
+}
+
 function startSituations() { showPage('situation-2-4'); }
 function nextSituation(current, next) { showPage('situation-' + next); }
 
 function selectMatchingItem(element) {
-    if (element.classList.contains('assigned')) return;
-    document.querySelectorAll('.matching-item').forEach(item => { if (!item.classList.contains('assigned')) item.classList.remove('selected'); });
-    element.classList.add('selected');
-    selectedMatchingItem = element;
-    document.querySelectorAll('.matching-category').forEach(cat => cat.classList.add('highlight'));
+if (element.classList.contains('assigned')) return;
+document.querySelectorAll('.matching-item').forEach(item => { if (!item.classList.contains('assigned')) item.classList.remove('selected'); });
+element.classList.add('selected');
+selectedMatchingItem = element;
+document.querySelectorAll('.matching-category').forEach(cat => cat.classList.add('highlight'));
 }
 
 function assignToCategory(categoryElement) {
-    if (!selectedMatchingItem) {
-        categoryElement.style.animation = 'shake 0.5s';
-        setTimeout(() => { categoryElement.style.animation = ''; }, 500);
-        return;
-    }
-    const itemId = selectedMatchingItem.dataset.item;
-    const categoryId = categoryElement.dataset.category;
-    matchingAssignments[itemId] = categoryId;
-    const tag = document.createElement('div');
-    tag.className = 'assigned-tag';
-    tag.textContent = selectedMatchingItem.textContent;
-    tag.dataset.itemId = itemId;
-    categoryElement.querySelector('.matching-category-items').appendChild(tag);
-    selectedMatchingItem.classList.remove('selected');
-    selectedMatchingItem.classList.add('assigned');
-    selectedMatchingItem = null;
-    document.querySelectorAll('.matching-category').forEach(cat => cat.classList.remove('highlight'));
+if (!selectedMatchingItem) {
+categoryElement.style.animation = 'shake 0.5s';
+setTimeout(() => { categoryElement.style.animation = ''; }, 500);
+return;
+}
+const itemId = selectedMatchingItem.dataset.item;
+const categoryId = categoryElement.dataset.category;
+matchingAssignments[itemId] = categoryId;
+
+const tag = document.createElement('div');
+tag.className = 'assigned-tag';
+tag.textContent = selectedMatchingItem.textContent;
+tag.dataset.itemId = itemId;
+categoryElement.querySelector('.matching-category-items').appendChild(tag);
+
+selectedMatchingItem.classList.remove('selected');
+selectedMatchingItem.classList.add('assigned');
+selectedMatchingItem = null;
+document.querySelectorAll('.matching-category').forEach(cat => cat.classList.remove('highlight'));
 }
 
 function checkMatching() {
-    const resultDiv = document.getElementById('matchingResult');
-    const totalItems = Object.keys(correctMatching).length;
-    const assignedCount = Object.keys(matchingAssignments).length;
-    matchingAttempts++;
-    if (assignedCount < totalItems) {
-        resultDiv.className = 'matching-result error';
-        resultDiv.classList.remove('hidden');
-        resultDiv.innerHTML = `<strong>⚠️ Ще не всі приклади розподілено!</strong><br>Розподілено: ${assignedCount} з ${totalItems}.`;
-        return;
-    }
-    let correct = 0; let wrongItems = [];
-    for (let itemId in matchingAssignments) {
-        if (matchingAssignments[itemId] === correctMatching[itemId]) correct++;
-        else wrongItems.push(itemId);
-    }
-    if (wrongItems.length > 0) {
-        wrongItems.forEach(itemId => {
-            const itemElement = document.querySelector(`.matching-item[data-item="${itemId}"]`);
-            if (itemElement) itemElement.classList.add('wrong');
-            const tagElement = document.querySelector(`.assigned-tag[data-item-id="${itemId}"]`);
-            if (tagElement) tagElement.classList.add('wrong-tag');
-            setTimeout(() => { if (itemElement) itemElement.classList.remove('wrong'); if (tagElement) tagElement.classList.remove('wrong-tag'); }, 1500);
-        });
-    }
-    if (!progressTracker.answered.has('step2_matching')) {
-        if (correct === totalItems) addCorrect('step2_matching', totalItems);
-        else {
-            if (correct > 0) addCorrect('step2_matching_p', correct);
-            addWrong('step2_matching_w', totalItems - correct);
-        }
-    }
-    if (correct === totalItems) {
-        resultDiv.className = 'matching-result success';
-        resultDiv.innerHTML = `<strong>🎉 Чудово! Всі ${totalItems} прикладів розподілено правильно!</strong>`;
-    } else {
-        const wrong = totalItems - correct;
-        resultDiv.className = 'matching-result error';
-        resultDiv.innerHTML = `<strong>❌ Є помилки!</strong><br>Правильно: ${correct} з ${totalItems}. Неправильно: ${wrong}.`;
-    }
-    resultDiv.classList.remove('hidden');
+const resultDiv = document.getElementById('matchingResult');
+const totalItems = Object.keys(correctMatching).length;
+const assignedCount = Object.keys(matchingAssignments).length;
+matchingAttempts++;
+
+if (assignedCount < totalItems) {
+resultDiv.className = 'matching-result error';
+resultDiv.classList.remove('hidden');
+resultDiv.innerHTML = `<strong>⚠️ Ще не всі приклади розподілено!</strong><br>Розподілено: ${assignedCount} з ${totalItems}.`;
+return;
+}
+
+let correct = 0; let wrongItems = [];
+for (let itemId in matchingAssignments) {
+if (matchingAssignments[itemId] === correctMatching[itemId]) correct++;
+else wrongItems.push(itemId);
+}
+
+if (wrongItems.length > 0) {
+wrongItems.forEach(itemId => {
+const itemElement = document.querySelector(`.matching-item[data-item="${itemId}"]`);
+if (itemElement) itemElement.classList.add('wrong');
+const tagElement = document.querySelector(`.assigned-tag[data-item-id="${itemId}"]`);
+if (tagElement) tagElement.classList.add('wrong-tag');
+setTimeout(() => { if (itemElement) itemElement.classList.remove('wrong'); if (tagElement) tagElement.classList.remove('wrong-tag'); }, 1500);
+});
+}
+
+if (!progressTracker.answered.has('step2_matching')) {
+if (correct === totalItems) addCorrect('step2_matching', totalItems);
+else {
+if (correct > 0) addCorrect('step2_matching_p', correct);
+addWrong('step2_matching_w', totalItems - correct);
+}
+}
+
+if (correct === totalItems) {
+resultDiv.className = 'matching-result success';
+resultDiv.innerHTML = `<strong>🎉 Чудово! Всі ${totalItems} прикладів розподілено правильно!</strong>`;
+} else {
+const wrong = totalItems - correct;
+resultDiv.className = 'matching-result error';
+resultDiv.innerHTML = `<strong>❌ Є помилки!</strong><br>Правильно: ${correct} з ${totalItems}. Неправильно: ${wrong}.`;
+}
+resultDiv.classList.remove('hidden');
 }
 
 function resetMatching() {
-    matchingAssignments = {}; selectedMatchingItem = null; matchingAttempts = 0;
-    document.querySelectorAll('.matching-item').forEach(item => { item.classList.remove('assigned', 'selected', 'wrong'); });
-    document.querySelectorAll('.matching-category-items').forEach(container => { container.innerHTML = ''; });
-    document.querySelectorAll('.matching-category').forEach(cat => cat.classList.remove('highlight'));
-    const resultDiv = document.getElementById('matchingResult');
-    resultDiv.classList.add('hidden');
+matchingAssignments = {}; selectedMatchingItem = null; matchingAttempts = 0;
+document.querySelectorAll('.matching-item').forEach(item => { item.classList.remove('assigned', 'selected', 'wrong'); });
+document.querySelectorAll('.matching-category-items').forEach(container => { container.innerHTML = ''; });
+document.querySelectorAll('.matching-category').forEach(cat => cat.classList.remove('highlight'));
+const resultDiv = document.getElementById('matchingResult');
+resultDiv.classList.add('hidden');
 }
 
 function selectOddItem(element) {
-    const taskNum = element.dataset.task;
-    const taskContainer = document.getElementById('odd-task-' + taskNum);
-    taskContainer.querySelectorAll('.odd-item').forEach(item => item.classList.remove('selected', 'correct-answer-style', 'wrong-answer-style'));
-    element.classList.add('selected');
+const taskNum = element.dataset.task;
+const taskContainer = document.getElementById('odd-task-' + taskNum);
+taskContainer.querySelectorAll('.odd-item').forEach(item => item.classList.remove('selected', 'correct-answer-style', 'wrong-answer-style'));
+element.classList.add('selected');
 }
 
 function verifyOddTask(taskNum) {
-    const taskContainer = document.getElementById('odd-task-' + taskNum);
-    const selected = taskContainer.querySelector('.odd-item.selected');
-    const explanationDiv = document.getElementById('odd-explanation-' + taskNum);
-    if (!selected) {
-        explanationDiv.className = 'odd-explanation incorrect';
-        explanationDiv.textContent = '⚠️ Обери один варіант, перш ніж перевіряти.';
-        explanationDiv.classList.remove('hidden');
-        return;
-    }
-    const isCorrect = selected.dataset.correct === 'true';
-    if (!progressTracker.answered.has('odd_' + taskNum)) {
-        if (isCorrect) addCorrect('odd_' + taskNum);
-        else addWrong('odd_' + taskNum);
-    }
-    taskContainer.querySelectorAll('.odd-item').forEach(item => {
-        item.classList.remove('selected');
-        if (item.dataset.correct === 'true') item.classList.add('correct-answer-style');
-    });
-    if (isCorrect) {
-        selected.classList.add('correct-answer-style');
-        explanationDiv.className = 'odd-explanation correct';
-        explanationDiv.textContent = oddExplanations[taskNum].correct;
-    } else {
-        selected.classList.add('wrong-answer-style');
-        explanationDiv.className = 'odd-explanation incorrect';
-        explanationDiv.textContent = oddExplanations[taskNum].incorrect;
-    }
-    explanationDiv.classList.remove('hidden');
+const taskContainer = document.getElementById('odd-task-' + taskNum);
+const selected = taskContainer.querySelector('.odd-item.selected');
+const explanationDiv = document.getElementById('odd-explanation-' + taskNum);
+
+if (!selected) {
+explanationDiv.className = 'odd-explanation incorrect';
+explanationDiv.textContent = '⚠️ Обери один варіант, перш ніж перевіряти.';
+explanationDiv.classList.remove('hidden');
+return;
+}
+
+const isCorrect = selected.dataset.correct === 'true';
+if (!progressTracker.answered.has('odd_' + taskNum)) {
+if (isCorrect) addCorrect('odd_' + taskNum);
+else addWrong('odd_' + taskNum);
+}
+
+taskContainer.querySelectorAll('.odd-item').forEach(item => {
+item.classList.remove('selected');
+if (item.dataset.correct === 'true') item.classList.add('correct-answer-style');
+});
+
+if (isCorrect) {
+selected.classList.add('correct-answer-style');
+explanationDiv.className = 'odd-explanation correct';
+explanationDiv.textContent = oddExplanations[taskNum].correct;
+} else {
+selected.classList.add('wrong-answer-style');
+explanationDiv.className = 'odd-explanation incorrect';
+explanationDiv.textContent = oddExplanations[taskNum].incorrect;
+}
+explanationDiv.classList.remove('hidden');
 }
 
 function openMatrixModal(cellId) {
-    const data = matrixData[cellId];
-    if (!data) return;
-    document.getElementById('matrixModalTitle').textContent = data.title;
-    document.getElementById('matrixModalBody').innerHTML = `
-        <p style="margin-bottom: 18px; font-size: 16px; line-height: 1.6;"><strong>${data.text}</strong></p>
-        <div class="modal-examples" style="background: #f8f9fa; padding: 18px; border-radius: 10px; margin-top: 18px;">
-            <h4 style="color: #1a1a6e; margin-bottom: 12px;">Приклади:</h4>
-            <ul style="list-style: none; padding: 0;">
-                ${data.examples.map(ex => `<li style="padding: 8px 0; padding-left: 28px; position: relative; font-size: 14px;"><span style="position: absolute; left: 10px; color: #667eea; font-weight: bold;">•</span>${ex}</li>`).join('')}
-            </ul>
-        </div>`;
-    document.getElementById('matrixModal').classList.remove('hidden');
+const data = matrixData[cellId];
+if (!data) return;
+document.getElementById('matrixModalTitle').textContent = data.title;
+document.getElementById('matrixModalBody').innerHTML = `
+<p style="margin-bottom: 18px; font-size: 16px; line-height: 1.6;"><strong>${data.text}</strong></p>
+<div class="modal-examples" style="background: #f8f9fa; padding: 18px; border-radius: 10px; margin-top: 18px;">
+<h4 style="color: #1a1a6e; margin-bottom: 12px;">Приклади:</h4>
+<ul style="list-style: none; padding: 0;">
+${data.examples.map(ex => `<li style="padding: 8px 0; padding-left: 28px; position: relative; font-size: 14px;"><span style="position: absolute; left: 10px; color: #667eea; font-weight: bold;">•</span>${ex}</li>`).join('')}
+</ul>
+</div>`;
+document.getElementById('matrixModal').classList.remove('hidden');
 }
 
 function closeMatrixModal() { document.getElementById('matrixModal').classList.add('hidden'); }
 document.getElementById('matrixModal').addEventListener('click', function(e) { if (e.target === this) closeMatrixModal(); });
 
 function selectPractice(element, questionId, value) {
-    const card = element.closest('.practice-card');
-    card.querySelectorAll('.practice-option').forEach(opt => { opt.classList.remove('selected', 'correct', 'incorrect'); });
-    element.classList.add('selected');
-    element.querySelector('input').checked = true;
+const card = element.closest('.practice-card');
+card.querySelectorAll('.practice-option').forEach(opt => { opt.classList.remove('selected', 'correct', 'incorrect'); });
+element.classList.add('selected');
+element.querySelector('input').checked = true;
 }
 
 function checkPractice() {
-    const answers = { p1: 'high', p2: 'high', p3: 'high', p4: 'high' };
-    const explanations = {
-        p1: 'Їзда без шолома + мокра дорога + поспіх = високий ризик травми.',
-        p2: 'Дуже низькі ціни часто означають шахрайство. Ризик втрати грошей.',
-        p3: 'Виступ без підготовки = ризик провалу.',
-        p4: 'Втрата телефону = ризик втрати даних, доступу до акаунтів.'
-    };
-    let allAnswered = true;
-    for (let id in answers) {
-        const selected = document.querySelector(`input[name="${id}"]:checked`);
-        const card = document.getElementById('card-' + id);
-        const explanation = document.getElementById(`exp-${id}`);
-        if (!selected) {
-            allAnswered = false;
-            card.style.borderColor = '#fbbf24';
-            setTimeout(() => card.style.borderColor = 'transparent', 2000);
-        } else {
-            card.style.borderColor = 'transparent';
-            const userAnswer = selected.value;
-            const correctAnswer = answers[id];
-            if (!progressTracker.answered.has('practice_' + id)) {
-                if (userAnswer === correctAnswer) addCorrect('practice_' + id);
-                else addWrong('practice_' + id);
-            }
-            explanation.classList.remove('correct', 'incorrect');
-            card.querySelectorAll('.practice-option').forEach(opt => { opt.classList.remove('correct', 'incorrect'); });
-            if (userAnswer === correctAnswer) {
-                explanation.classList.add('correct');
-                explanation.innerHTML = '<strong>✅ Правильно!</strong><br>' + explanations[id];
-                selected.closest('.practice-option').classList.add('correct');
-            } else {
-                explanation.classList.add('incorrect');
-                explanation.innerHTML = '<strong>❌ Неправильно!</strong><br>Правильна відповідь: <strong>Високий</strong><br>' + explanations[id];
-                selected.closest('.practice-option').classList.add('incorrect');
-                card.querySelectorAll('.practice-option').forEach(opt => {
-                    const radio = opt.querySelector('input');
-                    if (radio && radio.value === correctAnswer) opt.classList.add('correct');
-                });
-            }
-            explanation.classList.add('show');
-        }
-    }
-    if (!allAnswered) alert('Будь ласка, оберіть відповідь у всіх питаннях!');
+const answers = { p1: 'high', p2: 'high', p3: 'high', p4: 'high' };
+const explanations = {
+p1: 'Їзда без шолома + мокра дорога + поспіх = високий ризик травми.',
+p2: 'Дуже низькі ціни часто означають шахрайство. Ризик втрати грошей.',
+p3: 'Виступ без підготовки = ризик провалу.',
+p4: 'Втрата телефону = ризик втрати даних, доступу до акаунтів.'
+};
+
+let allAnswered = true;
+for (let id in answers) {
+const selected = document.querySelector(`input[name="${id}"]:checked`);
+const card = document.getElementById('card-' + id);
+const explanation = document.getElementById(`exp-${id}`);
+
+if (!selected) {
+allAnswered = false;
+card.style.borderColor = '#fbbf24';
+setTimeout(() => card.style.borderColor = 'transparent', 2000);
+} else {
+card.style.borderColor = 'transparent';
+const userAnswer = selected.value;
+const correctAnswer = answers[id];
+
+if (!progressTracker.answered.has('practice_' + id)) {
+if (userAnswer === correctAnswer) addCorrect('practice_' + id);
+else addWrong('practice_' + id);
+}
+
+explanation.classList.remove('correct', 'incorrect');
+card.querySelectorAll('.practice-option').forEach(opt => { opt.classList.remove('correct', 'incorrect'); });
+
+if (userAnswer === correctAnswer) {
+explanation.classList.add('correct');
+explanation.innerHTML = '<strong>✅ Правильно!</strong><br>' + explanations[id];
+selected.closest('.practice-option').classList.add('correct');
+} else {
+explanation.classList.add('incorrect');
+explanation.innerHTML = '<strong>❌ Неправильно!</strong><br>Правильна відповідь: <strong>Високий</strong><br>' + explanations[id];
+selected.closest('.practice-option').classList.add('incorrect');
+card.querySelectorAll('.practice-option').forEach(opt => {
+const radio = opt.querySelector('input');
+if (radio && radio.value === correctAnswer) opt.classList.add('correct');
+});
+}
+explanation.classList.add('show');
+}
+}
+if (!allAnswered) alert('Будь ласка, оберіть відповідь у всіх питаннях!');
 }
 
 function checkChecklist() {
-    let allCorrect = true; let hasErrors = false;
-    let correctCount = 0; let totalCorrect = 0;
-    document.querySelectorAll('.checklist-option').forEach(option => {
-        const checkbox = option.querySelector('input[type="checkbox"]');
-        const isCorrect = option.dataset.correct === 'true';
-        const isChecked = checkbox.checked;
-        option.classList.remove('correct-selection', 'incorrect-selection', 'missed-correct');
-        if (isCorrect) totalCorrect++;
-        if (isCorrect && isChecked) { option.classList.add('correct-selection'); correctCount++; }
-        else if (isCorrect && !isChecked) { option.classList.add('missed-correct'); allCorrect = false; }
-        else if (!isCorrect && isChecked) { option.classList.add('incorrect-selection'); hasErrors = true; allCorrect = false; }
-    });
-    if (!progressTracker.answered.has('step3_checklist')) {
-        if (allCorrect && !hasErrors) addCorrect('step3_checklist', totalCorrect);
-        else {
-            if (correctCount > 0) addCorrect('step3_checklist_p', correctCount);
-            addWrong('step3_checklist_w', totalCorrect - correctCount);
-        }
-    }
-    const resultDiv = document.getElementById('checklistResult');
-    resultDiv.classList.remove('hidden');
-    if (allCorrect && !hasErrors) {
-        resultDiv.className = 'checklist-result correct show';
-        resultDiv.innerHTML = '<strong>✅ Чудово!</strong> Всі дії для зменшення ризику обрано правильно!';
-    } else {
-        resultDiv.className = 'checklist-result incorrect show';
-        resultDiv.innerHTML = '<strong>❌ Є помилки.</strong><br>🟢 Зеленим — правильні<br>🔴 Червоним — неправильні<br>🟡 Жовтим — пропущені правильні';
-    }
-    resultDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+let allCorrect = true; let hasErrors = false;
+let correctCount = 0; let totalCorrect = 0;
+
+document.querySelectorAll('.checklist-option').forEach(option => {
+const checkbox = option.querySelector('input[type="checkbox"]');
+const isCorrect = option.dataset.correct === 'true';
+const isChecked = checkbox.checked;
+
+option.classList.remove('correct-selection', 'incorrect-selection', 'missed-correct');
+if (isCorrect) totalCorrect++;
+
+if (isCorrect && isChecked) { option.classList.add('correct-selection'); correctCount++; }
+else if (isCorrect && !isChecked) { option.classList.add('missed-correct'); allCorrect = false; }
+else if (!isCorrect && isChecked) { option.classList.add('incorrect-selection'); hasErrors = true; allCorrect = false; }
+});
+
+if (!progressTracker.answered.has('step3_checklist')) {
+if (allCorrect && !hasErrors) addCorrect('step3_checklist', totalCorrect);
+else {
+if (correctCount > 0) addCorrect('step3_checklist_p', correctCount);
+addWrong('step3_checklist_w', totalCorrect - correctCount);
+}
+}
+
+const resultDiv = document.getElementById('checklistResult');
+resultDiv.classList.remove('hidden');
+
+if (allCorrect && !hasErrors) {
+resultDiv.className = 'checklist-result correct show';
+resultDiv.innerHTML = '<strong>✅ Чудово!</strong> Всі дії для зменшення ризику обрано правильно!';
+} else {
+resultDiv.className = 'checklist-result incorrect show';
+resultDiv.innerHTML = '<strong>❌ Є помилки.</strong><br>🟢 Зеленим — правильні<br>🔴 Червоним — неправильні<br>🟡 Жовтим — пропущені правильні';
+}
+resultDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 }
 
 function resetChecklist() {
-    document.querySelectorAll('.checklist-option').forEach(option => {
-        const checkbox = option.querySelector('input[type="checkbox"]');
-        checkbox.checked = false;
-        option.classList.remove('correct-selection', 'incorrect-selection', 'missed-correct');
-    });
-    const resultDiv = document.getElementById('checklistResult');
-    resultDiv.classList.remove('show');
-    resultDiv.className = 'checklist-result';
+document.querySelectorAll('.checklist-option').forEach(option => {
+const checkbox = option.querySelector('input[type="checkbox"]');
+checkbox.checked = false;
+option.classList.remove('correct-selection', 'incorrect-selection', 'missed-correct');
+});
+const resultDiv = document.getElementById('checklistResult');
+resultDiv.classList.remove('show');
+resultDiv.className = 'checklist-result';
 }
 
 function checkDragDrop() {
-    const correctAnswers = { dd1: 'veryhigh', dd2: 'mid', dd3: 'high', dd4: 'low' };
-    let allAnswered = true; let allCorrect = true; let correctCount = 0;
-    for (let id in correctAnswers) {
-        const select = document.getElementById(id);
-        const userAnswer = select.value;
-        if (!userAnswer) { allAnswered = false; select.style.borderColor = '#fbbf24'; }
-        else {
-            select.style.borderColor = '';
-            select.classList.remove('correct-answer', 'incorrect-answer');
-            if (userAnswer === correctAnswers[id]) { select.classList.add('correct-answer'); correctCount++; }
-            else { select.classList.add('incorrect-answer'); allCorrect = false; }
-        }
-    }
-    if (!progressTracker.answered.has('step3_dragdrop')) {
-        if (allCorrect) addCorrect('step3_dragdrop', 4);
-        else {
-            if (correctCount > 0) addCorrect('step3_dragdrop_p', correctCount);
-            addWrong('step3_dragdrop_w', 4 - correctCount);
-        }
-    }
-    const resultDiv = document.getElementById('dragdropResult');
-    resultDiv.classList.remove('hidden');
-    if (!allAnswered) { alert('Будь ласка, оберіть рівень ризику для всіх ситуацій!'); return; }
-    if (allCorrect) {
-        resultDiv.className = 'dragdrop-result correct show';
-        resultDiv.innerHTML = '<strong>✅ Відмінно!</strong><br>Ти правильно визначив(ла) рівень ризику!';
-    } else {
-        resultDiv.className = 'dragdrop-result incorrect show';
-        resultDiv.innerHTML = '<strong>❌ Є помилки</strong><br>Перевір ще раз свої відповіді.';
-    }
+const correctAnswers = { dd1: 'veryhigh', dd2: 'mid', dd3: 'high', dd4: 'low' };
+let allAnswered = true; let allCorrect = true; let correctCount = 0;
+
+for (let id in correctAnswers) {
+const select = document.getElementById(id);
+const userAnswer = select.value;
+
+if (!userAnswer) { allAnswered = false; select.style.borderColor = '#fbbf24'; }
+else {
+select.style.borderColor = '';
+select.classList.remove('correct-answer', 'incorrect-answer');
+if (userAnswer === correctAnswers[id]) { select.classList.add('correct-answer'); correctCount++; }
+else { select.classList.add('incorrect-answer'); allCorrect = false; }
+}
+}
+
+if (!progressTracker.answered.has('step3_dragdrop')) {
+if (allCorrect) addCorrect('step3_dragdrop', 4);
+else {
+if (correctCount > 0) addCorrect('step3_dragdrop_p', correctCount);
+addWrong('step3_dragdrop_w', 4 - correctCount);
+}
+}
+
+const resultDiv = document.getElementById('dragdropResult');
+resultDiv.classList.remove('hidden');
+
+if (!allAnswered) { alert('Будь ласка, оберіть рівень ризику для всіх ситуацій!'); return; }
+
+if (allCorrect) {
+resultDiv.className = 'dragdrop-result correct show';
+resultDiv.innerHTML = '<strong>✅ Відмінно!</strong><br>Ти правильно визначив(ла) рівень ризику!';
+} else {
+resultDiv.className = 'dragdrop-result incorrect show';
+resultDiv.innerHTML = '<strong>❌ Є помилки</strong><br>Перевір ще раз свої відповіді.';
+}
 }
 
 function resetDragDrop() {
-    document.querySelectorAll('.dragdrop-select select').forEach(select => {
-        select.value = ''; select.classList.remove('correct-answer', 'incorrect-answer'); select.style.borderColor = '';
-    });
-    document.getElementById('dragdropResult').classList.remove('show');
-    document.getElementById('dragdropResult').className = 'dragdrop-result';
+document.querySelectorAll('.dragdrop-select select').forEach(select => {
+select.value = ''; select.classList.remove('correct-answer', 'incorrect-answer'); select.style.borderColor = '';
+});
+document.getElementById('dragdropResult').classList.remove('show');
+document.getElementById('dragdropResult').className = 'dragdrop-result';
 }
 
 document.querySelectorAll('.modal-overlay').forEach(modal => {
-    modal.addEventListener('click', (e) => { if (e.target === modal) modal.classList.add('hidden'); });
+modal.addEventListener('click', (e) => { if (e.target === modal) modal.classList.add('hidden'); });
 });
 
 /* ===================================================================
 КРОК 4: ФУНКЦІЇ
 =================================================================== */
 function s4ShuffleArray(array) {
-    const newArray = [...array];
-    for (let i = newArray.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
-    }
-    return newArray;
+const newArray = [...array];
+for (let i = newArray.length - 1; i > 0; i--) {
+const j = Math.floor(Math.random() * (i + 1));
+[newArray[i], newArray[j]] = [newArray[j], newArray[i]];
+}
+return newArray;
 }
 
 function s4ShowCardInfo(type) {
-    const info = {
-        'controlled': '<strong>Керований розвиток:</strong> Ситуація, яку можна контролювати та зупинити вчасними діями.',
-        'gradual': '<strong>Поступовий розвиток:</strong> Ситуація розвивається повільно, крок за кроком. Важливо зупинити її на ранньому етапі.',
-        'sudden': '<strong>Раптовий розвиток:</strong> Ситуація виникає несподівано і швидко. Потрібна миттєва реакція.',
-        'chain': '<strong>Ланцюговий розвиток:</strong> Одна подія запускає ланцюг інших. Намагайтеся розірвати ланцюг небезпек якомога раніше.'
-    };
-    const infoBox = document.getElementById('s4CardInfo');
-    infoBox.innerHTML = info[type];
-    infoBox.style.display = 'block';
+const info = {
+'controlled': '<strong>Керований розвиток:</strong> Ситуація, яку можна контролювати та зупинити вчасними діями.',
+'gradual': '<strong>Поступовий розвиток:</strong> Ситуація розвивається повільно, крок за кроком. Важливо зупинити її на ранньому етапі.',
+'sudden': '<strong>Раптовий розвиток:</strong> Ситуація виникає несподівано і швидко. Потрібна миттєва реакція.',
+'chain': '<strong>Ланцюговий розвиток:</strong> Одна подія запускає ланцюг інших. Намагайтеся розірвати ланцюг небезпек якомога раніше.'
+};
+const infoBox = document.getElementById('s4CardInfo');
+infoBox.innerHTML = info[type];
+infoBox.style.display = 'block';
 }
 
 function s4CheckAnswer(page, correctValue) {
-    const selected = document.querySelector(`input[name="s4q${page}"]:checked`);
-    const feedback = document.getElementById(`s4Feedback${page}`);
-    if (!selected) { feedback.className = 's4-feedback incorrect show'; feedback.innerHTML = '⚠️ Будь ласка, оберіть відповідь.'; return; }
-    if (!progressTracker.answered.has('s4_ans_' + page)) {
-        if (selected.value === correctValue) addCorrect('s4_ans_' + page);
-        else addWrong('s4_ans_' + page);
-    }
-    if (selected.value === correctValue) {
-        feedback.className = 's4-feedback correct show';
-        feedback.innerHTML = '✅ Правильно! Вчасні дії допомогли зупинити небезпеку.';
-    } else {
-        feedback.className = 's4-feedback incorrect show';
-        feedback.innerHTML = '❌ Неправильно. Подумайте ще раз.';
-    }
+const selected = document.querySelector(`input[name="s4q${page}"]:checked`);
+const feedback = document.getElementById(`s4Feedback${page}`);
+
+if (!selected) { feedback.className = 's4-feedback incorrect show'; feedback.innerHTML = '⚠️ Будь ласка, оберіть відповідь.'; return; }
+
+if (!progressTracker.answered.has('s4_ans_' + page)) {
+if (selected.value === correctValue) addCorrect('s4_ans_' + page);
+else addWrong('s4_ans_' + page);
+}
+
+if (selected.value === correctValue) {
+feedback.className = 's4-feedback correct show';
+feedback.innerHTML = '✅ Правильно! Вчасні дії допомогли зупинити небезпеку.';
+} else {
+feedback.className = 's4-feedback incorrect show';
+feedback.innerHTML = '❌ Неправильно. Подумайте ще раз.';
+}
 }
 
 function s4ResetQuestion(page) {
-    document.querySelectorAll(`input[name="s4q${page}"]`).forEach(radio => radio.checked = false);
-    document.getElementById(`s4Feedback${page}`).classList.remove('show');
+document.querySelectorAll(`input[name="s4q${page}"]`).forEach(radio => radio.checked = false);
+document.getElementById(`s4Feedback${page}`).classList.remove('show');
 }
 
 function s4CheckSlider(page, correctValue) {
-    const value = parseInt(document.getElementById(`s4Slider${page}`).value);
-    const feedback = document.getElementById(`s4Feedback${page}`);
-    if (!progressTracker.answered.has('s4_slider_' + page)) {
-        if (value === correctValue) addCorrect('s4_slider_' + page);
-        else addWrong('s4_slider_' + page);
-    }
-    if (value === correctValue) {
-        feedback.className = 's4-feedback correct show';
-        feedback.innerHTML = '✅ Правильно! Найкраще зупинити небезпеку на самому початку — на етапі жартів.';
-    } else {
-        feedback.className = 's4-feedback incorrect show';
-        feedback.innerHTML = '❌ Неправильно. Чим раніше зупинити, тим краще!';
-    }
+const value = parseInt(document.getElementById(`s4Slider${page}`).value);
+const feedback = document.getElementById(`s4Feedback${page}`);
+
+if (!progressTracker.answered.has('s4_slider_' + page)) {
+if (value === correctValue) addCorrect('s4_slider_' + page);
+else addWrong('s4_slider_' + page);
+}
+
+if (value === correctValue) {
+feedback.className = 's4-feedback correct show';
+feedback.innerHTML = '✅ Правильно! Найкраще зупинити небезпеку на самому початку — на етапі жартів.';
+} else {
+feedback.className = 's4-feedback incorrect show';
+feedback.innerHTML = '❌ Неправильно. Чим раніше зупинити, тим краще!';
+}
 }
 
 function s4ResetSlider(page) {
-    document.getElementById(`s4Slider${page}`).value = 1;
-    document.getElementById(`s4Feedback${page}`).classList.remove('show');
+document.getElementById(`s4Slider${page}`).value = 1;
+document.getElementById(`s4Feedback${page}`).classList.remove('show');
 }
 
 function s4CheckCheckboxes(page, correctValues) {
-    const checkboxes = document.querySelectorAll(`input[name="s4q${page}"]:checked`);
-    const feedback = document.getElementById(`s4Feedback${page}`);
-    const selectedValues = Array.from(checkboxes).map(cb => cb.value);
-    const allCorrect = correctValues.every(v => selectedValues.includes(v)) && selectedValues.every(v => correctValues.includes(v));
-    if (selectedValues.length === 0) {
-        feedback.className = 's4-feedback incorrect show';
-        feedback.innerHTML = '⚠️ Будь ласка, оберіть хоча б один варіант.';
-        return;
-    }
-    if (!progressTracker.answered.has('s4_check_' + page)) {
-        if (allCorrect) addCorrect('s4_check_' + page);
-        else addWrong('s4_check_' + page);
-    }
-    if (allCorrect) {
-        feedback.className = 's4-feedback correct show';
-        feedback.innerHTML = '✅ Правильно! Ви правильно визначили всі наслідки/дії.';
-    } else {
-        feedback.className = 's4-feedback incorrect show';
-        feedback.innerHTML = '❌ Неправильно. Перевірте свій вибір.';
-    }
+const checkboxes = document.querySelectorAll(`input[name="s4q${page}"]:checked`);
+const feedback = document.getElementById(`s4Feedback${page}`);
+const selectedValues = Array.from(checkboxes).map(cb => cb.value);
+const allCorrect = correctValues.every(v => selectedValues.includes(v)) && selectedValues.every(v => correctValues.includes(v));
+
+if (selectedValues.length === 0) {
+feedback.className = 's4-feedback incorrect show';
+feedback.innerHTML = '⚠️ Будь ласка, оберіть хоча б один варіант.';
+return;
+}
+
+if (!progressTracker.answered.has('s4_check_' + page)) {
+if (allCorrect) addCorrect('s4_check_' + page);
+else addWrong('s4_check_' + page);
+}
+
+if (allCorrect) {
+feedback.className = 's4-feedback correct show';
+feedback.innerHTML = '✅ Правильно! Ви правильно визначили всі наслідки/дії.';
+} else {
+feedback.className = 's4-feedback incorrect show';
+feedback.innerHTML = '❌ Неправильно. Перевірте свій вибір.';
+}
 }
 
 function s4ResetCheckboxes(page) {
-    document.querySelectorAll(`input[name="s4q${page}"]`).forEach(cb => cb.checked = false);
-    document.getElementById(`s4Feedback${page}`).classList.remove('show');
+document.querySelectorAll(`input[name="s4q${page}"]`).forEach(cb => cb.checked = false);
+document.getElementById(`s4Feedback${page}`).classList.remove('show');
 }
 
 function s4InitDragContainer(page) {
-    const container = document.getElementById(`s4DragContainer${page}`);
-    if (!container) return;
-    container.innerHTML = '';
-    let data = page === 6 ? s4DragData6 : s4DragData8;
-    const shuffledData = s4ShuffleArray(data);
-    shuffledData.forEach(item => {
-        const dragItem = document.createElement('div');
-        dragItem.className = 's4-drag-item';
-        dragItem.draggable = true;
-        dragItem.dataset.order = item.order;
-        dragItem.innerHTML = `<span style="font-size: 2em;">${item.icon}</span><span>${item.text}</span>`;
-        dragItem.addEventListener('dragstart', function(e) {
-            e.dataTransfer.setData('text/plain', item.order);
-            this.classList.add('dragging');
-        });
-        dragItem.addEventListener('dragend', function() { this.classList.remove('dragging'); });
-        s4InitTouchDrag(dragItem, page);
-        container.appendChild(dragItem);
-    });
-    const dropZone = document.getElementById(`s4DropZone${page}`);
-    if (!dropZone) return;
-    dropZone.innerHTML = '<p style="text-align: center; color: #999;">Перетягніть картки сюди у правильному порядку</p>';
-    dropZone.addEventListener('dragover', function(e) { e.preventDefault(); this.classList.add('drag-over'); });
-    dropZone.addEventListener('dragleave', function() { this.classList.remove('drag-over'); });
-    dropZone.addEventListener('drop', function(e) {
-        e.preventDefault();
-        this.classList.remove('drag-over');
-        const draggedElement = document.querySelector('.s4-drag-item.dragging');
-        if (draggedElement) {
-            if (this.querySelector('p')) this.innerHTML = '';
-            this.appendChild(draggedElement);
-        }
-    });
+const container = document.getElementById(`s4DragContainer${page}`);
+if (!container) return;
+container.innerHTML = '';
+
+let data = page === 6 ? s4DragData6 : s4DragData8;
+const shuffledData = s4ShuffleArray(data);
+
+shuffledData.forEach(item => {
+const dragItem = document.createElement('div');
+dragItem.className = 's4-drag-item';
+dragItem.draggable = true;
+dragItem.dataset.order = item.order;
+dragItem.innerHTML = `<span style="font-size: 2em;">${item.icon}</span><span>${item.text}</span>`;
+
+dragItem.addEventListener('dragstart', function(e) {
+e.dataTransfer.setData('text/plain', item.order);
+this.classList.add('dragging');
+});
+
+dragItem.addEventListener('dragend', function() { this.classList.remove('dragging'); });
+s4InitTouchDrag(dragItem, page);
+container.appendChild(dragItem);
+});
+
+const dropZone = document.getElementById(`s4DropZone${page}`);
+if (!dropZone) return;
+dropZone.innerHTML = '<p style="text-align: center; color: #999;">Перетягніть картки сюди у правильному порядку</p>';
+
+dropZone.addEventListener('dragover', function(e) { e.preventDefault(); this.classList.add('drag-over'); });
+dropZone.addEventListener('dragleave', function() { this.classList.remove('drag-over'); });
+dropZone.addEventListener('drop', function(e) {
+e.preventDefault();
+this.classList.remove('drag-over');
+const draggedElement = document.querySelector('.s4-drag-item.dragging');
+if (draggedElement) {
+if (this.querySelector('p')) this.innerHTML = '';
+this.appendChild(draggedElement);
+}
+});
 }
 
 function s4InitTouchDrag(dragItem, page) {
-    let touchClone = null;
-    let startX, startY, initialLeft, initialTop;
-    dragItem.addEventListener('touchstart', function(e) {
-        e.preventDefault();
-        const touch = e.touches[0];
-        startX = touch.clientX; startY = touch.clientY;
-        const rect = this.getBoundingClientRect();
-        initialLeft = rect.left; initialTop = rect.top;
-        touchClone = this.cloneNode(true);
-        touchClone.classList.add('touch-dragging');
-        touchClone.style.width = rect.width + 'px';
-        touchClone.style.left = initialLeft + 'px';
-        touchClone.style.top = initialTop + 'px';
-        document.body.appendChild(touchClone);
-        this.style.opacity = '0.3';
-    }, {passive: false});
-    dragItem.addEventListener('touchmove', function(e) {
-        e.preventDefault();
-        if (!touchClone) return;
-        const touch = e.touches[0];
-        const deltaX = touch.clientX - startX;
-        const deltaY = touch.clientY - startY;
-        touchClone.style.left = (initialLeft + deltaX) + 'px';
-        touchClone.style.top = (initialTop + deltaY) + 'px';
-        const dropZone = document.getElementById(`s4DropZone${page}`);
-        const dropRect = dropZone.getBoundingClientRect();
-        if (touch.clientX >= dropRect.left && touch.clientX <= dropRect.right &&
-            touch.clientY >= dropRect.top && touch.clientY <= dropRect.bottom) {
-            dropZone.classList.add('drag-over');
-        } else {
-            dropZone.classList.remove('drag-over');
-        }
-    }, {passive: false});
-    dragItem.addEventListener('touchend', function(e) {
-        e.preventDefault();
-        if (!touchClone) return;
-        const dropZone = document.getElementById(`s4DropZone${page}`);
-        const dropRect = dropZone.getBoundingClientRect();
-        const touch = e.changedTouches[0];
-        if (touch.clientX >= dropRect.left && touch.clientX <= dropRect.right &&
-            touch.clientY >= dropRect.top && touch.clientY <= dropRect.bottom) {
-            if (dropZone.querySelector('p')) dropZone.innerHTML = '';
-            dropZone.appendChild(this);
-        }
-        this.style.opacity = '1';
-        touchClone.remove();
-        touchClone = null;
-        dropZone.classList.remove('drag-over');
-    }, {passive: false});
+let touchClone = null;
+let startX, startY, initialLeft, initialTop;
+
+dragItem.addEventListener('touchstart', function(e) {
+e.preventDefault();
+const touch = e.touches[0];
+startX = touch.clientX; startY = touch.clientY;
+const rect = this.getBoundingClientRect();
+initialLeft = rect.left; initialTop = rect.top;
+
+touchClone = this.cloneNode(true);
+touchClone.classList.add('touch-dragging');
+touchClone.style.width = rect.width + 'px';
+touchClone.style.left = initialLeft + 'px';
+touchClone.style.top = initialTop + 'px';
+document.body.appendChild(touchClone);
+
+this.style.opacity = '0.3';
+}, {passive: false});
+
+dragItem.addEventListener('touchmove', function(e) {
+e.preventDefault();
+if (!touchClone) return;
+
+const touch = e.touches[0];
+const deltaX = touch.clientX - startX;
+const deltaY = touch.clientY - startY;
+touchClone.style.left = (initialLeft + deltaX) + 'px';
+touchClone.style.top = (initialTop + deltaY) + 'px';
+
+const dropZone = document.getElementById(`s4DropZone${page}`);
+const dropRect = dropZone.getBoundingClientRect();
+
+if (touch.clientX >= dropRect.left && touch.clientX <= dropRect.right &&
+touch.clientY >= dropRect.top && touch.clientY <= dropRect.bottom) {
+dropZone.classList.add('drag-over');
+} else {
+dropZone.classList.remove('drag-over');
+}
+}, {passive: false});
+
+dragItem.addEventListener('touchend', function(e) {
+e.preventDefault();
+if (!touchClone) return;
+
+const dropZone = document.getElementById(`s4DropZone${page}`);
+const dropRect = dropZone.getBoundingClientRect();
+const touch = e.changedTouches[0];
+
+if (touch.clientX >= dropRect.left && touch.clientX <= dropRect.right &&
+touch.clientY >= dropRect.top && touch.clientY <= dropRect.bottom) {
+if (dropZone.querySelector('p')) dropZone.innerHTML = '';
+dropZone.appendChild(this);
+}
+
+this.style.opacity = '1';
+touchClone.remove();
+touchClone = null;
+dropZone.classList.remove('drag-over');
+}, {passive: false});
 }
 
 function s4CheckDragOrder(page) {
-    const dropZone = document.getElementById(`s4DropZone${page}`);
-    const items = dropZone.querySelectorAll('.s4-drag-item');
-    const feedback = document.getElementById(`s4Feedback${page}`);
-    if (items.length === 0) {
-        feedback.className = 's4-feedback incorrect show';
-        feedback.innerHTML = '⚠️ Перетягніть картки у зону відповіді.';
-        return;
-    }
-    let correct = true;
-    items.forEach((item, index) => { if (parseInt(item.dataset.order) !== index + 1) correct = false; });
-    if (!progressTracker.answered.has('s4_drag_' + page)) {
-        if (correct && items.length === 5) addCorrect('s4_drag_' + page);
-        else addWrong('s4_drag_' + page);
-    }
-    if (correct && items.length === 5) {
-        feedback.className = 's4-feedback correct show';
-        feedback.innerHTML = '✅ Правильно! Ви правильно побудували ланцюг розвитку подій.';
-    } else {
-        feedback.className = 's4-feedback incorrect show';
-        feedback.innerHTML = '❌ Неправильний порядок. Спробуйте ще раз.';
-    }
+const dropZone = document.getElementById(`s4DropZone${page}`);
+const items = dropZone.querySelectorAll('.s4-drag-item');
+const feedback = document.getElementById(`s4Feedback${page}`);
+
+if (items.length === 0) {
+feedback.className = 's4-feedback incorrect show';
+feedback.innerHTML = '⚠️ Перетягніть картки у зону відповіді.';
+return;
+}
+
+let correct = true;
+items.forEach((item, index) => { if (parseInt(item.dataset.order) !== index + 1) correct = false; });
+
+if (!progressTracker.answered.has('s4_drag_' + page)) {
+if (correct && items.length === 5) addCorrect('s4_drag_' + page);
+else addWrong('s4_drag_' + page);
+}
+
+if (correct && items.length === 5) {
+feedback.className = 's4-feedback correct show';
+feedback.innerHTML = '✅ Правильно! Ви правильно побудували ланцюг розвитку подій.';
+} else {
+feedback.className = 's4-feedback incorrect show';
+feedback.innerHTML = '❌ Неправильний порядок. Спробуйте ще раз.';
+}
 }
 
 function s4ResetDrag(page) {
-    const dropZone = document.getElementById(`s4DropZone${page}`);
-    const dragContainer = document.getElementById(`s4DragContainer${page}`);
-    const items = dropZone.querySelectorAll('.s4-drag-item');
-    items.forEach(item => { dragContainer.appendChild(item); });
-    dropZone.innerHTML = '<p style="text-align: center; color: #999;">Перетягніть картки сюди у правильному порядку</p>';
-    document.getElementById(`s4Feedback${page}`).classList.remove('show');
+const dropZone = document.getElementById(`s4DropZone${page}`);
+const dragContainer = document.getElementById(`s4DragContainer${page}`);
+const items = dropZone.querySelectorAll('.s4-drag-item');
+items.forEach(item => { dragContainer.appendChild(item); });
+dropZone.innerHTML = '<p style="text-align: center; color: #999;">Перетягніть картки сюди у правильному порядку</p>';
+document.getElementById(`s4Feedback${page}`).classList.remove('show');
 }
 
 function s4InitMatching9() {
-    const leftColumn = document.getElementById('s4LeftColumn9');
-    const rightColumn = document.getElementById('s4RightColumn9');
-    if (!leftColumn || !rightColumn) return;
-    leftColumn.innerHTML = '';
-    rightColumn.innerHTML = '';
-    s4State.userMatches = [];
-    s4State.selectedMatchItem = null;
-    s4State.pairCounter = 0;
-    s4MatchingData9.situations.forEach(item => {
-        const div = document.createElement('div');
-        div.className = 's4-matching-item';
-        div.dataset.id = item.id;
-        div.dataset.type = 'situation';
-        div.innerHTML = `<span style="font-size: 2em;">${item.icon}</span><span>${item.text}</span>`;
-        div.addEventListener('click', () => s4HandleMatchingClick(div, item.id));
-        leftColumn.appendChild(div);
-    });
-    const shuffledActions = s4ShuffleArray(s4MatchingData9.actions);
-    shuffledActions.forEach(item => {
-        const div = document.createElement('div');
-        div.className = 's4-matching-item';
-        div.dataset.id = item.id;
-        div.dataset.type = 'action';
-        div.innerHTML = `<span style="color: #667eea; font-weight: bold;">→</span><span>${item.text}</span>`;
-        div.addEventListener('click', () => s4HandleMatchingClick(div, item.id));
-        rightColumn.appendChild(div);
-    });
-    const feedback = document.getElementById('s4Feedback9');
-    if (feedback) { feedback.classList.remove('show'); feedback.innerHTML = ''; }
+const leftColumn = document.getElementById('s4LeftColumn9');
+const rightColumn = document.getElementById('s4RightColumn9');
+if (!leftColumn || !rightColumn) return;
+
+leftColumn.innerHTML = '';
+rightColumn.innerHTML = '';
+s4State.userMatches = [];
+s4State.selectedMatchItem = null;
+s4State.pairCounter = 0;
+
+s4MatchingData9.situations.forEach(item => {
+const div = document.createElement('div');
+div.className = 's4-matching-item';
+div.dataset.id = item.id;
+div.dataset.type = 'situation';
+div.innerHTML = `<span style="font-size: 2em;">${item.icon}</span><span>${item.text}</span>`;
+div.addEventListener('click', () => s4HandleMatchingClick(div, item.id));
+leftColumn.appendChild(div);
+});
+
+const shuffledActions = s4ShuffleArray(s4MatchingData9.actions);
+shuffledActions.forEach(item => {
+const div = document.createElement('div');
+div.className = 's4-matching-item';
+div.dataset.id = item.id;
+div.dataset.type = 'action';
+div.innerHTML = `<span style="color: #667eea; font-weight: bold;">→</span><span>${item.text}</span>`;
+div.addEventListener('click', () => s4HandleMatchingClick(div, item.id));
+rightColumn.appendChild(div);
+});
+
+const feedback = document.getElementById('s4Feedback9');
+if (feedback) { feedback.classList.remove('show'); feedback.innerHTML = ''; }
 }
 
 function s4HandleMatchingClick(element, id) {
-    if (element.classList.contains('matched')) return;
-    if (element.dataset.type === 'situation') {
-        document.querySelectorAll('.s4-matching-item[data-type="situation"]').forEach(el => {
-            if (!el.classList.contains('matched')) el.classList.remove('selected');
-        });
-        element.classList.add('selected');
-        s4State.selectedMatchItem = element;
-    } else if (element.dataset.type === 'action' && s4State.selectedMatchItem) {
-        const situationId = parseInt(s4State.selectedMatchItem.dataset.id);
-        const actionId = id;
-        const existingMatch = s4State.userMatches.find(m => m.actionId === actionId);
-        if (existingMatch) {
-            element.classList.add('wrong');
-            setTimeout(() => element.classList.remove('wrong'), 500);
-            return;
-        }
-        const existingSituationMatch = s4State.userMatches.find(m => m.situationId === situationId);
-        if (existingSituationMatch) {
-            const oldActionEl = existingSituationMatch.actionEl;
-            oldActionEl.classList.remove('matched', 'pair-color-1', 'pair-color-2', 'pair-color-3', 'pair-color-4');
-            s4State.userMatches = s4State.userMatches.filter(m => m !== existingSituationMatch);
-        }
-        s4State.pairCounter++;
-        const pairColorClass = `pair-color-${((s4State.pairCounter - 1) % 4) + 1}`;
-        s4State.userMatches.push({
-            situationId: situationId,
-            actionId: actionId,
-            situationEl: s4State.selectedMatchItem,
-            actionEl: element,
-            pairColor: pairColorClass
-        });
-        s4State.selectedMatchItem.classList.remove('selected');
-        s4State.selectedMatchItem.classList.add('matched', pairColorClass);
-        element.classList.add('matched', pairColorClass);
-        s4State.selectedMatchItem = null;
-    }
+if (element.classList.contains('matched')) return;
+
+if (element.dataset.type === 'situation') {
+document.querySelectorAll('.s4-matching-item[data-type="situation"]').forEach(el => {
+if (!el.classList.contains('matched')) el.classList.remove('selected');
+});
+element.classList.add('selected');
+s4State.selectedMatchItem = element;
+} else if (element.dataset.type === 'action' && s4State.selectedMatchItem) {
+const situationId = parseInt(s4State.selectedMatchItem.dataset.id);
+const actionId = id;
+
+const existingMatch = s4State.userMatches.find(m => m.actionId === actionId);
+if (existingMatch) {
+element.classList.add('wrong');
+setTimeout(() => element.classList.remove('wrong'), 500);
+return;
+}
+
+const existingSituationMatch = s4State.userMatches.find(m => m.situationId === situationId);
+if (existingSituationMatch) {
+const oldActionEl = existingSituationMatch.actionEl;
+oldActionEl.classList.remove('matched', 'pair-color-1', 'pair-color-2', 'pair-color-3', 'pair-color-4');
+s4State.userMatches = s4State.userMatches.filter(m => m !== existingSituationMatch);
+}
+
+s4State.pairCounter++;
+const pairColorClass = `pair-color-${((s4State.pairCounter - 1) % 4) + 1}`;
+s4State.userMatches.push({
+situationId: situationId,
+actionId: actionId,
+situationEl: s4State.selectedMatchItem,
+actionEl: element,
+pairColor: pairColorClass
+});
+
+s4State.selectedMatchItem.classList.remove('selected');
+s4State.selectedMatchItem.classList.add('matched', pairColorClass);
+element.classList.add('matched', pairColorClass);
+s4State.selectedMatchItem = null;
+}
 }
 
 function s4CheckMatching(page) {
-    const feedback = document.getElementById(`s4Feedback${page}`);
-    const allSituations = document.querySelectorAll('.s4-matching-item[data-type="situation"]');
-    const matchedSituations = document.querySelectorAll('.s4-matching-item[data-type="situation"].matched');
-    const totalPairs = s4MatchingData9.situations.length;
-    if (matchedSituations.length < allSituations.length) {
-        feedback.className = 's4-feedback incorrect show';
-        feedback.innerHTML = `⚠️ Ви з'єднали тільки ${matchedSituations.length} з ${allSituations.length} пар. З'єднайте всі пари перед перевіркою.`;
-        return;
-    }
-    let correctCount = 0;
-    const wrongMatches = [];
-    s4State.userMatches.forEach(match => {
-        if (match.situationId === match.actionId) correctCount++;
-        else wrongMatches.push(match);
-    });
-    if (!progressTracker.answered.has('s4_match_' + page)) {
-        if (correctCount === totalPairs) addCorrect('s4_match_' + page, totalPairs);
-        else {
-            if (correctCount > 0) addCorrect('s4_match_' + page + '_p', correctCount);
-            addWrong('s4_match_' + page + '_w', totalPairs - correctCount);
-        }
-    }
-    document.querySelectorAll('.s4-matching-item').forEach(el => { el.classList.remove('wrong-pair'); });
-    wrongMatches.forEach(match => {
-        match.situationEl.classList.add('wrong-pair');
-        match.actionEl.classList.add('wrong-pair');
-        match.situationEl.classList.remove('pair-color-1', 'pair-color-2', 'pair-color-3', 'pair-color-4');
-        match.actionEl.classList.remove('pair-color-1', 'pair-color-2', 'pair-color-3', 'pair-color-4');
-    });
-    if (correctCount === totalPairs) {
-        feedback.className = 's4-feedback correct show';
-        feedback.innerHTML = `✅ Відмінно! Ви правильно з'єднали всі ${totalPairs} пар!`;
-    } else {
-        feedback.className = 's4-feedback incorrect show';
-        feedback.innerHTML = `❌ Правильних відповідей: ${correctCount} з ${totalPairs}. Червоним кольором підсвічено неправильні пари. Натисніть «🔄 Зробити заново», щоб спробувати ще раз.`;
-    }
+const feedback = document.getElementById(`s4Feedback${page}`);
+const allSituations = document.querySelectorAll('.s4-matching-item[data-type="situation"]');
+const matchedSituations = document.querySelectorAll('.s4-matching-item[data-type="situation"].matched');
+const totalPairs = s4MatchingData9.situations.length;
+
+if (matchedSituations.length < allSituations.length) {
+feedback.className = 's4-feedback incorrect show';
+feedback.innerHTML = `⚠️ Ви з'єднали тільки ${matchedSituations.length} з ${allSituations.length} пар. З'єднайте всі пари перед перевіркою.`;
+return;
+}
+
+let correctCount = 0;
+const wrongMatches = [];
+s4State.userMatches.forEach(match => {
+if (match.situationId === match.actionId) correctCount++;
+else wrongMatches.push(match);
+});
+
+if (!progressTracker.answered.has('s4_match_' + page)) {
+if (correctCount === totalPairs) addCorrect('s4_match_' + page, totalPairs);
+else {
+if (correctCount > 0) addCorrect('s4_match_' + page + '_p', correctCount);
+addWrong('s4_match_' + page + '_w', totalPairs - correctCount);
+}
+}
+
+document.querySelectorAll('.s4-matching-item').forEach(el => { el.classList.remove('wrong-pair'); });
+wrongMatches.forEach(match => {
+match.situationEl.classList.add('wrong-pair');
+match.actionEl.classList.add('wrong-pair');
+match.situationEl.classList.remove('pair-color-1', 'pair-color-2', 'pair-color-3', 'pair-color-4');
+match.actionEl.classList.remove('pair-color-1', 'pair-color-2', 'pair-color-3', 'pair-color-4');
+});
+
+if (correctCount === totalPairs) {
+feedback.className = 's4-feedback correct show';
+feedback.innerHTML = `✅ Відмінно! Ви правильно з'єднали всі ${totalPairs} пар!`;
+} else {
+feedback.className = 's4-feedback incorrect show';
+feedback.innerHTML = `❌ Правильних відповідей: ${correctCount} з ${totalPairs}. Червоним кольором підсвічено неправильні пари. Натисніть «🔄 Зробити заново», щоб спробувати ще раз.`;
+}
 }
 
 function s4ResetMatching(page) {
-    if (page === 9) s4InitMatching9();
-    const feedback = document.getElementById(`s4Feedback${page}`);
-    if (feedback) feedback.classList.remove('show');
+if (page === 9) s4InitMatching9();
+const feedback = document.getElementById(`s4Feedback${page}`);
+if (feedback) feedback.classList.remove('show');
 }
 
 function s4CheckSelfTest(page) {
-    const answers = {
-        's4q10_1': ['control'],
-        's4q10_2': ['gradual'],
-        's4q10_3': ['unexpected'],
-        's4q10_4': ['chain']
-    };
-    let totalQuestions = 4;
-    let correctAnswers = 0;
-    for (let key in answers) {
-        const checkboxes = document.querySelectorAll(`input[name="${key}"]:checked`);
-        const selectedValues = Array.from(checkboxes).map(cb => cb.value);
-        const isCorrect = answers[key].every(v => selectedValues.includes(v)) && selectedValues.every(v => answers[key].includes(v));
-        if (isCorrect) correctAnswers++;
-        if (!progressTracker.answered.has('s4_self_' + key)) {
-            if (isCorrect) addCorrect('s4_self_' + key);
-            else addWrong('s4_self_' + key);
-        }
-    }
-    const feedback = document.getElementById(`s4Feedback${page}`);
-    if (correctAnswers === totalQuestions) {
-        feedback.className = 's4-feedback correct show';
-        feedback.innerHTML = `✅ Відмінно! Ви правильно відповіли на всі ${totalQuestions} запитання!`;
-    } else {
-        feedback.className = 's4-feedback incorrect show';
-        feedback.innerHTML = `❌ Правильних відповідей: ${correctAnswers} з ${totalQuestions}. Спробуйте ще раз.`;
-    }
+const answers = {
+'s4q10_1': ['control'],
+'s4q10_2': ['gradual'],
+'s4q10_3': ['unexpected'],
+'s4q10_4': ['chain']
+};
+
+let totalQuestions = 4;
+let correctAnswers = 0;
+
+for (let key in answers) {
+const checkboxes = document.querySelectorAll(`input[name="${key}"]:checked`);
+const selectedValues = Array.from(checkboxes).map(cb => cb.value);
+const isCorrect = answers[key].every(v => selectedValues.includes(v)) && selectedValues.every(v => answers[key].includes(v));
+
+if (isCorrect) correctAnswers++;
+
+if (!progressTracker.answered.has('s4_self_' + key)) {
+if (isCorrect) addCorrect('s4_self_' + key);
+else addWrong('s4_self_' + key);
+}
+}
+
+const feedback = document.getElementById(`s4Feedback${page}`);
+if (correctAnswers === totalQuestions) {
+feedback.className = 's4-feedback correct show';
+feedback.innerHTML = `✅ Відмінно! Ви правильно відповіли на всі ${totalQuestions} запитання!`;
+} else {
+feedback.className = 's4-feedback incorrect show';
+feedback.innerHTML = `❌ Правильних відповідей: ${correctAnswers} з ${totalQuestions}. Спробуйте ще раз.`;
+}
 }
 
 function s4ResetSelfTest(page) {
-    for (let i = 1; i <= 4; i++) {
-        document.querySelectorAll(`input[name="s4q10_${i}"]`).forEach(cb => cb.checked = false);
-    }
-    document.getElementById(`s4Feedback${page}`).classList.remove('show');
+for (let i = 1; i <= 4; i++) {
+document.querySelectorAll(`input[name="s4q10_${i}"]`).forEach(cb => cb.checked = false);
+}
+document.getElementById(`s4Feedback${page}`).classList.remove('show');
 }
 
 /* ===================================================================
 КРОК 5: ФУНКЦІЇ
 =================================================================== */
 function s5ShowCardInfo(card) {
-    const explanation = card.querySelector('.s5-card-explanation');
-    if (!explanation) return;
-    document.querySelectorAll('.s5-interactive-card').forEach(c => {
-        const exp = c.querySelector('.s5-card-explanation');
-        if (exp && exp !== explanation) exp.classList.add('hidden');
-        c.classList.remove('active');
-    });
-    const isHidden = explanation.classList.contains('hidden');
-    explanation.classList.toggle('hidden');
-    card.classList.toggle('active');
-    if (isHidden) {
-        setTimeout(() => { explanation.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); }, 100);
-    }
+const explanation = card.querySelector('.s5-card-explanation');
+if (!explanation) return;
+
+document.querySelectorAll('.s5-interactive-card').forEach(c => {
+const exp = c.querySelector('.s5-card-explanation');
+if (exp && exp !== explanation) exp.classList.add('hidden');
+c.classList.remove('active');
+});
+
+const isHidden = explanation.classList.contains('hidden');
+explanation.classList.toggle('hidden');
+card.classList.toggle('active');
+
+if (isHidden) {
+setTimeout(() => { explanation.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); }, 100);
+}
 }
 
 function s5CheckAnswer(quizId, correctAnswer, resultId) {
-    const selected = document.querySelector(`#${quizId} input[type="radio"]:checked`);
-    const resultDiv = document.getElementById(resultId);
-    document.querySelectorAll(`#${quizId} .s5-quiz-option`).forEach(opt => { opt.classList.remove('wrong', 'correct'); });
-    if (!selected) {
-        resultDiv.textContent = 'Будь ласка, оберіть відповідь!';
-        resultDiv.className = 's5-result-message incorrect';
-        return;
-    }
-    const selectedOption = selected.closest('.s5-quiz-option');
-    if (!progressTracker.answered.has(quizId)) {
-        if (selected.value === correctAnswer) addCorrect(quizId);
-        else addWrong(quizId);
-    }
-    if (selected.value === correctAnswer) {
-        selectedOption.classList.add('correct');
-        resultDiv.textContent = '✓ Правильно! Тиск друзів — найпоширеніший чинник у таких ситуаціях.';
-        resultDiv.className = 's5-result-message correct';
-    } else {
-        selectedOption.classList.add('wrong');
-        resultDiv.textContent = '✗ Спробувати ще раз. Подумай, що найбільше впливає, коли всі друзі вже погодилися.';
-        resultDiv.className = 's5-result-message incorrect';
-    }
+const selected = document.querySelector(`#${quizId} input[type="radio"]:checked`);
+const resultDiv = document.getElementById(resultId);
+
+document.querySelectorAll(`#${quizId} .s5-quiz-option`).forEach(opt => { opt.classList.remove('wrong', 'correct'); });
+
+if (!selected) {
+resultDiv.textContent = 'Будь ласка, оберіть відповідь!';
+resultDiv.className = 's5-result-message incorrect';
+return;
+}
+
+const selectedOption = selected.closest('.s5-quiz-option');
+
+if (!progressTracker.answered.has(quizId)) {
+if (selected.value === correctAnswer) addCorrect(quizId);
+else addWrong(quizId);
+}
+
+if (selected.value === correctAnswer) {
+selectedOption.classList.add('correct');
+resultDiv.textContent = '✓ Правильно! Тиск друзів — найпоширеніший чинник у таких ситуаціях.';
+resultDiv.className = 's5-result-message correct';
+} else {
+selectedOption.classList.add('wrong');
+resultDiv.textContent = '✗ Спробувати ще раз. Подумай, що найбільше впливає, коли всі друзі вже погодилися.';
+resultDiv.className = 's5-result-message incorrect';
+}
 }
 
 function s5ResetAnswer(quizId, resultId) {
-    document.querySelectorAll(`#${quizId} input[type="radio"]`).forEach(radio => { radio.checked = false; });
-    document.querySelectorAll(`#${quizId} .s5-quiz-option`).forEach(opt => { opt.classList.remove('wrong', 'correct'); });
-    const resultDiv = document.getElementById(resultId);
-    resultDiv.className = 's5-result-message';
-    resultDiv.style.display = 'none';
+document.querySelectorAll(`#${quizId} input[type="radio"]`).forEach(radio => { radio.checked = false; });
+document.querySelectorAll(`#${quizId} .s5-quiz-option`).forEach(opt => { opt.classList.remove('wrong', 'correct'); });
+const resultDiv = document.getElementById(resultId);
+resultDiv.className = 's5-result-message';
+resultDiv.style.display = 'none';
 }
 
 function s5InitDrag() {
-    document.querySelectorAll('#s5DragItems .s5-draggable').forEach(item => {
-        item.addEventListener('dragstart', s5DragStart);
-        item.addEventListener('dragend', function() { this.classList.remove('dragging'); });
-    });
+document.querySelectorAll('#s5DragItems .s5-draggable').forEach(item => {
+item.addEventListener('dragstart', s5DragStart);
+item.addEventListener('dragend', function() { this.classList.remove('dragging'); });
+});
 }
 
 function s5AllowDrop(ev) { ev.preventDefault(); }
+
 function s5DragEnter(ev) {
-    ev.preventDefault();
-    if (ev.target.classList.contains('s5-drop-zone') && !ev.target.querySelector('.s5-draggable')) {
-        ev.target.classList.add('drag-over');
-    }
+ev.preventDefault();
+if (ev.target.classList.contains('s5-drop-zone') && !ev.target.querySelector('.s5-draggable')) {
+ev.target.classList.add('drag-over');
 }
+}
+
 function s5DragLeave(ev) {
-    if (ev.target.classList.contains('s5-drop-zone')) {
-        ev.target.classList.remove('drag-over');
-    }
+if (ev.target.classList.contains('s5-drop-zone')) {
+ev.target.classList.remove('drag-over');
 }
+}
+
 function s5DragStart(ev) {
-    s5DraggedElement = ev.target;
-    ev.target.classList.add('dragging');
-    ev.dataTransfer.setData("text", ev.target.id);
+s5DraggedElement = ev.target;
+ev.target.classList.add('dragging');
+ev.dataTransfer.setData("text", ev.target.id);
 }
+
 function s5Drop(ev) {
-    ev.preventDefault();
-    const data = ev.dataTransfer.getData("text");
-    const draggedEl = document.getElementById(data);
-    let dropZone = ev.target;
-    while (dropZone && !dropZone.classList.contains('s5-drop-zone')) {
-        dropZone = dropZone.parentElement;
-    }
-    if (dropZone && !dropZone.querySelector('.s5-draggable')) {
-        dropZone.classList.remove('drag-over');
-        dropZone.classList.add('filled');
-        dropZone.innerHTML = '';
-        dropZone.appendChild(draggedEl);
-        draggedEl.classList.remove('dragging');
-    }
+ev.preventDefault();
+const data = ev.dataTransfer.getData("text");
+const draggedEl = document.getElementById(data);
+
+let dropZone = ev.target;
+while (dropZone && !dropZone.classList.contains('s5-drop-zone')) {
+dropZone = dropZone.parentElement;
+}
+
+if (dropZone && !dropZone.querySelector('.s5-draggable')) {
+dropZone.classList.remove('drag-over');
+dropZone.classList.add('filled');
+dropZone.innerHTML = '';
+dropZone.appendChild(draggedEl);
+draggedEl.classList.remove('dragging');
+}
 }
 
 function s5CheckOrder() {
-    const zones = document.querySelectorAll('.s5-drop-zone');
-    let correct = true;
-    let filled = 0;
-    document.querySelectorAll('.s5-draggable').forEach(item => {
-        item.classList.remove('wrong-position', 'correct-position');
-    });
-    zones.forEach((zone, index) => {
-        const item = zone.querySelector('.s5-draggable');
-        if (item) {
-            filled++;
-            if (parseInt(item.dataset.step) !== index + 1) {
-                correct = false;
-                item.classList.add('wrong-position');
-            } else {
-                item.classList.add('correct-position');
-            }
-        }
-    });
-    if (!progressTracker.answered.has('s5_order')) {
-        if (correct && filled === 4) addCorrect('s5_order', 4);
-        else addWrong('s5_order', 4);
-    }
-    const resultDiv = document.getElementById('s5OrderResult');
-    if (filled < 4) {
-        resultDiv.textContent = '✗ Заповни всі місця!';
-        resultDiv.className = 's5-result-message incorrect';
-    } else if (correct) {
-        resultDiv.textContent = '✓ Чудово! Ти правильно впорядкував алгоритм!';
-        resultDiv.className = 's5-result-message correct';
-    } else {
-        resultDiv.textContent = '✗ Спробувати ще раз. Правильний порядок: 1. Зупинися → 2. Оціни ситуацію → 3. Обери варіант → 4. Перевір результат.';
-        resultDiv.className = 's5-result-message incorrect';
-    }
+const zones = document.querySelectorAll('.s5-drop-zone');
+let correct = true;
+let filled = 0;
+
+document.querySelectorAll('.s5-draggable').forEach(item => {
+item.classList.remove('wrong-position', 'correct-position');
+});
+
+zones.forEach((zone, index) => {
+const item = zone.querySelector('.s5-draggable');
+if (item) {
+filled++;
+if (parseInt(item.dataset.step) !== index + 1) {
+correct = false;
+item.classList.add('wrong-position');
+} else {
+item.classList.add('correct-position');
+}
+}
+});
+
+if (!progressTracker.answered.has('s5_order')) {
+if (correct && filled === 4) addCorrect('s5_order', 4);
+else addWrong('s5_order', 4);
+}
+
+const resultDiv = document.getElementById('s5OrderResult');
+if (filled < 4) {
+resultDiv.textContent = '✗ Заповни всі місця!';
+resultDiv.className = 's5-result-message incorrect';
+} else if (correct) {
+resultDiv.textContent = '✓ Чудово! Ти правильно впорядкував алгоритм!';
+resultDiv.className = 's5-result-message correct';
+} else {
+resultDiv.textContent = '✗ Спробувати ще раз. Правильний порядок: 1. Зупинися → 2. Оціни ситуацію → 3. Обери варіант → 4. Перевір результат.';
+resultDiv.className = 's5-result-message incorrect';
+}
 }
 
 function s5ResetOrder() {
-    const itemsContainer = document.getElementById('s5DragItems');
-    const zonesContainer = document.getElementById('s5DropZones');
-    itemsContainer.innerHTML = `
-        <div class="s5-draggable" draggable="true" data-step="4" id="s5Drag4">Перевір результат</div>
-        <div class="s5-draggable" draggable="true" data-step="1" id="s5Drag1">Зупинися</div>
-        <div class="s5-draggable" draggable="true" data-step="3" id="s5Drag3">Обери найбезпечніший варіант</div>
-        <div class="s5-draggable" draggable="true" data-step="2" id="s5Drag2">Оціни ситуацію</div>
-    `;
-    zonesContainer.innerHTML = `
-        <div class="s5-drop-zone" data-position="1" ondragover="s5AllowDrop(event)" ondrop="s5Drop(event)" ondragenter="s5DragEnter(event)" ondragleave="s5DragLeave(event)">Місце 1</div>
-        <div class="s5-drop-zone" data-position="2" ondragover="s5AllowDrop(event)" ondrop="s5Drop(event)" ondragenter="s5DragEnter(event)" ondragleave="s5DragLeave(event)">Місце 2</div>
-        <div class="s5-drop-zone" data-position="3" ondragover="s5AllowDrop(event)" ondrop="s5Drop(event)" ondragenter="s5DragEnter(event)" ondragleave="s5DragLeave(event)">Місце 3</div>
-        <div class="s5-drop-zone" data-position="4" ondragover="s5AllowDrop(event)" ondrop="s5Drop(event)" ondragenter="s5DragEnter(event)" ondragleave="s5DragLeave(event)">Місце 4</div>
-    `;
-    document.getElementById('s5OrderResult').className = 's5-result-message';
-    document.getElementById('s5OrderResult').style.display = 'none';
-    s5InitDrag();
+const itemsContainer = document.getElementById('s5DragItems');
+const zonesContainer = document.getElementById('s5DropZones');
+
+itemsContainer.innerHTML = `
+<div class="s5-draggable" draggable="true" data-step="4" id="s5Drag4">Перевір результат</div>
+<div class="s5-draggable" draggable="true" data-step="1" id="s5Drag1">Зупинися</div>
+<div class="s5-draggable" draggable="true" data-step="3" id="s5Drag3">Обери найбезпечніший варіант</div>
+<div class="s5-draggable" draggable="true" data-step="2" id="s5Drag2">Оціни ситуацію</div>
+`;
+
+zonesContainer.innerHTML = `
+<div class="s5-drop-zone" data-position="1" ondragover="s5AllowDrop(event)" ondrop="s5Drop(event)" ondragenter="s5DragEnter(event)" ondragleave="s5DragLeave(event)">Місце 1</div>
+<div class="s5-drop-zone" data-position="2" ondragover="s5AllowDrop(event)" ondrop="s5Drop(event)" ondragenter="s5DragEnter(event)" ondragleave="s5DragLeave(event)">Місце 2</div>
+<div class="s5-drop-zone" data-position="3" ondragover="s5AllowDrop(event)" ondrop="s5Drop(event)" ondragenter="s5DragEnter(event)" ondragleave="s5DragLeave(event)">Місце 3</div>
+<div class="s5-drop-zone" data-position="4" ondragover="s5AllowDrop(event)" ondrop="s5Drop(event)" ondragenter="s5DragEnter(event)" ondragleave="s5DragLeave(event)">Місце 4</div>
+`;
+
+document.getElementById('s5OrderResult').className = 's5-result-message';
+document.getElementById('s5OrderResult').style.display = 'none';
+s5InitDrag();
 }
 
 function s5ToggleOutcome(card) {
-    if (card.classList.contains('active')) return;
-    document.querySelectorAll('.s5-outcome-card').forEach(c => {
-        if (c !== card) c.classList.remove('active');
-    });
-    card.classList.add('active');
+if (card.classList.contains('active')) return;
+document.querySelectorAll('.s5-outcome-card').forEach(c => {
+if (c !== card) c.classList.remove('active');
+});
+card.classList.add('active');
 }
 
 function s5CheckYesNo(name, correctAnswer, resultId, yesLabelId, noLabelId) {
-    const selected = document.querySelector(`input[name="${name}"]:checked`);
-    const resultDiv = document.getElementById(resultId);
-    const yesLabel = document.getElementById(yesLabelId);
-    const noLabel = document.getElementById(noLabelId);
-    yesLabel.classList.remove('wrong', 'correct');
-    noLabel.classList.remove('wrong', 'correct');
-    if (!selected) {
-        resultDiv.textContent = 'Оберіть відповідь!';
-        resultDiv.className = 's5-yes-no-result incorrect';
-        return;
-    }
-    if (!progressTracker.answered.has(name)) {
-        if (selected.value === correctAnswer) addCorrect(name);
-        else addWrong(name);
-    }
-    const currentCard = yesLabel.closest('.s5-outcome-card');
-    const verdictEl = currentCard ? currentCard.querySelector('.s5-outcome-verdict') : null;
-    if (selected.value === correctAnswer) {
-        if (correctAnswer === 'так') yesLabel.classList.add('correct');
-        else noLabel.classList.add('correct');
-        resultDiv.textContent = '✓ Правильно!';
-        resultDiv.className = 's5-yes-no-result correct';
-        if (verdictEl) verdictEl.classList.add('visible');
-    } else {
-        if (selected.value === 'так') yesLabel.classList.add('wrong');
-        else noLabel.classList.add('wrong');
-        resultDiv.textContent = '✗ Спробувати ще раз.';
-        resultDiv.className = 's5-yes-no-result incorrect';
-        if (verdictEl) verdictEl.classList.remove('visible');
-    }
+const selected = document.querySelector(`input[name="${name}"]:checked`);
+const resultDiv = document.getElementById(resultId);
+const yesLabel = document.getElementById(yesLabelId);
+const noLabel = document.getElementById(noLabelId);
+
+yesLabel.classList.remove('wrong', 'correct');
+noLabel.classList.remove('wrong', 'correct');
+
+if (!selected) {
+resultDiv.textContent = 'Оберіть відповідь!';
+resultDiv.className = 's5-yes-no-result incorrect';
+return;
+}
+
+if (!progressTracker.answered.has(name)) {
+if (selected.value === correctAnswer) addCorrect(name);
+else addWrong(name);
+}
+
+const currentCard = yesLabel.closest('.s5-outcome-card');
+const verdictEl = currentCard ? currentCard.querySelector('.s5-outcome-verdict') : null;
+
+if (selected.value === correctAnswer) {
+if (correctAnswer === 'так') yesLabel.classList.add('correct');
+else noLabel.classList.add('correct');
+resultDiv.textContent = '✓ Правильно!';
+resultDiv.className = 's5-yes-no-result correct';
+if (verdictEl) verdictEl.classList.add('visible');
+} else {
+if (selected.value === 'так') yesLabel.classList.add('wrong');
+else noLabel.classList.add('wrong');
+resultDiv.textContent = '✗ Спробувати ще раз.';
+resultDiv.className = 's5-yes-no-result incorrect';
+if (verdictEl) verdictEl.classList.remove('visible');
+}
 }
 
 function s5ResetYesNo(name, resultId, yesLabelId, noLabelId) {
-    document.querySelectorAll(`input[name="${name}"]`).forEach(radio => { radio.checked = false; });
-    document.getElementById(yesLabelId).classList.remove('wrong', 'correct');
-    document.getElementById(noLabelId).classList.remove('wrong', 'correct');
-    const resultDiv = document.getElementById(resultId);
-    resultDiv.className = 's5-yes-no-result';
-    resultDiv.style.display = 'none';
-    const yesLabel = document.getElementById(yesLabelId);
-    const currentCard = yesLabel ? yesLabel.closest('.s5-outcome-card') : null;
-    if (currentCard) {
-        const verdictEl = currentCard.querySelector('.s5-outcome-verdict');
-        if (verdictEl) verdictEl.classList.remove('visible');
-    }
+document.querySelectorAll(`input[name="${name}"]`).forEach(radio => { radio.checked = false; });
+document.getElementById(yesLabelId).classList.remove('wrong', 'correct');
+document.getElementById(noLabelId).classList.remove('wrong', 'correct');
+
+const resultDiv = document.getElementById(resultId);
+resultDiv.className = 's5-yes-no-result';
+resultDiv.style.display = 'none';
+
+const yesLabel = document.getElementById(yesLabelId);
+const currentCard = yesLabel ? yesLabel.closest('.s5-outcome-card') : null;
+if (currentCard) {
+const verdictEl = currentCard.querySelector('.s5-outcome-verdict');
+if (verdictEl) verdictEl.classList.remove('visible');
+}
 }
 
 function s5InitMatching() {
-    s5SelectedItem = null;
-    s5MatchedPairs = {};
-    document.querySelectorAll('.s5-matching-item').forEach(item => {
-        item.classList.remove('selected', 'matched', 'wrong-match');
-    });
-    const resultDiv = document.getElementById('s5MatchingResult');
-    resultDiv.className = 's5-result-message';
-    resultDiv.style.display = 'none';
-    document.querySelectorAll('.s5-matching-item').forEach(item => {
-        item.onclick = function() {
-            if (this.classList.contains('matched')) return;
-            if (!s5SelectedItem) {
-                s5SelectedItem = this;
-                this.classList.add('selected');
-            } else {
-                if (s5SelectedItem === this) {
-                    s5SelectedItem.classList.remove('selected');
-                    s5SelectedItem = null;
-                    return;
-                }
-                const leftColumn = document.getElementById('s5Situations');
-                const rightColumn = document.getElementById('s5Solutions');
-                const fromDifferentColumns =
-                    (leftColumn.contains(s5SelectedItem) && rightColumn.contains(this)) ||
-                    (rightColumn.contains(s5SelectedItem) && leftColumn.contains(this));
-                if (!fromDifferentColumns) {
-                    s5SelectedItem.classList.remove('selected');
-                    s5SelectedItem = this;
-                    this.classList.add('selected');
-                    return;
-                }
-                if (s5SelectedItem.dataset.match === this.dataset.match) {
-                    s5SelectedItem.classList.add('matched');
-                    this.classList.add('matched');
-                    s5MatchedPairs[s5SelectedItem.dataset.match] = true;
-                    s5SelectedItem.classList.remove('selected');
-                    s5SelectedItem = null;
-                } else {
-                    s5SelectedItem.classList.add('wrong-match');
-                    this.classList.add('wrong-match');
-                    const prevSelected = s5SelectedItem;
-                    setTimeout(() => {
-                        prevSelected.classList.remove('wrong-match', 'selected');
-                        this.classList.remove('wrong-match');
-                    }, 1200);
-                    s5SelectedItem = null;
-                }
-            }
-        };
-    });
+s5SelectedItem = null;
+s5MatchedPairs = {};
+
+document.querySelectorAll('.s5-matching-item').forEach(item => {
+item.classList.remove('selected', 'matched', 'wrong-match');
+});
+
+const resultDiv = document.getElementById('s5MatchingResult');
+resultDiv.className = 's5-result-message';
+resultDiv.style.display = 'none';
+
+document.querySelectorAll('.s5-matching-item').forEach(item => {
+item.onclick = function() {
+if (this.classList.contains('matched')) return;
+
+if (!s5SelectedItem) {
+s5SelectedItem = this;
+this.classList.add('selected');
+} else {
+if (s5SelectedItem === this) {
+s5SelectedItem.classList.remove('selected');
+s5SelectedItem = null;
+return;
+}
+
+const leftColumn = document.getElementById('s5Situations');
+const rightColumn = document.getElementById('s5Solutions');
+const fromDifferentColumns =
+(leftColumn.contains(s5SelectedItem) && rightColumn.contains(this)) ||
+(rightColumn.contains(s5SelectedItem) && leftColumn.contains(this));
+
+if (!fromDifferentColumns) {
+s5SelectedItem.classList.remove('selected');
+s5SelectedItem = this;
+this.classList.add('selected');
+return;
+}
+
+if (s5SelectedItem.dataset.match === this.dataset.match) {
+s5SelectedItem.classList.add('matched');
+this.classList.add('matched');
+s5MatchedPairs[s5SelectedItem.dataset.match] = true;
+s5SelectedItem.classList.remove('selected');
+s5SelectedItem = null;
+} else {
+s5SelectedItem.classList.add('wrong-match');
+this.classList.add('wrong-match');
+const prevSelected = s5SelectedItem;
+setTimeout(() => {
+prevSelected.classList.remove('wrong-match', 'selected');
+this.classList.remove('wrong-match');
+}, 1200);
+s5SelectedItem = null;
+}
+}
+};
+});
 }
 
 function s5CheckMatching() {
-    const allItems = document.querySelectorAll('.s5-matching-item');
-    const resultDiv = document.getElementById('s5MatchingResult');
-    let correctCount = 0;
-    const totalPairs = 4;
-    for (let matchId = 1; matchId <= totalPairs; matchId++) {
-        if (s5MatchedPairs[matchId]) correctCount++;
-    }
-    if (!progressTracker.answered.has('s5_match')) {
-        if (correctCount === totalPairs) addCorrect('s5_match', totalPairs);
-        else {
-            if (correctCount > 0) addCorrect('s5_match_p', correctCount);
-            addWrong('s5_match_w', totalPairs - correctCount);
-        }
-    }
-    allItems.forEach(item => {
-        if (!item.classList.contains('matched')) {
-            item.classList.add('wrong-match');
-        }
-    });
-    if (correctCount === totalPairs) {
-        resultDiv.textContent = '✓ Відмінно! Всі пари знайдено правильно!';
-        resultDiv.className = 's5-result-message correct';
-    } else {
-        resultDiv.textContent = `Знайдено ${correctCount} з ${totalPairs} правильних пар. Неправильні пари підсвічено червоним. Спробуй ще раз!`;
-        resultDiv.className = 's5-result-message incorrect';
-    }
+const allItems = document.querySelectorAll('.s5-matching-item');
+const resultDiv = document.getElementById('s5MatchingResult');
+let correctCount = 0;
+const totalPairs = 4;
+
+for (let matchId = 1; matchId <= totalPairs; matchId++) {
+if (s5MatchedPairs[matchId]) correctCount++;
+}
+
+if (!progressTracker.answered.has('s5_match')) {
+if (correctCount === totalPairs) addCorrect('s5_match', totalPairs);
+else {
+if (correctCount > 0) addCorrect('s5_match_p', correctCount);
+addWrong('s5_match_w', totalPairs - correctCount);
+}
+}
+
+allItems.forEach(item => {
+if (!item.classList.contains('matched')) {
+item.classList.add('wrong-match');
+}
+});
+
+if (correctCount === totalPairs) {
+resultDiv.textContent = '✓ Відмінно! Всі пари знайдено правильно!';
+resultDiv.className = 's5-result-message correct';
+} else {
+resultDiv.textContent = `Знайдено ${correctCount} з ${totalPairs} правильних пар. Неправильні пари підсвічено червоним. Спробуй ще раз!`;
+resultDiv.className = 's5-result-message incorrect';
+}
 }
 
 function s5ResetMatching() {
-    s5InitMatching();
+s5InitMatching();
 }
 
 /* 🆕 НОВА ФУНКЦІЯ ДЛЯ МІНІ-КВЕСТУ З ВНУТРІШНІМ ПОЯСНЕННЯМ */
 function s5SelectQuest(btn) {
-    const value = btn.dataset.value;
+const value = btn.dataset.value;
 
-    // Скидаємо всі картки до початкового стану
-    document.querySelectorAll('.s5-quest-btn').forEach(b => {
-        b.classList.remove('selected', 'correct-choice', 'wrong-choice');
-        const explanation = b.querySelector('.s5-quest-inner-explanation');
-        if (explanation) explanation.classList.add('hidden');
-    });
+// Скидаємо всі картки до початкового стану
+document.querySelectorAll('.s5-quest-btn').forEach(b => {
+b.classList.remove('selected', 'correct-choice', 'wrong-choice');
+const explanation = b.querySelector('.s5-quest-inner-explanation');
+if (explanation) explanation.classList.add('hidden');
+});
 
-    // Підсвічуємо обрану картку
-    btn.classList.add('selected');
+// Підсвічуємо обрану картку
+btn.classList.add('selected');
 
-    // Отримуємо тип (safe/danger) з атрибута data-type
-    const explanation = btn.querySelector('.s5-quest-inner-explanation');
-    if (!explanation) return;
+// Отримуємо тип (safe/danger) з атрибута data-type
+const explanation = btn.querySelector('.s5-quest-inner-explanation');
+if (!explanation) return;
 
-    const type = explanation.getAttribute('data-type');
+const type = explanation.getAttribute('data-type');
 
-    // Встановлюємо клас залежно від типу
-    if (type === 'safe') {
-        btn.classList.add('correct-choice');
-    } else {
-        btn.classList.add('wrong-choice');
-        explanation.classList.add('danger');
-    }
+// Встановлюємо клас залежно від типу
+if (type === 'safe') {
+btn.classList.add('correct-choice');
+} else {
+btn.classList.add('wrong-choice');
+explanation.classList.add('danger');
+}
 
-    // Показуємо пояснення з анімацією
-    explanation.classList.remove('hidden');
+// Показуємо пояснення з анімацією
+explanation.classList.remove('hidden');
 
-    // Прокручуємо до обраної картки
-    setTimeout(() => {
-        btn.scrollIntoView({
-            behavior: 'smooth',
-            block: 'nearest'
-        });
-    }, 150);
+// Прокручуємо до обраної картки
+setTimeout(() => {
+btn.scrollIntoView({
+behavior: 'smooth',
+block: 'nearest'
+});
+}, 150);
 
-    // Оновлюємо загальне повідомлення
-    const resultDiv = document.getElementById('s5QuestResult');
-    if (type === 'safe') {
-        resultDiv.textContent = '✓ Ти обрав безпечний варіант!';
-        resultDiv.className = 's5-result-message correct';
-    } else {
-        resultDiv.textContent = '✗ Цей варіант небезпечний. Спробуй обрати інший!';
-        resultDiv.className = 's5-result-message incorrect';
-    }
+// Оновлюємо загальне повідомлення
+const resultDiv = document.getElementById('s5QuestResult');
+if (type === 'safe') {
+resultDiv.textContent = '✓ Ти обрав безпечний варіант!';
+resultDiv.className = 's5-result-message correct';
+} else {
+resultDiv.textContent = '✗ Цей варіант небезпечний. Спробуй обрати інший!';
+resultDiv.className = 's5-result-message incorrect';
+}
 }
 
 function s5ResetQuest() {
-    document.querySelectorAll('.s5-quest-btn').forEach(b => {
-        b.classList.remove('selected', 'correct-choice', 'wrong-choice');
-        const explanation = b.querySelector('.s5-quest-inner-explanation');
-        if (explanation) {
-            explanation.classList.add('hidden');
-            explanation.classList.remove('danger');
-        }
-    });
-    const resultDiv = document.getElementById('s5QuestResult');
-    resultDiv.className = 's5-result-message';
-    resultDiv.style.display = 'none';
+document.querySelectorAll('.s5-quest-btn').forEach(b => {
+b.classList.remove('selected', 'correct-choice', 'wrong-choice');
+const explanation = b.querySelector('.s5-quest-inner-explanation');
+if (explanation) {
+explanation.classList.add('hidden');
+explanation.classList.remove('danger');
+}
+});
+
+const resultDiv = document.getElementById('s5QuestResult');
+resultDiv.className = 's5-result-message';
+resultDiv.style.display = 'none';
 }
 
 function s5CheckChecklist() {
-    const checkboxes = document.querySelectorAll('#s5Checklist input[type="checkbox"]');
-    const correct = ['1', '2', '3'];
-    let userAnswers = [];
-    document.querySelectorAll('#s5Checklist .s5-checklist-item').forEach(item => {
-        item.classList.remove('wrong', 'correct');
-    });
-    checkboxes.forEach(cb => {
-        if (cb.checked) userAnswers.push(cb.value);
-    });
-    const allCorrect = correct.every(val => userAnswers.includes(val)) && userAnswers.every(val => correct.includes(val));
-    if (!progressTracker.answered.has('s5_checklist')) {
-        if (allCorrect) addCorrect('s5_checklist', 3);
-        else addWrong('s5_checklist', 3);
-    }
-    const resultDiv = document.getElementById('s5ChecklistResult');
-    if (userAnswers.length === 0) {
-        resultDiv.textContent = 'Оберіть хоча б один пункт!';
-        resultDiv.className = 's5-result-message incorrect';
-    } else if (allCorrect) {
-        checkboxes.forEach(cb => {
-            if (cb.checked) cb.closest('.s5-checklist-item').classList.add('correct');
-        });
-        resultDiv.textContent = '✓ Правильно! Саме ці дії допомагають ухвалювати безпечні рішення.';
-        resultDiv.className = 's5-result-message correct';
-    } else {
-        checkboxes.forEach(cb => {
-            const item = cb.closest('.s5-checklist-item');
-            if (cb.checked && !correct.includes(cb.value)) item.classList.add('wrong');
-            else if (cb.checked && correct.includes(cb.value)) item.classList.add('correct');
-        });
-        resultDiv.textContent = '✗ Спробувати ще раз. Пам\'ятай: паніка і поспіх заважають, а не допомагають!';
-        resultDiv.className = 's5-result-message incorrect';
-    }
+const checkboxes = document.querySelectorAll('#s5Checklist input[type="checkbox"]');
+const correct = ['1', '2', '3'];
+let userAnswers = [];
+
+document.querySelectorAll('#s5Checklist .s5-checklist-item').forEach(item => {
+item.classList.remove('wrong', 'correct');
+});
+
+checkboxes.forEach(cb => {
+if (cb.checked) userAnswers.push(cb.value);
+});
+
+const allCorrect = correct.every(val => userAnswers.includes(val)) && userAnswers.every(val => correct.includes(val));
+
+if (!progressTracker.answered.has('s5_checklist')) {
+if (allCorrect) addCorrect('s5_checklist', 3);
+else addWrong('s5_checklist', 3);
+}
+
+const resultDiv = document.getElementById('s5ChecklistResult');
+if (userAnswers.length === 0) {
+resultDiv.textContent = 'Оберіть хоча б один пункт!';
+resultDiv.className = 's5-result-message incorrect';
+} else if (allCorrect) {
+checkboxes.forEach(cb => {
+if (cb.checked) cb.closest('.s5-checklist-item').classList.add('correct');
+});
+resultDiv.textContent = '✓ Правильно! Саме ці дії допомагають ухвалювати безпечні рішення.';
+resultDiv.className = 's5-result-message correct';
+} else {
+checkboxes.forEach(cb => {
+const item = cb.closest('.s5-checklist-item');
+if (cb.checked && !correct.includes(cb.value)) item.classList.add('wrong');
+else if (cb.checked && correct.includes(cb.value)) item.classList.add('correct');
+});
+resultDiv.textContent = '✗ Спробувати ще раз. Пам\'ятай: паніка і поспіх заважають, а не допомагають!';
+resultDiv.className = 's5-result-message incorrect';
+}
 }
 
 function s5ResetChecklist() {
-    document.querySelectorAll('#s5Checklist input[type="checkbox"]').forEach(cb => { cb.checked = false; });
-    document.querySelectorAll('#s5Checklist .s5-checklist-item').forEach(item => { item.classList.remove('wrong', 'correct'); });
-    const resultDiv = document.getElementById('s5ChecklistResult');
-    resultDiv.className = 's5-result-message';
-    resultDiv.style.display = 'none';
+document.querySelectorAll('#s5Checklist input[type="checkbox"]').forEach(cb => { cb.checked = false; });
+document.querySelectorAll('#s5Checklist .s5-checklist-item').forEach(item => { item.classList.remove('wrong', 'correct'); });
+const resultDiv = document.getElementById('s5ChecklistResult');
+resultDiv.className = 's5-result-message';
+resultDiv.style.display = 'none';
 }
 
 /* ===================================================================
 🔥 КРОК 6: ФУНКЦІЇ
 =================================================================== */
 function showS6SubPage(num) {
-    document.querySelectorAll('.s6-sub-page').forEach(p => p.classList.remove('active'));
-    document.querySelectorAll('.s6-sub-step').forEach(s => s.classList.remove('active'));
-    document.getElementById('s6-sub-' + num).classList.add('active');
-    document.querySelector(`.s6-sub-step[data-sub="${num}"]`).classList.add('active');
-    if (num === 5) initS6Canvas();
+document.querySelectorAll('.s6-sub-page').forEach(p => p.classList.remove('active'));
+document.querySelectorAll('.s6-sub-step').forEach(s => s.classList.remove('active'));
+document.getElementById('s6-sub-' + num).classList.add('active');
+document.querySelector(`.s6-sub-step[data-sub="${num}"]`).classList.add('active');
+if (num === 5) initS6Canvas();
 }
 
 function selectS6Option(btn, question) {
-    const container = btn.parentElement;
-    container.querySelectorAll('.s6-option-btn').forEach(b => b.classList.remove('selected'));
-    btn.classList.add('selected');
+const container = btn.parentElement;
+container.querySelectorAll('.s6-option-btn').forEach(b => b.classList.remove('selected'));
+btn.classList.add('selected');
 }
 
 document.querySelectorAll('.s6-stars-container-new').forEach(container => {
-    const stars = container.querySelectorAll('.s6-star-new');
-    const ratingDisplay = container.querySelector('.s6-star-rating-new');
-    stars.forEach(star => {
-        star.addEventListener('click', function() {
-            const rating = parseInt(this.getAttribute('data-rating'));
-            stars.forEach((s, index) => {
-                if (index < rating) s.classList.add('filled');
-                else s.classList.remove('filled');
-            });
-            ratingDisplay.textContent = rating + '/5';
-        });
-        star.addEventListener('mouseenter', function() {
-            const rating = parseInt(this.getAttribute('data-rating'));
-            stars.forEach((s, index) => {
-                if (index < rating) s.classList.add('filled');
-                else s.classList.remove('filled');
-            });
-        });
-    });
-    container.addEventListener('mouseleave', function() {
-        const currentRating = parseInt(ratingDisplay.textContent.split('/')[0]) || 0;
-        stars.forEach((s, index) => {
-            if (index < currentRating) s.classList.add('filled');
-            else s.classList.remove('filled');
-        });
-    });
+const stars = container.querySelectorAll('.s6-star-new');
+const ratingDisplay = container.querySelector('.s6-star-rating-new');
+
+stars.forEach(star => {
+star.addEventListener('click', function() {
+const rating = parseInt(this.getAttribute('data-rating'));
+stars.forEach((s, index) => {
+if (index < rating) s.classList.add('filled');
+else s.classList.remove('filled');
+});
+ratingDisplay.textContent = rating + '/5';
+});
+
+star.addEventListener('mouseenter', function() {
+const rating = parseInt(this.getAttribute('data-rating'));
+stars.forEach((s, index) => {
+if (index < rating) s.classList.add('filled');
+else s.classList.remove('filled');
+});
+});
+});
+
+container.addEventListener('mouseleave', function() {
+const currentRating = parseInt(ratingDisplay.textContent.split('/')[0]) || 0;
+stars.forEach((s, index) => {
+if (index < currentRating) s.classList.add('filled');
+else s.classList.remove('filled');
+});
+});
 });
 
 let s6SelectedLeft = null;
@@ -4553,49 +4729,53 @@ let s6SelectedRight = null;
 let s6Matches = {};
 
 function selectS6QuestItem(item, side) {
-    if (item.classList.contains('matched')) return;
-    if (side === 'left') {
-        if (s6SelectedLeft) s6SelectedLeft.classList.remove('selected');
-        s6SelectedLeft = item;
-        item.classList.add('selected');
-    } else {
-        if (s6SelectedRight) s6SelectedRight.classList.remove('selected');
-        s6SelectedRight = item;
-        item.classList.add('selected');
-    }
-    if (s6SelectedLeft && s6SelectedRight) {
-        const leftId = s6SelectedLeft.getAttribute('data-id');
-        const rightMatch = s6SelectedRight.getAttribute('data-match');
-        if (leftId === rightMatch) {
-            s6SelectedLeft.classList.add('correct', 'matched');
-            s6SelectedRight.classList.add('correct', 'matched');
-            s6Matches[leftId] = true;
-        } else {
-            s6SelectedLeft.classList.add('incorrect');
-            s6SelectedRight.classList.add('incorrect');
-            const prevLeft = s6SelectedLeft;
-            const prevRight = s6SelectedRight;
-            setTimeout(() => {
-                prevLeft.classList.remove('incorrect', 'selected');
-                prevRight.classList.remove('incorrect', 'selected');
-            }, 1000);
-        }
-        s6SelectedLeft = null;
-        s6SelectedRight = null;
-    }
+if (item.classList.contains('matched')) return;
+
+if (side === 'left') {
+if (s6SelectedLeft) s6SelectedLeft.classList.remove('selected');
+s6SelectedLeft = item;
+item.classList.add('selected');
+} else {
+if (s6SelectedRight) s6SelectedRight.classList.remove('selected');
+s6SelectedRight = item;
+item.classList.add('selected');
+}
+
+if (s6SelectedLeft && s6SelectedRight) {
+const leftId = s6SelectedLeft.getAttribute('data-id');
+const rightMatch = s6SelectedRight.getAttribute('data-match');
+
+if (leftId === rightMatch) {
+s6SelectedLeft.classList.add('correct', 'matched');
+s6SelectedRight.classList.add('correct', 'matched');
+s6Matches[leftId] = true;
+} else {
+s6SelectedLeft.classList.add('incorrect');
+s6SelectedRight.classList.add('incorrect');
+const prevLeft = s6SelectedLeft;
+const prevRight = s6SelectedRight;
+setTimeout(() => {
+prevLeft.classList.remove('incorrect', 'selected');
+prevRight.classList.remove('incorrect', 'selected');
+}, 1000);
+}
+s6SelectedLeft = null;
+s6SelectedRight = null;
+}
 }
 
 function checkS6Quest() {
-    const totalMatches = 4;
-    const correctMatches = Object.keys(s6Matches).length;
-    const resultDiv = document.getElementById('s6QuestResult');
-    if (correctMatches === totalMatches) {
-        resultDiv.textContent = '🎉 Чудово! Всі відповіді правильні!';
-        resultDiv.className = 's5-result-message correct';
-    } else {
-        resultDiv.textContent = `✅ Правильно: ${correctMatches} з ${totalMatches}. Продовжуй спроби!`;
-        resultDiv.className = 's5-result-message incorrect';
-    }
+const totalMatches = 4;
+const correctMatches = Object.keys(s6Matches).length;
+const resultDiv = document.getElementById('s6QuestResult');
+
+if (correctMatches === totalMatches) {
+resultDiv.textContent = '🎉 Чудово! Всі відповіді правильні!';
+resultDiv.className = 's5-result-message correct';
+} else {
+resultDiv.textContent = `✅ Правильно: ${correctMatches} з ${totalMatches}. Продовжуй спроби!`;
+resultDiv.className = 's5-result-message incorrect';
+}
 }
 
 let s6Canvas, s6Ctx;
@@ -4604,228 +4784,257 @@ let s6CurrentTool = 'pencil';
 let s6CurrentColor = '#000000';
 let s6History = [];
 let s6HistoryStep = -1;
+
 const s6ToolColors = { pencil: '#000000', eraser: '#ffffff', green: '#10b981', yellow: '#fbbf24', red: '#ef4444' };
 const s6ToolWidths = { pencil: 3, eraser: 20, green: 15, yellow: 15, red: 15 };
 
 function initS6Canvas() {
-    s6Canvas = document.getElementById('safetyCanvas');
-    if (!s6Canvas) return;
-    s6Ctx = s6Canvas.getContext('2d');
-    s6Ctx.fillStyle = '#ffffff';
-    s6Ctx.fillRect(0, 0, s6Canvas.width, s6Canvas.height);
-    s6SaveState();
-    s6Canvas.addEventListener('mousedown', s6StartDrawing);
-    s6Canvas.addEventListener('mousemove', s6Draw);
-    s6Canvas.addEventListener('mouseup', s6StopDrawing);
-    s6Canvas.addEventListener('mouseout', s6StopDrawing);
-    s6Canvas.addEventListener('touchstart', function(e) {
-        e.preventDefault();
-        const touch = e.touches[0];
-        const mouseEvent = new MouseEvent('mousedown', { clientX: touch.clientX, clientY: touch.clientY });
-        s6Canvas.dispatchEvent(mouseEvent);
-    });
-    s6Canvas.addEventListener('touchmove', function(e) {
-        e.preventDefault();
-        const touch = e.touches[0];
-        const mouseEvent = new MouseEvent('mousemove', { clientX: touch.clientX, clientY: touch.clientY });
-        s6Canvas.dispatchEvent(mouseEvent);
-    });
-    s6Canvas.addEventListener('touchend', function(e) {
-        e.preventDefault();
-        s6StopDrawing();
-    });
+s6Canvas = document.getElementById('safetyCanvas');
+if (!s6Canvas) return;
+
+s6Ctx = s6Canvas.getContext('2d');
+s6Ctx.fillStyle = '#ffffff';
+s6Ctx.fillRect(0, 0, s6Canvas.width, s6Canvas.height);
+s6SaveState();
+
+s6Canvas.addEventListener('mousedown', s6StartDrawing);
+s6Canvas.addEventListener('mousemove', s6Draw);
+s6Canvas.addEventListener('mouseup', s6StopDrawing);
+s6Canvas.addEventListener('mouseout', s6StopDrawing);
+
+s6Canvas.addEventListener('touchstart', function(e) {
+e.preventDefault();
+const touch = e.touches[0];
+const mouseEvent = new MouseEvent('mousedown', { clientX: touch.clientX, clientY: touch.clientY });
+s6Canvas.dispatchEvent(mouseEvent);
+});
+
+s6Canvas.addEventListener('touchmove', function(e) {
+e.preventDefault();
+const touch = e.touches[0];
+const mouseEvent = new MouseEvent('mousemove', { clientX: touch.clientX, clientY: touch.clientY });
+s6Canvas.dispatchEvent(mouseEvent);
+});
+
+s6Canvas.addEventListener('touchend', function(e) {
+e.preventDefault();
+s6StopDrawing();
+});
 }
 
 function s6SaveState() {
-    s6HistoryStep++;
-    if (s6HistoryStep < s6History.length) s6History.length = s6HistoryStep;
-    s6History.push(s6Canvas.toDataURL());
+s6HistoryStep++;
+if (s6HistoryStep < s6History.length) s6History.length = s6HistoryStep;
+s6History.push(s6Canvas.toDataURL());
 }
 
 function s6StartDrawing(e) {
-    s6IsDrawing = true;
-    s6Draw(e);
+s6IsDrawing = true;
+s6Draw(e);
 }
 
 function s6Draw(e) {
-    if (!s6IsDrawing || !s6Ctx) return;
-    const rect = s6Canvas.getBoundingClientRect();
-    const scaleX = s6Canvas.width / rect.width;
-    const scaleY = s6Canvas.height / rect.height;
-    const x = (e.clientX - rect.left) * scaleX;
-    const y = (e.clientY - rect.top) * scaleY;
-    s6Ctx.lineWidth = s6ToolWidths[s6CurrentTool];
-    s6Ctx.lineCap = 'round';
-    s6Ctx.lineJoin = 'round';
-    s6Ctx.strokeStyle = s6CurrentColor;
-    s6Ctx.globalCompositeOperation = 'source-over';
-    s6Ctx.lineTo(x, y);
-    s6Ctx.stroke();
-    s6Ctx.beginPath();
-    s6Ctx.moveTo(x, y);
+if (!s6IsDrawing || !s6Ctx) return;
+
+const rect = s6Canvas.getBoundingClientRect();
+const scaleX = s6Canvas.width / rect.width;
+const scaleY = s6Canvas.height / rect.height;
+const x = (e.clientX - rect.left) * scaleX;
+const y = (e.clientY - rect.top) * scaleY;
+
+s6Ctx.lineWidth = s6ToolWidths[s6CurrentTool];
+s6Ctx.lineCap = 'round';
+s6Ctx.lineJoin = 'round';
+s6Ctx.strokeStyle = s6CurrentColor;
+s6Ctx.globalCompositeOperation = 'source-over';
+
+s6Ctx.lineTo(x, y);
+s6Ctx.stroke();
+s6Ctx.beginPath();
+s6Ctx.moveTo(x, y);
 }
 
 function s6StopDrawing() {
-    if (s6IsDrawing) {
-        s6IsDrawing = false;
-        if (s6Ctx) {
-            s6Ctx.beginPath();
-            s6SaveState();
-        }
-    }
+if (s6IsDrawing) {
+s6IsDrawing = false;
+if (s6Ctx) {
+s6Ctx.beginPath();
+s6SaveState();
+}
+}
 }
 
 function selectS6Tool(tool) {
-    s6CurrentTool = tool;
-    s6CurrentColor = s6ToolColors[tool];
-    document.querySelectorAll('.s6-tool-btn').forEach(btn => btn.classList.remove('active'));
-    document.querySelector(`[data-tool="${tool}"]`).classList.add('active');
-    if (s6Canvas) s6Canvas.style.cursor = tool === 'eraser' ? 'cell' : 'crosshair';
+s6CurrentTool = tool;
+s6CurrentColor = s6ToolColors[tool];
+document.querySelectorAll('.s6-tool-btn').forEach(btn => btn.classList.remove('active'));
+document.querySelector(`[data-tool="${tool}"]`).classList.add('active');
+if (s6Canvas) s6Canvas.style.cursor = tool === 'eraser' ? 'cell' : 'crosshair';
 }
 
 function clearS6Canvas() {
-    if (!s6Ctx) return;
-    if (confirm('🗑️ Ви впевнені, що хочете очистити всю карту?')) {
-        s6Ctx.fillStyle = '#ffffff';
-        s6Ctx.fillRect(0, 0, s6Canvas.width, s6Canvas.height);
-        s6SaveState();
-    }
+if (!s6Ctx) return;
+if (confirm('🗑️ Ви впевнені, що хочете очистити всю карту?')) {
+s6Ctx.fillStyle = '#ffffff';
+s6Ctx.fillRect(0, 0, s6Canvas.width, s6Canvas.height);
+s6SaveState();
+}
 }
 
 function undoS6Action() {
-    if (!s6Ctx) return;
-    if (s6HistoryStep > 0) {
-        s6HistoryStep--;
-        const img = new Image();
-        img.src = s6History[s6HistoryStep];
-        img.onload = function() {
-            s6Ctx.clearRect(0, 0, s6Canvas.width, s6Canvas.height);
-            s6Ctx.drawImage(img, 0, 0);
-        };
-    } else if (s6HistoryStep === 0) {
-        s6HistoryStep--;
-        s6Ctx.fillStyle = '#ffffff';
-        s6Ctx.fillRect(0, 0, s6Canvas.width, s6Canvas.height);
-    }
+if (!s6Ctx) return;
+if (s6HistoryStep > 0) {
+s6HistoryStep--;
+const img = new Image();
+img.src = s6History[s6HistoryStep];
+img.onload = function() {
+s6Ctx.clearRect(0, 0, s6Canvas.width, s6Canvas.height);
+s6Ctx.drawImage(img, 0, 0);
+};
+} else if (s6HistoryStep === 0) {
+s6HistoryStep--;
+s6Ctx.fillStyle = '#ffffff';
+s6Ctx.fillRect(0, 0, s6Canvas.width, s6Canvas.height);
+}
 }
 
 function saveS6Canvas() {
-    if (!s6Canvas) return;
-    const link = document.createElement('a');
-    link.download = 'моя_карта_безпеки_' + new Date().toISOString().slice(0,10) + '.png';
-    link.href = s6Canvas.toDataURL();
-    link.click();
-    alert('✅ Карта успішно збережена!');
+if (!s6Canvas) return;
+const link = document.createElement('a');
+link.download = 'моя_карта_безпеки_' + new Date().toISOString().slice(0,10) + '.png';
+link.href = s6Canvas.toDataURL();
+link.click();
+alert('✅ Карта успішно збережена!');
 }
 
 const S6_CIRCLE_CIRCUMFERENCE = 2 * Math.PI * 110;
 
 function updateS6CircleProgress(percent) {
-    const circle = document.getElementById('s6CircleFillLarge');
-    const textEl = document.getElementById('s6PercentLarge');
-    const statusEl = document.getElementById('s6CircleStatus');
-    if (!circle || !textEl) return;
-    const offset = S6_CIRCLE_CIRCUMFERENCE - (percent / 100) * S6_CIRCLE_CIRCUMFERENCE;
-    circle.style.strokeDasharray = S6_CIRCLE_CIRCUMFERENCE;
-    circle.style.strokeDashoffset = offset;
-    let current = 0;
-    const duration = 1800;
-    const stepTime = 20;
-    const steps = duration / stepTime;
-    const increment = percent / steps;
-    const timer = setInterval(() => {
-        current += increment;
-        if (current >= percent) {
-            current = percent;
-            clearInterval(timer);
-        }
-        textEl.textContent = Math.round(current);
-    }, stepTime);
-    if (percent === 100) {
-        statusEl.innerHTML = '🏆 Завершено!';
-        statusEl.style.background = 'linear-gradient(135deg, #4caf50, #8bc34a)';
-    } else if (percent >= 75) {
-        statusEl.innerHTML = '🔥 Майже готово!';
-        statusEl.style.background = 'linear-gradient(135deg, #2196f3, #03a9f4)';
-    } else if (percent >= 50) {
-        statusEl.innerHTML = '💪 На півшляху!';
-        statusEl.style.background = 'linear-gradient(135deg, #ff9800, #ffc107)';
-    } else if (percent > 0) {
-        statusEl.innerHTML = '🚀 Початок шляху!';
-        statusEl.style.background = 'linear-gradient(135deg, #9c27b0, #e91e63)';
-    } else {
-        statusEl.innerHTML = '⏳ Очікуємо старт';
-        statusEl.style.background = 'linear-gradient(135deg, #9e9e9e, #757575)';
-    }
+// ✅ ЗАХИСТ ВІД >100%
+percent = Math.min(100, Math.max(0, percent));
+
+const circle = document.getElementById('s6CircleFillLarge');
+const textEl = document.getElementById('s6PercentLarge');
+const statusEl = document.getElementById('s6CircleStatus');
+
+if (!circle || !textEl) return;
+
+const offset = S6_CIRCLE_CIRCUMFERENCE - (percent / 100) * S6_CIRCLE_CIRCUMFERENCE;
+circle.style.strokeDasharray = S6_CIRCLE_CIRCUMFERENCE;
+circle.style.strokeDashoffset = offset;
+
+let current = 0;
+const duration = 1800;
+const stepTime = 20;
+const steps = duration / stepTime;
+const increment = percent / steps;
+
+const timer = setInterval(() => {
+current += increment;
+if (current >= percent) {
+current = percent;
+clearInterval(timer);
+}
+textEl.textContent = Math.round(current);
+}, stepTime);
+
+if (percent === 100) {
+statusEl.innerHTML = '🏆 Завершено!';
+statusEl.style.background = 'linear-gradient(135deg, #4caf50, #8bc34a)';
+} else if (percent >= 75) {
+statusEl.innerHTML = '🔥 Майже готово!';
+statusEl.style.background = 'linear-gradient(135deg, #2196f3, #03a9f4)';
+} else if (percent >= 50) {
+statusEl.innerHTML = '💪 На півшляху!';
+statusEl.style.background = 'linear-gradient(135deg, #ff9800, #ffc107)';
+} else if (percent > 0) {
+statusEl.innerHTML = '🚀 Початок шляху!';
+statusEl.style.background = 'linear-gradient(135deg, #9c27b0, #e91e63)';
+} else {
+statusEl.innerHTML = '⏳ Очікуємо старт';
+statusEl.style.background = 'linear-gradient(135deg, #9e9e9e, #757575)';
+}
 }
 
 function updateS6Level(avgRating) {
-    const levelName = document.getElementById('s6LevelNameLarge');
-    const levelStars = document.getElementById('s6LevelStars');
-    if (!levelName || !levelStars) return;
-    let level, stars;
-    if (avgRating >= 4.5) { level = 'Експерт безпеки'; stars = '⭐⭐⭐⭐⭐'; }
-    else if (avgRating >= 3.5) { level = 'Навігатор ризиків'; stars = '⭐⭐⭐⭐☆'; }
-    else if (avgRating >= 2.5) { level = 'Учень безпеки'; stars = '⭐⭐⭐☆☆'; }
-    else { level = 'Початківець'; stars = '⭐⭐☆☆☆'; }
-    levelName.textContent = level;
-    levelStars.textContent = stars;
+const levelName = document.getElementById('s6LevelNameLarge');
+const levelStars = document.getElementById('s6LevelStars');
+
+if (!levelName || !levelStars) return;
+
+let level, stars;
+if (avgRating >= 4.5) { level = 'Експерт безпеки'; stars = '⭐⭐⭐⭐⭐'; }
+else if (avgRating >= 3.5) { level = 'Навігатор ризиків'; stars = '⭐⭐⭐⭐☆'; }
+else if (avgRating >= 2.5) { level = 'Учень безпеки'; stars = '⭐⭐⭐☆☆'; }
+else { level = 'Початківець'; stars = '⭐⭐☆☆☆'; }
+
+levelName.textContent = level;
+levelStars.textContent = stars;
 }
 
 function saveS6Skills() {
-    const ratings = [];
-    document.querySelectorAll('.s6-star-rating-new').forEach(r => {
-        const text = r.textContent;
-        const rating = parseInt(text.split('/')[0]) || 0;
-        ratings.push(rating);
-    });
-    const avg = ratings.reduce((a, b) => a + b, 0) / ratings.length;
-    updateS6Level(avg);
-    alert(`✅ Оцінки збережено!\nСередній рейтинг: ${avg.toFixed(1)}/5`);
+const ratings = [];
+document.querySelectorAll('.s6-star-rating-new').forEach(r => {
+const text = r.textContent;
+const rating = parseInt(text.split('/')[0]) || 0;
+ratings.push(rating);
+});
+
+const avg = ratings.reduce((a, b) => a + b, 0) / ratings.length;
+updateS6Level(avg);
+alert(`✅ Оцінки збережено!
+Середній рейтинг: ${avg.toFixed(1)}/5`);
 }
 
 function launchConfetti() {
-    const container = document.getElementById('s6ConfettiContainer');
-    container.classList.remove('hidden');
-    const colors = ['#f59e0b', '#dc2626', '#16a34a', '#2563eb', '#a855f7', '#ec4899', '#fbbf24'];
-    const shapes = ['■', '●', '▲', '★', '♦'];
-    for (let i = 0; i < 120; i++) {
-        setTimeout(() => {
-            const confetti = document.createElement('div');
-            confetti.className = 's6-confetti';
-            confetti.textContent = shapes[Math.floor(Math.random() * shapes.length)];
-            confetti.style.left = Math.random() * 100 + '%';
-            confetti.style.color = colors[Math.floor(Math.random() * colors.length)];
-            confetti.style.fontSize = (Math.random() * 16 + 10) + 'px';
-            confetti.style.animationDuration = (Math.random() * 2 + 2) + 's';
-            confetti.style.animationDelay = Math.random() * 0.5 + 's';
-            container.appendChild(confetti);
-            setTimeout(() => confetti.remove(), 5000);
-        }, i * 30);
-    }
-    setTimeout(() => container.classList.add('hidden'), 6000);
+const container = document.getElementById('s6ConfettiContainer');
+container.classList.remove('hidden');
+
+const colors = ['#f59e0b', '#dc2626', '#16a34a', '#2563eb', '#a855f7', '#ec4899', '#fbbf24'];
+const shapes = ['■', '●', '▲', '★', '♦'];
+
+for (let i = 0; i < 120; i++) {
+setTimeout(() => {
+const confetti = document.createElement('div');
+confetti.className = 's6-confetti';
+confetti.textContent = shapes[Math.floor(Math.random() * shapes.length)];
+confetti.style.left = Math.random() * 100 + '%';
+confetti.style.color = colors[Math.floor(Math.random() * colors.length)];
+confetti.style.fontSize = (Math.random() * 16 + 10) + 'px';
+confetti.style.animationDuration = (Math.random() * 2 + 2) + 's';
+confetti.style.animationDelay = Math.random() * 0.5 + 's';
+container.appendChild(confetti);
+setTimeout(() => confetti.remove(), 5000);
+}, i * 30);
+}
+
+setTimeout(() => container.classList.add('hidden'), 6000);
 }
 
 function s6Restart() {
-    if (!confirm('Пройти тренажер ще раз? Весь прогрес буде скинуто.')) return;
-    progressTracker.correct = 0;
-    progressTracker.total = 0;
-    progressTracker.answered.clear();
-    state.foundRisks.clear();
-    s6Matches = {};
-    for (let i = 1; i <= 5; i++) {
-        stepTracker['step' + i].completed = 0;
-        Object.keys(stepTracker['step' + i].tasks).forEach(k => stepTracker['step' + i].tasks[k] = false);
-        stepsCompleted[i] = false;
-    }
-    document.querySelectorAll('.hotspot').forEach(h => {
-        h.classList.remove('found');
-        h.querySelector('.hotspot-plus').textContent = '+';
-    });
-    showS6SubPage(1);
-    showPage('intro');
-    window.scrollTo(0, 0);
-    updateLiveProgress();
+if (!confirm('Пройти тренажер ще раз? Весь прогрес буде скинуто.')) return;
+
+progressTracker.correct = 0;
+progressTracker.total = 0;
+progressTracker.answered.clear();
+state.foundRisks.clear();
+s6Matches = {};
+
+for (let i = 1; i <= 5; i++) {
+stepTracker['step' + i].completed = 0;
+Object.keys(stepTracker['step' + i].tasks).forEach(k => stepTracker['step' + i].tasks[k] = false);
+stepsCompleted[i] = false;
+}
+
+document.querySelectorAll('.hotspot').forEach(h => {
+h.classList.remove('found');
+h.querySelector('.hotspot-plus').textContent = '+';
+});
+
+showS6SubPage(1);
+showPage('intro');
+window.scrollTo(0, 0);
+updateLiveProgress();
 }
 
 /* ===== ІНІЦІАЛІЗАЦІЯ ===== */
