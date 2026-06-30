@@ -726,6 +726,136 @@ body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-
 .s6-confetti-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 9999; overflow: hidden; }
 .s6-confetti { position: absolute; width: 10px; height: 10px; top: -20px; animation: s6ConfettiFall linear forwards; }
 @keyframes s6ConfettiFall { 0% { transform: translateY(0) rotate(0deg); opacity: 1; } 100% { transform: translateY(110vh) rotate(720deg); opacity: 0; } }
+/* ===== АДАПТИВНІСТЬ (ДОДАТИ В КІНЕЦЬ СТИЛІВ) ===== */
+@media (max-width: 768px) {
+    /* Вирішує проблему з подвійним заголовком і місцем */
+    .header {
+        padding: 8px 12px;
+    }
+    .header-title {
+        font-size: 13px; /* Зменшуємо шрифт заголовка */
+    }
+    
+    /* Вирішує проблему з сіткою (картинка + текст) */
+    /* Шукаємо блоки, які мають grid 320px 1fr і робимо їх в одну колонку */
+    .page #page-3-1 > .situation-card > div:first-child {
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+    }
+    
+    /* Виправляємо формулу ризику (Імовірність х Наслідки = Ризик) */
+    .risk-formula {
+        flex-direction: column; /* Ставимо елементи вертикально */
+        gap: 10px;
+        align-items: center;
+    }
+    .formula-item {
+        width: 100%;
+        max-width: 250px; /* Обмежуємо ширину карток */
+        padding: 15px;
+    }
+    .multiply-sign {
+        transform: rotate(90deg); /* Повертаємо знак множення, якщо треба */
+        margin: -5px 0;
+    }
+
+    /* Загальні покращення для мобільних */
+    .main-content {
+        padding-bottom: 80px; /* Щоб контент не перекривався нижньою панеллю браузера */
+    }
+    
+    /* Ховаємо зайві елементи навуігації кроків на малих екранах, щоб дати більше місця контенту */
+    .step-progress-dots {
+        display: none; 
+    }
+    
+    /* Зменшуємо розміри карток */
+    .practice-card, .s5-quest-btn, .s6-stat-card {
+        padding: 12px;
+    }
+}
+/* Покращена адаптивність для мобільних */
+@media (max-width: 768px) {
+    /* Формула ризику - переносимо в колонку */
+    .risk-formula {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+    
+    .formula-item {
+        width: 100%;
+        max-width: 250px;
+        padding: 15px 20px;
+    }
+    
+    .multiply-sign {
+        transform: rotate(90deg);
+        margin: 5px 0;
+    }
+    
+    /* Головний контейнер */
+    .main-content {
+        padding: 10px;
+    }
+    
+    /* Картка ситуації */
+    .situation-card {
+        padding: 15px;
+    }
+    
+    /* Сітка з ілюстрацією */
+    .situation-card > div[style*="grid"] {
+        grid-template-columns: 1fr !important;
+        gap: 20px;
+    }
+    
+    /* Зображення */
+    .situation-card img[alt*="think"] {
+        max-width: 100%;
+        height: auto;
+    }
+    
+    /* Інформаційні блоки */
+    .definition-box,
+    .s5-info-box {
+        margin: 15px 0;
+        padding: 15px;
+        font-size: 14px;
+    }
+    
+    /* Завдання */
+    .tasks-list-step3 {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Навігація */
+    .nav-buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* Для дуже малих екранів */
+@media (max-width: 480px) {
+    .page-title {
+        font-size: 20px;
+    }
+    
+    .formula-item {
+        padding: 12px 15px;
+        min-width: auto;
+    }
+    
+    .formula-icon {
+        font-size: 28px;
+    }
+}
 /* ===== АДАПТИВНІСТЬ ===== */
 @media (max-width: 1024px) {
 .intro-layout { grid-template-columns: 1fr; }
@@ -4653,5 +4783,3 @@ updateLiveProgress();
 
 </body>
 </html>
-
-
