@@ -386,12 +386,15 @@ body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; ba
 .student-card--compact .student-icon { width: 48px; height: 48px; font-size: 22px; border-radius: 12px; }
 .student-card--compact .student-title { font-size: 15px; }
 .student-card--compact .student-subtitle { margin-bottom: 8px; font-size: 12.5px; }
+.student-card-hint { font-size: 12.5px; color: var(--text-muted); margin-bottom: 10px; }
+.student-card-row { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+.student-card-row .student-input { flex: 1; min-width: 200px; }
 .export-row { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
 .export-hint { font-size: 13px; color: var(--text-muted); }
 #exportPngBtn { min-width: 230px; }
 .btn-spinner { width: 18px; height: 18px; border: 3px solid rgba(255,255,255,0.35); border-top-color: #fff; border-radius: 50%; animation: spin 0.8s linear infinite; display: inline-block; flex-shrink: 0; }
 @keyframes spin { to { transform: rotate(360deg); } }
-/* ===== ПРИХОВАНИЙ ШАБЛОН PNG (поза екраном, учень його не бачить) ===== */
+/* ===== ПРИХОВАНИЙ ШАБЛОН PNG ===== */
 #exportTemplate { position: fixed; left: -10000px; top: 0; width: 794px; background: #ffffff; pointer-events: none; }
 .exp-page { width: 794px; background: #ffffff; padding-bottom: 24px; font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; color: #1e293b; line-height: 1.5; }
 .exp-header { background: linear-gradient(135deg, #1e2a5e 0%, #1e3a8a 55%, #2563eb 100%); border-bottom: 4px solid #f59e0b; color: #fff; padding: 22px 28px; display: flex; justify-content: space-between; gap: 16px; align-items: flex-start; }
@@ -506,7 +509,6 @@ body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; ba
 </head>
 <body>
 <div class="top-progress-bar"><div class="top-progress-fill" id="topProgressBar"></div></div>
-
 <div class="progress-widget" id="progressWidget">
 <div class="progress-widget-header">
 <span class="progress-widget-title">📊 Прогрес</span>
@@ -515,9 +517,7 @@ body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; ba
 <div style="font-size: 10px; color: var(--text-muted); margin-bottom: 6px;">Виконано: <strong id="widgetTasks">0/24</strong></div>
 <div class="progress-widget-mini-map" id="widgetMiniMap"></div>
 </div>
-
 <div class="toast-container" id="toastContainer"></div>
-
 <header class="header">
 <div class="header-content">
 <h1 id="headerTitle">🎯 Тренажер «Навігатор ризиків»</h1>
@@ -528,7 +528,6 @@ body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; ba
 </div>
 </div>
 </header>
-
 <!-- ================= ГОЛОВНА ================= -->
 <main class="container" id="mainPage">
 <div class="student-card">
@@ -545,7 +544,7 @@ body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; ba
 <div class="hero-unified">
 <div class="hero-illustration">
 <div class="hero-illustration-title">🧭 § 1. Безпека, небезпека і ризики</div>
-<img src="https://res.cloudinary.com/dmydvhkzr/image/upload/v1781886119/boy_with_map_ilnj0h.png" alt="Хлопчик із мапою — навігатор ризиків" data-emoji="🧭">
+<img src="https://res.cloudinary.com/dmydvhkzr/image/upload/f_auto,q_auto,c_limit,w_800/v1781886119/boy_with_map_ilnj0h.png" alt="Хлопчик із мапою — навігатор ризиків" data-emoji="🧭">
 </div>
 <div class="hero-navigation">
 <h2>🧭 Навігація по кроках</h2>
@@ -577,7 +576,6 @@ body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; ba
 </div>
 <div class="tip-card">💡 <strong>Порада:</strong> Немає потреби поспішати. Уважно аналізуй ситуації та думай про можливі наслідки своїх рішень.</div>
 </main>
-
 <!-- ================= КРОК 1 ================= -->
 <main class="container hidden" id="step1Page">
 <div class="step-header">
@@ -587,7 +585,6 @@ body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; ba
 </div>
 <div class="progress-dots" data-page="1"><div class="progress-dot"></div><div class="progress-dot"></div><div class="progress-dot"></div><div class="progress-dot"></div><div class="progress-dot"></div><div class="progress-dot"></div></div>
 </div>
-
 <section class="card" id="s1Task1">
 <h2>🔍 Стартова ситуація: що тут може піти не так?</h2>
 <div class="feedback feedback-warning mb-24"><strong>📌 Ситуація:</strong> Друзі покликали тебе зробити круті фото на будівельному майданчику. Розглянь зображення, вияв ризики та зроби перший крок до безпечного рішення.</div>
@@ -596,7 +593,7 @@ body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; ba
 <div class="risk-counter-item">1</div><div class="risk-counter-item">2</div><div class="risk-counter-item">3</div><div class="risk-counter-item">4</div><div class="risk-counter-item">5</div><div class="risk-counter-item">6</div>
 </div>
 <div class="image-container hotspot-stage" id="imageContainer">
-<img src="https://res.cloudinary.com/dmydvhkzr/image/upload/v1781892345/construction_site.png_fdryw4.png" alt="Будівельний майданчик із прихованими ризиками" data-emoji="🏗️">
+<img src="https://res.cloudinary.com/dmydvhkzr/image/upload/f_auto,q_auto,c_limit,w_800/v1781892345/construction_site.png_fdryw4.png" alt="Будівельний майданчик із прихованими ризиками" data-emoji="🏗️">
 <div class="hotspot" data-risk="rebar" style="top: 15%; left: 8%;" onclick="findRisk(this)" role="button" tabindex="0" aria-label="Знайти ризик 1"><span class="hotspot-plus">+</span></div>
 <div class="hotspot" data-risk="phone" style="top: 25%; left: 22%;" onclick="findRisk(this)" role="button" tabindex="0" aria-label="Знайти ризик 2"><span class="hotspot-plus">+</span></div>
 <div class="hotspot" data-risk="roof" style="top: 75%; left: 60%;" onclick="findRisk(this)" role="button" tabindex="0" aria-label="Знайти ризик 3"><span class="hotspot-plus">+</span></div>
@@ -613,7 +610,6 @@ body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; ba
 <button class="btn btn-success" onclick="showScreen(1,'s1Task2')">Далі: Перше рішення →</button>
 </div>
 </section>
-
 <section class="card hidden" id="s1Task2">
 <h2>💡 Перше рішення</h2>
 <div class="feedback feedback-warning mb-24"><strong>📌 Ситуація:</strong> Ти знайшов(ла) всі ризики на будівельному майданчику, але друзі вже дістають телефони для фото. Що робити далі?</div>
@@ -648,7 +644,6 @@ body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; ba
 <button class="btn btn-success" onclick="showScreen(1,'s1Result')">Далі: Наслідки рішення →</button>
 </div>
 </section>
-
 <section class="card hidden" id="s1Result">
 <h2>🌟 Наслідки твого рішення</h2>
 <div class="feedback feedback-success mb-24"><strong>✅ Ти запропонував(ла) безпечніше місце для фото.</strong></div>
@@ -662,7 +657,7 @@ body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; ba
 </ul>
 </div>
 <div class="text-center">
-<img src="https://res.cloudinary.com/dmydvhkzr/image/upload/v1781886119/icon_check_circle_i5fjx8.png" alt="Знак підтвердження — безпечне рішення" data-emoji="✅" style="max-width: 220px; width: 100%; height: auto;">
+<img src="https://res.cloudinary.com/dmydvhkzr/image/upload/f_auto,q_auto,c_limit,w_800/v1781886119/icon_check_circle_i5fjx8.png" alt="Знак підтвердження — безпечне рішення" data-emoji="✅" style="max-width: 220px; width: 100%; height: auto;">
 </div>
 </div>
 <div class="tip-card-inline"><span class="tip-card-icon">💡</span><div><strong>Пам’ятай:</strong> безпечне рішення — це не відмова від друзів, а турбота про них.</div></div>
@@ -672,7 +667,6 @@ body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; ba
 </div>
 </section>
 </main>
-
 <!-- ================= КРОК 2 ================= -->
 <main class="container hidden" id="step2Page">
 <div class="step-header">
@@ -682,7 +676,6 @@ body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; ba
 </div>
 <div class="progress-dots" data-page="2"><div class="progress-dot"></div><div class="progress-dot"></div><div class="progress-dot"></div><div class="progress-dot"></div><div class="progress-dot"></div><div class="progress-dot"></div></div>
 </div>
-
 <section class="card" id="s2Intro">
 <h2>🛡️ Безпека та безпечний простір</h2>
 <p class="mb-24">Досліди, що допомагає людині почуватися захищеною.</p>
@@ -708,12 +701,11 @@ body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; ba
 <button class="btn btn-primary" onclick="showScreen(2,'s2Safety')">Розпочати →</button>
 </div>
 </section>
-
 <section class="card hidden" id="s2Safety">
 <h2>🛡️ Безпека</h2>
 <div class="theory-layout">
 <div class="theory-image">
-<img src="https://res.cloudinary.com/dmydvhkzr/image/upload/v1782322080/safety_boy_thumbsup_q8pleh.png" alt="Хлопчик показує схвальний жест — безпека" data-emoji="🛡️">
+<img src="https://res.cloudinary.com/dmydvhkzr/image/upload/f_auto,q_auto,c_limit,w_800/v1782322080/safety_boy_thumbsup_q8pleh.png" alt="Хлопчик показує схвальний жест — безпека" data-emoji="🛡️">
 </div>
 <div class="theory-content">
 <p class="mb-16"><strong>Безпека — це стан захищеності від загроз, небезпек і ризиків.</strong></p>
@@ -733,7 +725,6 @@ body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; ba
 <button class="btn btn-primary" onclick="showScreen(2,'s2Space')">Далі: Безпечний простір →</button>
 </div>
 </section>
-
 <section class="card hidden" id="s2Space">
 <h2>🏠 Безпечний простір</h2>
 <p class="mb-16"><strong>Безпечний простір — це середовище, у якому людина почувається захищеною, прийнятою та може розвиватися.</strong></p>
@@ -770,13 +761,12 @@ body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; ba
 <button class="btn btn-primary" onclick="showScreen(2,'s2Physical')">Дослідити складові →</button>
 </div>
 </section>
-
 <section class="card hidden" id="s2Physical">
 <h2>🌳 Фізичний простір</h2>
 <div class="feedback feedback-warning mb-24"><strong>📌 Ситуація:</strong> У школі є укриття, але запасний вихід захаращений коробками.</div>
 <div class="two-col">
 <div class="image-container" style="margin: 0;">
-<img src="https://res.cloudinary.com/dmydvhkzr/image/upload/v1782322073/exit_door_wxjg3v.png" alt="Запасний вихід, захаращений коробками" data-emoji="🚪">
+<img src="https://res.cloudinary.com/dmydvhkzr/image/upload/f_auto,q_auto,c_limit,w_800/v1782322073/exit_door_wxjg3v.png" alt="Запасний вихід, захаращений коробками" data-emoji="🚪">
 </div>
 <div>
 <p class="mb-16"><strong>Чи можна вважати цей простір безпечним?</strong></p>
@@ -797,13 +787,12 @@ body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; ba
 <button class="btn btn-success" onclick="showScreen(2,'s2Psych')">Далі →</button>
 </div>
 </section>
-
 <section class="card hidden" id="s2Psych">
 <h2>🧠 Психологічний простір</h2>
 <div class="feedback feedback-warning mb-24"><strong>📌 Ситуація:</strong> Учень боїться відповідати на уроці, бо однокласники часто висміюють його відповіді.</div>
 <div class="two-col">
 <div class="image-container" style="margin: 0;">
-<img src="https://res.cloudinary.com/dmydvhkzr/image/upload/v1782322076/stressed_student_n7xvhb.png" alt="Учень стресує через насмішки однокласників" data-emoji="🧠">
+<img src="https://res.cloudinary.com/dmydvhkzr/image/upload/f_auto,q_auto,c_limit,w_800/v1782322076/stressed_student_n7xvhb.png" alt="Учень стресує через насмішки однокласників" data-emoji="🧠">
 </div>
 <div>
 <p class="mb-16"><strong>Що може допомогти покращити ситуацію? (Обери дві правильні відповіді.)</strong></p>
@@ -823,13 +812,12 @@ body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; ba
 <button class="btn btn-success" onclick="showScreen(2,'s2Social')">Далі →</button>
 </div>
 </section>
-
 <section class="card hidden" id="s2Social">
 <h2>👥 Соціальний простір</h2>
 <div class="feedback feedback-warning mb-24"><strong>📌 Ситуація:</strong> Нову ученицю не беруть до командних проєктів.</div>
 <div class="two-col">
 <div class="image-container" style="margin: 0;">
-<img src="https://res.cloudinary.com/dmydvhkzr/image/upload/v1782322076/girl_studying_c4v1ht.png" alt="Нова учениця почувається ізольовано" data-emoji="👥">
+<img src="https://res.cloudinary.com/dmydvhkzr/image/upload/f_auto,q_auto,c_limit,w_800/v1782322076/girl_studying_c4v1ht.png" alt="Нова учениця почувається ізольовано" data-emoji="👥">
 </div>
 <div>
 <p class="mb-16"><strong>Що може допомогти покращити ситуацію? (Обери дві правильні відповіді.)</strong></p>
@@ -851,13 +839,12 @@ body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; ba
 <button class="btn btn-success" onclick="showScreen(2,'s2Digital')">Далі →</button>
 </div>
 </section>
-
 <section class="card hidden" id="s2Digital">
 <h2>🔒 Цифровий простір</h2>
 <div class="feedback feedback-warning mb-24"><strong>📌 Ситуація:</strong> Тобі надійшло повідомлення: «Терміново підтвердь пароль від акаунта».</div>
 <div class="two-col">
 <div class="image-container" style="margin: 0;">
-<img src="https://res.cloudinary.com/dmydvhkzr/image/upload/v1782322073/phone_warning_y2mszz.png" alt="Підозріле повідомлення на телефоні" data-emoji="📱">
+<img src="https://res.cloudinary.com/dmydvhkzr/image/upload/f_auto,q_auto,c_limit,w_800/v1782322073/phone_warning_y2mszz.png" alt="Підозріле повідомлення на телефоні" data-emoji="📱">
 </div>
 <div>
 <p class="mb-16"><strong>Як краще діяти?</strong></p>
@@ -879,13 +866,12 @@ body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; ba
 <button class="btn btn-success" onclick="showScreen(2,'s2Inner')">Далі →</button>
 </div>
 </section>
-
 <section class="card hidden" id="s2Inner">
 <h2>🧘 Внутрішній простір</h2>
 <div class="feedback feedback-warning mb-24"><strong>📌 Ситуація:</strong> Ти отримав(ла) низьку оцінку за важливу контрольну роботу.</div>
 <div class="two-col">
 <div class="image-container" style="margin: 0;">
-<img src="https://res.cloudinary.com/dmydvhkzr/image/upload/v1782322075/stressed_person_phone_ejbi3y.png" alt="Учень засмучений низькою оцінкою" data-emoji="🧘">
+<img src="https://res.cloudinary.com/dmydvhkzr/image/upload/f_auto,q_auto,c_limit,w_800/v1782322075/stressed_person_phone_ejbi3y.png" alt="Учень засмучений низькою оцінкою" data-emoji="🧘">
 </div>
 <div>
 <p class="mb-16"><strong>Яка реакція буде найбільш конструктивною?</strong></p>
@@ -907,7 +893,6 @@ body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; ba
 <button class="btn btn-success" onclick="showScreen(2,'s2Match')">Перейти до вправ →</button>
 </div>
 </section>
-
 <section class="card hidden" id="s2Match">
 <h2>📋 Завдання 1. До якої складової належить?</h2>
 <div class="feedback feedback-warning mb-24"><strong>📌 Інструкція:</strong> Натисни на приклад, а потім — на відповідну складову безпечного простору. Щоб повернути приклад, натисни на нього ще раз.</div>
@@ -939,11 +924,9 @@ body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; ba
 <button class="btn btn-success" onclick="showScreen(2,'s2Odd')">Далі →</button>
 </div>
 </section>
-
 <section class="card hidden" id="s2Odd">
 <h2>🔎 Завдання 2. Знайди зайве</h2>
 <div class="feedback feedback-warning mb-24"><strong>📌 Інструкція:</strong> У кожному рядку один елемент не належить до цієї групи. Обери його та натисни «Перевірити».</div>
-
 <div class="category-block odd-row" id="odd1">
 <div class="category-title">🌳 Фізичний простір — знайди зайве:</div>
 <div class="category-options">
@@ -954,7 +937,6 @@ body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; ba
 </div>
 <div class="odd-row-footer"><button class="btn btn-primary btn-sm" onclick="checkOddRow('odd1')">Перевірити</button><span class="odd-row-feedback"></span></div>
 </div>
-
 <div class="category-block odd-row" id="odd2">
 <div class="category-title">🧠 Психологічний простір — знайди зайве:</div>
 <div class="category-options">
@@ -965,7 +947,6 @@ body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; ba
 </div>
 <div class="odd-row-footer"><button class="btn btn-primary btn-sm" onclick="checkOddRow('odd2')">Перевірити</button><span class="odd-row-feedback"></span></div>
 </div>
-
 <div class="category-block odd-row" id="odd3">
 <div class="category-title">👥 Соціальний простір — знайди зайве:</div>
 <div class="category-options">
@@ -976,7 +957,6 @@ body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; ba
 </div>
 <div class="odd-row-footer"><button class="btn btn-primary btn-sm" onclick="checkOddRow('odd3')">Перевірити</button><span class="odd-row-feedback"></span></div>
 </div>
-
 <div class="category-block odd-row" id="odd4">
 <div class="category-title">🔒 Цифровий простір — знайди зайве:</div>
 <div class="category-options">
@@ -987,7 +967,6 @@ body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; ba
 </div>
 <div class="odd-row-footer"><button class="btn btn-primary btn-sm" onclick="checkOddRow('odd4')">Перевірити</button><span class="odd-row-feedback"></span></div>
 </div>
-
 <div class="category-block odd-row" id="odd5">
 <div class="category-title">🧘 Внутрішній простір — знайди зайве:</div>
 <div class="category-options">
@@ -998,7 +977,6 @@ body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; ba
 </div>
 <div class="odd-row-footer"><button class="btn btn-primary btn-sm" onclick="checkOddRow('odd5')">Перевірити</button><span class="odd-row-feedback"></span></div>
 </div>
-
 <div id="s2OddFeedback" class="feedback" style="display:none;"></div>
 <div class="navigation">
 <button class="btn btn-secondary" onclick="showScreen(2,'s2Match')">← Назад</button>
@@ -1007,7 +985,6 @@ body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; ba
 </div>
 </section>
 </main>
-
 <!-- ================= КРОК 3 ================= -->
 <main class="container hidden" id="step3Page">
 <div class="step-header">
@@ -1017,12 +994,11 @@ body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; ba
 </div>
 <div class="progress-dots" data-page="3"><div class="progress-dot"></div><div class="progress-dot"></div><div class="progress-dot"></div><div class="progress-dot"></div><div class="progress-dot"></div><div class="progress-dot"></div></div>
 </div>
-
 <section class="card" id="s3Intro">
 <h2>🧠 Аналізуй ситуації, оцінюй ризики</h2>
 <div class="theory-layout">
 <div class="theory-image">
-<img src="https://res.cloudinary.com/dmydvhkzr/image/upload/v1782498738/intro_boy_thinking_tspbgu.png" alt="Хлопчик замислився, оцінюючи ризики" data-emoji="🤔">
+<img src="https://res.cloudinary.com/dmydvhkzr/image/upload/f_auto,q_auto,c_limit,w_800/v1782498738/intro_boy_thinking_tspbgu.png" alt="Хлопчик замислився, оцінюючи ризики" data-emoji="🤔">
 </div>
 <div class="theory-content">
 <p class="mb-16"><strong>Ризик — це імовірність того, що небезпечна подія може відбутися та спричинити негативні наслідки.</strong></p>
@@ -1047,7 +1023,6 @@ body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; ba
 <button class="btn btn-primary" onclick="showScreen(3,'s3Factors')">Далі: Від чого залежить ризик →</button>
 </div>
 </section>
-
 <section class="card hidden" id="s3Factors">
 <h2>📊 Від чого залежить ризик?</h2>
 <div class="info-blocks-row">
@@ -1074,7 +1049,6 @@ body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; ba
 <button class="btn btn-primary" onclick="showScreen(3,'s3Matrix')">Далі: Матриця ризику →</button>
 </div>
 </section>
-
 <section class="card hidden" id="s3Matrix">
 <h2>🧮 Матриця ризику</h2>
 <p class="mb-16"><strong>Натисни на клітинку матриці, щоб побачити приклад:</strong></p>
@@ -1113,13 +1087,12 @@ body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; ba
 <button class="btn btn-primary" onclick="showScreen(3,'s3Practice')">Практикум →</button>
 </div>
 </section>
-
 <section class="card hidden" id="s3Practice">
 <h2>📋 Практикум: Оціни рівень ризику</h2>
 <div class="feedback feedback-warning mb-24"><strong>📌 Інструкція:</strong> Для кожної ситуації обери рівень ризику, а потім натисни «Перевірити відповіді».</div>
 <div class="practice-grid">
 <div class="practice-card" data-answer="high" data-explain="Висока імовірність падіння на мокрій дорозі + серйозні наслідки без шолома = високий ризик.">
-<img src="https://res.cloudinary.com/dmydvhkzr/image/upload/v1782498756/scooter_rain_rx6oze.png" alt="Максим їде на електросамокаті під дощем" data-emoji="🛴">
+<img src="https://res.cloudinary.com/dmydvhkzr/image/upload/f_auto,q_auto,c_limit,w_800/v1782498756/scooter_rain_rx6oze.png" alt="Максим їде на електросамокаті під дощем" data-emoji="🛴">
 <div class="scenario"><strong>🛴 Максим</strong> їде на електросамокаті без шолома по мокрій дорозі, поспішаючи на зустріч.</div>
 <div class="segmented">
 <button class="seg-btn" data-level="low" onclick="selectPracticeLevel(this)">Низький</button>
@@ -1129,7 +1102,7 @@ body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; ba
 <div class="card-verdict"></div>
 </div>
 <div class="practice-card" data-answer="high" data-explain="Надто низькі ціни — типова ознака шахрайського магазину. Втрата грошей і даних карти дуже ймовірна — високий ризик.">
-<img src="https://res.cloudinary.com/dmydvhkzr/image/upload/v1782498734/online_shopping_fkvidh.png" alt="Оля переглядає підозрілий інтернет-магазин" data-emoji="💳">
+<img src="https://res.cloudinary.com/dmydvhkzr/image/upload/f_auto,q_auto,c_limit,w_800/v1782498734/online_shopping_fkvidh.png" alt="Оля переглядає підозрілий інтернет-магазин" data-emoji="💳">
 <div class="scenario"><strong>💳 Оля</strong> знайшла інтернет-магазин із дуже низькими цінами та хоче ввести дані своєї карти.</div>
 <div class="segmented">
 <button class="seg-btn" data-level="low" onclick="selectPracticeLevel(this)">Низький</button>
@@ -1139,7 +1112,7 @@ body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; ba
 <div class="card-verdict"></div>
 </div>
 <div class="practice-card" data-answer="low" data-explain="Наслідки невдалого виступу незначні — хвилювання та незручність, без загрози життю чи здоров’ю. Ризик низький.">
-<img src="https://res.cloudinary.com/dmydvhkzr/image/upload/v1782498732/speech_b1uimm.png" alt="Соломія готується виступити на конференції" data-emoji="🎤">
+<img src="https://res.cloudinary.com/dmydvhkzr/image/upload/f_auto,q_auto,c_limit,w_800/v1782498732/speech_b1uimm.png" alt="Соломія готується виступити на конференції" data-emoji="🎤">
 <div class="scenario"><strong>🎤 Соломія</strong> планує виступити на конференції без підготовки.</div>
 <div class="segmented">
 <button class="seg-btn" data-level="low" onclick="selectPracticeLevel(this)">Низький</button>
@@ -1149,7 +1122,7 @@ body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; ba
 <div class="card-verdict"></div>
 </div>
 <div class="practice-card" data-answer="mid" data-explain="Телефон можуть повернути, а можуть і ні: імовірність втрати середня, наслідки помірні — середній ризик.">
-<img src="https://res.cloudinary.com/dmydvhkzr/image/upload/v1782498752/forgotten_phone_pso73c.png" alt="Захар забув телефон в автобусі" data-emoji="📱">
+<img src="https://res.cloudinary.com/dmydvhkzr/image/upload/f_auto,q_auto,c_limit,w_800/v1782498752/forgotten_phone_pso73c.png" alt="Захар забув телефон в автобусі" data-emoji="📱">
 <div class="scenario"><strong>📱 Захар</strong> забув свій телефон в автобусі.</div>
 <div class="segmented">
 <button class="seg-btn" data-level="low" onclick="selectPracticeLevel(this)">Низький</button>
@@ -1167,13 +1140,12 @@ body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; ba
 <button class="btn btn-success" onclick="showScreen(3,'s3Reduce')">Далі: Як зменшити ризик →</button>
 </div>
 </section>
-
 <section class="card hidden" id="s3Reduce">
 <h2>🛡️ Як зменшити ризик?</h2>
 <div class="feedback feedback-warning mb-24"><strong>📌 Інструкція:</strong> Познач дії, які допоможуть зменшити ризик у кожній ситуації.</div>
 <div class="practice-grid">
 <div class="reduce-block practice-card" data-explain="Шолом, міцний контроль керма та плавна їзда знижують імовірність падіння й тяжкість травм. Тротуар — для пішоходів.">
-<img src="https://res.cloudinary.com/dmydvhkzr/image/upload/v1782498756/scooter_rain_rx6oze.png" alt="Максим на електросамокаті" data-emoji="🛴">
+<img src="https://res.cloudinary.com/dmydvhkzr/image/upload/f_auto,q_auto,c_limit,w_800/v1782498756/scooter_rain_rx6oze.png" alt="Максим на електросамокаті" data-emoji="🛴">
 <div class="scenario"><strong>🛴 Максим</strong></div>
 <div class="checklist">
 <div class="checklist-item" data-correct="true" onclick="toggleChecklist(this)" tabindex="0"><div class="checklist-icon">✓</div><div class="checklist-text">Одягнути шолом</div></div>
@@ -1184,7 +1156,7 @@ body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; ba
 <div class="card-verdict"></div>
 </div>
 <div class="reduce-block practice-card" data-explain="Перевірка магазину та безпечна оплата захищають гроші й дані. Вводити дані карти чи замовляти одразу — небезпечно.">
-<img src="https://res.cloudinary.com/dmydvhkzr/image/upload/v1782498734/online_shopping_fkvidh.png" alt="Оля та інтернет-магазин" data-emoji="💳">
+<img src="https://res.cloudinary.com/dmydvhkzr/image/upload/f_auto,q_auto,c_limit,w_800/v1782498734/online_shopping_fkvidh.png" alt="Оля та інтернет-магазин" data-emoji="💳">
 <div class="scenario"><strong>💳 Оля</strong></div>
 <div class="checklist">
 <div class="checklist-item" data-correct="true" onclick="toggleChecklist(this)" tabindex="0"><div class="checklist-icon">✓</div><div class="checklist-text">Перевірити магазин</div></div>
@@ -1195,7 +1167,7 @@ body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; ba
 <div class="card-verdict"></div>
 </div>
 <div class="reduce-block practice-card" data-explain="Підготовка та репетиція зменшують імовірність невдалого виступу. Експромт без підготовки ризику не зменшує.">
-<img src="https://res.cloudinary.com/dmydvhkzr/image/upload/v1782498732/speech_b1uimm.png" alt="Соломія готує виступ" data-emoji="🎤">
+<img src="https://res.cloudinary.com/dmydvhkzr/image/upload/f_auto,q_auto,c_limit,w_800/v1782498732/speech_b1uimm.png" alt="Соломія готує виступ" data-emoji="🎤">
 <div class="scenario"><strong>🎤 Соломія</strong></div>
 <div class="checklist">
 <div class="checklist-item" data-correct="true" onclick="toggleChecklist(this)" tabindex="0"><div class="checklist-icon">✓</div><div class="checklist-text">Підготуватися</div></div>
@@ -1205,7 +1177,7 @@ body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; ba
 <div class="card-verdict"></div>
 </div>
 <div class="reduce-block practice-card" data-explain="Швидкі дії — повідомити перевізника та скористатися пошуком пристрою — підвищують шанси повернути телефон.">
-<img src="https://res.cloudinary.com/dmydvhkzr/image/upload/v1782498752/forgotten_phone_pso73c.png" alt="Захар шукає телефон" data-emoji="📱">
+<img src="https://res.cloudinary.com/dmydvhkzr/image/upload/f_auto,q_auto,c_limit,w_800/v1782498752/forgotten_phone_pso73c.png" alt="Захар шукає телефон" data-emoji="📱">
 <div class="scenario"><strong>📱 Захар</strong></div>
 <div class="checklist">
 <div class="checklist-item" data-correct="true" onclick="toggleChecklist(this)" tabindex="0"><div class="checklist-icon">✓</div><div class="checklist-text">Одразу повідомити перевізника</div></div>
@@ -1223,13 +1195,12 @@ body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; ba
 <button class="btn btn-success" onclick="showScreen(3,'s3OneDanger')">Далі: Одна небезпека — різні ризики →</button>
 </div>
 </section>
-
 <section class="card hidden" id="s3OneDanger">
 <h2>⚖️ Одна небезпека — різні ризики</h2>
 <div class="feedback feedback-warning mb-24"><strong>📌 Ситуація:</strong> Ризик послизнутися і впасти. Визнач рівень ризику для кожної ситуації за допомогою матриці ризику.</div>
 <div class="practice-grid">
 <div class="practice-card od-card" data-answer="vhigh" data-explain="Слизькі сходи + відсутність поручнів: падіння ймовірне, а наслідки можуть бути серйозними — дуже високий ризик.">
-<img src="https://res.cloudinary.com/dmydvhkzr/image/upload/v1782498733/stairs_no_rail_fnixkx.png" alt="Обледенілі сходи без поручнів" data-emoji="🧊">
+<img src="https://res.cloudinary.com/dmydvhkzr/image/upload/f_auto,q_auto,c_limit,w_800/v1782498733/stairs_no_rail_fnixkx.png" alt="Обледенілі сходи без поручнів" data-emoji="🧊">
 <div class="scenario"><strong>Обледенілі сходи без поручнів</strong></div>
 <select class="od-select" aria-label="Рівень ризику: обледенілі сходи">
 <option value="">Обери рівень ризику…</option>
@@ -1241,7 +1212,7 @@ body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; ba
 <div class="card-verdict"></div>
 </div>
 <div class="practice-card od-card" data-answer="high" data-explain="Мокра підлога без попередження: імовірність послизнутися середня, наслідки помірні — високий ризик.">
-<img src="https://res.cloudinary.com/dmydvhkzr/image/upload/v1782498753/wet_floor_no_sign_joybhl.png" alt="Мокра підлога без попереджувального знака" data-emoji="💧">
+<img src="https://res.cloudinary.com/dmydvhkzr/image/upload/f_auto,q_auto,c_limit,w_800/v1782498753/wet_floor_no_sign_joybhl.png" alt="Мокра підлога без попереджувального знака" data-emoji="💧">
 <div class="scenario"><strong>Мокра підлога без знака</strong></div>
 <select class="od-select" aria-label="Рівень ризику: мокра підлога без знака">
 <option value="">Обери рівень ризику…</option>
@@ -1253,7 +1224,7 @@ body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; ba
 <div class="card-verdict"></div>
 </div>
 <div class="practice-card od-card" data-answer="high" data-explain="Ожеледиця: падіння можливі, наслідки зазвичай помірні. Обув’я з протектором і повільна хода зменшують ризик.">
-<img src="https://res.cloudinary.com/dmydvhkzr/image/upload/v1782498756/ice_outside_lqa4zz.png" alt="Ожеледиця надворі" data-emoji="❄️">
+<img src="https://res.cloudinary.com/dmydvhkzr/image/upload/f_auto,q_auto,c_limit,w_800/v1782498756/ice_outside_lqa4zz.png" alt="Ожеледиця надворі" data-emoji="❄️">
 <div class="scenario"><strong>Надворі ожеледиця</strong></div>
 <select class="od-select" aria-label="Рівень ризику: ожеледиця надворі">
 <option value="">Обери рівень ризику…</option>
@@ -1265,7 +1236,7 @@ body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; ba
 <div class="card-verdict"></div>
 </div>
 <div class="practice-card od-card" data-answer="mod" data-explain="Знак «Обережно!» попереджає: люди йдуть уважніше, імовірність падіння низька — ризик лише помірний.">
-<img src="https://res.cloudinary.com/dmydvhkzr/image/upload/v1782498736/wet_floor_sign_hdkail.png" alt="Мокра підлога зі знаком «Обережно!»" data-emoji="⚠️">
+<img src="https://res.cloudinary.com/dmydvhkzr/image/upload/f_auto,q_auto,c_limit,w_800/v1782498736/wet_floor_sign_hdkail.png" alt="Мокра підлога зі знаком «Обережно!»" data-emoji="⚠️">
 <div class="scenario"><strong>Мокра підлога зі знаком «Обережно!»</strong></div>
 <select class="od-select" aria-label="Рівень ризику: мокра підлога зі знаком">
 <option value="">Обери рівень ризику…</option>
@@ -1286,7 +1257,6 @@ body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; ba
 </div>
 </section>
 </main>
-
 <!-- ================= КРОК 4 ================= -->
 <main class="container hidden" id="step4Page">
 <div class="step-header">
@@ -1296,7 +1266,6 @@ body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; ba
 </div>
 <div class="progress-dots" data-page="4"><div class="progress-dot"></div><div class="progress-dot"></div><div class="progress-dot"></div><div class="progress-dot"></div><div class="progress-dot"></div><div class="progress-dot"></div></div>
 </div>
-
 <section class="card" id="s4Intro">
 <h2>🔄 Небезпечні ситуації: варіанти розвитку</h2>
 <p class="mb-16"><strong>Небезпека — це загроза життю, здоров’ю або довкіллю.</strong></p>
@@ -1322,31 +1291,30 @@ body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; ba
 <button class="btn btn-primary" onclick="showScreen(4,'s4Types')">Далі: Види розвитку →</button>
 </div>
 </section>
-
 <section class="card hidden" id="s4Types">
 <h2>📚 Види розвитку небезпечних ситуацій</h2>
 <div class="feedback feedback-warning mb-24"><strong>⚠️ Запам’ятай:</strong> різні ситуації розвиваються по-різному. Важливо вчасно розпізнати тип розвитку та діяти правильно. Натисни на картку, щоб побачити пояснення.</div>
 <div class="types-grid">
 <div class="interactive-card type-card" tabindex="0" role="button" onclick="toggleCard(this)">
-<img src="https://res.cloudinary.com/dmydvhkzr/image/upload/v1782580431/controlled_d5fcuh.png" alt="Керований розвиток ситуації" data-emoji="🧯">
+<img src="https://res.cloudinary.com/dmydvhkzr/image/upload/f_auto,q_auto,c_limit,w_800/v1782580431/controlled_d5fcuh.png" alt="Керований розвиток ситуації" data-emoji="🧯">
 <div class="card-front"><div class="card-icon">🧯</div><div class="card-title">Керований (контрольований)</div></div>
 <div class="type-hint">👆 Натисни, щоб дізнатися</div>
 <div class="card-content"><p>Ситуація, яку можна контролювати та зупинити вчасними діями. Наприклад, невелике загоряння можна загасити вогнегасником, якщо діяти швидко.</p></div>
 </div>
 <div class="interactive-card type-card" tabindex="0" role="button" onclick="toggleCard(this)">
-<img src="https://res.cloudinary.com/dmydvhkzr/image/upload/v1782580434/gradual_k4h0ac.png" alt="Поступовий розвиток ситуації" data-emoji="💬">
+<img src="https://res.cloudinary.com/dmydvhkzr/image/upload/f_auto,q_auto,c_limit,w_800/v1782580434/gradual_k4h0ac.png" alt="Поступовий розвиток ситуації" data-emoji="💬">
 <div class="card-front"><div class="card-icon">💬</div><div class="card-title">Поступовий</div></div>
 <div class="type-hint">👆 Натисни, щоб дізнатися</div>
 <div class="card-content"><p>Ситуація розвивається повільно, крок за кроком. Важливо зупинити її на ранньому етапі. Наприклад: образа → приниження → ізоляція → психологічна травма.</p></div>
 </div>
 <div class="interactive-card type-card" tabindex="0" role="button" onclick="toggleCard(this)">
-<img src="https://res.cloudinary.com/dmydvhkzr/image/upload/v1782580429/sudden_duslck.png" alt="Раптовий розвиток ситуації" data-emoji="⚡">
+<img src="https://res.cloudinary.com/dmydvhkzr/image/upload/f_auto,q_auto,c_limit,w_800/v1782580429/sudden_duslck.png" alt="Раптовий розвиток ситуації" data-emoji="⚡">
 <div class="card-front"><div class="card-icon">⚡</div><div class="card-title">Раптовий</div></div>
 <div class="type-hint">👆 Натисни, щоб дізнатися</div>
 <div class="card-content"><p>Ситуація виникає несподівано і швидко. Потрібна миттєва реакція. Наприклад, ДТП, раптова аварія — все стається за лічені секунди.</p></div>
 </div>
 <div class="interactive-card type-card" tabindex="0" role="button" onclick="toggleCard(this)">
-<img src="https://res.cloudinary.com/dmydvhkzr/image/upload/v1782580426/chain_hkvv3s.png" alt="Ланцюговий розвиток ситуації" data-emoji="🔗">
+<img src="https://res.cloudinary.com/dmydvhkzr/image/upload/f_auto,q_auto,c_limit,w_800/v1782580426/chain_hkvv3s.png" alt="Ланцюговий розвиток ситуації" data-emoji="🔗">
 <div class="card-front"><div class="card-icon">🔗</div><div class="card-title">Ланцюговий</div></div>
 <div class="type-hint">👆 Натисни, щоб дізнатися</div>
 <div class="card-content"><p>Одна подія запускає ланцюг інших. Намагайся розірвати ланцюг небезпек якомога раніше. Наприклад: фейк → паніка → закупівлі → дефіцит.</p></div>
@@ -1357,14 +1325,13 @@ body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; ba
 <button class="btn btn-primary" onclick="showScreen(4,'s4Controlled')">Далі: Керований розвиток →</button>
 </div>
 </section>
-
 <section class="card hidden" id="s4Controlled">
 <h2>🧯 Керований розвиток</h2>
 <div class="feedback feedback-warning mb-24"><strong>📌 Ситуація:</strong> На кухні загорівся рушник.</div>
 <div class="image-flow">
-<figure><img src="https://res.cloudinary.com/dmydvhkzr/image/upload/v1782580427/kitchen_fire_dji9lm.png" alt="Загоряння рушника на кухні" data-emoji="🔥"><figcaption>Загоряння</figcaption></figure>
+<figure><img src="https://res.cloudinary.com/dmydvhkzr/image/upload/f_auto,q_auto,c_limit,w_800/v1782580427/kitchen_fire_dji9lm.png" alt="Загоряння рушника на кухні" data-emoji="🔥"><figcaption>Загоряння</figcaption></figure>
 <div class="flow-arrow">→</div>
-<figure><img src="https://res.cloudinary.com/dmydvhkzr/image/upload/v1782580426/firefighting_yypa9b.png" alt="Гасіння невеликого загоряння" data-emoji="🧯"><figcaption>Гасіння</figcaption></figure>
+<figure><img src="https://res.cloudinary.com/dmydvhkzr/image/upload/f_auto,q_auto,c_limit,w_800/v1782580426/firefighting_yypa9b.png" alt="Гасіння невеликого загоряння" data-emoji="🧯"><figcaption>Гасіння</figcaption></figure>
 <div class="flow-arrow">→</div>
 <div class="flow-result">✅ Безпека</div>
 </div>
@@ -1382,7 +1349,6 @@ body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; ba
 <button class="btn btn-success" onclick="showScreen(4,'s4Gradual')">Далі: Поступовий розвиток →</button>
 </div>
 </section>
-
 <section class="card hidden" id="s4Gradual">
 <h2>💬 Поступовий розвиток</h2>
 <div class="feedback feedback-warning mb-24"><strong>📌 Ситуація:</strong> Образливі жарти в чаті.</div>
@@ -1407,14 +1373,13 @@ body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; ba
 <button class="btn btn-success" onclick="showScreen(4,'s4Sudden')">Далі: Раптовий розвиток →</button>
 </div>
 </section>
-
 <section class="card hidden" id="s4Sudden">
 <h2>⚡ Раптовий розвиток</h2>
 <div class="feedback feedback-warning mb-24"><strong>📌 Ситуація:</strong> Їзда на самокаті через дорогу на червоне світло.</div>
 <div class="image-flow">
-<figure><img src="https://res.cloudinary.com/dmydvhkzr/image/upload/v1782580428/scooter_ufpann.png" alt="Самокат виїжджає на дорогу на червоне світло" data-emoji="🛴"><figcaption>Подія</figcaption></figure>
+<figure><img src="https://res.cloudinary.com/dmydvhkzr/image/upload/f_auto,q_auto,c_limit,w_800/v1782580428/scooter_ufpann.png" alt="Самокат виїжджає на дорогу на червоне світло" data-emoji="🛴"><figcaption>Подія</figcaption></figure>
 <div class="flow-arrow">→</div>
-<figure><img src="https://res.cloudinary.com/dmydvhkzr/image/upload/v1782580435/car_accident_ohtc4j.png" alt="ДТП за лічені секунди" data-emoji="💥"><figcaption>Наслідок</figcaption></figure>
+<figure><img src="https://res.cloudinary.com/dmydvhkzr/image/upload/f_auto,q_auto,c_limit,w_800/v1782580435/car_accident_ohtc4j.png" alt="ДТП за лічені секунди" data-emoji="💥"><figcaption>Наслідок</figcaption></figure>
 </div>
 <p class="mb-16"><strong>❓ Що може статися протягом кількох секунд? Обери всі правильні варіанти.</strong></p>
 <div class="task-options" id="s4SuddenOptions">
@@ -1433,7 +1398,6 @@ body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; ba
 <button class="btn btn-success" onclick="showScreen(4,'s4Fake')">Далі: Ланцюгова небезпека →</button>
 </div>
 </section>
-
 <section class="card hidden" id="s4Fake">
 <h2>🔗 Ланцюгова небезпека</h2>
 <div class="feedback feedback-warning mb-24"><strong>📌 Ситуація:</strong> Фейкова інформація у соцмережах.<br><strong>Завдання:</strong> побудуй ланцюг розвитку подій. Перетягни картки у віконця з відповідними номерами у правильній послідовності.</div>
@@ -1460,13 +1424,12 @@ body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; ba
 <button class="btn btn-success" onclick="showScreen(4,'s4Conflict')">Далі: Аналіз ситуації →</button>
 </div>
 </section>
-
 <section class="card hidden" id="s4Conflict">
 <h2>🔍 Аналіз ситуації</h2>
 <div class="feedback feedback-warning mb-24"><strong>📌 Ситуація:</strong> Конфлікт між учнями в школі.</div>
 <div class="two-col">
 <div class="image-container" style="margin: 0;">
-<img src="https://res.cloudinary.com/dmydvhkzr/image/upload/v1782580428/school_conflict_owckzf.png" alt="Конфлікт між учнями у школі" data-emoji="🏫">
+<img src="https://res.cloudinary.com/dmydvhkzr/image/upload/f_auto,q_auto,c_limit,w_800/v1782580428/school_conflict_owckzf.png" alt="Конфлікт між учнями у школі" data-emoji="🏫">
 </div>
 <div>
 <p class="mb-16"><strong>❓ Познач дії, які посилили небезпеку.</strong></p>
@@ -1487,7 +1450,6 @@ body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; ba
 <button class="btn btn-success" onclick="showScreen(4,'s4ConflictChain')">Далі: Побудуй ланцюг →</button>
 </div>
 </section>
-
 <section class="card hidden" id="s4ConflictChain">
 <h2>🔗 Побудуй ланцюг небезпек</h2>
 <div class="feedback feedback-warning mb-24"><strong>📌 Ситуація:</strong> Сварка між учнями в школі.<br><strong>Завдання:</strong> перетягни картки у віконця з номерами, щоб показати, як розвивається ситуація.</div>
@@ -1514,7 +1476,6 @@ body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; ba
 <button class="btn btn-success" onclick="showScreen(4,'s4Check')">Далі: Перевір себе →</button>
 </div>
 </section>
-
 <section class="card hidden" id="s4Check">
 <h2>✅ Перевір себе</h2>
 <div class="feedback feedback-warning mb-24"><strong>📌 Завдання:</strong> Обери твердження, яке характерне для кожного типу розвитку.</div>
@@ -1555,7 +1516,6 @@ body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; ba
 </div>
 </section>
 </main>
-
 <!-- ================= КРОК 5 ================= -->
 <main class="container hidden" id="step5Page">
 <div class="step-header">
@@ -1565,12 +1525,11 @@ body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; ba
 </div>
 <div class="progress-dots" data-page="5"><div class="progress-dot"></div><div class="progress-dot"></div><div class="progress-dot"></div><div class="progress-dot"></div><div class="progress-dot"></div><div class="progress-dot"></div></div>
 </div>
-
 <section class="card" id="s5Intro">
 <h2>🧠 Ухвалення рішень в умовах невизначеності</h2>
 <div class="theory-layout">
 <div class="theory-image">
-<img src="https://res.cloudinary.com/dmydvhkzr/image/upload/v1782655864/alina-scenario_r157jd.png" alt="Альбіна в незнайомому районі" data-emoji="👧">
+<img src="https://res.cloudinary.com/dmydvhkzr/image/upload/f_auto,q_auto,c_limit,w_800/v1782655864/alina-scenario_r157jd.png" alt="Альбіна в незнайомому районі" data-emoji="👧">
 </div>
 <div class="theory-content">
 <p class="mb-16"><strong>Невизначеність — це ситуація, коли інформації недостатньо або наслідки важко передбачити.</strong></p>
@@ -1594,7 +1553,6 @@ body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; ba
 <button class="btn btn-primary" onclick="showScreen(5,'s5Obstacles')">Далі: Що заважає →</button>
 </div>
 </section>
-
 <section class="card hidden" id="s5Obstacles">
 <h2>⚠️ Що заважає ухвалювати рішення?</h2>
 <p class="mb-16"><strong>Натисни на картку, щоб дізнатися більше:</strong></p>
@@ -1637,7 +1595,6 @@ body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; ba
 <button class="btn btn-success" onclick="showScreen(5,'s5Algorithm')">Далі: Алгоритм →</button>
 </div>
 </section>
-
 <section class="card hidden" id="s5Algorithm">
 <h2>📋 Алгоритм ухвалення рішення в умовах невизначеності</h2>
 <p class="mb-16"><strong>Ознайомся з алгоритмом:</strong></p>
@@ -1667,7 +1624,6 @@ body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; ba
 <button class="btn btn-primary" onclick="showScreen(5,'s5Order')">Далі: Впорядкуй алгоритм →</button>
 </div>
 </section>
-
 <section class="card hidden" id="s5Order">
 <h2>🔢 Впорядкуй алгоритм</h2>
 <div class="feedback feedback-warning mb-24"><strong>📌 Завдання:</strong> Перетягни кроки у правильному порядку (1-2-3-4).</div>
@@ -1694,16 +1650,14 @@ body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; ba
 <button class="btn btn-success" onclick="showScreen(5,'s5Albina')">Далі: Ситуація Альбіни →</button>
 </div>
 </section>
-
 <section class="card hidden" id="s5Albina">
 <h2>👧 Аналіз ситуації Альбіни</h2>
 <div class="feedback feedback-warning mb-24"><strong>📌 Ситуація:</strong> Після тренування Альбіна випадково поїхала не тим автобусом і опинилася в незнайомому районі. Телефон розрядився, а на вулиці вже починало темніти.</div>
 <p class="mb-16"><strong>Що обере Альбіна?</strong> Відкрий кожну дію, щоб побачити наслідки. Проаналізуй кожен варіант і зроби висновок, чи достатньо інформації для ухвалення рішення.</p>
 <div class="albina-progress" id="s5AlbinaCounter">Проаналізовано варіантів: <strong>0</strong>/4</div>
-
 <div class="albina-card" id="albina-walk">
 <div class="albina-head" onclick="toggleAlbina('walk')" role="button" tabindex="0">
-<img src="https://res.cloudinary.com/dmydvhkzr/image/upload/v1782655880/walk_xdlsbq.png" alt="Іти навмання незнайомим районом" data-emoji="🚶">
+<img src="https://res.cloudinary.com/dmydvhkzr/image/upload/f_auto,q_auto,c_limit,w_800/v1782655880/walk_xdlsbq.png" alt="Іти навмання незнайомим районом" data-emoji="🚶">
 <div class="albina-title">🚶 Піти навмання шукати знайому вулицю</div>
 <div class="albina-status"></div><div class="albina-toggle">▼</div>
 </div>
@@ -1727,10 +1681,9 @@ body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; ba
 </div>
 </div>
 </div>
-
 <div class="albina-card" id="albina-passerby">
 <div class="albina-head" onclick="toggleAlbina('passerby')" role="button" tabindex="0">
-<img src="https://res.cloudinary.com/dmydvhkzr/image/upload/v1782655872/crossing_ztkmk1.png" alt="Звернутися до випадкового перехожого" data-emoji="🧍">
+<img src="https://res.cloudinary.com/dmydvhkzr/image/upload/f_auto,q_auto,c_limit,w_800/v1782655872/crossing_ztkmk1.png" alt="Звернутися до випадкового перехожого" data-emoji="🧍">
 <div class="albina-title">🧍 Звернутися по допомогу до випадкового перехожого</div>
 <div class="albina-status"></div><div class="albina-toggle">▼</div>
 </div>
@@ -1754,10 +1707,9 @@ body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; ba
 </div>
 </div>
 </div>
-
 <div class="albina-card" id="albina-shop">
 <div class="albina-head" onclick="toggleAlbina('shop')" role="button" tabindex="0">
-<img src="https://res.cloudinary.com/dmydvhkzr/image/upload/v1782655865/shop_hsl2gz.png" alt="Зайти до магазину або аптеки" data-emoji="🏪">
+<img src="https://res.cloudinary.com/dmydvhkzr/image/upload/f_auto,q_auto,c_limit,w_800/v1782655865/shop_hsl2gz.png" alt="Зайти до магазину або аптеки" data-emoji="🏪">
 <div class="albina-title">🏪 Зайти до магазину (аптеки) або іншого людного місця</div>
 <div class="albina-status"></div><div class="albina-toggle">▼</div>
 </div>
@@ -1781,10 +1733,9 @@ body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; ba
 </div>
 </div>
 </div>
-
 <div class="albina-card" id="albina-bus">
 <div class="albina-head" onclick="toggleAlbina('bus')" role="button" tabindex="0">
-<img src="https://res.cloudinary.com/dmydvhkzr/image/upload/v1782655873/bus_wsmuhl.png" alt="Сісти в перший автобус" data-emoji="🚌">
+<img src="https://res.cloudinary.com/dmydvhkzr/image/upload/f_auto,q_auto,c_limit,w_800/v1782655873/bus_wsmuhl.png" alt="Сісти в перший автобус" data-emoji="🚌">
 <div class="albina-title">🚌 Сісти в перший автобус, який під’їде</div>
 <div class="albina-status"></div><div class="albina-toggle">▼</div>
 </div>
@@ -1808,14 +1759,12 @@ body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; ba
 </div>
 </div>
 </div>
-
 <div id="s5AlbinaFeedback" class="feedback" style="display:none;"></div>
 <div class="navigation">
 <button class="btn btn-secondary" onclick="showScreen(5,'s5Order')">← Назад</button>
 <button class="btn btn-success" onclick="showScreen(5,'s5Match')">Далі: Знайди безпечніше рішення →</button>
 </div>
 </section>
-
 <section class="card hidden" id="s5Match">
 <h2>🔗 Знайди безпечніше рішення</h2>
 <div class="feedback feedback-warning mb-24"><strong>📌 Інструкція:</strong> З’єднай ситуацію з найбезпечнішим рішенням. Натискай по черзі: спочатку на картку із ситуацією, потім — з рішенням. Щоб роз’єднати пару, натисни на будь-яку її картку.</div>
@@ -1847,7 +1796,6 @@ body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; ba
 <button class="btn btn-success" onclick="showScreen(5,'s5Quest')">Далі: Мініквест →</button>
 </div>
 </section>
-
 <section class="card hidden" id="s5Quest">
 <h2>🎯 Мініквест «Обери свій шлях»</h2>
 <div class="feedback feedback-warning mb-24"><strong>📌 Ситуація:</strong> Ти загубився(лася) в незнайомому районі. Обери свою дію та дізнайся наслідки. Досліди всі 4 шляхи!</div>
@@ -1865,7 +1813,6 @@ body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; ba
 <button class="btn btn-success" onclick="showScreen(5,'s5Check')">Далі: Перевір себе →</button>
 </div>
 </section>
-
 <section class="card hidden" id="s5Check">
 <h2>✅ Перевір себе</h2>
 <div class="feedback feedback-warning mb-24"><strong>📌 Завдання:</strong> Познач, що допомагає ухвалювати рішення в умовах невизначеності (можна обрати кілька).</div>
@@ -1885,12 +1832,22 @@ body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; ba
 </div>
 </section>
 </main>
-
 <!-- ================= КРОК 6 ================= -->
 <main class="container hidden" id="step6Page">
 <div class="step6-header">
 <h2>🎉 Вітаємо! Ти завершив(ла) тренажер!</h2>
 <p>Час дізнатися свій рівень та підсумки навчання</p>
+</div>
+<div class="student-card student-card--compact">
+<div class="student-icon">🎓</div>
+<div class="student-card-body">
+<h3 class="student-title">👤 Хто проходить тренажер?</h3>
+<p class="student-card-hint">Підпиши результат — ПІБ з'явиться у PNG-звіті.</p>
+<div class="student-card-row">
+<input type="text" class="student-input" id="studentNameInputStep6" maxlength="80" placeholder="Наприклад: Олена Коваленко, 10-А" oninput="setStudentName(this.value, 'studentNameInputStep6')" aria-label="Прізвище, ім'я та клас учня">
+<span class="name-status" id="nameStatusStep6">✍️ Не підписано</span>
+</div>
+</div>
 </div>
 <div class="card">
 <h2>⭐ Оціни свої вміння</h2>
@@ -1938,26 +1895,10 @@ body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; ba
 <div class="level-badge-desc" id="finalLevelDesc">☆☆☆☆☆</div>
 </div>
 </div>
-<p style="color: var(--text-muted); font-weight: 600;">Продовжуй практикувати — і твій рівень зростатиме!</p>
-</div>
-<div class="card" id="saveResultsCard">
+<div class="card">
 <h2>🖼️ Збереження результатів</h2>
-<p class="mb-16" style="color: var(--text-muted);">Завантаж PNG-зображення «Результати автоматичного оцінювання та самооцінювання» — його можна надіслати вчителю або зберегти для себе.</p>
-<div class="student-card student-card--compact mb-16" style="margin-bottom: 16px;">
-<div class="student-icon">🎓</div>
-<div class="student-card-body">
-<div class="student-title-row">
-<div class="student-title">👤 Підпис результату (ПІБ, клас)</div>
-<span class="name-status" id="nameStatusStep6">✍️ Не підписано</span>
-</div>
-<div class="student-subtitle">Це поле синхронізоване з полем на головній сторінці.</div>
-<input type="text" class="student-input" id="studentNameInputStep6" placeholder="Наприклад: Шевченко Тарас, 10-А" maxlength="80" autocomplete="name" aria-label="Прізвище, ім'я та клас">
-</div>
-</div>
-<div class="export-row">
+<p class="mb-16" style="color:var(--text-muted);">Завантаж PNG-звіт із результатами автоматичного оцінювання та самооцінювання. Підпиши результат своїм іменем у полі вище.</p>
 <button class="btn btn-primary" id="exportPngBtn" onclick="exportPNG()">🖼️ Завантажити PNG</button>
-<span class="export-hint">📄 Назва файлу: Результати_[ПІБ].png</span>
-</div>
 </div>
 <div class="tip-card">
 💡 <strong>Кожен новий крок відкриває нові можливості.</strong><br>
@@ -1969,7 +1910,6 @@ body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; ba
 <button class="btn btn-primary" onclick="goToMainPage()">🏠 На головну</button>
 </div>
 </main>
-
 <!-- ================= МОДАЛЬНІ ВІКНА ================= -->
 <div class="modal-overlay" id="progressModal" role="dialog" aria-modal="true" aria-labelledby="progressTitle">
 <div class="modal">
@@ -1991,21 +1931,19 @@ body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; ba
 </div>
 </div>
 </div>
-
 <div class="modal-overlay" id="helpModal" role="dialog" aria-modal="true" aria-labelledby="helpTitle">
 <div class="modal">
 <div class="modal-header"><h2 id="helpTitle">❓ Як працювати з тренажером</h2><button class="modal-close" onclick="closeModal('helpModal')" aria-label="Закрити">×</button></div>
 <ul class="feature-list">
 <li data-icon="🎯"><strong>Як почати?</strong><br>Натисни кнопку «Розпочати параграф» або «Крок 1» на головній сторінці та виконуй завдання.</li>
 <li data-icon="🔍"><strong>Як проходити тренажер?</strong><br>Ознайомся із завданням. Уважно читай пояснення. Виконай практичне завдання або пройди тест.</li>
-<li data-icon="💡"><strong>Обирай рішення</strong><br>Обери найбезпечніше рішення, переглянь результат і пояснення.</li>
+<li data-icon="💡"><strong>Обирай рішення</strong><br>Обери найбезпечніше рішення, переглянь результат і пояснення. Переходь до наступного завдання, послідовно виконай усі кроки.</li>
 <li data-icon="🏆"><strong>Отримай відзнаку</strong><br>Після завершення всіх кроків оціни свій прогрес, підпиши результат своїм іменем та завантаж PNG.</li>
 </ul>
 <div class="tip-card">🌟 <strong>Пам’ятай:</strong> уважність, аналіз і правильне рішення допоможуть тобі успішно пройти тренажер!</div>
 <button class="btn btn-primary mt-24" onclick="closeModal('helpModal')" style="width: 100%;">Зрозуміло!</button>
 </div>
 </div>
-
 <div class="modal-overlay" id="infoModal" role="dialog" aria-modal="true" aria-labelledby="infoModalTitle">
 <div class="modal">
 <div class="modal-header"><h2 id="infoModalTitle">Інформація</h2><button class="modal-close" onclick="closeModal('infoModal')" aria-label="Закрити">×</button></div>
@@ -2013,12 +1951,10 @@ body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; ba
 <div id="infoModalFooter" style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: 20px;"></div>
 </div>
 </div>
-
-<!-- Прихований шаблон експорту PNG: рендериться поза екраном, учень його не бачить -->
+<!-- Прихований шаблон експорту PNG -->
 <div id="exportTemplate" aria-hidden="true"></div>
-
 <script>
-// ============ UNIVERSAL DRAG & DROP (Mouse + Touch) ============
+// ============ UNIVERSAL DRAG & DROP ============
 let draggedItem = null, draggedClone = null, currentDropTarget = null, touchOffsetX = 0, touchOffsetY = 0;
 function attachDragListeners(item) {
 item.addEventListener('dragstart', dragStart);
@@ -2172,14 +2108,14 @@ dot.classList.toggle('active', n === page);
 renderStepNavigation();
 updateStep6Display();
 }
-// ============ ЗБЕРЕЖЕННЯ / ЗАВАНТАЖЕННЯ (єдине сховище — localStorage) ============
+// ============ ЗБЕРЕЖЕННЯ / ЗАВАНТАЖЕННЯ ============
 function saveProgress() {
 try {
 localStorage.setItem('section1Progress_v3', JSON.stringify({
 attempts: progressTracker.attempts,
 stepTracker, stepsCompleted, state
 }));
-} catch (e) { /* сховище недоступне — працюємо без збереження */ }
+} catch (e) {}
 }
 function loadProgress() {
 try {
@@ -2312,11 +2248,11 @@ const SCREENS = {
 5: ['s5Intro', 's5Obstacles', 's5Algorithm', 's5Order', 's5Albina', 's5Match', 's5Quest', 's5Check']
 };
 const HEADER_TITLES = {
-1: '🔍 § 1. Стартова ситуація',
-2: '🏠 § 1. Безпека та безпечний простір',
-3: '⚠️ § 1. Ризики',
-4: '🔄 § 1. Небезпечні ситуації',
-5: '🧠 § 1. Ухвалення рішень',
+1: '🔍 § 1. Безпека, небезпека і ризики',
+2: '🏠 § 1. Безпека, небезпека і ризики',
+3: '⚠️ § 1. Безпека, небезпека і ризики',
+4: '🔄 § 1. Безпека, небезпека і ризики',
+5: '🧠 § 1. Безпека, небезпека і ризики',
 6: '🏆 Самооцінювання'
 };
 function hideAllPages() {
@@ -2452,7 +2388,7 @@ clearOptions(optsSelector);
 hideFeedback(feedbackId);
 showToast('🔄 Спробуй ще раз');
 }
-// ============ КРОК 1: ХОТСПОТИ (6 ризиків) ============
+// ============ КРОК 1: ХОТСПОТИ ============
 const RISKS = {
 rebar: { icon: '🏗️', name: 'Арматура, що стирчить', risk: 'Ризик травмування', what: 'З недобудованих конструкцій стирчать металеві прути арматури. Об них легко спіткнутися або наткнутися — можна отримати глибоку рану чи серйозну травму.', safe: 'Не наближайся до недобудованих конструкцій та арматури. Обирай для прогулянок і фото безпечні місця.' },
 phone: { icon: '📱', name: 'Селфі на висоті', risk: 'Ризик падіння через неуважність', what: 'Роблячи фото, людина дивиться в екран, а не під ноги. Один крок убік — і можна оступитися біля краю плити чи спіткнутися об матеріали.', safe: 'Роби фото лише в безпечному місці, подалі від краю перекриття та небезпек. Спершу переконайся, що стоїш надійно.' },
@@ -3162,7 +3098,7 @@ if (!confirm('Ти впевнений(а), що хочеш почати споч
 try { localStorage.removeItem('section1Progress_v3'); } catch (e) {}
 window.location.reload();
 }
-// ============ ЕКСПОРТ PNG (html2canvas) ============
+// ============ ЕКСПОРТ PNG ============
 const EXPORT_META = {
 trainer: 'Навігатор ризиків',
 section: '§ 1. Безпека, небезпека і ризики',
@@ -3170,7 +3106,6 @@ subject: "Здоров'я, безпека та добробут",
 grade: '10 клас',
 rulesTitle: '🛡️ Мої ключові правила безпеки та управління ризиками'
 };
-// Ключові теми — з теоретичних блоків САМЕ §1 (кроки 2–5)
 const EXPORT_RULES = [
 { icon: '⚠️', title: 'Оцінювання ризику', points: [
 'Ризик = імовірність події × тяжкість наслідків.',
@@ -3211,7 +3146,7 @@ const RULE_PALETTE = [
 function expEl(tag, cls, text) {
 const e = document.createElement(tag);
 if (cls) e.className = cls;
-if (text != null) e.textContent = text; // безпечне екранування тексту
+if (text != null) e.textContent = text;
 return e;
 }
 function pad2(n) { return String(n).padStart(2, '0'); }
@@ -3228,7 +3163,6 @@ const level = getLevel(st.percent);
 const now = new Date();
 const studentName = (state.studentName || '').trim();
 const page = expEl('div', 'exp-page');
-// --- Шапка ---
 const header = expEl('div', 'exp-header');
 const hLeft = expEl('div', 'exp-header-left');
 hLeft.appendChild(expEl('div', 'exp-header-emoji', '🧭'));
@@ -3245,12 +3179,10 @@ hRight.appendChild(expEl('div', null, 'Результат сформовано �
 header.appendChild(hRight);
 page.appendChild(header);
 const body = expEl('div', 'exp-body');
-// --- Рядок учня (ПІБ — лише через textContent) ---
 const studentRow = expEl('div', 'exp-student');
 studentRow.appendChild(expEl('span', 'exp-student-label', '👤 Учень / учениця (ПІБ, клас):'));
 studentRow.appendChild(expEl('span', 'exp-student-name', studentName || '________________________________'));
 body.appendChild(studentRow);
-// --- Статистика ---
 body.appendChild(expEl('div', 'exp-section-title', '📊 Результати проходження'));
 const stats = expEl('div', 'exp-stats');
 [
@@ -3274,7 +3206,6 @@ pRow.appendChild(bar);
 pRow.appendChild(expEl('span', 'exp-percent', st.percent + '%'));
 pRow.appendChild(expEl('span', 'exp-level', level.stars + ' ' + level.name));
 body.appendChild(pRow);
-// --- Мій шлях ---
 body.appendChild(expEl('div', 'exp-section-title', '🗺️ Мій шлях'));
 const table = expEl('table', 'exp-table');
 const thead = document.createElement('thead');
@@ -3300,7 +3231,6 @@ tbody.appendChild(row);
 }
 table.appendChild(tbody);
 body.appendChild(table);
-// --- Самооцінювання (формулювання — з наявних блоків star-rating) ---
 body.appendChild(expEl('div', 'exp-section-title', '⭐ Самооцінювання вмінь'));
 const skillsWrap = expEl('div');
 document.querySelectorAll('#step6Page .skill-eval').forEach((ev, idx) => {
@@ -3313,7 +3243,6 @@ row.appendChild(expEl('div', 'exp-skill-count', rating > 0 ? rating + '/5' : 'н
 skillsWrap.appendChild(row);
 });
 body.appendChild(skillsWrap);
-// --- Мої ключові правила (адаптивна сітка) ---
 body.appendChild(expEl('div', 'exp-section-title', EXPORT_META.rulesTitle));
 const n = EXPORT_RULES.length;
 const gridCls = (n === 2 || n === 4) ? 'cols-2' : (n === 3 ? 'cols-3' : 'cols-auto');
@@ -3334,7 +3263,6 @@ rules.appendChild(card);
 });
 body.appendChild(rules);
 page.appendChild(body);
-// --- Футер ---
 const footer = expEl('div', 'exp-footer');
 footer.appendChild(expEl('div', null, 'Підпис учителя: ______________'));
 footer.appendChild(expEl('div', null, 'Згенеровано: ' + fmtDate(now) + ', ' + fmtTime(now) + ' • Тренажер «' + EXPORT_META.trainer + '»'));
@@ -3352,11 +3280,9 @@ const originalHTML = btn.innerHTML;
 btn.disabled = true;
 btn.innerHTML = '<span class="btn-spinner"></span> Генеруємо…';
 try {
-// Шаблон будується заново з актуальних даних трекера; він поза екраном
-// і не містить кнопок навігації, полів вводу чи кнопки експорту.
 buildExportTemplate();
 const node = document.getElementById('exportTemplate');
-await new Promise(r => setTimeout(r, 60)); // дати браузеру виконати layout
+await new Promise(r => setTimeout(r, 60));
 const canvas = await html2canvas(node, { scale: 2, backgroundColor: '#ffffff', useCORS: true, logging: false });
 const blob = await new Promise(res => canvas.toBlob(res, 'image/png'));
 if (!blob) throw new Error('Не вдалося створити PNG');
