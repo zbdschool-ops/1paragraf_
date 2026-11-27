@@ -2,6 +2,7 @@
 <html lang="uk">
 <head>
 <meta charset="UTF-8">
+<script id="separate-progress">/* Окремий прогрес для кожної адреси */(function(){var p=location.pathname.replace(/index\.html$/,"")+"::";try{var S=Storage.prototype;["getItem","setItem","removeItem"].forEach(function(m){var f=S[m];S[m]=function(k){var a=[].slice.call(arguments);if(this===window.localStorage)a[0]=p+k;return f.apply(this,a);};});}catch(e){}})();</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Тренажер «Навігатор ризиків» — § 1. Безпека, небезпека і ризики</title>
 <script src="html2canvas.min.js"></script>
@@ -544,7 +545,7 @@ body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; ba
 <div class="hero-unified">
 <div class="hero-illustration">
 <div class="hero-illustration-title">🧭 § 1. Безпека, небезпека і ризики</div>
-<img src="images/boy_with_map_ilnj0h.webp" alt="Хлопчик із мапою — навігатор ризиків" data-emoji="🧭">
+<img loading="lazy" src="images/boy_with_map_ilnj0h.webp" alt="Хлопчик із мапою — навігатор ризиків" data-emoji="🧭">
 </div>
 <div class="hero-navigation">
 <h2>🧭 Навігація по кроках</h2>
@@ -593,7 +594,7 @@ body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; ba
 <div class="risk-counter-item">1</div><div class="risk-counter-item">2</div><div class="risk-counter-item">3</div><div class="risk-counter-item">4</div><div class="risk-counter-item">5</div><div class="risk-counter-item">6</div>
 </div>
 <div class="image-container hotspot-stage" id="imageContainer">
-<img src="images/construction_site.png_fdryw4.webp" alt="Будівельний майданчик із прихованими ризиками" data-emoji="🏗️">
+<img loading="lazy" src="images/construction_site_png_fdryw4.webp" alt="Будівельний майданчик із прихованими ризиками" data-emoji="🏗️">
 <div class="hotspot" data-risk="rebar" style="top: 15%; left: 8%;" onclick="findRisk(this)" role="button" tabindex="0" aria-label="Знайти ризик 1"><span class="hotspot-plus">+</span></div>
 <div class="hotspot" data-risk="phone" style="top: 25%; left: 22%;" onclick="findRisk(this)" role="button" tabindex="0" aria-label="Знайти ризик 2"><span class="hotspot-plus">+</span></div>
 <div class="hotspot" data-risk="roof" style="top: 75%; left: 60%;" onclick="findRisk(this)" role="button" tabindex="0" aria-label="Знайти ризик 3"><span class="hotspot-plus">+</span></div>
@@ -657,7 +658,7 @@ body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; ba
 </ul>
 </div>
 <div class="text-center">
-<img src="images/icon_check_circle_i5fjx8.webp" alt="Знак підтвердження — безпечне рішення" data-emoji="✅" style="max-width: 220px; width: 100%; height: auto;">
+<img loading="lazy" src="images/icon_check_circle_i5fjx8.webp" alt="Знак підтвердження — безпечне рішення" data-emoji="✅" style="max-width: 220px; width: 100%; height: auto;">
 </div>
 </div>
 <div class="tip-card-inline"><span class="tip-card-icon">💡</span><div><strong>Пам’ятай:</strong> безпечне рішення — це не відмова від друзів, а турбота про них.</div></div>
@@ -705,7 +706,7 @@ body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; ba
 <h2>🛡️ Безпека</h2>
 <div class="theory-layout">
 <div class="theory-image">
-<img src="images/safety_boy_thumbsup_q8pleh.webp" alt="Хлопчик показує схвальний жест — безпека" data-emoji="🛡️">
+<img loading="lazy" src="images/safety_boy_thumbsup_q8pleh.webp" alt="Хлопчик показує схвальний жест — безпека" data-emoji="🛡️">
 </div>
 <div class="theory-content">
 <p class="mb-16"><strong>Безпека — це стан захищеності від загроз, небезпек і ризиків.</strong></p>
@@ -766,7 +767,7 @@ body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; ba
 <div class="feedback feedback-warning mb-24"><strong>📌 Ситуація:</strong> У школі є укриття, але запасний вихід захаращений коробками.</div>
 <div class="two-col">
 <div class="image-container" style="margin: 0;">
-<img src="images/exit_door_wxjg3v.webp" alt="Запасний вихід, захаращений коробками" data-emoji="🚪">
+<img loading="lazy" src="images/exit_door_wxjg3v.webp" alt="Запасний вихід, захаращений коробками" data-emoji="🚪">
 </div>
 <div>
 <p class="mb-16"><strong>Чи можна вважати цей простір безпечним?</strong></p>
@@ -792,7 +793,7 @@ body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; ba
 <div class="feedback feedback-warning mb-24"><strong>📌 Ситуація:</strong> Учень боїться відповідати на уроці, бо однокласники часто висміюють його відповіді.</div>
 <div class="two-col">
 <div class="image-container" style="margin: 0;">
-<img src="images/stressed_student_n7xvhb.webp" alt="Учень стресує через насмішки однокласників" data-emoji="🧠">
+<img loading="lazy" src="images/stressed_student_n7xvhb.webp" alt="Учень стресує через насмішки однокласників" data-emoji="🧠">
 </div>
 <div>
 <p class="mb-16"><strong>Що може допомогти покращити ситуацію? (Обери дві правильні відповіді.)</strong></p>
@@ -817,7 +818,7 @@ body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; ba
 <div class="feedback feedback-warning mb-24"><strong>📌 Ситуація:</strong> Нову ученицю не беруть до командних проєктів.</div>
 <div class="two-col">
 <div class="image-container" style="margin: 0;">
-<img src="images/girl_studying_c4v1ht.webp" alt="Нова учениця почувається ізольовано" data-emoji="👥">
+<img loading="lazy" src="images/girl_studying_c4v1ht.webp" alt="Нова учениця почувається ізольовано" data-emoji="👥">
 </div>
 <div>
 <p class="mb-16"><strong>Що може допомогти покращити ситуацію? (Обери дві правильні відповіді.)</strong></p>
@@ -844,7 +845,7 @@ body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; ba
 <div class="feedback feedback-warning mb-24"><strong>📌 Ситуація:</strong> Тобі надійшло повідомлення: «Терміново підтвердь пароль від акаунта».</div>
 <div class="two-col">
 <div class="image-container" style="margin: 0;">
-<img src="images/phone_warning_y2mszz.webp" alt="Підозріле повідомлення на телефоні" data-emoji="📱">
+<img loading="lazy" src="images/phone_warning_y2mszz.webp" alt="Підозріле повідомлення на телефоні" data-emoji="📱">
 </div>
 <div>
 <p class="mb-16"><strong>Як краще діяти?</strong></p>
@@ -871,7 +872,7 @@ body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; ba
 <div class="feedback feedback-warning mb-24"><strong>📌 Ситуація:</strong> Ти отримав(ла) низьку оцінку за важливу контрольну роботу.</div>
 <div class="two-col">
 <div class="image-container" style="margin: 0;">
-<img src="images/stressed_person_phone_ejbi3y.webp" alt="Учень засмучений низькою оцінкою" data-emoji="🧘">
+<img loading="lazy" src="images/stressed_person_phone_ejbi3y.webp" alt="Учень засмучений низькою оцінкою" data-emoji="🧘">
 </div>
 <div>
 <p class="mb-16"><strong>Яка реакція буде найбільш конструктивною?</strong></p>
@@ -998,7 +999,7 @@ body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; ba
 <h2>🧠 Аналізуй ситуації, оцінюй ризики</h2>
 <div class="theory-layout">
 <div class="theory-image">
-<img src="images/intro_boy_thinking_tspbgu.webp" alt="Хлопчик замислився, оцінюючи ризики" data-emoji="🤔">
+<img loading="lazy" src="images/intro_boy_thinking_tspbgu.webp" alt="Хлопчик замислився, оцінюючи ризики" data-emoji="🤔">
 </div>
 <div class="theory-content">
 <p class="mb-16"><strong>Ризик — це імовірність того, що небезпечна подія може відбутися та спричинити негативні наслідки.</strong></p>
@@ -1092,7 +1093,7 @@ body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; ba
 <div class="feedback feedback-warning mb-24"><strong>📌 Інструкція:</strong> Для кожної ситуації обери рівень ризику, а потім натисни «Перевірити відповіді».</div>
 <div class="practice-grid">
 <div class="practice-card" data-answer="high" data-explain="Висока імовірність падіння на мокрій дорозі + серйозні наслідки без шолома = високий ризик.">
-<img src="images/scooter_rain_rx6oze.webp" alt="Максим їде на електросамокаті під дощем" data-emoji="🛴">
+<img loading="lazy" src="images/scooter_rain_rx6oze.webp" alt="Максим їде на електросамокаті під дощем" data-emoji="🛴">
 <div class="scenario"><strong>🛴 Максим</strong> їде на електросамокаті без шолома по мокрій дорозі, поспішаючи на зустріч.</div>
 <div class="segmented">
 <button class="seg-btn" data-level="low" onclick="selectPracticeLevel(this)">Низький</button>
@@ -1102,7 +1103,7 @@ body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; ba
 <div class="card-verdict"></div>
 </div>
 <div class="practice-card" data-answer="high" data-explain="Надто низькі ціни — типова ознака шахрайського магазину. Втрата грошей і даних карти дуже ймовірна — високий ризик.">
-<img src="images/online_shopping_fkvidh.webp" alt="Оля переглядає підозрілий інтернет-магазин" data-emoji="💳">
+<img loading="lazy" src="images/online_shopping_fkvidh.webp" alt="Оля переглядає підозрілий інтернет-магазин" data-emoji="💳">
 <div class="scenario"><strong>💳 Оля</strong> знайшла інтернет-магазин із дуже низькими цінами та хоче ввести дані своєї карти.</div>
 <div class="segmented">
 <button class="seg-btn" data-level="low" onclick="selectPracticeLevel(this)">Низький</button>
@@ -1112,7 +1113,7 @@ body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; ba
 <div class="card-verdict"></div>
 </div>
 <div class="practice-card" data-answer="low" data-explain="Наслідки невдалого виступу незначні — хвилювання та незручність, без загрози життю чи здоров’ю. Ризик низький.">
-<img src="images/speech_b1uimm.webp" alt="Соломія готується виступити на конференції" data-emoji="🎤">
+<img loading="lazy" src="images/speech_b1uimm.webp" alt="Соломія готується виступити на конференції" data-emoji="🎤">
 <div class="scenario"><strong>🎤 Соломія</strong> планує виступити на конференції без підготовки.</div>
 <div class="segmented">
 <button class="seg-btn" data-level="low" onclick="selectPracticeLevel(this)">Низький</button>
@@ -1122,7 +1123,7 @@ body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; ba
 <div class="card-verdict"></div>
 </div>
 <div class="practice-card" data-answer="mid" data-explain="Телефон можуть повернути, а можуть і ні: імовірність втрати середня, наслідки помірні — середній ризик.">
-<img src="images/forgotten_phone_pso73c.webp" alt="Захар забув телефон в автобусі" data-emoji="📱">
+<img loading="lazy" src="images/forgotten_phone_pso73c.webp" alt="Захар забув телефон в автобусі" data-emoji="📱">
 <div class="scenario"><strong>📱 Захар</strong> забув свій телефон в автобусі.</div>
 <div class="segmented">
 <button class="seg-btn" data-level="low" onclick="selectPracticeLevel(this)">Низький</button>
@@ -1145,7 +1146,7 @@ body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; ba
 <div class="feedback feedback-warning mb-24"><strong>📌 Інструкція:</strong> Познач дії, які допоможуть зменшити ризик у кожній ситуації.</div>
 <div class="practice-grid">
 <div class="reduce-block practice-card" data-explain="Шолом, міцний контроль керма та плавна їзда знижують імовірність падіння й тяжкість травм. Тротуар — для пішоходів.">
-<img src="images/scooter_rain_rx6oze.webp" alt="Максим на електросамокаті" data-emoji="🛴">
+<img loading="lazy" src="images/scooter_rain_rx6oze.webp" alt="Максим на електросамокаті" data-emoji="🛴">
 <div class="scenario"><strong>🛴 Максим</strong></div>
 <div class="checklist">
 <div class="checklist-item" data-correct="true" onclick="toggleChecklist(this)" tabindex="0"><div class="checklist-icon">✓</div><div class="checklist-text">Одягнути шолом</div></div>
@@ -1156,7 +1157,7 @@ body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; ba
 <div class="card-verdict"></div>
 </div>
 <div class="reduce-block practice-card" data-explain="Перевірка магазину та безпечна оплата захищають гроші й дані. Вводити дані карти чи замовляти одразу — небезпечно.">
-<img src="images/online_shopping_fkvidh.webp" alt="Оля та інтернет-магазин" data-emoji="💳">
+<img loading="lazy" src="images/online_shopping_fkvidh.webp" alt="Оля та інтернет-магазин" data-emoji="💳">
 <div class="scenario"><strong>💳 Оля</strong></div>
 <div class="checklist">
 <div class="checklist-item" data-correct="true" onclick="toggleChecklist(this)" tabindex="0"><div class="checklist-icon">✓</div><div class="checklist-text">Перевірити магазин</div></div>
@@ -1167,7 +1168,7 @@ body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; ba
 <div class="card-verdict"></div>
 </div>
 <div class="reduce-block practice-card" data-explain="Підготовка та репетиція зменшують імовірність невдалого виступу. Експромт без підготовки ризику не зменшує.">
-<img src="images/speech_b1uimm.webp" alt="Соломія готує виступ" data-emoji="🎤">
+<img loading="lazy" src="images/speech_b1uimm.webp" alt="Соломія готує виступ" data-emoji="🎤">
 <div class="scenario"><strong>🎤 Соломія</strong></div>
 <div class="checklist">
 <div class="checklist-item" data-correct="true" onclick="toggleChecklist(this)" tabindex="0"><div class="checklist-icon">✓</div><div class="checklist-text">Підготуватися</div></div>
@@ -1177,7 +1178,7 @@ body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; ba
 <div class="card-verdict"></div>
 </div>
 <div class="reduce-block practice-card" data-explain="Швидкі дії — повідомити перевізника та скористатися пошуком пристрою — підвищують шанси повернути телефон.">
-<img src="images/forgotten_phone_pso73c.webp" alt="Захар шукає телефон" data-emoji="📱">
+<img loading="lazy" src="images/forgotten_phone_pso73c.webp" alt="Захар шукає телефон" data-emoji="📱">
 <div class="scenario"><strong>📱 Захар</strong></div>
 <div class="checklist">
 <div class="checklist-item" data-correct="true" onclick="toggleChecklist(this)" tabindex="0"><div class="checklist-icon">✓</div><div class="checklist-text">Одразу повідомити перевізника</div></div>
@@ -1200,7 +1201,7 @@ body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; ba
 <div class="feedback feedback-warning mb-24"><strong>📌 Ситуація:</strong> Ризик послизнутися і впасти. Визнач рівень ризику для кожної ситуації за допомогою матриці ризику.</div>
 <div class="practice-grid">
 <div class="practice-card od-card" data-answer="vhigh" data-explain="Слизькі сходи + відсутність поручнів: падіння ймовірне, а наслідки можуть бути серйозними — дуже високий ризик.">
-<img src="images/stairs_no_rail_fnixkx.webp" alt="Обледенілі сходи без поручнів" data-emoji="🧊">
+<img loading="lazy" src="images/stairs_no_rail_fnixkx.webp" alt="Обледенілі сходи без поручнів" data-emoji="🧊">
 <div class="scenario"><strong>Обледенілі сходи без поручнів</strong></div>
 <select class="od-select" aria-label="Рівень ризику: обледенілі сходи">
 <option value="">Обери рівень ризику…</option>
@@ -1212,7 +1213,7 @@ body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; ba
 <div class="card-verdict"></div>
 </div>
 <div class="practice-card od-card" data-answer="high" data-explain="Мокра підлога без попередження: імовірність послизнутися середня, наслідки помірні — високий ризик.">
-<img src="images/wet_floor_no_sign_joybhl.webp" alt="Мокра підлога без попереджувального знака" data-emoji="💧">
+<img loading="lazy" src="images/wet_floor_no_sign_joybhl.webp" alt="Мокра підлога без попереджувального знака" data-emoji="💧">
 <div class="scenario"><strong>Мокра підлога без знака</strong></div>
 <select class="od-select" aria-label="Рівень ризику: мокра підлога без знака">
 <option value="">Обери рівень ризику…</option>
@@ -1224,7 +1225,7 @@ body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; ba
 <div class="card-verdict"></div>
 </div>
 <div class="practice-card od-card" data-answer="high" data-explain="Ожеледиця: падіння можливі, наслідки зазвичай помірні. Обув’я з протектором і повільна хода зменшують ризик.">
-<img src="images/ice_outside_lqa4zz.webp" alt="Ожеледиця надворі" data-emoji="❄️">
+<img loading="lazy" src="images/ice_outside_lqa4zz.webp" alt="Ожеледиця надворі" data-emoji="❄️">
 <div class="scenario"><strong>Надворі ожеледиця</strong></div>
 <select class="od-select" aria-label="Рівень ризику: ожеледиця надворі">
 <option value="">Обери рівень ризику…</option>
@@ -1236,7 +1237,7 @@ body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; ba
 <div class="card-verdict"></div>
 </div>
 <div class="practice-card od-card" data-answer="mod" data-explain="Знак «Обережно!» попереджає: люди йдуть уважніше, імовірність падіння низька — ризик лише помірний.">
-<img src="images/wet_floor_sign_hdkail.webp" alt="Мокра підлога зі знаком «Обережно!»" data-emoji="⚠️">
+<img loading="lazy" src="images/wet_floor_sign_hdkail.webp" alt="Мокра підлога зі знаком «Обережно!»" data-emoji="⚠️">
 <div class="scenario"><strong>Мокра підлога зі знаком «Обережно!»</strong></div>
 <select class="od-select" aria-label="Рівень ризику: мокра підлога зі знаком">
 <option value="">Обери рівень ризику…</option>
@@ -1296,25 +1297,25 @@ body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; ba
 <div class="feedback feedback-warning mb-24"><strong>⚠️ Запам’ятай:</strong> різні ситуації розвиваються по-різному. Важливо вчасно розпізнати тип розвитку та діяти правильно. Натисни на картку, щоб побачити пояснення.</div>
 <div class="types-grid">
 <div class="interactive-card type-card" tabindex="0" role="button" onclick="toggleCard(this)">
-<img src="images/controlled_d5fcuh.webp" alt="Керований розвиток ситуації" data-emoji="🧯">
+<img loading="lazy" src="images/controlled_d5fcuh.webp" alt="Керований розвиток ситуації" data-emoji="🧯">
 <div class="card-front"><div class="card-icon">🧯</div><div class="card-title">Керований (контрольований)</div></div>
 <div class="type-hint">👆 Натисни, щоб дізнатися</div>
 <div class="card-content"><p>Ситуація, яку можна контролювати та зупинити вчасними діями. Наприклад, невелике загоряння можна загасити вогнегасником, якщо діяти швидко.</p></div>
 </div>
 <div class="interactive-card type-card" tabindex="0" role="button" onclick="toggleCard(this)">
-<img src="images/gradual_k4h0ac.webp" alt="Поступовий розвиток ситуації" data-emoji="💬">
+<img loading="lazy" src="images/gradual_k4h0ac.webp" alt="Поступовий розвиток ситуації" data-emoji="💬">
 <div class="card-front"><div class="card-icon">💬</div><div class="card-title">Поступовий</div></div>
 <div class="type-hint">👆 Натисни, щоб дізнатися</div>
 <div class="card-content"><p>Ситуація розвивається повільно, крок за кроком. Важливо зупинити її на ранньому етапі. Наприклад: образа → приниження → ізоляція → психологічна травма.</p></div>
 </div>
 <div class="interactive-card type-card" tabindex="0" role="button" onclick="toggleCard(this)">
-<img src="images/sudden_duslck.webp" alt="Раптовий розвиток ситуації" data-emoji="⚡">
+<img loading="lazy" src="images/sudden_duslck.webp" alt="Раптовий розвиток ситуації" data-emoji="⚡">
 <div class="card-front"><div class="card-icon">⚡</div><div class="card-title">Раптовий</div></div>
 <div class="type-hint">👆 Натисни, щоб дізнатися</div>
 <div class="card-content"><p>Ситуація виникає несподівано і швидко. Потрібна миттєва реакція. Наприклад, ДТП, раптова аварія — все стається за лічені секунди.</p></div>
 </div>
 <div class="interactive-card type-card" tabindex="0" role="button" onclick="toggleCard(this)">
-<img src="images/chain_hkvv3s.webp" alt="Ланцюговий розвиток ситуації" data-emoji="🔗">
+<img loading="lazy" src="images/chain_hkvv3s.webp" alt="Ланцюговий розвиток ситуації" data-emoji="🔗">
 <div class="card-front"><div class="card-icon">🔗</div><div class="card-title">Ланцюговий</div></div>
 <div class="type-hint">👆 Натисни, щоб дізнатися</div>
 <div class="card-content"><p>Одна подія запускає ланцюг інших. Намагайся розірвати ланцюг небезпек якомога раніше. Наприклад: фейк → паніка → закупівлі → дефіцит.</p></div>
@@ -1329,9 +1330,9 @@ body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; ba
 <h2>🧯 Керований розвиток</h2>
 <div class="feedback feedback-warning mb-24"><strong>📌 Ситуація:</strong> На кухні загорівся рушник.</div>
 <div class="image-flow">
-<figure><img src="images/kitchen_fire_dji9lm.webp" alt="Загоряння рушника на кухні" data-emoji="🔥"><figcaption>Загоряння</figcaption></figure>
+<figure><img loading="lazy" src="images/kitchen_fire_dji9lm.webp" alt="Загоряння рушника на кухні" data-emoji="🔥"><figcaption>Загоряння</figcaption></figure>
 <div class="flow-arrow">→</div>
-<figure><img src="images/firefighting_yypa9b.webp" alt="Гасіння невеликого загоряння" data-emoji="🧯"><figcaption>Гасіння</figcaption></figure>
+<figure><img loading="lazy" src="images/firefighting_yypa9b.webp" alt="Гасіння невеликого загоряння" data-emoji="🧯"><figcaption>Гасіння</figcaption></figure>
 <div class="flow-arrow">→</div>
 <div class="flow-result">✅ Безпека</div>
 </div>
@@ -1377,9 +1378,9 @@ body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; ba
 <h2>⚡ Раптовий розвиток</h2>
 <div class="feedback feedback-warning mb-24"><strong>📌 Ситуація:</strong> Їзда на самокаті через дорогу на червоне світло.</div>
 <div class="image-flow">
-<figure><img src="images/scooter_ufpann.webp" alt="Самокат виїжджає на дорогу на червоне світло" data-emoji="🛴"><figcaption>Подія</figcaption></figure>
+<figure><img loading="lazy" src="images/scooter_ufpann.webp" alt="Самокат виїжджає на дорогу на червоне світло" data-emoji="🛴"><figcaption>Подія</figcaption></figure>
 <div class="flow-arrow">→</div>
-<figure><img src="images/car_accident_ohtc4j.webp" alt="ДТП за лічені секунди" data-emoji="💥"><figcaption>Наслідок</figcaption></figure>
+<figure><img loading="lazy" src="images/car_accident_ohtc4j.webp" alt="ДТП за лічені секунди" data-emoji="💥"><figcaption>Наслідок</figcaption></figure>
 </div>
 <p class="mb-16"><strong>❓ Що може статися протягом кількох секунд? Обери всі правильні варіанти.</strong></p>
 <div class="task-options" id="s4SuddenOptions">
@@ -1429,7 +1430,7 @@ body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; ba
 <div class="feedback feedback-warning mb-24"><strong>📌 Ситуація:</strong> Конфлікт між учнями в школі.</div>
 <div class="two-col">
 <div class="image-container" style="margin: 0;">
-<img src="images/school_conflict_owckzf.webp" alt="Конфлікт між учнями у школі" data-emoji="🏫">
+<img loading="lazy" src="images/school_conflict_owckzf.webp" alt="Конфлікт між учнями у школі" data-emoji="🏫">
 </div>
 <div>
 <p class="mb-16"><strong>❓ Познач дії, які посилили небезпеку.</strong></p>
@@ -1529,7 +1530,7 @@ body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; ba
 <h2>🧠 Ухвалення рішень в умовах невизначеності</h2>
 <div class="theory-layout">
 <div class="theory-image">
-<img src="images/alina-scenario_r157jd.webp" alt="Альбіна в незнайомому районі" data-emoji="👧">
+<img loading="lazy" src="images/alina-scenario_r157jd.webp" alt="Альбіна в незнайомому районі" data-emoji="👧">
 </div>
 <div class="theory-content">
 <p class="mb-16"><strong>Невизначеність — це ситуація, коли інформації недостатньо або наслідки важко передбачити.</strong></p>
@@ -1657,7 +1658,7 @@ body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; ba
 <div class="albina-progress" id="s5AlbinaCounter">Проаналізовано варіантів: <strong>0</strong>/4</div>
 <div class="albina-card" id="albina-walk">
 <div class="albina-head" onclick="toggleAlbina('walk')" role="button" tabindex="0">
-<img src="images/walk_xdlsbq.webp" alt="Іти навмання незнайомим районом" data-emoji="🚶">
+<img loading="lazy" src="images/walk_xdlsbq.webp" alt="Іти навмання незнайомим районом" data-emoji="🚶">
 <div class="albina-title">🚶 Піти навмання шукати знайому вулицю</div>
 <div class="albina-status"></div><div class="albina-toggle">▼</div>
 </div>
@@ -1683,7 +1684,7 @@ body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; ba
 </div>
 <div class="albina-card" id="albina-passerby">
 <div class="albina-head" onclick="toggleAlbina('passerby')" role="button" tabindex="0">
-<img src="images/crossing_ztkmk1.webp" alt="Звернутися до випадкового перехожого" data-emoji="🧍">
+<img loading="lazy" src="images/crossing_ztkmk1.webp" alt="Звернутися до випадкового перехожого" data-emoji="🧍">
 <div class="albina-title">🧍 Звернутися по допомогу до випадкового перехожого</div>
 <div class="albina-status"></div><div class="albina-toggle">▼</div>
 </div>
@@ -1709,7 +1710,7 @@ body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; ba
 </div>
 <div class="albina-card" id="albina-shop">
 <div class="albina-head" onclick="toggleAlbina('shop')" role="button" tabindex="0">
-<img src="images/shop_hsl2gz.webp" alt="Зайти до магазину або аптеки" data-emoji="🏪">
+<img loading="lazy" src="images/shop_hsl2gz.webp" alt="Зайти до магазину або аптеки" data-emoji="🏪">
 <div class="albina-title">🏪 Зайти до магазину (аптеки) або іншого людного місця</div>
 <div class="albina-status"></div><div class="albina-toggle">▼</div>
 </div>
@@ -1735,7 +1736,7 @@ body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; ba
 </div>
 <div class="albina-card" id="albina-bus">
 <div class="albina-head" onclick="toggleAlbina('bus')" role="button" tabindex="0">
-<img src="images/bus_wsmuhl.webp" alt="Сісти в перший автобус" data-emoji="🚌">
+<img loading="lazy" src="images/bus_wsmuhl.webp" alt="Сісти в перший автобус" data-emoji="🚌">
 <div class="albina-title">🚌 Сісти в перший автобус, який під’їде</div>
 <div class="albina-status"></div><div class="albina-toggle">▼</div>
 </div>
@@ -1951,6 +1952,24 @@ body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; ba
 <div id="infoModalFooter" style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: 20px;"></div>
 </div>
 </div>
+<div class="modal-overlay" id="pngSaveModal" role="dialog" aria-modal="true" aria-labelledby="pngSaveTitle">
+<div class="modal">
+<div class="modal-header">
+<h2 id="pngSaveTitle">📱 Збереження результату</h2>
+<button class="modal-close" onclick="closeModal('pngSaveModal')" aria-label="Закрити">×</button>
+</div>
+<p style="margin-bottom: 16px; color: var(--text-muted); text-align: center;">
+Натисніть і утримуйте зображення нижче, потім оберіть <strong>«Зберегти в Фото»</strong> або <strong>«Зберегти у файли»</strong>.
+</p>
+<div style="text-align: center; margin-bottom: 16px; border: 2px solid var(--border); border-radius: 12px; overflow: hidden; background: #fff;">
+<img loading="lazy" id="pngSaveImage" src="" alt="Результат тренажера" style="max-width: 100%; height: auto; display: block;">
+</div>
+<div style="display: flex; gap: 12px; flex-wrap: wrap;">
+<button class="btn btn-primary" id="pngShareBtn" style="flex: 1; display: none;" onclick="shareFallbackPNG()">📤 Поділитися / Зберегти у файли</button>
+<button class="btn btn-secondary" onclick="closeModal('pngSaveModal')" style="flex: 1;">Закрити</button>
+</div>
+</div>
+</div>
 <!-- Прихований шаблон експорту PNG -->
 <div id="exportTemplate" aria-hidden="true"></div>
 <script>
@@ -2106,1283 +2125,1106 @@ dot.classList.toggle('active', n === page);
 });
 });
 renderStepNavigation();
-updateStep6Display();
+updateStep6Stats();
 }
-// ============ ЗБЕРЕЖЕННЯ / ЗАВАНТАЖЕННЯ ============
-function saveProgress() {
-try {
-localStorage.setItem('section1Progress_v3', JSON.stringify({
-attempts: progressTracker.attempts,
-stepTracker, stepsCompleted, state
-}));
-} catch (e) {}
-}
-function loadProgress() {
-try {
-const raw = localStorage.getItem('section1Progress_v3');
-if (!raw) return;
-const data = JSON.parse(raw);
-if (data.attempts) progressTracker.attempts = data.attempts;
-if (data.stepTracker) {
-for (let i = 1; i <= 5; i++) {
-const saved = data.stepTracker['step' + i];
-if (saved && saved.tasks) {
-STEP_TASKS[i].forEach(id => {
-stepTracker['step' + i].tasks[id] = !!saved.tasks[id];
-if (saved.tasks[id]) completedIds.add(id);
-});
-}
-}
-}
-if (data.stepsCompleted) for (let i = 1; i <= 5; i++) stepsCompleted[i] = !!data.stepsCompleted[i];
-if (data.state) {
-state.currentStep = data.state.currentStep || 0;
-state.selfRatings = data.state.selfRatings || [0, 0, 0, 0];
-state.studentName = data.state.studentName || '';
-}
-for (let i = 1; i <= 5; i++) {
-stepTracker['step' + i].completed = Object.values(stepTracker['step' + i].tasks).filter(v => v).length;
-}
-} catch (e) { console.warn('Прогрес не завантажено:', e); }
-}
-// ============ ПІБ УЧНЯ: синхронізація полів ============
-function setStudentName(value, sourceId) {
-state.studentName = value;
-['studentNameInput', 'studentNameInputStep6'].forEach(id => {
-const inp = document.getElementById(id);
-if (inp && id !== sourceId && inp.value !== value) inp.value = value;
-});
-updateNameBadges();
-saveProgress();
-}
-function updateNameBadges() {
-const signed = !!(state.studentName || '').trim();
-['nameStatusMain', 'nameStatusStep6'].forEach(id => {
-const b = document.getElementById(id);
-if (!b) return;
-b.classList.toggle('signed', signed);
-b.textContent = signed ? '✅ Підписано' : '✍️ Не підписано';
-});
-}
-function initStudentNameFields() {
-['studentNameInput', 'studentNameInputStep6'].forEach(id => {
-const inp = document.getElementById(id);
-if (!inp) return;
-inp.value = state.studentName || '';
-inp.addEventListener('input', () => setStudentName(inp.value, id));
-});
-updateNameBadges();
-}
-// ============ ВІДОБРАЖЕННЯ ============
-const NAV_STEPS = [
-{ id: 1, icon: '🔍', title: 'Стартова ситуація' },
-{ id: 2, icon: '🏠', title: 'Безпека та простір' },
-{ id: 3, icon: '⚠️', title: 'Ризики' },
-{ id: 4, icon: '🔄', title: 'Небезпечні ситуації' },
-{ id: 5, icon: '🧠', title: 'Ухвалення рішень' },
-{ id: 6, icon: '🏆', title: 'Самооцінювання' }
-];
-function renderStepNavigation() {
-const nav = document.getElementById('stepNavigation');
-if (!nav) return;
-nav.innerHTML = '';
-NAV_STEPS.forEach(step => {
-const item = document.createElement('div');
-item.className = 'step-nav-item';
-const isTraining = step.id <= 5;
-const done = isTraining ? stepTracker['step' + step.id].completed : 0;
-const total = isTraining ? stepTracker['step' + step.id].total : 0;
-const isCompleted = isTraining && stepsCompleted[step.id];
-if (isCompleted) item.classList.add('completed');
-else if (state.currentStep === step.id) item.classList.add('active');
-item.innerHTML = '<div class="step-nav-number">' + (isCompleted ? '✓' : step.id) + '</div>' +
-'<div class="step-nav-content"><div class="step-nav-title">' + step.icon + ' ' + step.title + '</div>' +
-'<div class="step-nav-status">' + (isTraining ? done + '/' + total + ' завдань' : 'Фінал') + '</div></div>';
-item.setAttribute('tabindex', '0');
-item.setAttribute('role', 'button');
-item.onclick = () => goToStep(step.id);
-item.onkeydown = e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); goToStep(step.id); } };
-nav.appendChild(item);
-});
-}
-function updateStep6Display() {
-const st = getStats();
-const set = (id, val) => { const el = document.getElementById(id); if (el) el.textContent = val; };
-set('statTasks', st.done + '/' + TOTAL_TASKS);
-set('statCorrect', st.done);
-set('statSteps', st.stepsDone + '/5');
-set('statAccuracy', st.accuracy + '%');
-const circle = document.getElementById('progressCircle');
-if (circle) circle.style.background = 'conic-gradient(var(--success) ' + st.percent + '%, var(--bg) ' + st.percent + '%)';
-set('circlePercentage', st.percent + '%');
-const level = getLevel(st.percent);
-set('finalLevelTitle', level.name);
-set('finalLevelDesc', level.stars);
-const summary = document.getElementById('stepsSummary');
-if (summary) {
-summary.innerHTML = '';
-NAV_STEPS.slice(0, 5).forEach(step => {
-const tr = stepTracker['step' + step.id];
-const card = document.createElement('div');
-card.className = 'step-card';
-card.innerHTML = '<div class="step-card-icon">' + step.icon + '</div><div class="step-card-info">' +
-'<div class="step-card-title">Крок ' + step.id + '. ' + step.title + '</div>' +
-'<div class="step-card-status ' + (stepsCompleted[step.id] ? 'completed' : '') + '">' +
-tr.completed + '/' + tr.total + ' завдань виконано ' + (stepsCompleted[step.id] ? '✅' : '') + '</div></div>';
-summary.appendChild(card);
-});
-}
-state.selfRatings.forEach((rating, idx) => {
-if (rating > 0) {
-const cont = document.querySelector('.star-rating[data-skill="' + (idx + 1) + '"]');
-if (cont) cont.querySelectorAll('.star').forEach((s, i) => s.classList.toggle('active', i < rating));
-}
-});
-}
-// ============ НАВІГАЦІЯ ============
-const SCREENS = {
-1: ['s1Task1', 's1Task2', 's1Result'],
-2: ['s2Intro', 's2Safety', 's2Space', 's2Physical', 's2Psych', 's2Social', 's2Digital', 's2Inner', 's2Match', 's2Odd'],
-3: ['s3Intro', 's3Factors', 's3Matrix', 's3Practice', 's3Reduce', 's3OneDanger'],
-4: ['s4Intro', 's4Types', 's4Controlled', 's4Gradual', 's4Sudden', 's4Fake', 's4Conflict', 's4ConflictChain', 's4Check'],
-5: ['s5Intro', 's5Obstacles', 's5Algorithm', 's5Order', 's5Albina', 's5Match', 's5Quest', 's5Check']
+
+// ============ ДОВІДКОВІ ДАНІ ============
+const STEP_TITLES = {
+  1: '🔍 Стартова ситуація',
+  2: '🏠 Безпека та безпечний простір',
+  3: '⚠️ Ризики та оцінювання ризику',
+  4: '🔄 Небезпечні ситуації: варіанти розвитку',
+  5: '🧠 Ухвалення рішень в умовах невизначеності',
+  6: '🏆 Підсумки та відзнака'
 };
-const HEADER_TITLES = {
-1: '🔍 § 1. Безпека, небезпека і ризики',
-2: '🏠 § 1. Безпека, небезпека і ризики',
-3: '⚠️ § 1. Безпека, небезпека і ризики',
-4: '🔄 § 1. Безпека, небезпека і ризики',
-5: '🧠 § 1. Безпека, небезпека і ризики',
-6: '🏆 Самооцінювання'
+const STEP_SHORT = {
+  1: 'Стартова ситуація',
+  2: 'Безпека та безпечний простір',
+  3: 'Ризики та оцінювання ризику',
+  4: 'Небезпечні ситуації: варіанти розвитку',
+  5: 'Ухвалення рішень'
 };
-function hideAllPages() {
-['mainPage', 'step1Page', 'step2Page', 'step3Page', 'step4Page', 'step5Page', 'step6Page'].forEach(id => {
-const el = document.getElementById(id);
-if (el) el.classList.add('hidden');
-});
-}
-function goToMainPage() {
-hideAllPages();
-document.getElementById('mainPage').classList.remove('hidden');
-document.getElementById('headerTitle').textContent = '🎯 Тренажер «Навігатор ризиків»';
-state.currentStep = 0;
-updateLiveProgress();
-saveProgress();
-window.scrollTo({ top: 0, behavior: 'smooth' });
-}
-function goToStep(n) {
-hideAllPages();
-const page = document.getElementById('step' + n + 'Page');
-if (!page) { goToMainPage(); return; }
-page.classList.remove('hidden');
-document.getElementById('headerTitle').textContent = HEADER_TITLES[n] || '🎯 Тренажер «Навігатор ризиків»';
-state.currentStep = n;
-if (SCREENS[n]) showScreen(n, SCREENS[n][0], true);
-if (n === 6) updateStep6Display();
-updateLiveProgress();
-saveProgress();
-window.scrollTo({ top: 0, behavior: 'smooth' });
-}
-function showScreen(step, id, skipScroll) {
-SCREENS[step].forEach(s => {
-const el = document.getElementById(s);
-if (el) el.classList.add('hidden');
-});
-const target = document.getElementById(id);
-if (target) target.classList.remove('hidden');
-if (!skipScroll) window.scrollTo({ top: 0, behavior: 'smooth' });
-}
-// ============ ЗАГАЛЬНІ ФУНКЦІЇ ============
-function toggleCard(card) { card.classList.toggle('revealed'); }
-function toggleOption(el) {
-if (el.classList.contains('disabled') || el.classList.contains('locked')) return;
-el.classList.toggle('selected');
-}
-function selectSingle(el) {
-if (el.classList.contains('disabled') || el.classList.contains('locked')) return;
-el.parentElement.querySelectorAll('.option').forEach(o => o.classList.remove('selected'));
-el.classList.add('selected');
-}
-function selectCategoryOption(opt) {
-if (opt.classList.contains('correct') || opt.classList.contains('incorrect') || opt.classList.contains('locked')) return;
-opt.closest('.category-block').querySelectorAll('.category-option').forEach(o => o.classList.remove('selected'));
-opt.classList.add('selected');
-}
-function toggleChecklist(item) {
-if (item.classList.contains('locked')) return;
-item.classList.toggle('checked');
-}
-function toggleExplain(id) {
-const el = document.getElementById(id);
-if (el) el.style.display = el.style.display === 'none' ? 'block' : 'none';
-}
-function setFeedback(id, type, html) {
-const fb = document.getElementById(id);
-if (!fb) return;
-fb.style.display = 'block';
-fb.className = 'feedback feedback-' + type;
-fb.innerHTML = html;
-}
-function hideFeedback(id) { const fb = document.getElementById(id); if (fb) fb.style.display = 'none'; }
-function clearOptions(selector) {
-document.querySelectorAll(selector).forEach(o => {
-o.classList.remove('selected', 'correct', 'incorrect', 'disabled', 'locked');
-o.style.pointerEvents = '';
-});
-}
-function lockTaskUI(containerSelector) {
-const c = document.querySelector(containerSelector);
-if (!c) return;
-c.querySelectorAll('.option, .category-option, .checklist-item, .match-chip, .match-category, .pair-card, .seg-btn').forEach(el => {
-el.style.pointerEvents = 'none';
-el.classList.add('locked');
-});
-c.querySelectorAll('.drag-item').forEach(el => { el.draggable = false; el.style.cursor = 'default'; });
-c.querySelectorAll('select').forEach(el => { el.disabled = true; });
-c.querySelectorAll('.drop-zone').forEach(el => { el.style.pointerEvents = 'none'; });
-}
-function checkMultiGeneric(optsSelector, feedbackId, taskId, successMsg, lockSel) {
-const options = Array.from(document.querySelectorAll(optsSelector));
-if (!options.some(o => o.classList.contains('selected'))) {
-setFeedback(feedbackId, 'warning', '💡 Обери хоча б один варіант відповіді');
-return;
-}
-let all = true;
-options.forEach(o => {
-const should = o.dataset.correct === 'true', sel = o.classList.contains('selected');
-if (should && sel) o.classList.add('correct');
-else if (!should && sel) { o.classList.add('incorrect'); all = false; }
-else if (should && !sel) all = false;
-o.classList.add('disabled');
-});
-if (all) {
-setFeedback(feedbackId, 'success', successMsg);
-addCorrect(taskId);
-lockTaskUI(lockSel);
-} else {
-setFeedback(feedbackId, 'error', '<strong>❌ Не зовсім правильно.</strong> Переглянь позначення та натисни «Спробувати ще раз».');
-addWrong(taskId);
-}
-}
-function checkSingleGeneric(optsSelector, feedbackId, taskId, successMsg, lockSel) {
-const options = Array.from(document.querySelectorAll(optsSelector));
-const sel = options.find(o => o.classList.contains('selected'));
-if (!sel) { setFeedback(feedbackId, 'warning', '💡 Обери варіант відповіді'); return; }
-const ok = sel.dataset.correct === 'true';
-options.forEach(o => o.classList.add('disabled'));
-sel.classList.add(ok ? 'correct' : 'incorrect');
-if (!ok) {
-const right = options.find(o => o.dataset.correct === 'true');
-if (right) right.classList.add('correct');
-setFeedback(feedbackId, 'error', '<strong>❌ Неправильно.</strong> Правильну відповідь виділено зеленим. Натисни «Спробувати ще раз», щоб закріпити.');
-addWrong(taskId);
-} else {
-setFeedback(feedbackId, 'success', successMsg);
-addCorrect(taskId);
-lockTaskUI(lockSel);
-}
-}
-function retryGeneric(taskId, optsSelector, feedbackId) {
-if (completedIds.has(taskId)) { showToast('✅ Це завдання вже зараховано!'); return; }
-clearOptions(optsSelector);
-hideFeedback(feedbackId);
-showToast('🔄 Спробуй ще раз');
-}
-// ============ КРОК 1: ХОТСПОТИ ============
+const STEP_ICONS = { 1: '🔍', 2: '🏠', 3: '⚠️', 4: '🔄', 5: '🧠', 6: '🏆' };
+const STEP_SCREENS = {
+  1: ['s1Task1', 's1Task2', 's1Result'],
+  2: ['s2Intro', 's2Safety', 's2Space', 's2Physical', 's2Psych', 's2Social', 's2Digital', 's2Inner', 's2Match', 's2Odd'],
+  3: ['s3Intro', 's3Factors', 's3Matrix', 's3Practice', 's3Reduce', 's3OneDanger'],
+  4: ['s4Intro', 's4Types', 's4Controlled', 's4Gradual', 's4Sudden', 's4Fake', 's4Conflict', 's4ConflictChain', 's4Check'],
+  5: ['s5Intro', 's5Obstacles', 's5Algorithm', 's5Order', 's5Albina', 's5Match', 's5Quest', 's5Check']
+};
+const lastScreens = {};
+
 const RISKS = {
-rebar: { icon: '🏗️', name: 'Арматура, що стирчить', risk: 'Ризик травмування', what: 'З недобудованих конструкцій стирчать металеві прути арматури. Об них легко спіткнутися або наткнутися — можна отримати глибоку рану чи серйозну травму.', safe: 'Не наближайся до недобудованих конструкцій та арматури. Обирай для прогулянок і фото безпечні місця.' },
-phone: { icon: '📱', name: 'Селфі на висоті', risk: 'Ризик падіння через неуважність', what: 'Роблячи фото, людина дивиться в екран, а не під ноги. Один крок убік — і можна оступитися біля краю плити чи спіткнутися об матеріали.', safe: 'Роби фото лише в безпечному місці, подалі від краю перекриття та небезпек. Спершу переконайся, що стоїш надійно.' },
-roof: { icon: '🧱', name: 'Незагороджений край плити', risk: 'Ризик падіння з висоти', what: 'Край бетонної плити не має огорожі. Падіння з такої висоти загрожує переломами та тяжкими травмами.', safe: 'Не підходь до краю перекриття. Тримайся подалі від необлаштованих поверхонь на висоті.' },
-sign: { icon: '⛔', name: 'Знак «Стороннім вхід заборонено»', risk: 'Перебування в забороненій зоні', what: 'Знак попереджає: це небезпечна територія, де стороннім бути заборонено. Ігнорувати його — означає свідомо наражати себе на ризик.', safe: 'Дотримуйся попереджувальних знаків — вони встановлені, щоб захистити тебе. Про помічену небезпеку повідом дорослих.' },
-net: { icon: '🕸️', name: 'Ненадійна захисна сітка', risk: 'Хибне відчуття безпеки', what: 'Сітка та огорожа на будівництві призначені для робітників, а не для відвідувачів. Вони можуть мати прогалини й не витримати людину.', safe: 'Не спирайся на сітку та огорожі й не проходь крізь них. Небезпека за огорожею не зникає.' },
-building: { icon: '🪵', name: 'Будівельні матеріали', risk: 'Ризик спіткнутися та поранитися', what: 'Дошки, прути й інші матеріали лежать просто неба. Гострі краї, цвяхи та нерівні поверхні можуть спричинити травми.', safe: 'Не ходи між складованими матеріалами та не грайся біля них. Обходь такі місця стороною.' }
+  rebar:    { title: '🔩 Арматура',            desc: 'Гострі металеві прути — можна серйозно травмуватися.' },
+  phone:    { title: '📱 Фото біля краю',      desc: 'Захопившись зйомкою, легко оступитися й впасти.' },
+  roof:     { title: '🕳️ Край перекриття',     desc: 'Падіння з висоти спричиняє тяжкі травми.' },
+  sign:     { title: '🚫 Знак заборони',       desc: 'Стороннім вхід на майданчик заборонено.' },
+  net:      { title: '🕸️ Зношена сітка',       desc: 'Захисна сітка може не витримати й порватися.' },
+  building: { title: '🧱 Незавершена будівля', desc: 'Нестабільні конструкції — ризик обвалення.' }
 };
-let foundRisks = 0;
-const TOTAL_RISKS = 6;
-function findRisk(h) {
-const key = h.dataset.risk;
-const data = RISKS[key];
-if (!data) return;
-if (!h.classList.contains('found')) {
-h.classList.add('found');
-const plus = h.querySelector('.hotspot-plus');
-if (plus) plus.textContent = '✓'; else h.textContent = '✓';
-foundRisks++;
-const counters = document.querySelectorAll('#riskCounter .risk-counter-item');
-if (counters[foundRisks - 1]) { counters[foundRisks - 1].classList.add('found'); counters[foundRisks - 1].innerHTML = '✓'; }
-const label = document.createElement('div');
-label.className = 'risk-label';
-label.innerHTML = data.name + '<span class="risk-desc">' + data.risk + '</span>';
-const top = parseFloat(h.style.top), left = parseFloat(h.style.left);
-if (left > 60) { label.style.top = Math.min(82, top + 7) + '%'; label.style.left = (left - 24) + '%'; }
-else { label.style.top = Math.max(0, top - 2) + '%'; label.style.left = (left + 6) + '%'; }
-document.getElementById('imageContainer').appendChild(label);
-const chip = document.createElement('span');
-chip.className = 'found-chip';
-chip.textContent = '✓ ' + data.icon + ' ' + data.name;
-document.getElementById('s1FoundList').appendChild(chip);
-showToast('✅ Знайдено: ' + data.name);
-if (foundRisks === TOTAL_RISKS) setTimeout(() => showToast('🎉 Всі ризики знайдено!'), 600);
-}
-openInfoModal(
-data.icon + ' ' + data.name,
-'<div class="risk-badge">⚠️ ' + data.risk + '</div>' +
-'<div class="modal-section-title">💡 Що може статися?</div><p>' + data.what + '</p>' +
-'<div class="modal-section-title">🛡️ Як убезпечитися?</div><p>' + data.safe + '</p>',
-[{ label: 'Зрозуміло ✓', cls: 'btn-primary', fn: () => closeModal('infoModal') }]
-);
-}
-function checkS1Task1() {
-if (foundRisks < TOTAL_RISKS) {
-setFeedback('s1Task1Feedback', 'warning', '💡 Ти знайшов(ла) ' + foundRisks + ' з ' + TOTAL_RISKS + ' ризиків. Шукай далі!');
-return;
-}
-setFeedback('s1Task1Feedback', 'success', '<strong>✅ Чудово!</strong> Ти знайшов(ла) всі 6 ризиків будівельного майданчика.');
-addCorrect('s1risks');
-}
-function retryS1Task1() {
-if (completedIds.has('s1risks')) { showToast('✅ Це завдання вже зараховано!'); return; }
-document.querySelectorAll('#step1Page .hotspot').forEach(h => {
-h.classList.remove('found');
-const plus = h.querySelector('.hotspot-plus');
-if (plus) plus.textContent = '+'; else h.textContent = '+';
-});
-document.querySelectorAll('#imageContainer .risk-label').forEach(l => l.remove());
-document.querySelectorAll('#riskCounter .risk-counter-item').forEach((c, i) => { c.classList.remove('found'); c.innerHTML = i + 1; });
-document.getElementById('s1FoundList').innerHTML = '';
-hideFeedback('s1Task1Feedback');
-foundRisks = 0;
-showToast('🔄 Спробуй знайти ризики ще раз');
-}
-function checkS1Task2() {
-checkSingleGeneric('#s1Task2Options .option', 's1Task2Feedback', 's1decision',
-'<strong>✅ Правильно!</strong> Безпечніше місце для фото — найкраще рішення: компанія разом, а ризик травмування зменшується.', '#s1Task2');
-}
-function retryS1Task2() { retryGeneric('s1decision', '#s1Task2Options .option', 's1Task2Feedback'); }
-// ============ КРОК 2: СИТУАЦІЇ ============
-const S2_SITUATIONS = {
-physical: { opts: '#s2PhysicalOptions .option', fb: 's2PhysicalFeedback', task: 's2physical', single: true, lock: '#s2Physical', msg: '<strong>✅ Правильно!</strong> Простір безпечний лише частково: укриття є, але запасний вихід потрібно звільнити.' },
-psych: { opts: '#s2PsychOptions .option', fb: 's2PsychFeedback', task: 's2psych', single: false, lock: '#s2Psych', msg: '<strong>✅ Правильно!</strong> Підтримка однокласників і повага вчителя створюють безпечний психологічний простір.' },
-social: { opts: '#s2SocialOptions .option', fb: 's2SocialFeedback', task: 's2social', single: false, lock: '#s2Social', msg: '<strong>✅ Правильно!</strong> Підтримка та включення допомагають створити дружнє та безпечне середовище.' },
-digital: { opts: '#s2DigitalOptions .option', fb: 's2DigitalFeedback', task: 's2digital', single: true, lock: '#s2Digital', msg: '<strong>✅ Правильно!</strong> Підозрілі повідомлення про паролі краще ігнорувати — це схоже на фішинг.' },
-inner: { opts: '#s2InnerOptions .option', fb: 's2InnerFeedback', task: 's2inner', single: true, lock: '#s2Inner', msg: '<strong>✅ Правильно!</strong> Аналіз помилок і повторна спроба — конструктивна реакція.' }
-};
-function checkS2Situation(key) {
-const c = S2_SITUATIONS[key];
-if (c.single) checkSingleGeneric(c.opts, c.fb, c.task, c.msg, c.lock);
-else checkMultiGeneric(c.opts, c.fb, c.task, c.msg, c.lock);
-}
-function retryS2Situation(key) {
-const c = S2_SITUATIONS[key];
-retryGeneric(c.task, c.opts, c.fb);
-}
-// ============ КРОК 2: МОДАЛКИ СКЛАДОВИХ ============
+const foundRisks = new Set();
+
 const COMPONENTS = {
-physical: { icon: '🌳', title: 'Фізичний простір', desc: 'Безпечне місце, де немає фізичних загроз.', examples: ['Укриття в школі', 'Освітлення вулиць', 'Незахаращені евакуаційні виходи'], screen: 's2Physical' },
-psych: { icon: '🧠', title: 'Психологічний простір', desc: 'Атмосфера довіри та підтримки, відсутність страху.', examples: ['Довіра до вчителя', 'Можливість помилитися без насмішок', 'Повага в класі'], screen: 's2Psych' },
-social: { icon: '👥', title: 'Соціальний простір', desc: 'Підтримка, співпраця, відсутність дискримінації.', examples: ['Командна робота', 'Підтримка друзів', 'Толерантність'], screen: 's2Social' },
-digital: { icon: '🔒', title: 'Цифровий простір', desc: 'Захист даних, приватність, безпечна поведінка онлайн.', examples: ['Надійний пароль', 'Перевірка джерел інформації', 'Захист особистих даних'], screen: 's2Digital' },
-inner: { icon: '🧘', title: 'Внутрішній простір', desc: 'Самоповага, розуміння себе, керування емоціями.', examples: ['Самоповага', 'Позитивне мислення', 'Емоційний баланс'], screen: 's2Inner' }
+  physical: { icon: '🌳', name: 'Фізичний простір', desc: 'Безпечне місце, де немає фізичних загроз для життя та здоров’я.', examples: ['Справні сходи та перила', 'Достатнє освітлення', 'Укриття в школі', 'Вільні евакуаційні виходи'], tip: '💡 Якщо бачиш фізичну загрозу — повідом дорослих.' },
+  psych:    { icon: '🧠', name: 'Психологічний простір', desc: 'Атмосфера довіри та підтримки, у якій не страшно помилитися.', examples: ['Довіра до вчителя', 'Можливість помилитися без насмішок', 'Повага до думки кожного', 'Підтримка у складну хвилину'], tip: '💡 Слова підтримки роблять простір безпечнішим для всіх.' },
+  social:   { icon: '👥', name: 'Соціальний простір', desc: 'Середовище співпраці та прийняття, без дискримінації та цькування.', examples: ['Командна робота', 'Підтримка друзів', 'Дружба та взаємодопомога', 'Прийняття нових учнів'], tip: '💡 Запросити когось до команди — простий крок до безпеки.' },
+  digital:  { icon: '🔒', name: 'Цифровий простір', desc: 'Захист особистих даних, приватність і безпечна поведінка онлайн.', examples: ['Надійні паролі', 'Перевірка джерел інформації', 'Захист особистих даних', 'Обережність із підозрілими посиланнями'], tip: '💡 Нікому не надсилай свої паролі.' },
+  inner:    { icon: '🧘', name: 'Внутрішній простір', desc: 'Самоповага, розуміння себе та вміння керувати емоціями.', examples: ['Самоповага', 'Розуміння своїх емоцій', 'Емоційний баланс', 'Позитивне мислення'], tip: '💡 Помилки — це частина навчання, а не привід для самокритики.' }
 };
-function openComponentModal(key) {
-const c = COMPONENTS[key];
-const card = document.querySelector('#s2ComponentGrid .infographic-card[onclick*="' + key + '"]');
-if (card) card.classList.add('revealed');
-openInfoModal(
-c.icon + ' ' + c.title,
-'<p class="mb-16"><strong>' + c.desc + '</strong></p>' +
-'<div class="modal-section-title">📌 Приклади:</div>' +
-'<ul class="info-block-list">' + c.examples.map(e => '<li><span class="list-icon">✅</span><span>' + e + '</span></li>').join('') + '</ul>',
-[
-{ label: 'Дослідити далі →', cls: 'btn-primary', fn: () => { closeModal('infoModal'); showScreen(2, c.screen); } },
-{ label: 'Закрити', cls: 'btn-secondary', fn: () => closeModal('infoModal') }
-]
-);
-}
-// ============ КРОК 2: ЗІСТАВЛЕННЯ ============
-let selectedChip = null;
-function clickMatchChip(chip) {
-if (chip.classList.contains('locked')) return;
-if (chip.parentElement.id === 's2MatchPool') {
-if (selectedChip === chip) { chip.classList.remove('selected'); selectedChip = null; return; }
-if (selectedChip) selectedChip.classList.remove('selected');
-chip.classList.add('selected');
-selectedChip = chip;
-} else {
-chip.classList.remove('correct', 'incorrect', 'selected');
-document.getElementById('s2MatchPool').appendChild(chip);
-}
-}
-function clickMatchCategory(cat) {
-if (cat.classList.contains('locked')) return;
-if (!selectedChip) { showToast('👆 Спочатку натисни на приклад'); return; }
-cat.querySelector('.match-cat-chips').appendChild(selectedChip);
-selectedChip.classList.remove('selected');
-selectedChip = null;
-}
-function checkS2Match() {
-const pool = document.getElementById('s2MatchPool');
-if (pool.querySelectorAll('.match-chip').length > 0) {
-setFeedback('s2MatchFeedback', 'warning', '💡 Розподіли всі приклади за складовими!');
-return;
-}
-let all = true, correct = 0;
-document.querySelectorAll('#s2MatchCats .match-category').forEach(cat => {
-cat.querySelectorAll('.match-chip').forEach(chip => {
-const ok = chip.dataset.cat === cat.dataset.cat;
-chip.classList.add(ok ? 'correct' : 'incorrect');
-if (ok) correct++; else all = false;
-});
-});
-if (all) {
-setFeedback('s2MatchFeedback', 'success', '<strong>✅ Чудово!</strong> Усі 10 прикладів розподілено правильно.');
-addCorrect('s2match');
-lockTaskUI('#s2Match');
-} else {
-setFeedback('s2MatchFeedback', 'error', '<strong>❌ Є помилки.</strong> Правильно: ' + correct + ' з 10. Червоні приклади можна перемістити — натисни на них.');
-addWrong('s2match');
-}
-}
-function retryS2Match() {
-if (completedIds.has('s2match')) { showToast('✅ Це завдання вже зараховано!'); return; }
-const pool = document.getElementById('s2MatchPool');
-document.querySelectorAll('#s2MatchCats .match-chip').forEach(chip => {
-chip.classList.remove('correct', 'incorrect', 'selected');
-pool.appendChild(chip);
-});
-if (selectedChip) { selectedChip.classList.remove('selected'); selectedChip = null; }
-hideFeedback('s2MatchFeedback');
-showToast('🔄 Спробуй ще раз');
-}
-// ============ КРОК 2: ЗНАЙДИ ЗАЙВЕ ============
-function checkOddRow(rowId) {
-const row = document.getElementById(rowId);
-const btn = row.querySelector('.odd-row-footer .btn');
-const fb = row.querySelector('.odd-row-feedback');
-if (row.dataset.state === 'wrong') {
-row.querySelectorAll('.category-option').forEach(o => { o.classList.remove('selected', 'correct', 'incorrect'); o.style.pointerEvents = ''; });
-row.dataset.state = '';
-fb.textContent = '';
-btn.textContent = 'Перевірити';
-return;
-}
-if (row.dataset.state === 'done') return;
-const sel = row.querySelector('.category-option.selected');
-if (!sel) { fb.className = 'odd-row-feedback bad'; fb.textContent = '💡 Обери варіант'; return; }
-const ok = sel.dataset.correct === 'true';
-row.querySelectorAll('.category-option').forEach(o => { o.style.pointerEvents = 'none'; });
-sel.classList.add(ok ? 'correct' : 'incorrect');
-if (ok) {
-row.dataset.state = 'done';
-fb.className = 'odd-row-feedback ok';
-fb.textContent = '✅ Правильно!';
-btn.textContent = '✅ Зараховано';
-btn.disabled = true;
-const doneCount = document.querySelectorAll('#s2Odd .odd-row[data-state="done"]').length;
-if (doneCount === 5) {
-setFeedback('s2OddFeedback', 'success', '<strong>🎉 Чудово!</strong> Ти знайшов(ла) зайві елементи в усіх 5 групах.');
-addCorrect('s2odd');
-} else {
-setFeedback('s2OddFeedback', 'info', 'Виконано рядків: <strong>' + doneCount + '</strong>/5. Продовжуй!');
-}
-} else {
-row.dataset.state = 'wrong';
-const right = row.querySelector('.category-option[data-correct="true"]');
-if (right) right.classList.add('correct');
-fb.className = 'odd-row-feedback bad';
-fb.textContent = '❌ Неправильно. Натисни «Ще раз»';
-btn.textContent = '🔄 Ще раз';
-addWrong('s2odd');
-}
-}
-function retryS2Odd() {
-if (completedIds.has('s2odd')) { showToast('✅ Це завдання вже зараховано!'); return; }
-document.querySelectorAll('#s2Odd .odd-row').forEach(row => {
-if (row.dataset.state === 'done') return;
-row.dataset.state = '';
-row.querySelectorAll('.category-option').forEach(o => { o.classList.remove('selected', 'correct', 'incorrect'); o.style.pointerEvents = ''; });
-row.querySelector('.odd-row-feedback').textContent = '';
-const btn = row.querySelector('.odd-row-footer .btn');
-btn.textContent = 'Перевірити';
-btn.disabled = false;
-});
-hideFeedback('s2OddFeedback');
-showToast('🔄 Спробуй ще раз');
-}
-// ============ КРОК 3: МАТРИЦЯ ============
-const PROB_NAMES = ['Низька', 'Середня', 'Висока'];
-const CONS_NAMES = ['Незначні', 'Помірні', 'Серйозні'];
-const MATRIX_DATA = [
-[
-{ level: 'Низький', cls: 'lv-low', ex: 'Йти освітленим тротуаром у світлу пору дня, дивлячись під ноги: імовірність спіткнутися низька, а наслідки незначні.' },
-{ level: 'Помірний', cls: 'lv-mod', ex: 'Мокра підлога зі знаком «Обережно!»: ти попереджений і йдеш повільно, але забій усе ж можливий.' },
-{ level: 'Високий', cls: 'lv-high', ex: 'Їзда на велосипеді без шолома порожньою вулицею: падіння малоймовірне, та травма голови може бути серйозною.' }
-],
-[
-{ level: 'Помірний', cls: 'lv-mod', ex: 'Можна запізнитися на зустріч через дощ: імовірність середня, наслідки незначні.' },
-{ level: 'Високий', cls: 'lv-high', ex: 'Мокра підлога без попереджувального знака: імовірність послизнутися середня, наслідки помірні — забій або розтягнення.' },
-{ level: 'Дуже високий', cls: 'lv-vhigh', ex: 'Обледенілі сходи без поручнів: падіння ймовірне, а наслідки можуть бути серйозними — переломи.' }
-],
-[
-{ level: 'Високий', cls: 'lv-high', ex: 'Бігати по калюжах у дворі: майже напевно промочиш ноги — неприємно, але не травма.' },
-{ level: 'Дуже високий', cls: 'lv-vhigh', ex: 'Ожеледиця на вулиці: падіння дуже ймовірні, можливі забої та розтягнення.' },
-{ level: 'Критичний', cls: 'lv-crit', ex: 'Їзда на самокаті без шолома мокрою дорогою на швидкості: падіння дуже ймовірне, а травма голови — серйозна.' }
-]
+const COMPONENT_ORDER = ['physical', 'psych', 'social', 'digital', 'inner'];
+
+const S2_CFG = {
+  physical: { box: 's2PhysicalOptions', fb: 's2PhysicalFeedback', task: 's2physical', msg: 'Евакуаційні шляхи завжди мають бути вільними.' },
+  psych:    { box: 's2PsychOptions',    fb: 's2PsychFeedback',    task: 's2psych',    msg: 'Підтримка та повага створюють психологічну безпеку.' },
+  social:   { box: 's2SocialOptions',   fb: 's2SocialFeedback',   task: 's2social',   msg: 'Підтримка та включення — запорука дружнього середовища.' },
+  digital:  { box: 's2DigitalOptions',  fb: 's2DigitalFeedback',  task: 's2digital',  msg: 'Не переходь за підозрілими посиланнями й не надсилай паролі.' },
+  inner:    { box: 's2InnerOptions',    fb: 's2InnerFeedback',    task: 's2inner',    msg: 'Аналіз помилок і повторна спроба — шлях до зростання.' }
+};
+
+const MATRIX_ROWS = ['Низька', 'Середня', 'Висока'];
+const MATRIX_COLS = ['Незначні', 'Помірні', 'Серйозні'];
+const MATRIX_LEVELS = [['low', 'mod', 'high'], ['mod', 'high', 'vhigh'], ['high', 'vhigh', 'crit']];
+const LEVEL_NAMES = { low: 'Низький ризик', mod: 'Помірний ризик', high: 'Високий ризик', vhigh: 'Дуже високий ризик', crit: 'Критичний ризик' };
+const MATRIX_EXAMPLES = [
+  [
+    { ex: '🖊️ На уроці раптово закінчилася ручка.', ad: 'Май запасну ручку — і проблема зникне.' },
+    { ex: '📱 Телефон забули в автобусі.', ad: 'Тримай гаджет у кишені на блискавці та одразу повідом перевізника.' },
+    { ex: '⚡ Оголений дріт біля будинку.', ad: 'Не наближайся та повідом дорослих або аварійну службу.' }
+  ],
+  [
+    { ex: '🎤 Виступ без підготовки.', ad: 'Підготуйся та прорепетируй — хвилювання зменшиться.' },
+    { ex: '🛴 Їзда на самокаті без шолома.', ad: 'Одягай шолом і захист, уникай різких маневрів.' },
+    { ex: '🚗 Перехід дороги в невстановленому місці.', ad: 'Переходь лише на переході та на зелений сигнал світлофора.' }
+  ],
+  [
+    { ex: '🏃 Спотикання, коли поспішаєш рівним тротуаром.', ad: 'Не поспішай і дивись під ноги.' },
+    { ex: '🧊 Ожеледиця та гладке взуття.', ad: 'Обирай взуття з протектором, ходи повільно, тримайся поручнів.' },
+    { ex: '🔥 Ігри з вогнем у приміщенні.', ad: 'Ніколи не грайся з вогнем. У разі пожежі телефонуй 101!' }
+  ]
 ];
-function openMatrixModal(r, c) {
-const d = MATRIX_DATA[r][c];
-openInfoModal(
-'📊 Рівень ризику',
-'<div class="level-pill ' + d.cls + '">' + d.level + ' ризик</div>' +
-'<div class="formula" style="justify-content: flex-start;"><div class="formula-item">🎲 ' + PROB_NAMES[r] + ' імовірність</div><div class="formula-op">×</div><div class="formula-item">⚠️ ' + CONS_NAMES[c] + ' наслідки</div></div>' +
-'<div class="modal-section-title">📌 Приклад:</div><p>' + d.ex + '</p>' +
-'<div class="tip-card-inline" style="margin-top: 16px;"><span class="tip-card-icon">🛡️</span><div>Обачність і безпечна поведінка знижують рівень ризику.</div></div>',
-[{ label: 'Зрозуміло ✓', cls: 'btn-primary', fn: () => closeModal('infoModal') }]
-);
-}
-// ============ КРОК 3: ПРАКТИКУМ ============
-const LEVEL_LABELS = { low: 'Низький', mid: 'Середній', high: 'Високий', mod: 'Помірний', vhigh: 'Дуже високий' };
-function selectPracticeLevel(btn) {
-const card = btn.closest('.practice-card');
-if (card.classList.contains('locked')) return;
-card.querySelectorAll('.seg-btn').forEach(b => b.classList.remove('selected'));
-btn.classList.add('selected');
-card.classList.remove('correct', 'incorrect');
-const v = card.querySelector('.card-verdict');
-if (v) v.classList.remove('show');
-}
-function checkS3Practice() {
-const cards = Array.from(document.querySelectorAll('#s3Practice .practice-card'));
-if (cards.some(c => !c.querySelector('.seg-btn.selected'))) {
-setFeedback('s3PracticeFeedback', 'warning', '💡 Обери рівень ризику для кожної ситуації!');
-return;
-}
-let all = true;
-cards.forEach(card => {
-const sel = card.querySelector('.seg-btn.selected');
-const ok = sel.dataset.level === card.dataset.answer;
-const v = card.querySelector('.card-verdict');
-card.classList.add(ok ? 'correct' : 'incorrect');
-v.className = 'card-verdict show ' + (ok ? 'ok' : 'bad');
-v.innerHTML = (ok ? '✅ ' : '❌ Правильна відповідь: ' + LEVEL_LABELS[card.dataset.answer] + '. ') + card.dataset.explain;
-if (!ok) all = false;
-});
-if (all) {
-setFeedback('s3PracticeFeedback', 'success', '<strong>🎉 Чудово!</strong> Ти правильно оцінив(ла) рівень ризику в усіх ситуаціях.');
-addCorrect('s3practice');
-lockTaskUI('#s3Practice');
-} else {
-setFeedback('s3PracticeFeedback', 'error', '<strong>❌ Є помилки.</strong> Прочитай пояснення та натисни «Спробувати ще раз».');
-addWrong('s3practice');
-}
-}
-function retryS3Practice() {
-if (completedIds.has('s3practice')) { showToast('✅ Це завдання вже зараховано!'); return; }
-document.querySelectorAll('#s3Practice .practice-card').forEach(card => {
-card.classList.remove('correct', 'incorrect');
-card.querySelectorAll('.seg-btn').forEach(b => b.classList.remove('selected'));
-card.querySelector('.card-verdict').classList.remove('show');
-});
-hideFeedback('s3PracticeFeedback');
-showToast('🔄 Спробуй ще раз');
-}
-// ============ КРОК 3: ЯК ЗМЕНШИТИ РИЗИК ============
-function checkS3Reduce() {
-const blocks = Array.from(document.querySelectorAll('#s3Reduce .reduce-block'));
-let all = true, anyChecked = false;
-blocks.forEach(block => {
-let blockOk = true;
-block.querySelectorAll('.checklist-item').forEach(item => {
-const should = item.dataset.correct === 'true', checked = item.classList.contains('checked');
-if (checked) anyChecked = true;
-if (should && !checked) blockOk = false;
-if (!should && checked) blockOk = false;
-item.style.pointerEvents = 'none';
-});
-const v = block.querySelector('.card-verdict');
-block.classList.add(blockOk ? 'correct' : 'incorrect');
-v.className = 'card-verdict show ' + (blockOk ? 'ok' : 'bad');
-v.innerHTML = (blockOk ? '✅ ' : '❌ ') + block.dataset.explain;
-if (!blockOk) all = false;
-});
-if (!anyChecked) {
-blocks.forEach(block => {
-block.classList.remove('correct', 'incorrect');
-block.querySelector('.card-verdict').classList.remove('show');
-block.querySelectorAll('.checklist-item').forEach(i => { i.style.pointerEvents = ''; });
-});
-setFeedback('s3ReduceFeedback', 'warning', '💡 Познач хоча б одну дію!');
-return;
-}
-if (all) {
-setFeedback('s3ReduceFeedback', 'success', '<strong>🎉 Чудово!</strong> Ти знайшов(ла) всі способи зменшення ризику.');
-addCorrect('s3reduce');
-lockTaskUI('#s3Reduce');
-} else {
-setFeedback('s3ReduceFeedback', 'error', '<strong>❌ Є помилки.</strong> Прочитай пояснення та натисни «Спробувати ще раз».');
-addWrong('s3reduce');
-blocks.forEach(block => block.querySelectorAll('.checklist-item').forEach(i => { i.style.pointerEvents = ''; }));
-}
-}
-function retryS3Reduce() {
-if (completedIds.has('s3reduce')) { showToast('✅ Це завдання вже зараховано!'); return; }
-document.querySelectorAll('#s3Reduce .reduce-block').forEach(block => {
-block.classList.remove('correct', 'incorrect');
-block.querySelector('.card-verdict').classList.remove('show');
-block.querySelectorAll('.checklist-item').forEach(i => { i.classList.remove('checked'); i.style.pointerEvents = ''; });
-});
-hideFeedback('s3ReduceFeedback');
-showToast('🔄 Спробуй ще раз');
-}
-// ============ КРОК 3: ОДНА НЕБЕЗПЕКА ============
-function checkS3OneDanger() {
-const cards = Array.from(document.querySelectorAll('#s3OneDanger .od-card'));
-if (cards.some(c => !c.querySelector('.od-select').value)) {
-setFeedback('s3OneDangerFeedback', 'warning', '💡 Обери рівень ризику для кожної ситуації!');
-return;
-}
-let all = true;
-cards.forEach(card => {
-const sel = card.querySelector('.od-select');
-const ok = sel.value === card.dataset.answer;
-card.classList.add(ok ? 'correct' : 'incorrect');
-const v = card.querySelector('.card-verdict');
-v.className = 'card-verdict show ' + (ok ? 'ok' : 'bad');
-v.innerHTML = (ok ? '✅ ' : '❌ Правильна відповідь: ' + LEVEL_LABELS[card.dataset.answer] + '. ') + card.dataset.explain;
-if (!ok) all = false;
-});
-if (all) {
-setFeedback('s3OneDangerFeedback', 'success', '<strong>🎉 Чудово!</strong> Одна небезпека — різні ризики: ти вмієш їх порівнювати!');
-addCorrect('s3onedanger');
-lockTaskUI('#s3OneDanger');
-} else {
-setFeedback('s3OneDangerFeedback', 'error', '<strong>❌ Є помилки.</strong> Скористайся матрицею ризику та спробуй ще раз.');
-addWrong('s3onedanger');
-}
-}
-function retryS3OneDanger() {
-if (completedIds.has('s3onedanger')) { showToast('✅ Це завдання вже зараховано!'); return; }
-document.querySelectorAll('#s3OneDanger .od-card').forEach(card => {
-card.classList.remove('correct', 'incorrect');
-card.querySelector('.od-select').value = '';
-card.querySelector('.card-verdict').classList.remove('show');
-});
-hideFeedback('s3OneDangerFeedback');
-showToast('🔄 Спробуй ще раз');
-}
-// ============ КРОК 4: ОДИНОЧНІ / МУЛЬТИ ============
-const S4_SINGLE = {
-controlled: { opts: '#s4ControlledOptions .option', fb: 's4ControlledFeedback', task: 's4controlled', lock: '#s4Controlled', msg: '<strong>✅ Правильно!</strong> Вчасні дії зупинили небезпеку — це керований розвиток.' },
-gradual: { opts: '#s4GradualOptions .option', fb: 's4GradualFeedback', task: 's4gradual', lock: '#s4Gradual', msg: '<strong>✅ Правильно!</strong> Образливі жарти — початок ланцюга. Зупиняй небезпеку на ранньому етапі.' }
-};
-function checkS4Single(key) { const c = S4_SINGLE[key]; checkSingleGeneric(c.opts, c.fb, c.task, c.msg, c.lock); }
-function retryS4Single(key) { const c = S4_SINGLE[key]; retryGeneric(c.task, c.opts, c.fb); }
-const S4_MULTI = {
-sudden: { opts: '#s4SuddenOptions .option', fb: 's4SuddenFeedback', task: 's4sudden', lock: '#s4Sudden', msg: '<strong>✅ Правильно!</strong> Раптові події розвиваються за лічені секунди — тому їх краще попереджати.' },
-conflict: { opts: '#s4ConflictOptions .option', fb: 's4ConflictFeedback', task: 's4conflict', lock: '#s4Conflict', msg: '<strong>✅ Правильно!</strong> Зйомка, підбурювання та поширення відео посилюють небезпеку. Кликати дорослого і розвести учасників — безпечні дії.' }
-};
-function checkS4Multi(key) { const c = S4_MULTI[key]; checkMultiGeneric(c.opts, c.fb, c.task, c.msg, c.lock); }
-function retryS4Multi(key) { const c = S4_MULTI[key]; retryGeneric(c.task, c.opts, c.fb); }
-function checkS4Check() {
-const blocks = Array.from(document.querySelectorAll('#s4Check .category-block'));
-if (blocks.some(b => !b.querySelector('.category-option.selected'))) {
-setFeedback('s4CheckFeedback', 'warning', '💡 Обери твердження в кожній групі!');
-return;
-}
-let all = true;
-blocks.forEach(block => {
-const sel = block.querySelector('.category-option.selected');
-const ok = sel.dataset.correct === 'true';
-block.querySelectorAll('.category-option').forEach(o => { o.style.pointerEvents = 'none'; });
-sel.classList.add(ok ? 'correct' : 'incorrect');
-if (!ok) {
-all = false;
-const right = block.querySelector('.category-option[data-correct="true"]');
-if (right) right.classList.add('correct');
-}
-});
-if (all) {
-setFeedback('s4CheckFeedback', 'success', '<strong>🎉 Чудово!</strong> Ти розрізняєш усі 4 типи розвитку небезпечних ситуацій.');
-addCorrect('s4check');
-lockTaskUI('#s4Check');
-} else {
-setFeedback('s4CheckFeedback', 'error', '<strong>❌ Є помилки.</strong> Правильні твердження виділено зеленим. Натисни «Зробити заново».');
-addWrong('s4check');
-}
-}
-function retryS4Check() {
-if (completedIds.has('s4check')) { showToast('✅ Це завдання вже зараховано!'); return; }
-document.querySelectorAll('#s4Check .category-option').forEach(o => {
-o.classList.remove('selected', 'correct', 'incorrect');
-o.style.pointerEvents = '';
-});
-hideFeedback('s4CheckFeedback');
-showToast('🔄 Спробуй ще раз');
-}
-// ============ КРОК 4/5: SLOT DRAG & DROP ============
+
 const SLOT_TASKS = {
-s4fake: {
-source: 's4FakeItems', zonesSel: '#s4FakeZones .drop-zone', fb: 's4FakeFeedback', task: 's4fake', lock: '#s4Fake',
-msg: '<strong>✅ Правильно!</strong> Фейк → паніка → масові закупівлі → дефіцит. Розривай ланцюг якомога раніше!',
-items: [
-{ o: 1, h: '📱 Фейк' }, { o: 2, h: '😱 Паніка' }, { o: 3, h: '🛒 Масові закупівлі' }, { o: 4, h: '📦 Дефіцит' }
-],
-display: [2, 4, 1, 3]
-},
-s4conflictchain: {
-source: 's4ConflictItems', zonesSel: '#s4ConflictZones .drop-zone', fb: 's4ConflictChainFeedback', task: 's4conflictchain', lock: '#s4ConflictChain',
-msg: '<strong>✅ Правильно!</strong> Сварка → образи та приниження → ізоляція → психологічна травма. Зупиняй конфлікт на початку!',
-items: [
-{ o: 1, h: '💬 Сварка' }, { o: 2, h: '😞 Образи та приниження' }, { o: 3, h: '😢 Ізоляція' }, { o: 4, h: '💔 Психологічна травма' }
-],
-display: [4, 1, 3, 2]
-},
-s5order: {
-source: 's5OrderItems', zonesSel: '#s5OrderZones .drop-zone', fb: 's5OrderFeedback', task: 's5order', lock: '#s5Order',
-msg: '<strong>✅ Правильно!</strong> Зупинися → оціни ситуацію → обери найбезпечніший варіант → перевір результат.',
-items: [
-{ o: 1, h: '🧘 Зупинися' }, { o: 2, h: '🔍 Оціни ситуацію' }, { o: 3, h: '🪧 Обери найбезпечніший варіант' }, { o: 4, h: '✅ Перевір результат' }
-],
-display: [4, 1, 3, 2]
-}
+  s4fake: {
+    items: 's4FakeItems', zones: 's4FakeZones', feedback: 's4FakeFeedback', task: 's4fake',
+    data: [
+      { id: 'fake',    text: '📱 Фейковий пост у соцмережі' },
+      { id: 'panic',   text: '😱 Паніка серед людей' },
+      { id: 'buying',  text: '🛒 Масові закупівлі' },
+      { id: 'deficit', text: '📦 Дефіцит товарів' }
+    ]
+  },
+  s4conflictchain: {
+    items: 's4ConflictItems', zones: 's4ConflictZones', feedback: 's4ConflictChainFeedback', task: 's4conflictchain',
+    data: [
+      { id: 'joke',   text: '💬 Образливі жарти' },
+      { id: 'humil',  text: '😞 Приниження' },
+      { id: 'isol',   text: '😢 Ізоляція' },
+      { id: 'trauma', text: '💔 Психологічна травма' }
+    ]
+  },
+  s5order: {
+    items: 's5OrderItems', zones: 's5OrderZones', feedback: 's5OrderFeedback', task: 's5order',
+    data: [
+      { id: 'stop',   text: '🧘 Зупинися та заспокойся' },
+      { id: 'assess', text: '🔍 Оціни ситуацію' },
+      { id: 'choose', text: '🪧 Обери найбезпечніший варіант' },
+      { id: 'verify', text: '✅ Перевір результат' }
+    ]
+  }
 };
-function makeSlotDrop(cfg) {
-return function(e) {
-e.preventDefault();
-this.classList.remove('drag-over');
-if (!draggedItem || this.style.pointerEvents === 'none') return;
-if (this.classList.contains('filled')) {
-const back = document.createElement('div');
-back.className = 'drag-item';
-back.draggable = true;
-back.dataset.order = this.dataset.order;
-back.innerHTML = this.dataset.html;
-attachDragListeners(back);
-document.getElementById(cfg.source).appendChild(back);
-}
-this.dataset.order = draggedItem.dataset.order;
-this.dataset.html = draggedItem.innerHTML;
-this.innerHTML = '<div class="drop-zone-number">' + this.dataset.position + '</div><div class="drop-zone-text">' + draggedItem.innerHTML + '</div>';
-this.classList.add('filled');
-this.classList.remove('correct', 'incorrect');
-draggedItem.remove();
-draggedItem = null;
+
+const S4_SINGLE = {
+  controlled: { box: 's4ControlledOptions', fb: 's4ControlledFeedback', task: 's4controlled', msg: 'Вчасні дії зупиняють небезпеку на ранньому етапі.' },
+  gradual:    { box: 's4GradualOptions',    fb: 's4GradualFeedback',    task: 's4gradual',    msg: 'Зупиняй образливі жарти одразу — це початок ланцюга.' }
 };
-}
-function initSlotTask(key) {
-const cfg = SLOT_TASKS[key];
-const source = document.getElementById(cfg.source);
-source.innerHTML = '';
-cfg.display.forEach(o => {
-const item = cfg.items.find(i => i.o === o);
-const el = document.createElement('div');
-el.className = 'drag-item';
-el.draggable = true;
-el.dataset.order = item.o;
-el.innerHTML = item.h;
-source.appendChild(el);
-});
-document.querySelectorAll(cfg.zonesSel).forEach(zone => {
-zone.classList.remove('filled', 'correct', 'incorrect', 'drag-over');
-zone.style.pointerEvents = '';
-zone.innerHTML = '<div class="drop-zone-number">' + zone.dataset.position + '</div><div class="drop-zone-text">Перетягни сюди</div>';
-delete zone.dataset.order;
-delete zone.dataset.html;
-});
-initUniversalDragDrop(cfg.source, Array.from(document.querySelectorAll(cfg.zonesSel)), makeSlotDrop(cfg));
-}
-function checkSlotTask(key) {
-const cfg = SLOT_TASKS[key];
-const zones = Array.from(document.querySelectorAll(cfg.zonesSel));
-if (zones.some(z => !z.classList.contains('filled'))) {
-setFeedback(cfg.fb, 'warning', '💡 Заповни всі позиції (1-2-3-4)!');
-return;
-}
-let all = true;
-zones.forEach(z => {
-const ok = Number(z.dataset.order) === Number(z.dataset.position);
-z.classList.add(ok ? 'correct' : 'incorrect');
-if (!ok) all = false;
-});
-if (all) {
-setFeedback(cfg.fb, 'success', cfg.msg);
-addCorrect(cfg.task);
-lockTaskUI(cfg.lock);
-} else {
-setFeedback(cfg.fb, 'error', '<strong>❌ Неправильно.</strong> Перетягни картки інакше або натисни «Зробити заново».');
-addWrong(cfg.task);
-}
-}
-function retrySlotTask(key) {
-const cfg = SLOT_TASKS[key];
-if (completedIds.has(cfg.task)) { showToast('✅ Це завдання вже зараховано!'); return; }
-initSlotTask(key);
-hideFeedback(cfg.fb);
-showToast('🔄 Спробуй ще раз');
-}
-// ============ КРОК 5: ЩО ЗАВАЖАЄ ============
-function checkS5Obstacle() {
-checkSingleGeneric('#s5ObstacleOptions .option', 's5ObstacleFeedback', 's5obstacle',
-'<strong>✅ Правильно!</strong> «Усі вже погодилися» — це тиск друзів. Важливо вміти сказати «ні».', '#s5Obstacles');
-}
-function retryS5Obstacle() { retryGeneric('s5obstacle', '#s5ObstacleOptions .option', 's5ObstacleFeedback'); }
-// ============ КРОК 5: АЛЬБІНА ============
+const S4_MULTI = {
+  sudden:   { box: 's4SuddenOptions',   fb: 's4SuddenFeedback',   task: 's4sudden',   msg: 'Раптові події не дають часу на роздуми — діяти треба на випередження.' },
+  conflict: { box: 's4ConflictOptions', fb: 's4ConflictFeedback', task: 's4conflict', msg: 'Зйомка, підбурювання та поширення відео лише посилюють небезпеку.' }
+};
+
 const ALBINA = {
-walk: { answer: 'no', verdictType: 'error', verdict: '🚨 Це рішення пов’язане з високим ризиком!', explain: 'Інформації недостатньо: район незнайомий, надворі темніє — іти навмання небезпечно.' },
-passerby: { answer: 'no', verdictType: 'error', verdict: '⚠️ Це рішення також пов’язане з ризиком', explain: 'Ти нічого не знаєш про цю людину — інформації недостатньо для обґрунтованого рішення.' },
-shop: { answer: 'yes', verdictType: 'success', verdict: '✅ Це найбезпечніше рішення!', explain: 'Освітлене людське місце з дорослими — інформації достатньо, щоб обрати цей безпечний варіант.' },
-bus: { answer: 'no', verdictType: 'error', verdict: '🚨 Це рішення небезпечне в умовах невизначеності!', explain: 'Маршрут автобуса невідомий — інформації недостатньо, ризик опинитися ще далі дуже високий.' }
+  walk:     { answer: 'no',  safe: false, info: 'Інформації недостатньо: невідомо, де знайома вулиця, скільки йти та що чекає по дорозі.', verdict: '❌ Небезпечний варіант: можна заблукати ще більше, а ніхто не знатиме, де ти.' },
+  passerby: { answer: 'no',  safe: false, info: 'Інформації недостатньо: ти не знаєш, хто ця людина і чи справді вона хоче допомогти.', verdict: '❌ Ризиковано: незнайомій людині не можна довіряти свою безпеку.' },
+  shop:     { answer: 'yes', safe: true,  info: 'Так, інформації достатньо: це людне освітлене місце, де є дорослі та засоби зв’язку.', verdict: '✅ Найбезпечніший варіант: залишайся тут, звернися по допомогу та зв’яжися з рідними.' },
+  bus:      { answer: 'no',  safe: false, info: 'Інформації недостатньо: невідомо, куди їде автобус і чи наблизить він тебе до дому.', verdict: '❌ Небезпечний варіант: можна опинитися ще далі від потрібного місця.' }
 };
-function toggleAlbina(key) {
-const card = document.getElementById('albina-' + key);
-card.classList.toggle('open');
-}
-function checkAlbina(key) {
-const cfg = ALBINA[key];
-const card = document.getElementById('albina-' + key);
-if (card.classList.contains('done')) { showToast('✅ Цей варіант уже проаналізовано!'); return; }
-const fb = card.querySelector('.albina-feedback');
-const verdict = card.querySelector('.albina-verdict');
-const sel = card.querySelector('.albina-options .option.selected');
-if (!sel) {
-fb.style.display = 'block';
-fb.className = 'feedback albina-feedback feedback-warning';
-fb.innerHTML = '💡 Обери «Так» або «Ні»';
-return;
-}
-const ok = sel.dataset.value === cfg.answer;
-card.querySelectorAll('.albina-options .option').forEach(o => o.classList.add('disabled'));
-sel.classList.add(ok ? 'correct' : 'incorrect');
-if (ok) {
-fb.style.display = 'block';
-fb.className = 'feedback albina-feedback feedback-success';
-fb.innerHTML = '<strong>✅ Правильно!</strong> ' + cfg.explain;
-verdict.style.display = 'block';
-verdict.className = 'feedback albina-verdict feedback-' + cfg.verdictType;
-verdict.innerHTML = '<strong>' + cfg.verdict + '</strong>';
-card.classList.add('done');
-card.querySelector('.albina-status').textContent = '✅';
-card.querySelectorAll('.albina-options .option').forEach(o => { o.style.pointerEvents = 'none'; o.classList.add('locked'); });
-const done = document.querySelectorAll('#s5Albina .albina-card.done').length;
-document.getElementById('s5AlbinaCounter').innerHTML = 'Проаналізовано варіантів: <strong>' + done + '</strong>/4';
-if (done === 4) {
-setFeedback('s5AlbinaFeedback', 'success', '<strong>🎉 Чудово!</strong> Ти проаналізував(ла) всі варіанти. Найбезпечніше рішення Альбіни — зайти до магазину чи аптеки й попросити допомоги.');
-addCorrect('s5albina');
-} else {
-setFeedback('s5AlbinaFeedback', 'info', 'Проаналізуй інші варіанти, щоб завершити завдання (' + done + '/4).');
-}
-} else {
-fb.style.display = 'block';
-fb.className = 'feedback albina-feedback feedback-error';
-fb.innerHTML = '<strong>❌ Неправильно.</strong> Подумай, скільки інформації має Альбіна в цьому варіанті. Натисни «Спробувати ще раз».';
-addWrong('s5albina');
-}
-}
-function retryAlbina(key) {
-const card = document.getElementById('albina-' + key);
-if (card.classList.contains('done')) { showToast('✅ Цей варіант уже проаналізовано!'); return; }
-card.querySelectorAll('.albina-options .option').forEach(o => {
-o.classList.remove('selected', 'correct', 'incorrect', 'disabled');
-o.style.pointerEvents = '';
-});
-card.querySelector('.albina-feedback').style.display = 'none';
-showToast('🔄 Спробуй ще раз');
-}
-// ============ КРОК 5: ПАРИ ============
-const pairState = { active: null, counter: 0, pairs: {} };
-function clickPairCard(el) {
-if (el.classList.contains('locked')) return;
-if (el.classList.contains('paired')) { unpair(el.dataset.pid); return; }
-if (el.dataset.side === 's') {
-if (pairState.active) pairState.active.classList.remove('active');
-if (pairState.active === el) { pairState.active = null; return; }
-el.classList.add('active');
-pairState.active = el;
-} else {
-if (!pairState.active) { showToast('👆 Спочатку обери ситуацію ліворуч'); return; }
-pairState.counter++;
-const pid = String(pairState.counter);
-const hue = ((pairState.counter - 1) % 4) + 1;
-const s = pairState.active;
-s.classList.remove('active');
-[s, el].forEach(card => {
-card.classList.add('paired', 'pair-hue-' + hue);
-card.dataset.pid = pid;
-});
-pairState.pairs[pid] = { s, r: el };
-pairState.active = null;
-}
-}
-function unpair(pid) {
-const p = pairState.pairs[pid];
-if (!p) return;
-[p.s, p.r].forEach(card => {
-card.classList.remove('paired', 'correct', 'incorrect', 'pair-hue-1', 'pair-hue-2', 'pair-hue-3', 'pair-hue-4');
-delete card.dataset.pid;
-});
-delete pairState.pairs[pid];
-}
-function checkS5Match() {
-const pids = Object.keys(pairState.pairs);
-if (pids.length < 4) {
-setFeedback('s5MatchFeedback', 'warning', '💡 З’єднай усі 4 ситуації з рішеннями!');
-return;
-}
-let all = true;
-pids.forEach(pid => {
-const p = pairState.pairs[pid];
-const ok = p.s.dataset.pair === p.r.dataset.pair;
-[p.s, p.r].forEach(card => card.classList.add(ok ? 'correct' : 'incorrect'));
-if (!ok) all = false;
-});
-if (all) {
-setFeedback('s5MatchFeedback', 'success', '<strong>🎉 Чудово!</strong> Кожна ситуація має найбезпечніше рішення.');
-addCorrect('s5match');
-lockTaskUI('#s5Match');
-} else {
-setFeedback('s5MatchFeedback', 'error', '<strong>❌ Є помилки.</strong> Червоні пари неправильні — натисни на картку, щоб роз’єднати, або «Спробувати ще раз».');
-addWrong('s5match');
-}
-}
-function retryS5Match() {
-if (completedIds.has('s5match')) { showToast('✅ Це завдання вже зараховано!'); return; }
-Object.keys(pairState.pairs).forEach(unpair);
-if (pairState.active) { pairState.active.classList.remove('active'); pairState.active = null; }
-hideFeedback('s5MatchFeedback');
-showToast('🔄 Спробуй ще раз');
-}
-// ============ КРОК 5: МІНІКВЕСТ ============
+const albinaDone = new Set();
+
 const QUEST = {
-parents: { type: 'success', title: '✅ Безпечне рішення!', text: 'Батьки зможуть приїхати та допомогти. Вони знають, де ти, і зможуть тебе забрати. Це найбезпечніший варіант у незнайомому місці.' },
-wander: { type: 'warning', title: '⚠️ Небезпечне рішення!', text: 'Можна заблукати ще більше. Без знання місцевості ризик тільки зростає. Краще залишатися на місці та шукати допомогу.' },
-police: { type: 'success', title: '✅ Безпечне рішення!', text: 'Поліцейські допоможуть зв’язатися з рідними та забезпечать твою безпеку. Це офіційна установа, де тобі точно допоможуть.' },
-stranger: { type: 'error', title: '🚨 ДУЖЕ НЕБЕЗПЕЧНЕ рішення!', text: 'Ніколи не сідай в авто до незнайомців — це може закінчитися трагедією! Незалежно від того, що говорить незнайомець.' }
+  parents:  { safe: true,  title: '🤳 Подзвонити батькам', text: 'Чудове рішення! Батьки підкажуть, що робити, і знатимуть, де тебе шукати. Рівень ризику — низький.' },
+  wander:   { safe: false, title: '🏃 Йти навмання', text: 'Небезпечно: можна заблукати ще більше, а в темряві орієнтуватися складніше. Рівень ризику — високий.' },
+  police:   { safe: true,  title: '👮 Зайти до відділення поліції', text: 'Безпечне рішення! Поліцейські — це дорослі, чия робота — допомагати людям. Рівень ризику — низький.' },
+  stranger: { safe: false, title: '🚗 Сісти в авто до незнайомця', text: 'Дуже небезпечно! Ніколи не сідай у транспорт до незнайомих людей, навіть якщо вони пропонують допомогу. Рівень ризику — критичний.' }
 };
 const questExplored = new Set();
+
+let pairActive = null;
+const pairLinks = [];
+
+// ============ ДОПОМІЖНІ ФУНКЦІЇ ============
+function setText(id, txt) { const el = document.getElementById(id); if (el) el.textContent = txt; }
+function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
+function shuffle(arr) { for (let i = arr.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [arr[i], arr[j]] = [arr[j], arr[i]]; } return arr; }
+function setFeedback(id, type, html) { const el = document.getElementById(id); if (!el) return; el.className = 'feedback feedback-' + type; el.innerHTML = html; el.style.display = 'block'; }
+function hideFeedback(id) { const el = document.getElementById(id); if (el) el.style.display = 'none'; }
+function toggleExplain(id) { const el = document.getElementById(id); if (el) el.style.display = (el.style.display === 'none' || !el.style.display) ? 'block' : 'none'; }
+
+function showToast(message, icon) {
+  const container = document.getElementById('toastContainer');
+  if (!container) return;
+  let text = message;
+  if (!icon) {
+    const m = text.match(/^(\p{Extended_Pictographic}\uFE0F?)/u);
+    if (m) { icon = m[0]; text = text.slice(m[0].length).trim(); } else icon = '🔔';
+  }
+  while (container.children.length >= 3) container.firstChild.remove();
+  const t = document.createElement('div');
+  t.className = 'toast';
+  t.innerHTML = '<span class="toast-icon">' + icon + '</span><span class="toast-message">' + esc(text) + '</span>';
+  container.appendChild(t);
+  setTimeout(() => { t.classList.add('hiding'); setTimeout(() => t.remove(), 400); }, 3200);
+}
+
+function openModal(id) { const m = document.getElementById(id); if (m) m.classList.add('active'); }
+function closeModal(id) { const m = document.getElementById(id); if (m) m.classList.remove('active'); }
+
+function openInfoModal(title, bodyHTML) {
+  document.getElementById('infoModalTitle').innerHTML = title;
+  document.getElementById('infoModalBody').innerHTML = bodyHTML;
+  const f = document.getElementById('infoModalFooter');
+  f.innerHTML = '';
+  const btn = document.createElement('button');
+  btn.className = 'btn btn-primary';
+  btn.style.width = '100%';
+  btn.textContent = 'Зрозуміло!';
+  btn.onclick = () => closeModal('infoModal');
+  f.appendChild(btn);
+  openModal('infoModal');
+}
+
+// ============ НАВІГАЦІЯ ============
+function hideAllPages() { document.querySelectorAll('main.container').forEach(m => m.classList.add('hidden')); }
+
+function goToMainPage() {
+  hideAllPages();
+  document.getElementById('mainPage').classList.remove('hidden');
+  state.currentStep = 0;
+  updateLiveProgress(); saveProgress();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function goToStep(n) {
+  hideAllPages();
+  const page = document.getElementById('step' + n + 'Page');
+  if (!page) return;
+  page.classList.remove('hidden');
+  state.currentStep = n;
+  if (n <= 5) showScreen(n, lastScreens[n] || STEP_SCREENS[n][0], true);
+  else updateStep6Stats();
+  updateLiveProgress(); saveProgress();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function showScreen(step, id, skipScroll) {
+  const page = document.getElementById('step' + step + 'Page');
+  if (!page) return;
+  page.querySelectorAll(':scope > section').forEach(s => s.classList.add('hidden'));
+  const target = document.getElementById(id);
+  if (target) target.classList.remove('hidden');
+  lastScreens[step] = id;
+  state.currentStep = step;
+  updateLiveProgress(); saveProgress();
+  if (!skipScroll) window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function renderStepNavigation() {
+  const nav = document.getElementById('stepNavigation');
+  if (!nav) return;
+  nav.innerHTML = '';
+  for (let i = 1; i <= 6; i++) {
+    const item = document.createElement('div');
+    item.className = 'step-nav-item';
+    item.tabIndex = 0;
+    let status = '⏳ Ще не розпочато', cls = '';
+    if (i <= 5) {
+      const tr = stepTracker['step' + i];
+      if (stepsCompleted[i]) { cls = 'completed'; status = '✅ Завершено'; }
+      else if (tr.completed > 0) status = '🔄 Виконано ' + tr.completed + '/' + tr.total;
+    } else {
+      if (getStats().stepsDone === 5) { cls = 'completed'; status = '✅ Відзнака доступна'; }
+      else status = '🔒 Пройди 5 кроків';
+    }
+    if (state.currentStep === i) cls = 'active';
+    if (cls) item.classList.add(cls);
+    item.innerHTML = '<div class="step-nav-number">' + (stepsCompleted[i] || (i === 6 && getStats().stepsDone === 5) ? '✓' : i) + '</div>' +
+      '<div class="step-nav-content"><div class="step-nav-title">' + STEP_TITLES[i] + '</div><div class="step-nav-status">' + status + '</div></div>';
+    item.onclick = () => goToStep(i);
+    nav.appendChild(item);
+  }
+}
+
+// ============ УНІВЕРСАЛЬНІ ОПЦІЇ ============
+function selectSingle(el) {
+  if (el.classList.contains('disabled')) return;
+  el.parentElement.querySelectorAll('.option').forEach(o => o.classList.remove('selected'));
+  el.classList.add('selected');
+}
+function toggleOption(el) {
+  if (el.classList.contains('disabled')) return;
+  el.classList.toggle('selected');
+}
+function evaluateOptions(boxId) {
+  const box = document.getElementById(boxId);
+  const opts = [...box.querySelectorAll('.option')];
+  const sel = opts.filter(o => o.classList.contains('selected'));
+  if (!sel.length) return { answered: false, ok: false };
+  const need = opts.filter(o => o.dataset.correct === 'true').length;
+  const ok = sel.length === need && sel.every(o => o.dataset.correct === 'true');
+  opts.forEach(o => {
+    const was = o.classList.contains('selected');
+    o.classList.remove('selected');
+    o.classList.add('disabled');
+    if (o.dataset.correct === 'true') o.classList.add('correct');
+    else if (was) o.classList.add('incorrect');
+  });
+  return { answered: true, ok };
+}
+function resetOptions(boxId) {
+  const box = document.getElementById(boxId);
+  if (box) box.querySelectorAll('.option').forEach(o => o.classList.remove('selected', 'correct', 'incorrect', 'disabled'));
+}
+function solveOptions(boxId) {
+  const box = document.getElementById(boxId);
+  if (box) box.querySelectorAll('.option').forEach(o => { o.classList.remove('selected', 'incorrect'); o.classList.add('disabled'); if (o.dataset.correct === 'true') o.classList.add('correct'); });
+}
+function checkOptionsTask(boxId, fbId, taskId, okMsg) {
+  const r = evaluateOptions(boxId);
+  if (!r.answered) { setFeedback(fbId, 'warning', '⚠️ Спочатку обери варіант відповіді.'); return; }
+  if (r.ok) { addCorrect(taskId); setFeedback(fbId, 'success', '✅ Правильно! ' + (okMsg || '')); }
+  else { addWrong(taskId); setFeedback(fbId, 'error', '❌ Не зовсім. Переглянь пояснення до варіантів і спробуй ще раз.'); }
+}
+function toggleCard(el) { el.classList.toggle('revealed'); }
+
+// ============ КРОК 1 ============
+function markRiskFound(h, silent) {
+  const key = h.dataset.risk;
+  if (foundRisks.has(key)) return;
+  foundRisks.add(key);
+  h.classList.add('found');
+  h.innerHTML = '<span class="hotspot-plus">✓</span>';
+  const r = RISKS[key];
+  const label = document.createElement('div');
+  label.className = 'risk-label';
+  label.innerHTML = '<strong>' + r.title + '</strong><span class="risk-desc">' + r.desc + '</span>';
+  const left = parseFloat(h.style.left) || 0, top = parseFloat(h.style.top) || 0;
+  label.style.left = (left > 55 ? Math.max(2, left - 26) : left + 6) + '%';
+  label.style.top = (top > 70 ? top - 16 : top + 9) + '%';
+  document.getElementById('imageContainer').appendChild(label);
+  h._label = label;
+  const items = document.querySelectorAll('#riskCounter .risk-counter-item');
+  const idx = foundRisks.size - 1;
+  if (items[idx]) items[idx].classList.add('found');
+  const chip = document.createElement('span');
+  chip.className = 'found-chip';
+  chip.textContent = r.title;
+  document.getElementById('s1FoundList').appendChild(chip);
+  if (!silent && foundRisks.size === 6) showToast('🎉 Усі 6 ризиків знайдено!');
+}
+function findRisk(h) { markRiskFound(h, false); saveProgress(); }
+function checkS1Task1() {
+  if (foundRisks.size === 6) { addCorrect('s1risks'); setFeedback('s1Task1Feedback', 'success', '🎯 Чудово! Ти знайшов(ла) всі 6 ризиків. Переходь до першого рішення.'); }
+  else setFeedback('s1Task1Feedback', 'warning', '🔍 Знайдено ' + foundRisks.size + ' із 6 ризиків. Натискай на +, щоб знайти решту.');
+}
+function retryS1Task1() {
+  document.querySelectorAll('#imageContainer .hotspot').forEach(h => {
+    h.classList.remove('found');
+    h.innerHTML = '<span class="hotspot-plus">+</span>';
+    if (h._label) { h._label.remove(); h._label = null; }
+  });
+  document.querySelectorAll('#riskCounter .risk-counter-item').forEach(i => i.classList.remove('found'));
+  document.getElementById('s1FoundList').innerHTML = '';
+  foundRisks.clear();
+  hideFeedback('s1Task1Feedback');
+  saveProgress();
+}
+function checkS1Task2() { checkOptionsTask('s1Task2Options', 's1Task2Feedback', 's1decision', 'Безпечніше місце для фото — турбота про друзів, а не відмова від них.'); }
+function retryS1Task2() { resetOptions('s1Task2Options'); hideFeedback('s1Task2Feedback'); }
+
+// ============ КРОК 2 ============
+function openComponentModal(key) {
+  const c = COMPONENTS[key];
+  const idx = COMPONENT_ORDER.indexOf(key);
+  const grid = document.getElementById('s2ComponentGrid');
+  if (grid && grid.children[idx]) grid.children[idx].classList.add('revealed');
+  const body = '<p class="mb-16">' + c.desc + '</p><div class="modal-section-title">📌 Приклади:</div>' +
+    '<ul class="info-block-list">' + c.examples.map(e => '<li><span class="list-icon">✅</span><span>' + e + '</span></li>').join('') + '</ul>' +
+    '<div class="tip-card-inline"><span class="tip-card-icon">💡</span><div>' + c.tip + '</div></div>';
+  openInfoModal(c.icon + ' ' + c.name, body);
+}
+function checkS2Situation(key) { const c = S2_CFG[key]; checkOptionsTask(c.box, c.fb, c.task, c.msg); }
+function retryS2Situation(key) { const c = S2_CFG[key]; resetOptions(c.box); hideFeedback(c.fb); }
+
+function clickMatchChip(chip) {
+  chip.classList.remove('correct', 'incorrect');
+  const pool = document.getElementById('s2MatchPool');
+  if (chip.parentElement !== pool) { pool.appendChild(chip); chip.classList.remove('selected'); return; }
+  const was = chip.classList.contains('selected');
+  pool.querySelectorAll('.match-chip.selected').forEach(c => c.classList.remove('selected'));
+  if (!was) chip.classList.add('selected');
+}
+function clickMatchCategory(cat) {
+  const sel = document.querySelector('#s2MatchPool .match-chip.selected');
+  if (!sel) { showToast('👆 Спочатку натисни на приклад із переліку.'); return; }
+  sel.classList.remove('selected', 'correct', 'incorrect');
+  cat.querySelector('.match-cat-chips').appendChild(sel);
+}
+function checkS2Match() {
+  const pool = document.getElementById('s2MatchPool');
+  if (pool.querySelectorAll('.match-chip').length) { setFeedback('s2MatchFeedback', 'warning', '⚠️ Розподіли всі приклади за складовими.'); return; }
+  let ok = 0, total = 0;
+  document.querySelectorAll('#s2MatchCats .match-category').forEach(cat => {
+    cat.querySelectorAll('.match-chip').forEach(chip => {
+      total++;
+      const good = chip.dataset.cat === cat.dataset.cat;
+      chip.classList.remove('correct', 'incorrect');
+      chip.classList.add(good ? 'correct' : 'incorrect');
+      if (good) ok++;
+    });
+  });
+  if (ok === total) { addCorrect('s2match'); setFeedback('s2MatchFeedback', 'success', '🎯 Бездоганно! Усі 10 прикладів розподілено правильно.'); }
+  else { addWrong('s2match'); setFeedback('s2MatchFeedback', 'error', '❌ Правильно ' + ok + ' із ' + total + '. Натисни на помилкові приклади, щоб повернути їх, і спробуй ще раз.'); }
+}
+function retryS2Match() {
+  const pool = document.getElementById('s2MatchPool');
+  document.querySelectorAll('#s2MatchCats .match-chip').forEach(ch => { ch.classList.remove('selected', 'correct', 'incorrect'); pool.appendChild(ch); });
+  pool.querySelectorAll('.match-chip').forEach(ch => ch.classList.remove('selected', 'correct', 'incorrect'));
+  hideFeedback('s2MatchFeedback');
+}
+
+function selectCategoryOption(el) {
+  const row = el.closest('.odd-row');
+  if (row && row.dataset.done) return;
+  el.parentElement.querySelectorAll('.category-option').forEach(o => o.classList.remove('selected', 'incorrect'));
+  el.classList.add('selected');
+}
+function checkOddRow(id) {
+  const row = document.getElementById(id);
+  if (row.dataset.done) return;
+  const sel = row.querySelector('.category-option.selected');
+  const fb = row.querySelector('.odd-row-feedback');
+  if (!sel) { fb.textContent = '⚠️ Обери варіант'; fb.className = 'odd-row-feedback bad'; return; }
+  if (sel.dataset.correct === 'true') {
+    sel.classList.remove('selected'); sel.classList.add('correct');
+    row.dataset.done = '1';
+    row.querySelectorAll('.category-option').forEach(o => o.style.pointerEvents = 'none');
+    fb.textContent = '✅ Правильно!'; fb.className = 'odd-row-feedback ok';
+    if ([...document.querySelectorAll('#s2Odd .odd-row')].every(r => r.dataset.done)) {
+      addCorrect('s2odd');
+      setFeedback('s2OddFeedback', 'success', '🔎 Відмінно! Усі зайві елементи знайдено.');
+    }
+  } else {
+    sel.classList.add('incorrect');
+    fb.textContent = '❌ Спробуй ще'; fb.className = 'odd-row-feedback bad';
+    addWrong('s2odd');
+  }
+}
+function retryS2Odd() {
+  document.querySelectorAll('#s2Odd .odd-row').forEach(row => {
+    delete row.dataset.done;
+    row.querySelectorAll('.category-option').forEach(o => { o.classList.remove('selected', 'correct', 'incorrect'); o.style.pointerEvents = ''; });
+    const fb = row.querySelector('.odd-row-feedback'); fb.textContent = ''; fb.className = 'odd-row-feedback';
+  });
+  hideFeedback('s2OddFeedback');
+}
+
+// ============ КРОК 3 ============
+function openMatrixModal(r, c) {
+  const lv = MATRIX_LEVELS[r][c];
+  const ex = MATRIX_EXAMPLES[r][c];
+  const body = '<div class="text-center"><span class="level-pill lv-' + lv + '">' + LEVEL_NAMES[lv] + '</span></div>' +
+    '<p><strong>🎲 Імовірність:</strong> ' + MATRIX_ROWS[r] + ' &nbsp;·&nbsp; <strong>⚠️ Наслідки:</strong> ' + MATRIX_COLS[c] + '</p>' +
+    '<div class="modal-section-title">📌 Приклад</div><p>' + ex.ex + '</p>' +
+    '<div class="modal-section-title">🛡️ Як зменшити ризик</div><p>' + ex.ad + '</p>';
+  openInfoModal('🧮 Матриця ризику', body);
+}
+function selectPracticeLevel(btn) {
+  btn.parentElement.querySelectorAll('.seg-btn').forEach(b => b.classList.remove('selected'));
+  btn.classList.add('selected');
+  const card = btn.closest('.practice-card');
+  card.classList.remove('correct', 'incorrect');
+  const v = card.querySelector('.card-verdict');
+  v.className = 'card-verdict'; v.innerHTML = '';
+}
+function checkS3Practice() {
+  const cards = [...document.querySelectorAll('#s3Practice .practice-card')];
+  let answered = 0, ok = 0;
+  cards.forEach(c => {
+    const sel = c.querySelector('.seg-btn.selected');
+    if (!sel) return;
+    answered++;
+    const good = sel.dataset.level === c.dataset.answer;
+    c.classList.remove('correct', 'incorrect');
+    c.classList.add(good ? 'correct' : 'incorrect');
+    if (good) ok++;
+    const v = c.querySelector('.card-verdict');
+    v.className = 'card-verdict show ' + (good ? 'ok' : 'bad');
+    v.innerHTML = (good ? '✅ ' : '❌ ') + c.dataset.explain;
+  });
+  if (answered < cards.length) { setFeedback('s3PracticeFeedback', 'warning', '⚠️ Обери рівень ризику для кожної ситуації (' + answered + '/' + cards.length + ').'); return; }
+  if (ok === cards.length) { addCorrect('s3practice'); setFeedback('s3PracticeFeedback', 'success', '🎯 Бездоганно! Усі 4 рівні ризику визначено правильно.'); }
+  else { addWrong('s3practice'); setFeedback('s3PracticeFeedback', 'error', '❌ Правильно ' + ok + ' із 4. Переглянь підказки та спробуй ще раз.'); }
+}
+function retryS3Practice() {
+  document.querySelectorAll('#s3Practice .practice-card').forEach(c => {
+    c.classList.remove('correct', 'incorrect');
+    c.querySelectorAll('.seg-btn').forEach(b => b.classList.remove('selected'));
+    const v = c.querySelector('.card-verdict'); v.className = 'card-verdict'; v.innerHTML = '';
+  });
+  hideFeedback('s3PracticeFeedback');
+}
+function toggleChecklist(item) { item.classList.toggle('checked'); }
+function checkS3Reduce() {
+  const cards = [...document.querySelectorAll('#s3Reduce .reduce-block')];
+  let ok = 0;
+  cards.forEach(c => {
+    const items = [...c.querySelectorAll('.checklist-item')];
+    const good = items.every(i => (i.dataset.correct === 'true') === i.classList.contains('checked'));
+    c.classList.remove('correct', 'incorrect');
+    c.classList.add(good ? 'correct' : 'incorrect');
+    const v = c.querySelector('.card-verdict');
+    v.className = 'card-verdict show ' + (good ? 'ok' : 'bad');
+    v.innerHTML = (good ? '✅ ' : '❌ ') + c.dataset.explain;
+    if (good) ok++;
+  });
+  if (ok === cards.length) { addCorrect('s3reduce'); setFeedback('s3ReduceFeedback', 'success', '🛡️ Чудово! Ти знаєш, як зменшувати ризики.'); }
+  else { addWrong('s3reduce'); setFeedback('s3ReduceFeedback', 'error', '❌ Правильно ' + ok + ' із 4. Познач лише ті дії, що справді зменшують ризик.'); }
+}
+function retryS3Reduce() {
+  document.querySelectorAll('#s3Reduce .reduce-block').forEach(c => {
+    c.classList.remove('correct', 'incorrect');
+    c.querySelectorAll('.checklist-item').forEach(i => i.classList.remove('checked'));
+    const v = c.querySelector('.card-verdict'); v.className = 'card-verdict'; v.innerHTML = '';
+  });
+  hideFeedback('s3ReduceFeedback');
+}
+function checkS3OneDanger() {
+  const cards = [...document.querySelectorAll('#s3OneDanger .od-card')];
+  let answered = 0, ok = 0;
+  cards.forEach(c => {
+    const sel = c.querySelector('.od-select');
+    if (!sel.value) return;
+    answered++;
+    const good = sel.value === c.dataset.answer;
+    c.classList.remove('correct', 'incorrect');
+    c.classList.add(good ? 'correct' : 'incorrect');
+    if (good) ok++;
+    const v = c.querySelector('.card-verdict');
+    v.className = 'card-verdict show ' + (good ? 'ok' : 'bad');
+    v.innerHTML = (good ? '✅ ' : '❌ ') + c.dataset.explain;
+  });
+  if (answered < cards.length) { setFeedback('s3OneDangerFeedback', 'warning', '⚠️ Обери рівень ризику для кожної ситуації (' + answered + '/' + cards.length + ').'); return; }
+  if (ok === cards.length) { addCorrect('s3onedanger'); setFeedback('s3OneDangerFeedback', 'success', '⚖️ Відмінно! Одна небезпека — різні рівні ризику. Ти це довів(ла)!'); }
+  else { addWrong('s3onedanger'); setFeedback('s3OneDangerFeedback', 'error', '❌ Правильно ' + ok + ' із 4. Пригадай матрицю ризику та спробуй ще раз.'); }
+}
+function retryS3OneDanger() {
+  document.querySelectorAll('#s3OneDanger .od-card').forEach(c => {
+    c.classList.remove('correct', 'incorrect');
+    c.querySelector('.od-select').value = '';
+    const v = c.querySelector('.card-verdict'); v.className = 'card-verdict'; v.innerHTML = '';
+  });
+  hideFeedback('s3OneDangerFeedback');
+}
+
+// ============ КРОК 4 ============
+function checkS4Single(key) { const c = S4_SINGLE[key]; checkOptionsTask(c.box, c.fb, c.task, c.msg); }
+function retryS4Single(key) { const c = S4_SINGLE[key]; resetOptions(c.box); hideFeedback(c.fb); }
+function checkS4Multi(key) { const c = S4_MULTI[key]; checkOptionsTask(c.box, c.fb, c.task, c.msg); }
+function retryS4Multi(key) { const c = S4_MULTI[key]; resetOptions(c.box); hideFeedback(c.fb); }
+
+function refreshZone(z) {
+  if (!z || !z.classList.contains('drop-zone')) return;
+  const has = !!z.querySelector('.drag-item');
+  z.classList.toggle('filled', has);
+  z.classList.remove('correct', 'incorrect', 'drag-over');
+  const t = z.querySelector('.drop-zone-text');
+  if (t) t.style.display = has ? 'none' : '';
+}
+function slotDrop(e) {
+  e.preventDefault();
+  this.classList.remove('drag-over');
+  if (!draggedItem) return;
+  const from = draggedItem.parentElement;
+  const existing = this.querySelector('.drag-item');
+  if (existing && existing !== draggedItem) {
+    if (from && from.classList.contains('drop-zone')) from.appendChild(existing);
+    else document.getElementById(draggedItem.dataset.pool).appendChild(existing);
+  }
+  this.appendChild(draggedItem);
+  refreshZone(from);
+  refreshZone(this);
+}
+function initSlotTask(key) {
+  const cfg = SLOT_TASKS[key];
+  const pool = document.getElementById(cfg.items);
+  pool.innerHTML = '';
+  shuffle(cfg.data.slice()).forEach(d => {
+    const el = document.createElement('div');
+    el.className = 'drag-item';
+    el.draggable = true;
+    el.dataset.id = d.id;
+    el.dataset.pool = cfg.items;
+    el.textContent = d.text;
+    el.title = 'Перетягни у віконце. Натисни, щоб повернути назад.';
+    el.addEventListener('click', () => {
+      if (el.closest('.drop-zone')) { const z = el.parentElement; pool.appendChild(el); refreshZone(z); }
+    });
+    pool.appendChild(el);
+  });
+  const zones = [...document.querySelectorAll('#' + cfg.zones + ' .drop-zone')];
+  initUniversalDragDrop(cfg.items, zones, slotDrop);
+  pool.addEventListener('dragover', e => e.preventDefault());
+  pool.addEventListener('drop', e => {
+    e.preventDefault();
+    if (draggedItem) { const from = draggedItem.parentElement; pool.appendChild(draggedItem); refreshZone(from); }
+  });
+}
+function checkSlotTask(key) {
+  const cfg = SLOT_TASKS[key];
+  const zones = [...document.querySelectorAll('#' + cfg.zones + ' .drop-zone')];
+  let filled = 0, ok = 0;
+  zones.forEach((z, i) => {
+    const item = z.querySelector('.drag-item');
+    z.classList.remove('correct', 'incorrect');
+    if (!item) return;
+    filled++;
+    const good = item.dataset.id === cfg.data[i].id;
+    z.classList.add(good ? 'correct' : 'incorrect');
+    if (good) ok++;
+  });
+  if (filled < zones.length) { setFeedback(cfg.feedback, 'warning', '⚠️ Заповни всі віконця (' + filled + '/' + zones.length + ').'); return; }
+  if (ok === zones.length) { addCorrect(cfg.task); setFeedback(cfg.feedback, 'success', '✅ Послідовність правильна!'); }
+  else { addWrong(cfg.task); setFeedback(cfg.feedback, 'error', '❌ Є помилки в порядку. Перестав картки й перевір ще раз.'); }
+}
+function retrySlotTask(key) {
+  const cfg = SLOT_TASKS[key];
+  const pool = document.getElementById(cfg.items);
+  const items = [...document.querySelectorAll('#' + cfg.items + ' .drag-item, #' + cfg.zones + ' .drag-item')];
+  shuffle(items).forEach(it => pool.appendChild(it));
+  document.querySelectorAll('#' + cfg.zones + ' .drop-zone').forEach(refreshZone);
+  hideFeedback(cfg.feedback);
+}
+function checkS4Check() {
+  const blocks = [...document.querySelectorAll('#s4Check .category-block')];
+  let answered = 0, ok = 0;
+  blocks.forEach(b => {
+    const sel = b.querySelector('.category-option.selected');
+    if (!sel) return;
+    answered++;
+    b.querySelectorAll('.category-option').forEach(o => { o.classList.remove('selected'); if (o.dataset.correct === 'true') o.classList.add('correct'); });
+    if (sel.dataset.correct === 'true') ok++;
+    else sel.classList.add('incorrect');
+  });
+  if (answered < blocks.length) { setFeedback('s4CheckFeedback', 'warning', '⚠️ Обери твердження для кожного типу розвитку.'); return; }
+  if (ok === blocks.length) { addCorrect('s4check'); setFeedback('s4CheckFeedback', 'success', '🎓 Чудово! Ти розрізняєш усі типи розвитку небезпечних ситуацій.'); }
+  else { addWrong('s4check'); setFeedback('s4CheckFeedback', 'error', '❌ Є помилки. Переглянь картки типів розвитку та спробуй ще раз.'); }
+}
+function retryS4Check() {
+  document.querySelectorAll('#s4Check .category-option').forEach(o => o.classList.remove('selected', 'correct', 'incorrect'));
+  hideFeedback('s4CheckFeedback');
+}
+
+// ============ КРОК 5 ============
+function checkS5Obstacle() { checkOptionsTask('s5ObstacleOptions', 's5ObstacleFeedback', 's5obstacle', '«Усі вже погодилися» — це тиск компанії. Важливо вміти сказати «ні».'); }
+function retryS5Obstacle() { resetOptions('s5ObstacleOptions'); hideFeedback('s5ObstacleFeedback'); }
+
+function toggleAlbina(key) { document.getElementById('albina-' + key).classList.toggle('open'); }
+function updateAlbinaCounter(silent) {
+  const el = document.getElementById('s5AlbinaCounter');
+  if (el) el.innerHTML = 'Проаналізовано варіантів: <strong>' + albinaDone.size + '</strong>/4';
+  if (!silent && albinaDone.size === 4) {
+    addCorrect('s5albina');
+    setFeedback('s5AlbinaFeedback', 'success', '🏪 Висновок: найбезпечніше рішення — зайти до магазину, аптеки або іншого людного місця, звідки можна зв’язатися з рідними.');
+  }
+}
+function checkAlbina(key) {
+  const card = document.getElementById('albina-' + key);
+  const sel = card.querySelector('.albina-options .option.selected');
+  const fb = card.querySelector('.albina-feedback');
+  const vd = card.querySelector('.albina-verdict');
+  if (!sel) { fb.className = 'feedback albina-feedback feedback-warning'; fb.innerHTML = '⚠️ Обери «Так» або «Ні».'; fb.style.display = 'block'; return; }
+  const d = ALBINA[key];
+  const good = sel.dataset.value === d.answer;
+  card.querySelectorAll('.albina-options .option').forEach(o => {
+    o.classList.remove('selected');
+    o.classList.add('disabled');
+    if (o.dataset.value === d.answer) o.classList.add('correct');
+    else if (o === sel) o.classList.add('incorrect');
+  });
+  fb.className = 'feedback albina-feedback ' + (good ? 'feedback-success' : 'feedback-error');
+  fb.innerHTML = (good ? '✅ Правильно! ' : '❌ Не зовсім. ') + d.info;
+  fb.style.display = 'block';
+  vd.className = 'feedback albina-verdict ' + (d.safe ? 'feedback-success' : 'feedback-error');
+  vd.innerHTML = d.verdict;
+  vd.style.display = 'block';
+  if (good) {
+    card.classList.add('done');
+    card.querySelector('.albina-status').textContent = '✅';
+    albinaDone.add(key);
+    updateAlbinaCounter();
+  }
+}
+function retryAlbina(key) {
+  const card = document.getElementById('albina-' + key);
+  card.classList.remove('done');
+  card.querySelector('.albina-status').textContent = '';
+  card.querySelectorAll('.albina-options .option').forEach(o => o.classList.remove('selected', 'correct', 'incorrect', 'disabled'));
+  card.querySelector('.albina-feedback').style.display = 'none';
+  card.querySelector('.albina-verdict').style.display = 'none';
+  albinaDone.delete(key);
+  updateAlbinaCounter(true);
+}
+
+function clickPairCard(card) {
+  if (card.classList.contains('paired')) {
+    const link = pairLinks.find(l => l.a === card || l.b === card);
+    if (link) {
+      [link.a, link.b].forEach(c => {
+        c.classList.remove('paired', 'correct', 'incorrect');
+        for (let i = 1; i <= 4; i++) c.classList.remove('pair-hue-' + i);
+        c.removeAttribute('data-pid');
+      });
+      pairLinks.splice(pairLinks.indexOf(link), 1);
+    }
+    return;
+  }
+  if (!pairActive) { pairActive = card; card.classList.add('active'); return; }
+  if (pairActive === card) { card.classList.remove('active'); pairActive = null; return; }
+  if (pairActive.dataset.side === card.dataset.side) { pairActive.classList.remove('active'); pairActive = card; card.classList.add('active'); return; }
+  const used = pairLinks.map(l => l.pid);
+  let pid = 1; while (used.includes(pid) && pid < 4) pid++;
+  [pairActive, card].forEach(c => { c.classList.remove('active'); c.classList.add('paired', 'pair-hue-' + pid); c.setAttribute('data-pid', pid); });
+  pairLinks.push({ a: pairActive, b: card, pid });
+  pairActive = null;
+}
+function checkS5Match() {
+  if (pairLinks.length < 4) { setFeedback('s5MatchFeedback', 'warning', '⚠️ З’єднай усі 4 пари ситуація → рішення.'); return; }
+  let ok = 0;
+  pairLinks.forEach(l => {
+    const good = l.a.dataset.pair === l.b.dataset.pair;
+    [l.a, l.b].forEach(c => { c.classList.remove('correct', 'incorrect'); c.classList.add(good ? 'correct' : 'incorrect'); });
+    if (good) ok++;
+  });
+  if (ok === 4) { addCorrect('s5match'); setFeedback('s5MatchFeedback', 'success', '🔗 Відмінно! Усі безпечні рішення знайдено.'); }
+  else { addWrong('s5match'); setFeedback('s5MatchFeedback', 'error', '❌ Правильно ' + ok + ' із 4. Натисни на помилкові пари, щоб роз’єднати їх, і спробуй ще.'); }
+}
+function retryS5Match() {
+  document.querySelectorAll('#s5Match .pair-card').forEach(c => {
+    c.classList.remove('active', 'paired', 'correct', 'incorrect');
+    for (let i = 1; i <= 4; i++) c.classList.remove('pair-hue-' + i);
+    c.removeAttribute('data-pid');
+  });
+  pairLinks.length = 0;
+  pairActive = null;
+  hideFeedback('s5MatchFeedback');
+}
+function autoPairS5() {
+  document.querySelectorAll('#s5MatchSituations .pair-card').forEach((s, i) => {
+    const r = document.querySelector('#s5MatchSolutions .pair-card[data-pair="' + s.dataset.pair + '"]');
+    if (!r) return;
+    const pid = (i % 4) + 1;
+    [s, r].forEach(c => { c.classList.add('paired', 'correct', 'pair-hue-' + pid); c.setAttribute('data-pid', pid); });
+    pairLinks.push({ a: s, b: r, pid });
+  });
+}
+
 function questChoose(btn) {
-const key = btn.dataset.key;
-const q = QUEST[key];
-questExplored.add(key);
-btn.classList.add('explored');
-const result = document.getElementById('s5QuestResult');
-result.innerHTML = '<div class="feedback feedback-' + q.type + '" style="display:block;"><strong>' + q.title + '</strong><br>' + q.text + '</div>';
-document.getElementById('s5QuestCounter').innerHTML = 'Досліджено шляхів: <strong>' + questExplored.size + '</strong>/4';
-if (questExplored.size === 4) showToast('🎉 Ти дослідив(ла) всі шляхи! Тепер ти знаєш, які рішення безпечні.');
+  const key = btn.dataset.key;
+  const d = QUEST[key];
+  questExplored.add(key);
+  btn.classList.add('explored');
+  document.getElementById('s5QuestResult').innerHTML =
+    '<div class="feedback ' + (d.safe ? 'feedback-success' : 'feedback-error') + ' mt-24"><strong>' + d.title + '</strong><br>' + d.text + '</div>';
+  document.getElementById('s5QuestCounter').innerHTML = 'Досліджено шляхів: <strong>' + questExplored.size + '</strong>/4';
+  if (questExplored.size === 4) {
+    document.getElementById('s5QuestResult').innerHTML +=
+      '<div class="feedback feedback-info">🧭 Висновок: найбезпечніші шляхи — подзвонити батькам або зайти до відділення поліції. Ніколи не йди навмання й не сідай в авто до незнайомців.</div>';
+    showToast('🎉 Усі шляхи досліджено!');
+  }
 }
 function retryQuest() {
-questExplored.clear();
-document.querySelectorAll('#s5Quest .quest-option').forEach(b => b.classList.remove('explored'));
-document.getElementById('s5QuestResult').innerHTML = '';
-document.getElementById('s5QuestCounter').innerHTML = 'Досліджено шляхів: <strong>0</strong>/4';
-showToast('🔄 Спробуй ще раз');
+  questExplored.clear();
+  document.querySelectorAll('#s5Quest .quest-option').forEach(b => b.classList.remove('explored'));
+  document.getElementById('s5QuestResult').innerHTML = '';
+  document.getElementById('s5QuestCounter').innerHTML = 'Досліджено шляхів: <strong>0</strong>/4';
 }
-// ============ КРОК 5: ПЕРЕВІР СЕБЕ ============
-function checkS5Check() {
-checkMultiGeneric('#s5CheckOptions .option', 's5CheckFeedback', 's5check',
-'<strong>🎉 Чудово!</strong> Ти знаєш, що допомагає ухвалювати зважені рішення в умовах невизначеності.', '#s5Check');
+function checkS5Check() { checkOptionsTask('s5CheckOptions', 's5CheckFeedback', 's5check', 'Спокій, перевірена інформація та оцінка ризиків — основа зваженого рішення.'); }
+function retryS5Check() { resetOptions('s5CheckOptions'); hideFeedback('s5CheckFeedback'); }
+
+// ============ КРОК 6: САМООЦІНКА І СТАТИСТИКА ============
+function paintStars(skill, value) {
+  document.querySelectorAll('.star-rating[data-skill="' + skill + '"] .star').forEach((s, i) => s.classList.toggle('active', i < value));
 }
-function retryS5Check() { retryGeneric('s5check', '#s5CheckOptions .option', 's5CheckFeedback'); }
-// ============ КРОК 6: САМООЦІНЮВАННЯ ============
-function rate(skill, rating) {
-state.selfRatings[skill - 1] = rating;
-saveProgress();
-const cont = document.querySelector('.star-rating[data-skill="' + skill + '"]');
-if (!cont) return;
-const stars = cont.querySelectorAll('.star');
-stars.forEach((s, i) => s.classList.toggle('active', i < rating));
-const active = stars[rating - 1];
-if (active) { active.style.transform = 'scale(1.3)'; setTimeout(() => { active.style.transform = ''; }, 200); }
+function rate(skill, value) {
+  state.selfRatings[skill - 1] = value;
+  paintStars(skill, value);
+  saveProgress();
 }
-function resetProgress() {
-if (!confirm('Ти впевнений(а), що хочеш почати спочатку? Весь прогрес буде скинуто.')) return;
-try { localStorage.removeItem('section1Progress_v3'); } catch (e) {}
-window.location.reload();
-}
-// ============ ЕКСПОРТ PNG ============
-const EXPORT_META = {
-trainer: 'Навігатор ризиків',
-section: '§ 1. Безпека, небезпека і ризики',
-subject: "Здоров'я, безпека та добробут",
-grade: '10 клас',
-rulesTitle: '🛡️ Мої ключові правила безпеки та управління ризиками'
-};
-const EXPORT_RULES = [
-{ icon: '⚠️', title: 'Оцінювання ризику', points: [
-'Ризик = імовірність події × тяжкість наслідків.',
-'Що вища імовірність і серйозніші наслідки — то вищий ризик.',
-'Користуйся матрицею ризику: від низького до критичного.',
-'Одна небезпека може мати різні рівні ризику.',
-'Обачність і безпечна поведінка знижують ризики.'
-], accent: { type: 'danger', text: '⛔ Будівельний майданчик — не місце для фото: арматура, котловани, дроти й техніка загрожують життю.' } },
-{ icon: '🏠', title: 'Безпечний простір', points: [
-'Безпека — стан захищеності від загроз, небезпек і ризиків.',
-'5 складових: фізичний, психологічний, соціальний, цифровий, внутрішній простір.',
-'Евакуаційні виходи завжди мають бути вільними.',
-'Довіра, повага і підтримка роблять простір безпечним.',
-'Надійні паролі та перевірка джерел — цифрова безпека.'
-], accent: { type: 'note', text: '💡 Безпечне рішення — це не відмова від друзів, а турбота про них.' } },
-{ icon: '🔄', title: 'Розвиток небезпечних ситуацій', points: [
-'Керований: небезпеку зупиняють вчасні дії.',
-'Поступовий: зупиняй на ранньому етапі — жарти → приниження → ізоляція.',
-'Раптовий: усе стається за секунди, потрібна миттєва реакція.',
-'Ланцюговий: одна подія запускає інші — розривай ланцюг раніше.'
-], accent: { type: 'danger', text: '⛔ Зйомка, підбурювання та поширення відео конфлікту лише посилюють небезпеку.' } },
-{ icon: '🧠', title: 'Рішення в умовах невизначеності', points: [
-'1. Зупинися і заспокойся — паніка заважає думати.',
-'2. Оціни ситуацію: що сталося, які ризики, що в тебе є.',
-'3. Обери найбезпечніший варіант із наявних.',
-'4. Перевір результат: чи стало безпечніше.',
-'Заважають: тиск друзів, поспіх, неперевірена інформація.'
-], accent: { type: 'danger', text: '⛔ Ніколи не сідай в авто до незнайомців і не йди навмання незнайомим районом.' } }
-];
-const RULE_PALETTE = [
-{ bg: '#fff5f5', border: '#fca5a5' },
-{ bg: '#eff6ff', border: '#93c5fd' },
-{ bg: '#f0fdf4', border: '#86efac' },
-{ bg: '#fef3c7', border: '#f59e0b' },
-{ bg: '#f5f3ff', border: '#c4b5fd' },
-{ bg: '#ecfeff', border: '#67e8f9' }
-];
-function expEl(tag, cls, text) {
-const e = document.createElement(tag);
-if (cls) e.className = cls;
-if (text != null) e.textContent = text;
-return e;
-}
-function pad2(n) { return String(n).padStart(2, '0'); }
-function fmtDate(d) { return pad2(d.getDate()) + '.' + pad2(d.getMonth() + 1) + '.' + d.getFullYear(); }
-function fmtTime(d) { return pad2(d.getHours()) + ':' + pad2(d.getMinutes()); }
-function sanitizeFileName(name) {
-return (name || '').replace(/[\\/:*?"<>|,;]/g, '').trim().replace(/\s+/g, '_');
-}
-function buildExportTemplate() {
-const root = document.getElementById('exportTemplate');
-root.innerHTML = '';
-const st = getStats();
-const level = getLevel(st.percent);
-const now = new Date();
-const studentName = (state.studentName || '').trim();
-const page = expEl('div', 'exp-page');
-const header = expEl('div', 'exp-header');
-const hLeft = expEl('div', 'exp-header-left');
-hLeft.appendChild(expEl('div', 'exp-header-emoji', '🧭'));
-const hTexts = expEl('div');
-hTexts.appendChild(expEl('div', 'exp-title', 'Результати автоматичного оцінювання та самооцінювання'));
-hTexts.appendChild(expEl('div', 'exp-subtitle', 'Тренажер «' + EXPORT_META.trainer + '» • ' + EXPORT_META.section));
-hLeft.appendChild(hTexts);
-header.appendChild(hLeft);
-const hRight = expEl('div', 'exp-header-right');
-hRight.appendChild(expEl('div', null, EXPORT_META.subject));
-hRight.appendChild(expEl('div', null, EXPORT_META.grade));
-hRight.appendChild(expEl('div', null, 'Дата: ' + fmtDate(now)));
-hRight.appendChild(expEl('div', null, 'Результат сформовано автоматично'));
-header.appendChild(hRight);
-page.appendChild(header);
-const body = expEl('div', 'exp-body');
-const studentRow = expEl('div', 'exp-student');
-studentRow.appendChild(expEl('span', 'exp-student-label', '👤 Учень / учениця (ПІБ, клас):'));
-studentRow.appendChild(expEl('span', 'exp-student-name', studentName || '________________________________'));
-body.appendChild(studentRow);
-body.appendChild(expEl('div', 'exp-section-title', '📊 Результати проходження'));
-const stats = expEl('div', 'exp-stats');
-[
-[st.done + '/' + TOTAL_TASKS, '✅ Виконано завдань'],
-[String(st.done), '🎯 Правильних відповідей'],
-[st.stepsDone + '/5', '📍 Кроків пройдено'],
-[st.accuracy + '%', '🏅 Точність (1-ша спроба)']
-].forEach(pair => {
-const card = expEl('div', 'exp-stat');
-card.appendChild(expEl('div', 'exp-stat-value', pair[0]));
-card.appendChild(expEl('div', 'exp-stat-label', pair[1]));
-stats.appendChild(card);
-});
-body.appendChild(stats);
-const pRow = expEl('div', 'exp-progress-row');
-const bar = expEl('div', 'exp-bar');
-const fill = expEl('div', 'exp-bar-fill');
-fill.style.width = st.percent + '%';
-bar.appendChild(fill);
-pRow.appendChild(bar);
-pRow.appendChild(expEl('span', 'exp-percent', st.percent + '%'));
-pRow.appendChild(expEl('span', 'exp-level', level.stars + ' ' + level.name));
-body.appendChild(pRow);
-body.appendChild(expEl('div', 'exp-section-title', '🗺️ Мій шлях'));
-const table = expEl('table', 'exp-table');
-const thead = document.createElement('thead');
-const hRow = document.createElement('tr');
-['№', 'Крок', 'Завдання', 'Статус'].forEach(t => hRow.appendChild(expEl('th', null, t)));
-thead.appendChild(hRow);
-table.appendChild(thead);
-const tbody = document.createElement('tbody');
-for (let i = 1; i <= 5; i++) {
-const info = NAV_STEPS[i - 1];
-const tr = stepTracker['step' + i];
-const row = document.createElement('tr');
-row.appendChild(expEl('td', null, String(i)));
-row.appendChild(expEl('td', null, info.icon + ' ' + info.title));
-row.appendChild(expEl('td', null, tr.completed + '/' + tr.total));
-const tdStatus = document.createElement('td');
-let cls = 'exp-status-none', txt = '⬜ Не розпочато';
-if (stepsCompleted[i]) { cls = 'exp-status-done'; txt = '✅ Завершено'; }
-else if (tr.completed > 0) { cls = 'exp-status-progress'; txt = '⏳ У процесі'; }
-tdStatus.appendChild(expEl('span', cls, txt));
-row.appendChild(tdStatus);
-tbody.appendChild(row);
-}
-table.appendChild(tbody);
-body.appendChild(table);
-body.appendChild(expEl('div', 'exp-section-title', '⭐ Самооцінювання вмінь'));
-const skillsWrap = expEl('div');
-document.querySelectorAll('#step6Page .skill-eval').forEach((ev, idx) => {
-const titleEl = ev.querySelector('.skill-title');
-const rating = state.selfRatings[idx] || 0;
-const row = expEl('div', 'exp-skill');
-row.appendChild(expEl('div', 'exp-skill-name', titleEl ? titleEl.textContent.trim() : 'Вміння ' + (idx + 1)));
-row.appendChild(expEl('div', 'exp-skill-stars' + (rating === 0 ? ' empty' : ''), '★'.repeat(rating) + '☆'.repeat(5 - rating)));
-row.appendChild(expEl('div', 'exp-skill-count', rating > 0 ? rating + '/5' : 'не оцінено'));
-skillsWrap.appendChild(row);
-});
-body.appendChild(skillsWrap);
-body.appendChild(expEl('div', 'exp-section-title', EXPORT_META.rulesTitle));
-const n = EXPORT_RULES.length;
-const gridCls = (n === 2 || n === 4) ? 'cols-2' : (n === 3 ? 'cols-3' : 'cols-auto');
-const rules = expEl('div', 'exp-rules ' + gridCls);
-EXPORT_RULES.forEach((rule, idx) => {
-const pal = RULE_PALETTE[idx % RULE_PALETTE.length];
-const card = expEl('div', 'exp-rule');
-card.style.background = pal.bg;
-card.style.borderColor = pal.border;
-card.appendChild(expEl('div', 'exp-rule-title', rule.icon + ' ' + rule.title));
-const ul = document.createElement('ul');
-rule.points.forEach(p => ul.appendChild(expEl('li', null, p)));
-card.appendChild(ul);
-if (rule.accent) {
-card.appendChild(expEl('div', 'exp-accent ' + (rule.accent.type === 'danger' ? 'exp-accent-danger' : 'exp-accent-note'), rule.accent.text));
-}
-rules.appendChild(card);
-});
-body.appendChild(rules);
-page.appendChild(body);
-const footer = expEl('div', 'exp-footer');
-footer.appendChild(expEl('div', null, 'Підпис учителя: ______________'));
-footer.appendChild(expEl('div', null, 'Згенеровано: ' + fmtDate(now) + ', ' + fmtTime(now) + ' • Тренажер «' + EXPORT_META.trainer + '»'));
-page.appendChild(footer);
-root.appendChild(page);
-}
-async function exportPNG() {
-const btn = document.getElementById('exportPngBtn');
-if (!btn || btn.disabled) return;
-if (typeof html2canvas === 'undefined') {
-showToast('❌ Бібліотека html2canvas не завантажилась. Перевір інтернет-з’єднання.');
-return;
-}
-const originalHTML = btn.innerHTML;
-btn.disabled = true;
-btn.innerHTML = '<span class="btn-spinner"></span> Генеруємо…';
-try {
-buildExportTemplate();
-const node = document.getElementById('exportTemplate');
-await new Promise(r => setTimeout(r, 60));
-const canvas = await html2canvas(node, { scale: 2, backgroundColor: '#ffffff', useCORS: true, logging: false });
-const blob = await new Promise(res => canvas.toBlob(res, 'image/png'));
-if (!blob) throw new Error('Не вдалося створити PNG');
-const name = (state.studentName || '').trim();
-const fileName = 'Результати_' + (sanitizeFileName(name) || 'Учень') + '.png';
-const url = URL.createObjectURL(blob);
-const a = document.createElement('a');
-a.href = url;
-a.download = fileName;
-document.body.appendChild(a);
-a.click();
-a.remove();
-setTimeout(() => URL.revokeObjectURL(url), 3000);
-showToast('✅ PNG завантажено!');
-if (!name) setTimeout(() => showToast('💡 Додай ПІБ, щоб підписати результат своїм іменем'), 900);
-} catch (e) {
-console.error('Помилка експорту PNG:', e);
-showToast('❌ Не вдалося згенерувати PNG. Спробуй ще раз.');
-} finally {
-btn.disabled = false;
-btn.innerHTML = originalHTML;
-}
-}
-// ============ TOAST ============
-function showToast(message) {
-const container = document.getElementById('toastContainer');
-if (!container) return;
-const toast = document.createElement('div');
-toast.className = 'toast';
-toast.innerHTML = '<span class="toast-icon">✅</span><span class="toast-message">' + message + '</span>';
-container.appendChild(toast);
-setTimeout(() => {
-toast.classList.add('hiding');
-setTimeout(() => toast.remove(), 400);
-}, 3500);
-}
-// ============ МОДАЛЬНІ ВІКНА ============
-function openInfoModal(title, bodyHtml, actions) {
-document.getElementById('infoModalTitle').innerHTML = title;
-document.getElementById('infoModalBody').innerHTML = bodyHtml;
-const footer = document.getElementById('infoModalFooter');
-footer.innerHTML = '';
-(actions || [{ label: 'Закрити', cls: 'btn-secondary', fn: () => closeModal('infoModal') }]).forEach(a => {
-const btn = document.createElement('button');
-btn.className = 'btn ' + a.cls;
-btn.style.flex = '1';
-btn.textContent = a.label;
-btn.addEventListener('click', a.fn);
-footer.appendChild(btn);
-});
-document.getElementById('infoModal').classList.add('active');
+function updateStep6Stats() {
+  const st = getStats();
+  setText('statTasks', st.done + '/' + TOTAL_TASKS);
+  setText('statCorrect', completedIds.size);
+  setText('statSteps', st.stepsDone + '/5');
+  setText('statAccuracy', st.accuracy + '%');
+  const circle = document.getElementById('progressCircle');
+  if (circle) circle.style.background = 'conic-gradient(var(--success) ' + st.percent + '%, var(--bg) ' + st.percent + '%)';
+  setText('circlePercentage', st.percent + '%');
+  const sum = document.getElementById('stepsSummary');
+  if (sum) {
+    sum.innerHTML = '';
+    for (let i = 1; i <= 5; i++) {
+      const tr = stepTracker['step' + i];
+      const done = stepsCompleted[i];
+      const status = done ? '✅ Завершено' : (tr.completed > 0 ? '🔄 ' + tr.completed + '/' + tr.total + ' завдань' : '⏳ Не розпочато');
+      const card = document.createElement('div');
+      card.className = 'step-card';
+      card.innerHTML = '<div class="step-card-icon">' + STEP_ICONS[i] + '</div><div class="step-card-info"><div class="step-card-title">Крок ' + i + '. ' + STEP_SHORT[i] + '</div><div class="step-card-status' + (done ? ' completed' : '') + '">' + status + '</div></div>';
+      sum.appendChild(card);
+    }
+  }
+  const lvl = getLevel(st.percent);
+  setText('finalLevelTitle', lvl.name);
+  setText('finalLevelDesc', lvl.stars);
 }
 function showProgressModal() {
-updateStep6Display();
-const st = getStats();
-const set = (id, val) => { const el = document.getElementById(id); if (el) el.textContent = val; };
-set('modalTasks', st.done + '/' + TOTAL_TASKS);
-set('modalCorrect', st.done);
-set('modalSteps', st.stepsDone + '/5');
-set('modalAccuracy', st.accuracy + '%');
-set('modalProgressPercent', st.percent + '%');
-const bar = document.getElementById('modalProgressBar');
-if (bar) bar.style.width = st.percent + '%';
-const level = getLevel(st.percent);
-set('modalLevelName', level.name);
-set('modalLevelEmoji', level.stars);
-document.getElementById('progressModal').classList.add('active');
+  const st = getStats();
+  const lvl = getLevel(st.percent);
+  setText('modalLevelEmoji', lvl.stars);
+  setText('modalLevelName', lvl.name);
+  setText('modalTasks', st.done + '/' + TOTAL_TASKS);
+  setText('modalCorrect', completedIds.size);
+  setText('modalSteps', st.stepsDone + '/5');
+  setText('modalAccuracy', st.accuracy + '%');
+  const bar = document.getElementById('modalProgressBar');
+  if (bar) bar.style.width = st.percent + '%';
+  setText('modalProgressPercent', st.percent + '%');
+  openModal('progressModal');
 }
-function showHelpModal() { document.getElementById('helpModal').classList.add('active'); }
-function closeModal(id) { const el = document.getElementById(id); if (el) el.classList.remove('active'); }
-document.querySelectorAll('.modal-overlay').forEach(overlay => {
-overlay.addEventListener('click', function(e) { if (e.target === this) this.classList.remove('active'); });
-});
-document.addEventListener('keydown', function(e) {
-if (e.key === 'Escape') document.querySelectorAll('.modal-overlay.active').forEach(m => m.classList.remove('active'));
-if ((e.key === 'Enter' || e.key === ' ') && e.target.matches && e.target.matches('.option, .category-option, .match-chip, .match-category, .pair-card, .checklist-item, .hotspot, .matrix-cell, .albina-head, .infographic-card, .interactive-card')) {
-e.preventDefault();
-e.target.click();
+function showHelpModal() { openModal('helpModal'); }
+
+// ============ ПІБ УЧНЯ ============
+function updateNameBadges() {
+  const signed = !!state.studentName;
+  ['nameStatusMain', 'nameStatusStep6'].forEach(id => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.textContent = signed ? '✅ Підписано' : '✍️ Не підписано';
+    el.classList.toggle('signed', signed);
+  });
 }
-});
-// ============ ФОЛБЕК ДЛЯ ЗОБРАЖЕНЬ ============
-document.addEventListener('error', function(e) {
-const t = e.target;
-if (t && t.tagName === 'IMG' && !t.dataset.fallbackApplied) {
-t.dataset.fallbackApplied = '1';
-const ph = document.createElement('div');
-ph.className = 'img-fallback';
-ph.innerHTML = '<span>' + (t.dataset.emoji || '🖼️') + '</span><small>' + (t.alt || 'Ілюстрація') + '</small>';
-if (t.parentElement && t.parentElement.classList.contains('hotspot-stage')) ph.style.minHeight = '320px';
-t.replaceWith(ph);
+function setStudentName(value, sourceId) {
+  state.studentName = value.trim();
+  const other = sourceId === 'studentNameInput' ? 'studentNameInputStep6' : 'studentNameInput';
+  const otherEl = document.getElementById(other);
+  if (otherEl && otherEl.value !== value) otherEl.value = value;
+  updateNameBadges();
+  saveProgress();
 }
-}, true);
+
+// ============ ЗБЕРЕЖЕННЯ ПРОГРЕСУ ============
+const LS_KEY = 'riskNavigatorProgressV1';
+function saveProgress() {
+  try {
+    localStorage.setItem(LS_KEY, JSON.stringify({
+      completed: [...completedIds],
+      attempts: progressTracker.attempts,
+      stepsCompleted,
+      ratings: state.selfRatings,
+      name: state.studentName,
+      foundRisks: [...foundRisks],
+      lastScreens
+    }));
+  } catch (e) { /* localStorage недоступний — працюємо без збереження */ }
+}
+function loadProgress() {
+  try {
+    const raw = localStorage.getItem(LS_KEY);
+    if (!raw) return;
+    const d = JSON.parse(raw);
+    (d.completed || []).forEach(id => { if (TASK_STEP[id]) completedIds.add(id); });
+    progressTracker.attempts = d.attempts || {};
+    Object.keys(stepsCompleted).forEach(k => { stepsCompleted[k] = !!(d.stepsCompleted && d.stepsCompleted[k]); });
+    for (let i = 1; i <= 5; i++) {
+      const tr = stepTracker['step' + i];
+      STEP_TASKS[i].forEach(id => tr.tasks[id] = completedIds.has(id));
+      tr.completed = Object.values(tr.tasks).filter(Boolean).length;
+    }
+    state.selfRatings = d.ratings || [0, 0, 0, 0];
+    state.studentName = d.name || '';
+    Object.assign(lastScreens, d.lastScreens || {});
+    ['studentNameInput', 'studentNameInputStep6'].forEach(id => { const el = document.getElementById(id); if (el) el.value = state.studentName; });
+    updateNameBadges();
+    state.selfRatings.forEach((v, i) => { if (v) paintStars(i + 1, v); });
+    (d.foundRisks || []).forEach(k => { const h = document.querySelector('.hotspot[data-risk="' + k + '"]'); if (h) markRiskFound(h, true); });
+    restoreCompletedUI();
+  } catch (e) { console.warn('Не вдалося завантажити прогрес:', e); }
+}
+function restoreCompletedUI() {
+  completedIds.forEach(id => {
+    switch (id) {
+      case 's1risks': document.querySelectorAll('#imageContainer .hotspot').forEach(h => markRiskFound(h, true)); break;
+      case 's1decision': solveOptions('s1Task2Options'); setFeedback('s1Task2Feedback', 'success', '✅ Завдання вже виконано.'); break;
+      case 's2physical': case 's2psych': case 's2social': case 's2digital': case 's2inner': {
+        const c = S2_CFG[id.slice(2)]; solveOptions(c.box); setFeedback(c.fb, 'success', '✅ Завдання вже виконано.'); break;
+      }
+      case 's2match':
+        document.querySelectorAll('#s2MatchCats .match-category').forEach(cat => {
+          document.querySelectorAll('#s2MatchPool .match-chip[data-cat="' + cat.dataset.cat + '"]').forEach(ch => { cat.querySelector('.match-cat-chips').appendChild(ch); ch.classList.add('correct'); });
+        });
+        break;
+      case 's2odd':
+        document.querySelectorAll('#s2Odd .odd-row').forEach(row => {
+          row.querySelector('[data-correct="true"]').classList.add('correct');
+          row.dataset.done = '1';
+          row.querySelectorAll('.category-option').forEach(o => o.style.pointerEvents = 'none');
+          const fb = row.querySelector('.odd-row-feedback'); fb.textContent = '✅ Правильно!'; fb.className = 'odd-row-feedback ok';
+        });
+        break;
+      case 's3practice':
+        document.querySelectorAll('#s3Practice .practice-card').forEach(c => {
+          c.querySelector('.seg-btn[data-level="' + c.dataset.answer + '"]').classList.add('selected');
+          c.classList.add('correct');
+          const v = c.querySelector('.card-verdict'); v.className = 'card-verdict show ok'; v.innerHTML = '✅ ' + c.dataset.explain;
+        });
+        break;
+      case 's3reduce':
+        document.querySelectorAll('#s3Reduce .reduce-block').forEach(c => {
+          c.querySelectorAll('.checklist-item').forEach(i => { if (i.dataset.correct === 'true') i.classList.add('checked'); });
+          c.classList.add('correct');
+          const v = c.querySelector('.card-verdict'); v.className = 'card-verdict show ok'; v.innerHTML = '✅ ' + c.dataset.explain;
+        });
+        break;
+      case 's3onedanger':
+        document.querySelectorAll('#s3OneDanger .od-card').forEach(c => {
+          c.querySelector('.od-select').value = c.dataset.answer;
+          c.classList.add('correct');
+          const v = c.querySelector('.card-verdict'); v.className = 'card-verdict show ok'; v.innerHTML = '✅ ' + c.dataset.explain;
+        });
+        break;
+      case 's4controlled': solveOptions('s4ControlledOptions'); break;
+      case 's4gradual': solveOptions('s4GradualOptions'); break;
+      case 's4sudden': solveOptions('s4SuddenOptions'); break;
+      case 's4conflict': solveOptions('s4ConflictOptions'); break;
+      case 's4fake': case 's4conflictchain': case 's5order': {
+        const cfg = SLOT_TASKS[id];
+        cfg.data.forEach((d, i) => {
+          const item = document.querySelector('#' + cfg.items + ' .drag-item[data-id="' + d.id + '"]');
+          const zone = document.querySelector('#' + cfg.zones + ' .drop-zone[data-position="' + (i + 1) + '"]');
+          if (item && zone) { zone.appendChild(item); refreshZone(zone); zone.classList.add('correct'); }
+        });
+        break;
+      }
+      case 's4check': document.querySelectorAll('#s4Check .category-block').forEach(b => b.querySelector('[data-correct="true"]').classList.add('correct')); break;
+      case 's5obstacle': solveOptions('s5ObstacleOptions'); break;
+      case 's5albina':
+        Object.keys(ALBINA).forEach(k => {
+          const c = document.getElementById('albina-' + k);
+          c.classList.add('done');
+          c.querySelector('.albina-status').textContent = '✅';
+          albinaDone.add(k);
+        });
+        updateAlbinaCounter(true);
+        break;
+      case 's5match': autoPairS5(); break;
+      case 's5check': solveOptions('s5CheckOptions'); break;
+    }
+  });
+}
+function resetProgress() {
+  if (!confirm('Скинути весь прогрес і пройти тренажер ще раз?')) return;
+  try { localStorage.removeItem(LS_KEY); } catch (e) {}
+  completedIds.clear();
+  progressTracker.attempts = {};
+  for (let i = 1; i <= 5; i++) {
+    stepsCompleted[i] = false;
+    const tr = stepTracker['step' + i];
+    tr.completed = 0;
+    STEP_TASKS[i].forEach(id => tr.tasks[id] = false);
+  }
+  state.selfRatings = [0, 0, 0, 0];
+  Object.keys(lastScreens).forEach(k => delete lastScreens[k]);
+  retryS1Task1(); retryS1Task2();
+  Object.keys(S2_CFG).forEach(retryS2Situation);
+  retryS2Match(); retryS2Odd();
+  retryS3Practice(); retryS3Reduce(); retryS3OneDanger();
+  retryS4Single('controlled'); retryS4Single('gradual');
+  retryS4Multi('sudden'); retryS4Multi('conflict');
+  Object.keys(SLOT_TASKS).forEach(retrySlotTask);
+  retryS4Check();
+  retryS5Obstacle();
+  Object.keys(ALBINA).forEach(k => { retryAlbina(k); document.getElementById('albina-' + k).classList.remove('open'); });
+  hideFeedback('s5AlbinaFeedback');
+  retryS5Match(); retryQuest(); retryS5Check();
+  document.querySelectorAll('.star').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.interactive-card.revealed, .infographic-card.revealed').forEach(c => c.classList.remove('revealed'));
+  updateLiveProgress(); updateStep6Stats(); saveProgress();
+  goToMainPage();
+  showToast('🔄 Прогрес скинуто. Почни заново!');
+}
+
+// ============ ЕКСПОРТ PNG ============
+let lastPngDataUrl = '';
+function pngFileName() {
+  const n = state.studentName ? state.studentName.replace(/[\\/:*?"<>|]/g, '').trim().replace(/\s+/g, '_') : 'результат';
+  return 'Навігатор_ризиків_' + n + '.png';
+}
+function buildExportTemplate() {
+  const st = getStats();
+  const lvl = getLevel(st.percent);
+  const date = new Date().toLocaleDateString('uk-UA');
+  const skills = [
+    '🛡️ Пояснюю, що таке безпечний простір, небезпека і ризик',
+    '🏠 Розумію складові безпечного простору',
+    '⚠️ Вмію оцінювати рівень ризику в різних ситуаціях',
+    '✅ Перевіряю результат своїх дій і аналізую його'
+  ];
+  const skillRows = skills.map((s, i) => {
+    const r = state.selfRatings[i] || 0;
+    return '<div class="exp-skill"><div class="exp-skill-name">' + s + '</div><div class="exp-skill-stars' + (r ? '' : ' empty') + '">' + '★'.repeat(r) + '☆'.repeat(5 - r) + '</div><div class="exp-skill-count">' + (r ? r + '/5' : 'не оцінено') + '</div></div>';
+  }).join('');
+  const stepRows = [1, 2, 3, 4, 5].map(i => {
+    const tr = stepTracker['step' + i];
+    const status = stepsCompleted[i] ? '<span class="exp-status-done">✅ Завершено</span>' : (tr.completed > 0 ? '<span class="exp-status-progress">🔄 У процесі</span>' : '<span class="exp-status-none">⏳ Не розпочато</span>');
+    return '<tr><td>' + STEP_ICONS[i] + ' Крок ' + i + '</td><td>' + STEP_SHORT[i] + '</td><td>' + tr.completed + '/' + tr.total + '</td><td>' + status + '</td></tr>';
+  }).join('');
+  document.getElementById('exportTemplate').innerHTML =
+    '<div class="exp-page">' +
+      '<div class="exp-header">' +
+        '<div class="exp-header-left"><div class="exp-header-emoji">🧭</div><div><div class="exp-title">Тренажер «Навігатор ризиків»</div><div class="exp-subtitle">§ 1. Безпека, небезпека і ризики — підсумковий звіт</div></div></div>' +
+        '<div class="exp-header-right">Дата: ' + date + '<br>Формат: самоперевірка + самооцінювання</div>' +
+      '</div>' +
+      '<div class="exp-body">' +
+        '<div class="exp-student"><span class="exp-student-label">👤 Учень / учениця:</span><span class="exp-student-name">' + (state.studentName ? esc(state.studentName) : '&nbsp;') + '</span></div>' +
+        '<div class="exp-section-title">📊 Результати тренажера</div>' +
+        '<div class="exp-stats">' +
+          '<div class="exp-stat"><div class="exp-stat-value">' + st.done + '/' + TOTAL_TASKS + '</div><div class="exp-stat-label">Виконано завдань</div></div>' +
+          '<div class="exp-stat"><div class="exp-stat-value">' + completedIds.size + '</div><div class="exp-stat-label">Зараховано завдань</div></div>' +
+          '<div class="exp-stat"><div class="exp-stat-value">' + st.stepsDone + '/5</div><div class="exp-stat-label">Кроків пройдено</div></div>' +
+          '<div class="exp-stat"><div class="exp-stat-value">' + st.accuracy + '%</div><div class="exp-stat-label">Точність (1-ша спроба)</div></div>' +
+        '</div>' +
+        '<div class="exp-progress-row"><div class="exp-bar"><div class="exp-bar-fill" style="width:' + st.percent + '%;"></div></div><span class="exp-percent">' + st.percent + '%</span><span class="exp-level">' + lvl.name + ' ' + lvl.stars + '</span></div>' +
+        '<div class="exp-section-title">📍 Проходження кроків</div>' +
+        '<table class="exp-table"><thead><tr><th>Крок</th><th>Тема</th><th>Завдання</th><th>Статус</th></tr></thead><tbody>' + stepRows + '</tbody></table>' +
+        '<div class="exp-section-title">⭐ Самооцінювання вмінь</div>' + skillRows +
+        '<div class="exp-section-title">📌 Головні правила параграфа</div>' +
+        '<div class="exp-rules cols-3">' +
+          '<div class="exp-rule" style="border-color:#86efac;background:#f0fdf4;"><div class="exp-rule-title">🏠 Безпечний простір</div><ul><li>🌳 Фізичний</li><li>🧠 Психологічний</li><li>👥 Соціальний</li><li>🔒 Цифровий</li><li>🧘 Внутрішній</li></ul></div>' +
+          '<div class="exp-rule" style="border-color:#bfdbfe;background:#eff6ff;"><div class="exp-rule-title">🧮 Оцінювання ризику</div><ul><li>🎲 Імовірність × ⚠️ Наслідки = Ризик</li><li>🟢 Низький → 🟡 Помірний → 🟠 Високий</li><li>🔴 Дуже високий → ⛔ Критичний</li></ul><div class="exp-accent exp-accent-note">Обачність і безпечна поведінка знижують ризики!</div></div>' +
+          '<div class="exp-rule" style="border-color:#fcd34d;background:#fffbeb;"><div class="exp-rule-title">📋 Алгоритм рішення</div><ul><li>1️⃣ Зупинися</li><li>2️⃣ Оціни ситуацію</li><li>3️⃣ Обери найбезпечніший варіант</li><li>4️⃣ Перевір результат</li></ul><div class="exp-accent exp-accent-danger">Паніка, поспіх і тиск друзів — головні вороги зваженого рішення!</div></div>' +
+        '</div>' +
+      '</div>' +
+      '<div class="exp-footer"><span>🧭 Навігатор ризиків — підсумковий звіт</span><span>Сформовано: ' + date + '</span></div>' +
+    '</div>';
+}
+async function exportPNG() {
+  const btn = document.getElementById('exportPngBtn');
+  if (typeof html2canvas === 'undefined') { showToast('⚠️ Бібліотека не завантажилась. Перевір інтернет-з’єднання.'); return; }
+  if (!state.studentName) showToast('✍️ Порада: підпиши результат у полі ПІБ.');
+  const old = btn.innerHTML;
+  btn.disabled = true;
+  btn.innerHTML = '<span class="btn-spinner"></span> Готуємо зображення…';
+  try {
+    buildExportTemplate();
+    const canvas = await html2canvas(document.getElementById('exportTemplate'), { scale: 2, backgroundColor: '#ffffff', useCORS: true, logging: false });
+    lastPngDataUrl = canvas.toDataURL('image/png');
+    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+    if (isIOS) {
+      document.getElementById('pngSaveImage').src = lastPngDataUrl;
+      document.getElementById('pngShareBtn').style.display = navigator.share ? 'flex' : 'none';
+      openModal('pngSaveModal');
+    } else {
+      const a = document.createElement('a');
+      a.href = lastPngDataUrl;
+      a.download = pngFileName();
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      showToast('🖼️ PNG-звіт збережено!');
+    }
+  } catch (err) {
+    console.error(err);
+    showToast('❌ Не вдалося створити зображення. Спробуй ще раз.');
+  } finally {
+    btn.disabled = false;
+    btn.innerHTML = old;
+  }
+}
+function dataURLtoBlob(url) {
+  const [head, body] = url.split(',');
+  const mime = head.match(/:(.*?);/)[1];
+  const bin = atob(body);
+  const arr = new Uint8Array(bin.length);
+  for (let i = 0; i < bin.length; i++) arr[i] = bin.charCodeAt(i);
+  return new Blob([arr], { type: mime });
+}
+async function shareFallbackPNG() {
+  if (!lastPngDataUrl) return;
+  try {
+    const file = new File([dataURLtoBlob(lastPngDataUrl)], pngFileName(), { type: 'image/png' });
+    if (navigator.canShare && navigator.canShare({ files: [file] })) {
+      await navigator.share({ files: [file], title: 'Мій результат — Навігатор ризиків' });
+      showToast('📤 Результат передано!');
+    } else if (navigator.share) {
+      await navigator.share({ title: 'Мій результат', text: 'Тренажер «Навігатор ризиків» — § 1. Безпека, небезпека і ризики' });
+    } else {
+      showToast('💡 Натисни й утримуй зображення, щоб зберегти його.');
+    }
+  } catch (err) {
+    if (err && err.name !== 'AbortError') showToast('⚠️ Не вдалося поділитися. Збережи зображення вручну.');
+  }
+}
+
+// ============ ФОЛБЕКИ ЗОБРАЖЕНЬ ============
+function initImageFallbacks() {
+  document.querySelectorAll('img[data-emoji]').forEach(img => {
+    const replace = () => {
+      const fb = document.createElement('div');
+      fb.className = 'img-fallback';
+      fb.innerHTML = '<span>' + img.dataset.emoji + '</span><small>' + esc(img.alt || 'Ілюстрація') + '</small>';
+      if (img.style.maxWidth) fb.style.maxWidth = img.style.maxWidth;
+      img.replaceWith(fb);
+    };
+    img.addEventListener('error', replace, { once: true });
+    if (img.complete && img.naturalWidth === 0 && img.src) replace();
+  });
+}
+
 // ============ ІНІЦІАЛІЗАЦІЯ ============
-document.addEventListener('DOMContentLoaded', function() {
-loadProgress();
-Object.keys(SLOT_TASKS).forEach(initSlotTask);
-initStudentNameFields();
-updateLiveProgress();
-goToMainPage();
-});
+function init() {
+  initImageFallbacks();
+  Object.keys(SLOT_TASKS).forEach(initSlotTask);
+
+  // Клавіатура: Enter / Space для інтерактивних елементів
+  document.addEventListener('keydown', e => {
+    if ((e.key === 'Enter' || e.key === ' ') && e.target.matches && e.target.matches('[tabindex="0"]') && e.target.onclick) {
+      e.preventDefault();
+      e.target.click();
+    }
+    if (e.key === 'Escape') document.querySelectorAll('.modal-overlay.active').forEach(m => m.classList.remove('active'));
+  });
+
+  // Закриття модальних вікон кліком на затемнення
+  document.querySelectorAll('.modal-overlay').forEach(o => o.addEventListener('click', e => { if (e.target === o) o.classList.remove('active'); }));
+
+  // Поле ПІБ на головній
+  const mainName = document.getElementById('studentNameInput');
+  if (mainName) mainName.addEventListener('input', e => setStudentName(e.target.value, 'studentNameInput'));
+
+  loadProgress();
+  renderStepNavigation();
+  updateLiveProgress();
+  updateStep6Stats();
+}
+init();
 </script>
 </body>
 </html>
